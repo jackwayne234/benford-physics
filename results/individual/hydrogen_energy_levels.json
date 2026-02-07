@@ -1,0 +1,58 @@
+{
+  "test_id": "hydrogen_energy_levels",
+  "display_name": "Hydrogen Atom Energy Levels",
+  "category": "Quantum Mechanics",
+  "description": "E_n=13.6/n^2 eV \u2014 Born rule outputs to Benford baseline",
+  "status": "complete",
+  "data_points": 10000,
+  "source": "generated:hydrogen",
+  "digit_distribution": {
+    "1": 0.3333,
+    "2": 0.2212,
+    "3": 0.1321,
+    "4": 0.0899,
+    "5": 0.0665,
+    "6": 0.0517,
+    "7": 0.0414,
+    "8": 0.0347,
+    "9": 0.0292
+  },
+  "expected_distribution": {
+    "1": 0.30103,
+    "2": 0.176091,
+    "3": 0.124939,
+    "4": 0.09691,
+    "5": 0.079181,
+    "6": 0.066947,
+    "7": 0.057992,
+    "8": 0.051153,
+    "9": 0.045757
+  },
+  "per_digit_deviation": {
+    "1": 0.03227,
+    "2": 0.045109,
+    "3": 0.007161,
+    "4": -0.00701,
+    "5": -0.012681,
+    "6": -0.015247,
+    "7": -0.016592,
+    "8": -0.016453,
+    "9": -0.016557
+  },
+  "chi_squared": {
+    "statistic": 374.657428,
+    "p_value": 0.0
+  },
+  "mad": 0.018787,
+  "mad_classification": "Nonconformity",
+  "ks_test": {
+    "statistic": 0.08454,
+    "p_value": 0.0
+  },
+  "delta_b": 0.066257,
+  "verdict": "MARGINAL",
+  "confidence": "high",
+  "notes": "Hydrogen energy levels E_n = 13.6/n^2 eV form an inverse-square sequence. Moderate deviation because the 1/n^2 spacing concentrates values near small energies, creating partial Benford conformance over many decades but imperfect distribution of significands.",
+  "interesting_findings": "",
+  "timestamp": "2026-02-07T00:35:13.967263+00:00"
+}

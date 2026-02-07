@@ -1,0 +1,58 @@
+{
+  "test_id": "carbon_emissions",
+  "display_name": "CO\u2082 Emissions by Country",
+  "category": "Environment",
+  "description": "Country-level carbon emissions",
+  "status": "complete",
+  "data_points": 50,
+  "source": "hardcoded",
+  "digit_distribution": {
+    "1": 0.36,
+    "2": 0.14,
+    "3": 0.12,
+    "4": 0.06,
+    "5": 0.06,
+    "6": 0.06,
+    "7": 0.08,
+    "8": 0.06,
+    "9": 0.06
+  },
+  "expected_distribution": {
+    "1": 0.30103,
+    "2": 0.176091,
+    "3": 0.124939,
+    "4": 0.09691,
+    "5": 0.079181,
+    "6": 0.066947,
+    "7": 0.057992,
+    "8": 0.051153,
+    "9": 0.045757
+  },
+  "per_digit_deviation": {
+    "1": 0.05897,
+    "2": -0.036091,
+    "3": -0.004939,
+    "4": -0.03691,
+    "5": -0.019181,
+    "6": -0.006947,
+    "7": 0.022008,
+    "8": 0.008847,
+    "9": 0.014243
+  },
+  "chi_squared": {
+    "statistic": 2.644254,
+    "p_value": 0.954665
+  },
+  "mad": 0.023126,
+  "mad_classification": "Nonconformity",
+  "ks_test": {
+    "statistic": 0.05897,
+    "p_value": 0.990874
+  },
+  "delta_b": 0.085723,
+  "verdict": "MARGINAL",
+  "confidence": "low",
+  "notes": "",
+  "interesting_findings": "",
+  "timestamp": "2026-02-07T00:07:40.533612+00:00"
+}

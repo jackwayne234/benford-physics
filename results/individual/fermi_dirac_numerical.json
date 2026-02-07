@@ -1,0 +1,58 @@
+{
+  "test_id": "fermi_dirac_numerical",
+  "display_name": "Fermi-Dirac Distribution",
+  "category": "Quantum Statistics",
+  "description": "Numerical sampling of Fermi-Dirac occupation numbers",
+  "status": "complete",
+  "data_points": 100000,
+  "source": "generated:fermi_dirac",
+  "digit_distribution": {
+    "1": 0.29444,
+    "2": 0.1813,
+    "3": 0.1299,
+    "4": 0.10206,
+    "5": 0.07679,
+    "6": 0.06499,
+    "7": 0.05633,
+    "8": 0.04969,
+    "9": 0.0445
+  },
+  "expected_distribution": {
+    "1": 0.30103,
+    "2": 0.176091,
+    "3": 0.124939,
+    "4": 0.09691,
+    "5": 0.079181,
+    "6": 0.066947,
+    "7": 0.057992,
+    "8": 0.051153,
+    "9": 0.045757
+  },
+  "per_digit_deviation": {
+    "1": -0.00659,
+    "2": 0.005209,
+    "3": 0.004961,
+    "4": 0.00515,
+    "5": -0.002391,
+    "6": -0.001957,
+    "7": -0.001662,
+    "8": -0.001463,
+    "9": -0.001257
+  },
+  "chi_squared": {
+    "statistic": 102.244003,
+    "p_value": 0.0
+  },
+  "mad": 0.003404,
+  "mad_classification": "Close conformity",
+  "ks_test": {
+    "statistic": 0.00873,
+    "p_value": 0.0
+  },
+  "delta_b": 0.011736,
+  "verdict": "HAS MASS",
+  "confidence": "high",
+  "notes": "Fermi-Dirac distribution n(x) = 1/(e^x + 1) = sum((-1)^{k+1} e^{-kx}) has ALTERNATING coefficients, violating complete monotonicity. The deviation is governed by the Dirichlet eta function |eta(s)| = 1.054. The oscillatory per-digit pattern (- + + + - - - - -) is the signature of Pauli exclusion in digit space. This deviation IS the prediction \u2014 it measures the mass constraint.",
+  "interesting_findings": "",
+  "timestamp": "2026-02-07T00:15:09.411616+00:00"
+}

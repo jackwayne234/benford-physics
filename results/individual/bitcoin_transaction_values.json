@@ -1,0 +1,58 @@
+{
+  "test_id": "bitcoin_transaction_values",
+  "display_name": "Bitcoin Transaction Values",
+  "category": "Finance",
+  "description": "Decentralized transaction data",
+  "status": "complete",
+  "data_points": 500,
+  "source": "hardcoded",
+  "digit_distribution": {
+    "1": 0.334,
+    "2": 0.174,
+    "3": 0.138,
+    "4": 0.1,
+    "5": 0.064,
+    "6": 0.068,
+    "7": 0.052,
+    "8": 0.04,
+    "9": 0.03
+  },
+  "expected_distribution": {
+    "1": 0.30103,
+    "2": 0.176091,
+    "3": 0.124939,
+    "4": 0.09691,
+    "5": 0.079181,
+    "6": 0.066947,
+    "7": 0.057992,
+    "8": 0.051153,
+    "9": 0.045757
+  },
+  "per_digit_deviation": {
+    "1": 0.03297,
+    "2": -0.002091,
+    "3": 0.013061,
+    "4": 0.00309,
+    "5": -0.015181,
+    "6": 0.001053,
+    "7": -0.005992,
+    "8": -0.011153,
+    "9": -0.015757
+  },
+  "chi_squared": {
+    "statistic": 8.252042,
+    "p_value": 0.409245
+  },
+  "mad": 0.01115,
+  "mad_classification": "Acceptable conformity",
+  "ks_test": {
+    "statistic": 0.04703,
+    "p_value": 0.211967
+  },
+  "delta_b": 0.043723,
+  "verdict": "MARGINAL",
+  "confidence": "high",
+  "notes": "",
+  "interesting_findings": "",
+  "timestamp": "2026-02-07T00:07:46.473982+00:00"
+}

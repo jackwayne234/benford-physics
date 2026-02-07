@@ -1,0 +1,58 @@
+{
+  "test_id": "disease_incidence_rates",
+  "display_name": "Disease Incidence Rates",
+  "category": "Health",
+  "description": "Deaths/recovered/active per country",
+  "status": "complete",
+  "data_points": 613,
+  "source": "api:disease_sh",
+  "digit_distribution": {
+    "1": 0.331158,
+    "2": 0.163132,
+    "3": 0.115824,
+    "4": 0.088091,
+    "5": 0.053834,
+    "6": 0.091354,
+    "7": 0.057096,
+    "8": 0.058728,
+    "9": 0.040783
+  },
+  "expected_distribution": {
+    "1": 0.30103,
+    "2": 0.176091,
+    "3": 0.124939,
+    "4": 0.09691,
+    "5": 0.079181,
+    "6": 0.066947,
+    "7": 0.057992,
+    "8": 0.051153,
+    "9": 0.045757
+  },
+  "per_digit_deviation": {
+    "1": 0.030128,
+    "2": -0.012959,
+    "3": -0.009115,
+    "4": -0.008819,
+    "5": -0.025347,
+    "6": 0.024407,
+    "7": -0.000896,
+    "8": 0.007575,
+    "9": -0.004974
+  },
+  "chi_squared": {
+    "statistic": 14.788891,
+    "p_value": 0.063383
+  },
+  "mad": 0.013802,
+  "mad_classification": "Marginally acceptable",
+  "ks_test": {
+    "statistic": 0.030128,
+    "p_value": 0.622869
+  },
+  "delta_b": 0.050573,
+  "verdict": "MARGINAL",
+  "confidence": "high",
+  "notes": "",
+  "interesting_findings": "",
+  "timestamp": "2026-02-07T00:07:40.529580+00:00"
+}

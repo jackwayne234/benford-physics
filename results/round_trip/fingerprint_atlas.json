@@ -1,0 +1,525 @@
+{
+  "experiment": "fingerprint_atlas",
+  "description": "\u03b5(d) shape classification and blind identification across sweeps",
+  "atlas": [
+    {
+      "experiment": "dimension_sweep",
+      "parameter_name": "n",
+      "parameter": 0,
+      "delta_b": 0.005627,
+      "epsilon_d": [
+        -0.00433,
+        0.003189,
+        0.001411,
+        0.00062,
+        0.000159,
+        -6.7e-05,
+        -0.000232,
+        -0.000363,
+        -0.000387
+      ],
+      "shape": "monotone"
+    },
+    {
+      "experiment": "dimension_sweep",
+      "parameter_name": "n",
+      "parameter": 0.5,
+      "delta_b": 0.002244,
+      "epsilon_d": [
+        0.00043,
+        0.001779,
+        0.000471,
+        -5e-05,
+        -0.000311,
+        -0.000487,
+        -0.000542,
+        -0.000633,
+        -0.000657
+      ],
+      "shape": "flat"
+    },
+    {
+      "experiment": "dimension_sweep",
+      "parameter_name": "n",
+      "parameter": 1,
+      "delta_b": 0.005214,
+      "epsilon_d": [
+        -0.00431,
+        -0.001281,
+        -0.000179,
+        0.00033,
+        0.000649,
+        0.000863,
+        0.000958,
+        0.001077,
+        0.001893
+      ],
+      "shape": "monotone"
+    },
+    {
+      "experiment": "dimension_sweep",
+      "parameter_name": "n",
+      "parameter": 1.5,
+      "delta_b": 0.023002,
+      "epsilon_d": [
+        -0.00992,
+        -0.002721,
+        0.001151,
+        0.00519,
+        0.018639,
+        -0.005727,
+        -0.002572,
+        -0.002143,
+        -0.001897
+      ],
+      "shape": "oscillatory"
+    },
+    {
+      "experiment": "dimension_sweep",
+      "parameter_name": "n",
+      "parameter": 2,
+      "delta_b": 0.029565,
+      "epsilon_d": [
+        -0.017,
+        -0.006101,
+        -0.001039,
+        0.00379,
+        0.013169,
+        0.017893,
+        -0.004122,
+        -0.003533,
+        -0.003057
+      ],
+      "shape": "oscillatory"
+    },
+    {
+      "experiment": "dimension_sweep",
+      "parameter_name": "n",
+      "parameter": 2.5,
+      "delta_b": 0.041278,
+      "epsilon_d": [
+        -0.02667,
+        -0.012291,
+        -0.002929,
+        0.00191,
+        0.003669,
+        0.005723,
+        0.009048,
+        0.026087,
+        -0.004547
+      ],
+      "shape": "oscillatory"
+    },
+    {
+      "experiment": "dimension_sweep",
+      "parameter_name": "n",
+      "parameter": 3,
+      "delta_b": 0.027921,
+      "epsilon_d": [
+        0.02233,
+        -0.014891,
+        -0.006039,
+        -0.00343,
+        -0.001751,
+        -0.000457,
+        0.000468,
+        0.001467,
+        0.002303
+      ],
+      "shape": "monotone"
+    },
+    {
+      "experiment": "dimension_sweep",
+      "parameter_name": "n",
+      "parameter": 3.5,
+      "delta_b": 0.037758,
+      "epsilon_d": [
+        0.00644,
+        0.032989,
+        -0.011919,
+        -0.00836,
+        -0.006151,
+        -0.004707,
+        -0.003532,
+        -0.002703,
+        -0.002057
+      ],
+      "shape": "sweep"
+    },
+    {
+      "experiment": "dimension_sweep",
+      "parameter_name": "n",
+      "parameter": 4,
+      "delta_b": 0.044032,
+      "epsilon_d": [
+        -0.01481,
+        0.002939,
+        0.012521,
+        0.03567,
+        -0.010301,
+        -0.008317,
+        -0.006932,
+        -0.005813,
+        -0.004957
+      ],
+      "shape": "mixed"
+    },
+    {
+      "experiment": "dimension_sweep",
+      "parameter_name": "n",
+      "parameter": 4.5,
+      "delta_b": 0.046934,
+      "epsilon_d": [
+        -0.03019,
+        -0.013021,
+        -0.006099,
+        -0.00223,
+        0.000589,
+        0.003043,
+        0.005968,
+        0.012167,
+        0.029773
+      ],
+      "shape": "sweep"
+    },
+    {
+      "experiment": "dimension_sweep",
+      "parameter_name": "n",
+      "parameter": 5,
+      "delta_b": 0.039758,
+      "epsilon_d": [
+        0.0332,
+        0.006229,
+        -0.015709,
+        -0.01095,
+        -0.007971,
+        -0.002587,
+        -0.001502,
+        -0.000713,
+        3e-06
+      ],
+      "shape": "oscillatory"
+    },
+    {
+      "experiment": "eta_recovery",
+      "parameter_name": "\u03b1",
+      "parameter": 0,
+      "delta_b": 0.005627,
+      "epsilon_d": [
+        -0.00433,
+        0.003189,
+        0.001411,
+        0.00062,
+        0.000159,
+        -6.7e-05,
+        -0.000232,
+        -0.000363,
+        -0.000387
+      ],
+      "shape": "monotone"
+    },
+    {
+      "experiment": "eta_recovery",
+      "parameter_name": "\u03b1",
+      "parameter": 0.1,
+      "delta_b": 0.005654,
+      "epsilon_d": [
+        -0.00435,
+        0.003199,
+        0.001431,
+        0.00062,
+        0.000179,
+        -8.7e-05,
+        -0.000252,
+        -0.000313,
+        -0.000427
+      ],
+      "shape": "monotone"
+    },
+    {
+      "experiment": "eta_recovery",
+      "parameter_name": "\u03b1",
+      "parameter": 0.2,
+      "delta_b": 0.005675,
+      "epsilon_d": [
+        -0.00437,
+        0.003209,
+        0.001441,
+        0.0006,
+        0.000179,
+        -7.7e-05,
+        -0.000222,
+        -0.000353,
+        -0.000407
+      ],
+      "shape": "monotone"
+    },
+    {
+      "experiment": "eta_recovery",
+      "parameter_name": "\u03b1",
+      "parameter": 0.3,
+      "delta_b": 0.005698,
+      "epsilon_d": [
+        -0.00439,
+        0.003209,
+        0.001451,
+        0.00063,
+        0.000199,
+        -8.7e-05,
+        -0.000252,
+        -0.000353,
+        -0.000407
+      ],
+      "shape": "monotone"
+    },
+    {
+      "experiment": "eta_recovery",
+      "parameter_name": "\u03b1",
+      "parameter": 0.4,
+      "delta_b": 0.005769,
+      "epsilon_d": [
+        -0.00444,
+        0.003259,
+        0.001461,
+        0.00063,
+        0.000209,
+        -8.7e-05,
+        -0.000252,
+        -0.000353,
+        -0.000427
+      ],
+      "shape": "monotone"
+    },
+    {
+      "experiment": "eta_recovery",
+      "parameter_name": "\u03b1",
+      "parameter": 0.5,
+      "delta_b": 0.005854,
+      "epsilon_d": [
+        -0.00451,
+        0.003279,
+        0.001501,
+        0.0007,
+        0.000179,
+        -8.7e-05,
+        -0.000252,
+        -0.000383,
+        -0.000427
+      ],
+      "shape": "monotone"
+    },
+    {
+      "experiment": "eta_recovery",
+      "parameter_name": "\u03b1",
+      "parameter": 0.6,
+      "delta_b": 0.00599,
+      "epsilon_d": [
+        -0.00461,
+        0.003339,
+        0.001571,
+        0.00072,
+        0.000209,
+        -9.7e-05,
+        -0.000292,
+        -0.000373,
+        -0.000467
+      ],
+      "shape": "monotone"
+    },
+    {
+      "experiment": "eta_recovery",
+      "parameter_name": "\u03b1",
+      "parameter": 0.7,
+      "delta_b": 0.006209,
+      "epsilon_d": [
+        -0.00476,
+        0.003419,
+        0.001731,
+        0.00077,
+        0.000219,
+        -0.000117,
+        -0.000312,
+        -0.000443,
+        -0.000507
+      ],
+      "shape": "monotone"
+    },
+    {
+      "experiment": "eta_recovery",
+      "parameter_name": "\u03b1",
+      "parameter": 0.8,
+      "delta_b": 0.006637,
+      "epsilon_d": [
+        -0.00504,
+        0.003639,
+        0.001931,
+        0.0009,
+        0.000249,
+        -0.000167,
+        -0.000392,
+        -0.000533,
+        -0.000587
+      ],
+      "shape": "monotone"
+    },
+    {
+      "experiment": "eta_recovery",
+      "parameter_name": "\u03b1",
+      "parameter": 0.9,
+      "delta_b": 0.007499,
+      "epsilon_d": [
+        -0.00554,
+        0.004069,
+        0.002441,
+        0.00118,
+        0.000249,
+        -0.000307,
+        -0.000602,
+        -0.000723,
+        -0.000767
+      ],
+      "shape": "monotone"
+    },
+    {
+      "experiment": "eta_recovery",
+      "parameter_name": "\u03b1",
+      "parameter": 1.0,
+      "delta_b": 0.011736,
+      "epsilon_d": [
+        -0.00659,
+        0.005209,
+        0.004961,
+        0.00515,
+        -0.002391,
+        -0.001957,
+        -0.001662,
+        -0.001463,
+        -0.001257
+      ],
+      "shape": "monotone"
+    },
+    {
+      "experiment": "eta_recovery",
+      "parameter_name": "\u03b1",
+      "parameter": 1.1,
+      "delta_b": 0.015545,
+      "epsilon_d": [
+        -0.002065,
+        0.014521,
+        -0.003297,
+        -0.002447,
+        -0.001911,
+        -0.00157,
+        -0.001266,
+        -0.001081,
+        -0.000884
+      ],
+      "shape": "mixed"
+    },
+    {
+      "experiment": "eta_recovery",
+      "parameter_name": "\u03b1",
+      "parameter": 1.2,
+      "delta_b": 0.007986,
+      "epsilon_d": [
+        0.005527,
+        0.004038,
+        -0.002769,
+        -0.002013,
+        -0.00152,
+        -0.001176,
+        -0.000879,
+        -0.000704,
+        -0.000503
+      ],
+      "shape": "mixed"
+    },
+    {
+      "experiment": "eta_recovery",
+      "parameter_name": "\u03b1",
+      "parameter": 1.3,
+      "delta_b": 0.011372,
+      "epsilon_d": [
+        0.010324,
+        -0.003551,
+        -0.002297,
+        -0.001595,
+        -0.001128,
+        -0.000796,
+        -0.000532,
+        -0.000306,
+        -0.000118
+      ],
+      "shape": "monotone"
+    },
+    {
+      "experiment": "eta_recovery",
+      "parameter_name": "\u03b1",
+      "parameter": 1.4,
+      "delta_b": 0.007959,
+      "epsilon_d": [
+        0.006966,
+        -0.002999,
+        -0.001854,
+        -0.001196,
+        -0.000781,
+        -0.000416,
+        -0.000173,
+        8.9e-05,
+        0.000364
+      ],
+      "shape": "monotone"
+    },
+    {
+      "experiment": "eta_recovery",
+      "parameter_name": "\u03b1",
+      "parameter": 1.5,
+      "delta_b": 0.00473,
+      "epsilon_d": [
+        0.003467,
+        -0.002487,
+        -0.001439,
+        -0.000829,
+        -0.0004,
+        -6.1e-05,
+        0.000245,
+        0.000584,
+        0.000919
+      ],
+      "shape": "monotone"
+    }
+  ],
+  "shape_distribution": {
+    "dimension_sweep": {
+      "flat": 1,
+      "mixed": 1,
+      "monotone": 3,
+      "oscillatory": 4,
+      "sweep": 2
+    },
+    "eta_recovery": {
+      "mixed": 2,
+      "monotone": 14
+    }
+  },
+  "smoothness": {
+    "dimension_sweep": 0.040965,
+    "eta_recovery": 0.003521
+  },
+  "blind_identification": {
+    "accuracy": 0.963,
+    "correct": 26,
+    "total": 27,
+    "planck_identified_as": "dimension_sweep",
+    "planck_matched_param": 3,
+    "planck_match_correct": true
+  },
+  "structural_distinctness": {
+    "mean_intra_dimension": 0.043304,
+    "mean_intra_eta": 0.008067,
+    "mean_inter_experiment": 0.028772,
+    "separation_ratio": 0.6644,
+    "well_separated": false
+  },
+  "timestamp": "2026-02-07T02:05:58.362488+00:00"
+}

@@ -1,0 +1,58 @@
+{
+  "test_id": "electron_affinities",
+  "display_name": "Electron Affinities",
+  "category": "Atomic Physics",
+  "description": "Electron affinities of elements \u2014 EM interaction at atomic scale",
+  "status": "complete",
+  "data_points": 72,
+  "source": "NIST/CRC",
+  "digit_distribution": {
+    "1": 0.375,
+    "2": 0.111111,
+    "3": 0.138889,
+    "4": 0.083333,
+    "5": 0.138889,
+    "6": 0.027778,
+    "7": 0.083333,
+    "8": 0.013889,
+    "9": 0.027778
+  },
+  "expected_distribution": {
+    "1": 0.30103,
+    "2": 0.176091,
+    "3": 0.124939,
+    "4": 0.09691,
+    "5": 0.079181,
+    "6": 0.066947,
+    "7": 0.057992,
+    "8": 0.051153,
+    "9": 0.045757
+  },
+  "per_digit_deviation": {
+    "1": 0.07397,
+    "2": -0.06498,
+    "3": 0.01395,
+    "4": -0.013577,
+    "5": 0.059708,
+    "6": -0.039169,
+    "7": 0.025341,
+    "8": -0.037264,
+    "9": -0.017979
+  },
+  "chi_squared": {
+    "statistic": 11.436369,
+    "p_value": 0.178178
+  },
+  "mad": 0.038438,
+  "mad_classification": "Nonconformity",
+  "ks_test": {
+    "statistic": 0.07397,
+    "p_value": 0.798175
+  },
+  "delta_b": 0.132386,
+  "verdict": "EXPLAINED",
+  "confidence": "low",
+  "notes": "Electron affinities span ~2 decades (~0.1-3.6 eV). Like ionization energies, the narrow range and shell-structure periodicity prevent Benford conformance. The deviation pattern reflects the atomic orbital structure imposed by quantum mechanics.",
+  "interesting_findings": "",
+  "timestamp": "2026-02-07T00:35:14.040885+00:00"
+}

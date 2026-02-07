@@ -1,0 +1,58 @@
+{
+  "test_id": "mineral_densities",
+  "display_name": "Mineral Densities",
+  "category": "Earth Sciences",
+  "description": "Narrow range \u2014 likely deviation",
+  "status": "complete",
+  "data_points": 56,
+  "source": "hardcoded",
+  "digit_distribution": {
+    "1": 0.196429,
+    "2": 0.303571,
+    "3": 0.214286,
+    "4": 0.089286,
+    "5": 0.089286,
+    "6": 0.035714,
+    "7": 0.035714,
+    "8": 0.017857,
+    "9": 0.017857
+  },
+  "expected_distribution": {
+    "1": 0.30103,
+    "2": 0.176091,
+    "3": 0.124939,
+    "4": 0.09691,
+    "5": 0.079181,
+    "6": 0.066947,
+    "7": 0.057992,
+    "8": 0.051153,
+    "9": 0.045757
+  },
+  "per_digit_deviation": {
+    "1": -0.104601,
+    "2": 0.12748,
+    "3": 0.089347,
+    "4": -0.007624,
+    "5": 0.010105,
+    "6": -0.031233,
+    "7": -0.022278,
+    "8": -0.033296,
+    "9": -0.0279
+  },
+  "chi_squared": {
+    "statistic": 14.349003,
+    "p_value": 0.07311
+  },
+  "mad": 0.050429,
+  "mad_classification": "Nonconformity",
+  "ks_test": {
+    "statistic": 0.114706,
+    "p_value": 0.421159
+  },
+  "delta_b": 0.196709,
+  "verdict": "DEVIATES",
+  "confidence": "low",
+  "notes": "",
+  "interesting_findings": "",
+  "timestamp": "2026-02-07T00:07:46.459228+00:00"
+}

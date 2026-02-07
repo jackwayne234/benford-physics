@@ -1,0 +1,58 @@
+{
+  "test_id": "harmonic_oscillator_eigenvalues",
+  "display_name": "Quantum Harmonic Oscillator",
+  "category": "Quantum Mechanics",
+  "description": "E_n=(n+1/2)hbar*omega \u2014 equidistant spectrum",
+  "status": "complete",
+  "data_points": 10000,
+  "source": "generated:qho",
+  "digit_distribution": {
+    "1": 0.1111,
+    "2": 0.1111,
+    "3": 0.1111,
+    "4": 0.1111,
+    "5": 0.1112,
+    "6": 0.1111,
+    "7": 0.1111,
+    "8": 0.1111,
+    "9": 0.1111
+  },
+  "expected_distribution": {
+    "1": 0.30103,
+    "2": 0.176091,
+    "3": 0.124939,
+    "4": 0.09691,
+    "5": 0.079181,
+    "6": 0.066947,
+    "7": 0.057992,
+    "8": 0.051153,
+    "9": 0.045757
+  },
+  "per_digit_deviation": {
+    "1": -0.18993,
+    "2": -0.064991,
+    "3": -0.013839,
+    "4": 0.01419,
+    "5": 0.032019,
+    "6": 0.044153,
+    "7": 0.053108,
+    "8": 0.059947,
+    "9": 0.065343
+  },
+  "chi_squared": {
+    "statistic": 4016.987156,
+    "p_value": 0.0
+  },
+  "mad": 0.059724,
+  "mad_classification": "Nonconformity",
+  "ks_test": {
+    "statistic": 0.26876,
+    "p_value": 0.0
+  },
+  "delta_b": 0.233128,
+  "verdict": "EXPLAINED",
+  "confidence": "high",
+  "notes": "Quantum harmonic oscillator E_n = (n + 1/2)hbar*omega is a LINEAR sequence. Linear (arithmetic) progressions strongly violate Benford because they don't span multiple decades in a scale-invariant way. This is an expected deviation \u2014 the equal spacing is the antithesis of the multiplicative processes Benford requires.",
+  "interesting_findings": "",
+  "timestamp": "2026-02-07T00:35:13.993728+00:00"
+}

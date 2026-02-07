@@ -1,0 +1,58 @@
+{
+  "test_id": "be_temperature_sweep",
+  "display_name": "Bose-Einstein Temperature Sweep",
+  "category": "Quantum Statistics",
+  "description": "BE across 8 decades of T \u2014 validates exact conformance at all T",
+  "status": "complete",
+  "data_points": 250000,
+  "source": "generated:be_temperature_sweep",
+  "digit_distribution": {
+    "1": 0.282732,
+    "2": 0.167116,
+    "3": 0.120148,
+    "4": 0.09036,
+    "5": 0.079192,
+    "6": 0.064764,
+    "7": 0.103764,
+    "8": 0.047492,
+    "9": 0.044432
+  },
+  "expected_distribution": {
+    "1": 0.30103,
+    "2": 0.176091,
+    "3": 0.124939,
+    "4": 0.09691,
+    "5": 0.079181,
+    "6": 0.066947,
+    "7": 0.057992,
+    "8": 0.051153,
+    "9": 0.045757
+  },
+  "per_digit_deviation": {
+    "1": -0.018298,
+    "2": -0.008975,
+    "3": -0.004791,
+    "4": -0.00655,
+    "5": 1.1e-05,
+    "6": -0.002183,
+    "7": 0.045772,
+    "8": -0.003661,
+    "9": -0.001325
+  },
+  "chi_squared": {
+    "statistic": 9673.680734,
+    "p_value": 0.0
+  },
+  "mad": 0.010174,
+  "mad_classification": "Acceptable conformity",
+  "ks_test": {
+    "statistic": 0.040786,
+    "p_value": 0.0
+  },
+  "delta_b": 0.050953,
+  "verdict": "MARGINAL",
+  "confidence": "high",
+  "notes": "",
+  "interesting_findings": "",
+  "timestamp": "2026-02-07T00:35:13.926765+00:00"
+}

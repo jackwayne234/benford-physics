@@ -1,0 +1,58 @@
+{
+  "test_id": "country_populations",
+  "display_name": "Country Populations",
+  "category": "Demographics",
+  "description": "Classic Benford test case",
+  "status": "complete",
+  "data_points": 240,
+  "source": "wiki:populations",
+  "digit_distribution": {
+    "1": 0.308333,
+    "2": 0.15,
+    "3": 0.141667,
+    "4": 0.083333,
+    "5": 0.108333,
+    "6": 0.0875,
+    "7": 0.0375,
+    "8": 0.041667,
+    "9": 0.041667
+  },
+  "expected_distribution": {
+    "1": 0.30103,
+    "2": 0.176091,
+    "3": 0.124939,
+    "4": 0.09691,
+    "5": 0.079181,
+    "6": 0.066947,
+    "7": 0.057992,
+    "8": 0.051153,
+    "9": 0.045757
+  },
+  "per_digit_deviation": {
+    "1": 0.007303,
+    "2": -0.026091,
+    "3": 0.016728,
+    "4": -0.013577,
+    "5": 0.029152,
+    "6": 0.020553,
+    "7": -0.020492,
+    "8": -0.009486,
+    "9": -0.00409
+  },
+  "chi_squared": {
+    "statistic": 8.302386,
+    "p_value": 0.404503
+  },
+  "mad": 0.016386,
+  "mad_classification": "Nonconformity",
+  "ks_test": {
+    "statistic": 0.034069,
+    "p_value": 0.93431
+  },
+  "delta_b": 0.054746,
+  "verdict": "MARGINAL",
+  "confidence": "high",
+  "notes": "Country populations are the CLASSIC Benford test case (Benford 1938). Populations span 5 orders of magnitude and grow through multiplicative processes (birth rates, immigration). Moderate conformance as expected.",
+  "interesting_findings": "",
+  "timestamp": "2026-02-07T00:07:41.048959+00:00"
+}

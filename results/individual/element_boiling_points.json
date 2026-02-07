@@ -1,0 +1,58 @@
+{
+  "test_id": "element_boiling_points",
+  "display_name": "Element Boiling Points",
+  "category": "Atomic Physics",
+  "description": "Similar to melting points",
+  "status": "complete",
+  "data_points": 97,
+  "source": "hardcoded",
+  "digit_distribution": {
+    "1": 0.185567,
+    "2": 0.216495,
+    "3": 0.257732,
+    "4": 0.14433,
+    "5": 0.072165,
+    "6": 0.020619,
+    "7": 0.020619,
+    "8": 0.030928,
+    "9": 0.051546
+  },
+  "expected_distribution": {
+    "1": 0.30103,
+    "2": 0.176091,
+    "3": 0.124939,
+    "4": 0.09691,
+    "5": 0.079181,
+    "6": 0.066947,
+    "7": 0.057992,
+    "8": 0.051153,
+    "9": 0.045757
+  },
+  "per_digit_deviation": {
+    "1": -0.115463,
+    "2": 0.040404,
+    "3": 0.132793,
+    "4": 0.04742,
+    "5": -0.007016,
+    "6": -0.046328,
+    "7": -0.037373,
+    "8": -0.020225,
+    "9": 0.005789
+  },
+  "chi_squared": {
+    "statistic": 27.4895,
+    "p_value": 0.000582
+  },
+  "mad": 0.050312,
+  "mad_classification": "Nonconformity",
+  "ks_test": {
+    "statistic": 0.115463,
+    "p_value": 0.139114
+  },
+  "delta_b": 0.197184,
+  "verdict": "EXPLAINED",
+  "confidence": "low",
+  "notes": "Element boiling points span ~2 decades (4 K to 5869 K). Same narrow-range issue as melting points. The van der Waals and metallic bonding energy scales cluster boiling points.",
+  "interesting_findings": "",
+  "timestamp": "2026-02-07T00:07:46.538590+00:00"
+}

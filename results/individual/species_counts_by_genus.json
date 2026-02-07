@@ -1,0 +1,58 @@
+{
+  "test_id": "species_counts_by_genus",
+  "display_name": "Species per Genus",
+  "category": "Biology",
+  "description": "Taxonomic distribution",
+  "status": "complete",
+  "data_points": 292,
+  "source": "hardcoded",
+  "digit_distribution": {
+    "1": 0.297945,
+    "2": 0.171233,
+    "3": 0.119863,
+    "4": 0.130137,
+    "5": 0.085616,
+    "6": 0.065068,
+    "7": 0.054795,
+    "8": 0.047945,
+    "9": 0.027397
+  },
+  "expected_distribution": {
+    "1": 0.30103,
+    "2": 0.176091,
+    "3": 0.124939,
+    "4": 0.09691,
+    "5": 0.079181,
+    "6": 0.066947,
+    "7": 0.057992,
+    "8": 0.051153,
+    "9": 0.045757
+  },
+  "per_digit_deviation": {
+    "1": -0.003085,
+    "2": -0.004858,
+    "3": -0.005076,
+    "4": 0.033227,
+    "5": 0.006435,
+    "6": -0.001879,
+    "7": -0.003197,
+    "8": -0.003208,
+    "9": -0.01836
+  },
+  "chi_squared": {
+    "statistic": 5.864678,
+    "p_value": 0.662387
+  },
+  "mad": 0.008814,
+  "mad_classification": "Acceptable conformity",
+  "ks_test": {
+    "statistic": 0.026643,
+    "p_value": 0.982245
+  },
+  "delta_b": 0.039566,
+  "verdict": "MARGINAL",
+  "confidence": "high",
+  "notes": "",
+  "interesting_findings": "",
+  "timestamp": "2026-02-07T00:07:46.477781+00:00"
+}

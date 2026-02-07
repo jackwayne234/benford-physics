@@ -1,0 +1,58 @@
+{
+  "test_id": "sp500_prices",
+  "display_name": "S&P 500 Closing Prices",
+  "category": "Finance",
+  "description": "Financial time series data",
+  "status": "complete",
+  "data_points": 100,
+  "source": "hardcoded",
+  "digit_distribution": {
+    "1": 0.0,
+    "2": 0.0,
+    "3": 0.0,
+    "4": 0.24,
+    "5": 0.76,
+    "6": 0.0,
+    "7": 0.0,
+    "8": 0.0,
+    "9": 0.0
+  },
+  "expected_distribution": {
+    "1": 0.30103,
+    "2": 0.176091,
+    "3": 0.124939,
+    "4": 0.09691,
+    "5": 0.079181,
+    "6": 0.066947,
+    "7": 0.057992,
+    "8": 0.051153,
+    "9": 0.045757
+  },
+  "per_digit_deviation": {
+    "1": -0.30103,
+    "2": -0.176091,
+    "3": -0.124939,
+    "4": 0.14309,
+    "5": 0.680819,
+    "6": -0.066947,
+    "7": -0.057992,
+    "8": -0.051153,
+    "9": -0.045757
+  },
+  "chi_squared": {
+    "statistic": 688.902244,
+    "p_value": 0.0
+  },
+  "mad": 0.183091,
+  "mad_classification": "Nonconformity",
+  "ks_test": {
+    "statistic": 0.60206,
+    "p_value": 0.0
+  },
+  "delta_b": 0.796104,
+  "verdict": "DEVIATES",
+  "confidence": "high",
+  "notes": "",
+  "interesting_findings": "",
+  "timestamp": "2026-02-07T00:07:40.536650+00:00"
+}

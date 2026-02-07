@@ -1,0 +1,58 @@
+{
+  "test_id": "ionization_energies",
+  "display_name": "Ionization Energies (All Elements)",
+  "category": "Atomic Physics",
+  "description": "First ionization energies Z=1..118 \u2014 periodic table vs constraint",
+  "status": "complete",
+  "data_points": 118,
+  "source": "NIST",
+  "digit_distribution": {
+    "1": 0.135593,
+    "2": 0.016949,
+    "3": 0.008475,
+    "4": 0.025424,
+    "5": 0.194915,
+    "6": 0.237288,
+    "7": 0.194915,
+    "8": 0.110169,
+    "9": 0.076271
+  },
+  "expected_distribution": {
+    "1": 0.30103,
+    "2": 0.176091,
+    "3": 0.124939,
+    "4": 0.09691,
+    "5": 0.079181,
+    "6": 0.066947,
+    "7": 0.057992,
+    "8": 0.051153,
+    "9": 0.045757
+  },
+  "per_digit_deviation": {
+    "1": -0.165437,
+    "2": -0.159142,
+    "3": -0.116464,
+    "4": -0.071486,
+    "5": 0.115734,
+    "6": 0.170341,
+    "7": 0.136923,
+    "8": 0.059016,
+    "9": 0.030514
+  },
+  "chi_squared": {
+    "statistic": 166.420577,
+    "p_value": 0.0
+  },
+  "mad": 0.113895,
+  "mad_classification": "Nonconformity",
+  "ks_test": {
+    "statistic": 0.512529,
+    "p_value": 0.0
+  },
+  "delta_b": 0.370057,
+  "verdict": "EXPLAINED",
+  "confidence": "high",
+  "notes": "First ionization energies span only ~2 decades (3.9-24.6 eV). The periodic table's shell structure creates systematic patterns that dominate the digit distribution. This narrow, structured range prevents Benford conformance \u2014 the EM interaction creates discrete energy scales.",
+  "interesting_findings": "",
+  "timestamp": "2026-02-07T00:35:14.035992+00:00"
+}

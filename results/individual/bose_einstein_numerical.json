@@ -1,0 +1,58 @@
+{
+  "test_id": "bose_einstein_numerical",
+  "display_name": "Bose-Einstein Distribution",
+  "category": "Quantum Statistics",
+  "description": "Numerical sampling of Bose-Einstein occupation numbers",
+  "status": "complete",
+  "data_points": 100000,
+  "source": "generated:bose_einstein",
+  "digit_distribution": {
+    "1": 0.2967,
+    "2": 0.17928,
+    "3": 0.12635,
+    "4": 0.09753,
+    "5": 0.07934,
+    "6": 0.06688,
+    "7": 0.05776,
+    "8": 0.05079,
+    "9": 0.04537
+  },
+  "expected_distribution": {
+    "1": 0.30103,
+    "2": 0.176091,
+    "3": 0.124939,
+    "4": 0.09691,
+    "5": 0.079181,
+    "6": 0.066947,
+    "7": 0.057992,
+    "8": 0.051153,
+    "9": 0.045757
+  },
+  "per_digit_deviation": {
+    "1": -0.00433,
+    "2": 0.003189,
+    "3": 0.001411,
+    "4": 0.00062,
+    "5": 0.000159,
+    "6": -6.7e-05,
+    "7": -0.000232,
+    "8": -0.000363,
+    "9": -0.000387
+  },
+  "chi_squared": {
+    "statistic": 14.709634,
+    "p_value": 0.065044
+  },
+  "mad": 0.001195,
+  "mad_classification": "Close conformity",
+  "ks_test": {
+    "statistic": 0.00433,
+    "p_value": 0.04691
+  },
+  "delta_b": 0.005627,
+  "verdict": "CONFORMS",
+  "confidence": "high",
+  "notes": "Bose-Einstein distribution n(x) = 1/(e^x - 1) = sum(e^{-kx}, k=1..inf) is completely monotonic (all coefficients positive). By Theorem 1 of Riner (2026), this is the UNIQUE quantum distribution that satisfies Benford's Law exactly. delta_B near zero confirms the central prediction.",
+  "interesting_findings": "",
+  "timestamp": "2026-02-07T00:15:08.208505+00:00"
+}

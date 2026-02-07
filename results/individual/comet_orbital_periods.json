@@ -1,0 +1,58 @@
+{
+  "test_id": "comet_orbital_periods",
+  "display_name": "Comet Orbital Periods",
+  "category": "Astrophysics",
+  "description": "Wide range of periods",
+  "status": "complete",
+  "data_points": 60,
+  "source": "hardcoded",
+  "digit_distribution": {
+    "1": 0.116667,
+    "2": 0.083333,
+    "3": 0.066667,
+    "4": 0.033333,
+    "5": 0.166667,
+    "6": 0.283333,
+    "7": 0.15,
+    "8": 0.05,
+    "9": 0.05
+  },
+  "expected_distribution": {
+    "1": 0.30103,
+    "2": 0.176091,
+    "3": 0.124939,
+    "4": 0.09691,
+    "5": 0.079181,
+    "6": 0.066947,
+    "7": 0.057992,
+    "8": 0.051153,
+    "9": 0.045757
+  },
+  "per_digit_deviation": {
+    "1": -0.184363,
+    "2": -0.092758,
+    "3": -0.058272,
+    "4": -0.063577,
+    "5": 0.087486,
+    "6": 0.216386,
+    "7": 0.092008,
+    "8": -0.001153,
+    "9": 0.004243
+  },
+  "chi_squared": {
+    "statistic": 70.387422,
+    "p_value": 0.0
+  },
+  "mad": 0.088916,
+  "mad_classification": "Nonconformity",
+  "ks_test": {
+    "statistic": 0.39897,
+    "p_value": 0.0
+  },
+  "delta_b": 0.336144,
+  "verdict": "EXPLAINED",
+  "confidence": "low",
+  "notes": "Comet orbital periods span wide range but are dominated by long-period comets clustered at similar values. The bimodal short/long-period distribution creates non-Benford digit patterns.",
+  "interesting_findings": "",
+  "timestamp": "2026-02-07T00:07:46.506057+00:00"
+}

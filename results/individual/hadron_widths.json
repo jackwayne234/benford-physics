@@ -1,0 +1,58 @@
+{
+  "test_id": "hadron_widths",
+  "display_name": "Hadron Full Widths",
+  "category": "Nuclear Physics",
+  "description": "Shao & Ma (2009)",
+  "status": "complete",
+  "data_points": 50,
+  "source": "hardcoded",
+  "digit_distribution": {
+    "1": 0.24,
+    "2": 0.22,
+    "3": 0.12,
+    "4": 0.12,
+    "5": 0.06,
+    "6": 0.06,
+    "7": 0.06,
+    "8": 0.04,
+    "9": 0.08
+  },
+  "expected_distribution": {
+    "1": 0.30103,
+    "2": 0.176091,
+    "3": 0.124939,
+    "4": 0.09691,
+    "5": 0.079181,
+    "6": 0.066947,
+    "7": 0.057992,
+    "8": 0.051153,
+    "9": 0.045757
+  },
+  "per_digit_deviation": {
+    "1": -0.06103,
+    "2": 0.043909,
+    "3": -0.004939,
+    "4": 0.02309,
+    "5": -0.019181,
+    "6": -0.006947,
+    "7": 0.002008,
+    "8": -0.011153,
+    "9": 0.034243
+  },
+  "chi_squared": {
+    "statistic": 3.125612,
+    "p_value": 0.926229
+  },
+  "mad": 0.022944,
+  "mad_classification": "Nonconformity",
+  "ks_test": {
+    "statistic": 0.06103,
+    "p_value": 0.986685
+  },
+  "delta_b": 0.089035,
+  "verdict": "MARGINAL",
+  "confidence": "low",
+  "notes": "Hadron decay widths (from PDG) span several orders of magnitude. Confirmed by Shao & Ma (2009) to approximately follow Benford. The moderate deviation reflects both the narrow sample size and the strong-force energy scale clustering.",
+  "interesting_findings": "",
+  "timestamp": "2026-02-07T00:07:46.550044+00:00"
+}

@@ -1,0 +1,58 @@
+{
+  "test_id": "catalan_numbers",
+  "display_name": "Catalan Numbers",
+  "category": "Mathematics",
+  "description": "First 200 Catalan numbers",
+  "status": "complete",
+  "data_points": 200,
+  "source": "generated:catalan",
+  "digit_distribution": {
+    "1": 0.295,
+    "2": 0.18,
+    "3": 0.13,
+    "4": 0.085,
+    "5": 0.1,
+    "6": 0.07,
+    "7": 0.035,
+    "8": 0.06,
+    "9": 0.045
+  },
+  "expected_distribution": {
+    "1": 0.30103,
+    "2": 0.176091,
+    "3": 0.124939,
+    "4": 0.09691,
+    "5": 0.079181,
+    "6": 0.066947,
+    "7": 0.057992,
+    "8": 0.051153,
+    "9": 0.045757
+  },
+  "per_digit_deviation": {
+    "1": -0.00603,
+    "2": 0.003909,
+    "3": 0.005061,
+    "4": -0.01191,
+    "5": 0.020819,
+    "6": 0.003053,
+    "7": -0.022992,
+    "8": 0.008847,
+    "9": -0.000757
+  },
+  "chi_squared": {
+    "statistic": 3.629542,
+    "p_value": 0.888907
+  },
+  "mad": 0.009264,
+  "mad_classification": "Acceptable conformity",
+  "ks_test": {
+    "statistic": 0.014902,
+    "p_value": 1.0
+  },
+  "delta_b": 0.035628,
+  "verdict": "MARGINAL",
+  "confidence": "high",
+  "notes": "Catalan numbers C_n ~ 4^n / (n^{3/2} * sqrt(pi)). Like Fibonacci, the exponential growth with irrational log base gives equidistribution of significands and Benford conformance.",
+  "interesting_findings": "",
+  "timestamp": "2026-02-07T00:03:39.854324+00:00"
+}

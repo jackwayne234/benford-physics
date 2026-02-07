@@ -1,0 +1,58 @@
+{
+  "test_id": "supernova_luminosities",
+  "display_name": "Type Ia Supernova Luminosities",
+  "category": "Astrophysics",
+  "description": "Standard candles \u2014 narrow range",
+  "status": "complete",
+  "data_points": 50,
+  "source": "hardcoded",
+  "digit_distribution": {
+    "1": 0.0,
+    "2": 0.0,
+    "3": 0.08,
+    "4": 0.2,
+    "5": 0.2,
+    "6": 0.2,
+    "7": 0.2,
+    "8": 0.1,
+    "9": 0.02
+  },
+  "expected_distribution": {
+    "1": 0.30103,
+    "2": 0.176091,
+    "3": 0.124939,
+    "4": 0.09691,
+    "5": 0.079181,
+    "6": 0.066947,
+    "7": 0.057992,
+    "8": 0.051153,
+    "9": 0.045757
+  },
+  "per_digit_deviation": {
+    "1": -0.30103,
+    "2": -0.176091,
+    "3": -0.044939,
+    "4": 0.10309,
+    "5": 0.120819,
+    "6": 0.133053,
+    "7": 0.142008,
+    "8": 0.048847,
+    "9": -0.025757
+  },
+  "chi_squared": {
+    "statistic": 73.031259,
+    "p_value": 0.0
+  },
+  "mad": 0.121737,
+  "mad_classification": "Nonconformity",
+  "ks_test": {
+    "statistic": 0.52206,
+    "p_value": 0.0
+  },
+  "delta_b": 0.435649,
+  "verdict": "EXPLAINED",
+  "confidence": "low",
+  "notes": "Type Ia supernovae are STANDARD CANDLES \u2014 their luminosities are deliberately standardized to narrow range. This is an expected strong deviation: the very property that makes them useful for cosmology (uniform brightness) guarantees non-Benford behavior.",
+  "interesting_findings": "",
+  "timestamp": "2026-02-07T00:07:46.509526+00:00"
+}

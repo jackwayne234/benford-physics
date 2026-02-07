@@ -1,0 +1,58 @@
+{
+  "test_id": "covid_cases_by_country",
+  "display_name": "COVID-19 Case Counts",
+  "category": "Health",
+  "description": "Country-level case counts \u2014 reporting anomalies possible",
+  "status": "complete",
+  "data_points": 231,
+  "source": "api:disease_sh",
+  "digit_distribution": {
+    "1": 0.30303,
+    "2": 0.160173,
+    "3": 0.121212,
+    "4": 0.103896,
+    "5": 0.069264,
+    "6": 0.099567,
+    "7": 0.051948,
+    "8": 0.047619,
+    "9": 0.04329
+  },
+  "expected_distribution": {
+    "1": 0.30103,
+    "2": 0.176091,
+    "3": 0.124939,
+    "4": 0.09691,
+    "5": 0.079181,
+    "6": 0.066947,
+    "7": 0.057992,
+    "8": 0.051153,
+    "9": 0.045757
+  },
+  "per_digit_deviation": {
+    "1": 0.002,
+    "2": -0.015918,
+    "3": -0.003727,
+    "4": 0.006986,
+    "5": -0.009917,
+    "6": 0.03262,
+    "7": -0.006044,
+    "8": -0.003534,
+    "9": -0.002467
+  },
+  "chi_squared": {
+    "statistic": 4.668648,
+    "p_value": 0.792333
+  },
+  "mad": 0.009246,
+  "mad_classification": "Acceptable conformity",
+  "ks_test": {
+    "statistic": 0.020575,
+    "p_value": 0.999944
+  },
+  "delta_b": 0.039212,
+  "verdict": "MARGINAL",
+  "confidence": "high",
+  "notes": "",
+  "interesting_findings": "",
+  "timestamp": "2026-02-07T00:07:39.942029+00:00"
+}

@@ -1,0 +1,58 @@
+{
+  "test_id": "planck_radiation_spectrum",
+  "display_name": "Planck Black-Body Spectrum",
+  "category": "Quantum Statistics",
+  "description": "Planck spectral radiance values across frequencies",
+  "status": "complete",
+  "data_points": 100000,
+  "source": "generated:planck_spectrum",
+  "digit_distribution": {
+    "1": 0.32336,
+    "2": 0.1612,
+    "3": 0.1189,
+    "4": 0.09348,
+    "5": 0.07743,
+    "6": 0.06649,
+    "7": 0.05846,
+    "8": 0.05262,
+    "9": 0.04806
+  },
+  "expected_distribution": {
+    "1": 0.30103,
+    "2": 0.176091,
+    "3": 0.124939,
+    "4": 0.09691,
+    "5": 0.079181,
+    "6": 0.066947,
+    "7": 0.057992,
+    "8": 0.051153,
+    "9": 0.045757
+  },
+  "per_digit_deviation": {
+    "1": 0.02233,
+    "2": -0.014891,
+    "3": -0.006039,
+    "4": -0.00343,
+    "5": -0.001751,
+    "6": -0.000457,
+    "7": 0.000468,
+    "8": 0.001467,
+    "9": 0.002303
+  },
+  "chi_squared": {
+    "statistic": 353.256075,
+    "p_value": 0.0
+  },
+  "mad": 0.005904,
+  "mad_classification": "Close conformity",
+  "ks_test": {
+    "statistic": 0.02233,
+    "p_value": 0.0
+  },
+  "delta_b": 0.027921,
+  "verdict": "MARGINAL",
+  "confidence": "high",
+  "notes": "Planck spectrum B(nu) = nu^3 / (e^{h*nu/kT} - 1). The BE denominator is completely monotonic, but the nu^3 density-of-states prefactor introduces deviation. The small delta_B reflects the bosonic nature (all-positive coefficients) partially masked by the polynomial prefactor.",
+  "interesting_findings": "",
+  "timestamp": "2026-02-07T00:15:11.845641+00:00"
+}

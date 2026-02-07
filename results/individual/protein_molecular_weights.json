@@ -1,0 +1,58 @@
+{
+  "test_id": "protein_molecular_weights",
+  "display_name": "Human Proteome Molecular Weights",
+  "category": "Biology",
+  "description": "Well-characterized but narrow range",
+  "status": "complete",
+  "data_points": 200,
+  "source": "hardcoded",
+  "digit_distribution": {
+    "1": 0.295,
+    "2": 0.14,
+    "3": 0.125,
+    "4": 0.165,
+    "5": 0.055,
+    "6": 0.04,
+    "7": 0.065,
+    "8": 0.055,
+    "9": 0.06
+  },
+  "expected_distribution": {
+    "1": 0.30103,
+    "2": 0.176091,
+    "3": 0.124939,
+    "4": 0.09691,
+    "5": 0.079181,
+    "6": 0.066947,
+    "7": 0.057992,
+    "8": 0.051153,
+    "9": 0.045757
+  },
+  "per_digit_deviation": {
+    "1": -0.00603,
+    "2": -0.036091,
+    "3": 6.1e-05,
+    "4": 0.06809,
+    "5": -0.024181,
+    "6": -0.026947,
+    "7": 0.007008,
+    "8": 0.003847,
+    "9": 0.014243
+  },
+  "chi_squared": {
+    "statistic": 15.831851,
+    "p_value": 0.044851
+  },
+  "mad": 0.020722,
+  "mad_classification": "Nonconformity",
+  "ks_test": {
+    "statistic": 0.042121,
+    "p_value": 0.854941
+  },
+  "delta_b": 0.086907,
+  "verdict": "MARGINAL",
+  "confidence": "high",
+  "notes": "",
+  "interesting_findings": "",
+  "timestamp": "2026-02-07T00:07:46.558163+00:00"
+}

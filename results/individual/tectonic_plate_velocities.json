@@ -1,0 +1,58 @@
+{
+  "test_id": "tectonic_plate_velocities",
+  "display_name": "Tectonic Plate Velocities",
+  "category": "Earth Sciences",
+  "description": "Very narrow range",
+  "status": "complete",
+  "data_points": 50,
+  "source": "hardcoded",
+  "digit_distribution": {
+    "1": 0.32,
+    "2": 0.14,
+    "3": 0.08,
+    "4": 0.08,
+    "5": 0.08,
+    "6": 0.08,
+    "7": 0.08,
+    "8": 0.08,
+    "9": 0.06
+  },
+  "expected_distribution": {
+    "1": 0.30103,
+    "2": 0.176091,
+    "3": 0.124939,
+    "4": 0.09691,
+    "5": 0.079181,
+    "6": 0.066947,
+    "7": 0.057992,
+    "8": 0.051153,
+    "9": 0.045757
+  },
+  "per_digit_deviation": {
+    "1": 0.01897,
+    "2": -0.036091,
+    "3": -0.044939,
+    "4": -0.01691,
+    "5": 0.000819,
+    "6": 0.013053,
+    "7": 0.022008,
+    "8": 0.028847,
+    "9": 0.014243
+  },
+  "chi_squared": {
+    "statistic": 2.965723,
+    "p_value": 0.93649
+  },
+  "mad": 0.021764,
+  "mad_classification": "Nonconformity",
+  "ks_test": {
+    "statistic": 0.07897,
+    "p_value": 0.889819
+  },
+  "delta_b": 0.075222,
+  "verdict": "MARGINAL",
+  "confidence": "low",
+  "notes": "",
+  "interesting_findings": "",
+  "timestamp": "2026-02-07T00:07:46.481099+00:00"
+}

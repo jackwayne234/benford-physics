@@ -1,0 +1,58 @@
+{
+  "test_id": "us_county_populations",
+  "display_name": "US County Populations",
+  "category": "Demographics",
+  "description": "~3100 data points",
+  "status": "complete",
+  "data_points": 194,
+  "source": "census",
+  "digit_distribution": {
+    "1": 0.458763,
+    "2": 0.154639,
+    "3": 0.092784,
+    "4": 0.072165,
+    "5": 0.056701,
+    "6": 0.051546,
+    "7": 0.041237,
+    "8": 0.036082,
+    "9": 0.036082
+  },
+  "expected_distribution": {
+    "1": 0.30103,
+    "2": 0.176091,
+    "3": 0.124939,
+    "4": 0.09691,
+    "5": 0.079181,
+    "6": 0.066947,
+    "7": 0.057992,
+    "8": 0.051153,
+    "9": 0.045757
+  },
+  "per_digit_deviation": {
+    "1": 0.157733,
+    "2": -0.021452,
+    "3": -0.032155,
+    "4": -0.024745,
+    "5": -0.02248,
+    "6": -0.015401,
+    "7": -0.016755,
+    "8": -0.015071,
+    "9": -0.009675
+  },
+  "chi_squared": {
+    "statistic": 23.494947,
+    "p_value": 0.002784
+  },
+  "mad": 0.035052,
+  "mad_classification": "Nonconformity",
+  "ks_test": {
+    "statistic": 0.157733,
+    "p_value": 0.000111
+  },
+  "delta_b": 0.168316,
+  "verdict": "DEVIATES",
+  "confidence": "high",
+  "notes": "",
+  "interesting_findings": "",
+  "timestamp": "2026-02-07T00:07:46.435774+00:00"
+}

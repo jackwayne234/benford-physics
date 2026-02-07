@@ -1,0 +1,58 @@
+{
+  "test_id": "bacterial_doubling_times",
+  "display_name": "Bacterial Doubling Times",
+  "category": "Biology",
+  "description": "Growth rate data",
+  "status": "complete",
+  "data_points": 50,
+  "source": "hardcoded",
+  "digit_distribution": {
+    "1": 0.3,
+    "2": 0.2,
+    "3": 0.12,
+    "4": 0.12,
+    "5": 0.06,
+    "6": 0.04,
+    "7": 0.08,
+    "8": 0.02,
+    "9": 0.06
+  },
+  "expected_distribution": {
+    "1": 0.30103,
+    "2": 0.176091,
+    "3": 0.124939,
+    "4": 0.09691,
+    "5": 0.079181,
+    "6": 0.066947,
+    "7": 0.057992,
+    "8": 0.051153,
+    "9": 0.045757
+  },
+  "per_digit_deviation": {
+    "1": -0.00103,
+    "2": 0.023909,
+    "3": -0.004939,
+    "4": 0.02309,
+    "5": -0.019181,
+    "6": -0.026947,
+    "7": 0.022008,
+    "8": -0.031153,
+    "9": 0.014243
+  },
+  "chi_squared": {
+    "statistic": 2.809843,
+    "p_value": 0.945718
+  },
+  "mad": 0.0185,
+  "mad_classification": "Nonconformity",
+  "ks_test": {
+    "statistic": 0.04103,
+    "p_value": 0.999979
+  },
+  "delta_b": 0.062305,
+  "verdict": "MARGINAL",
+  "confidence": "low",
+  "notes": "",
+  "interesting_findings": "",
+  "timestamp": "2026-02-07T00:07:46.567671+00:00"
+}

@@ -1,0 +1,46 @@
+[
+  {
+    "test_id": "bose_einstein_numerical",
+    "display_name": "Bose-Einstein Distribution",
+    "category": "Quantum Statistics",
+    "description": "The paper's central prediction: BE must conform exactly (δ_B = 0). All-positive series coefficients in 1/(e^x − 1) = Σ e^(−kx) guarantee complete monotonicity via the Bernstein-Widder theorem. The minus sign in the denominator is forced by the constraint. [Paper §8.2–8.3]",
+    "data_source": "generated:bose_einstein",
+    "status": "complete",
+    "priority": 1,
+    "added_by": "system",
+    "added_date": "2026-02-06"
+  },
+  {
+    "test_id": "fermi_dirac_numerical",
+    "display_name": "Fermi-Dirac Distribution",
+    "category": "Quantum Statistics",
+    "description": "Must show periodic deviation (δ_B > 0). Alternating-sign coefficients in 1/(e^x + 1) = Σ (−1)^(k+1) e^(−kx) violate complete monotonicity. The Pauli exclusion principle IS the deviation — the plus sign produces the alternating signs that prevent ε from vanishing. Deviation controlled by the Dirichlet eta function. [Paper §8.2–8.5]",
+    "data_source": "generated:fermi_dirac",
+    "status": "complete",
+    "priority": 1,
+    "added_by": "system",
+    "added_date": "2026-02-06"
+  },
+  {
+    "test_id": "maxwell_boltzmann_numerical",
+    "display_name": "Maxwell-Boltzmann Distribution",
+    "category": "Quantum Statistics",
+    "description": "Classical limit — single exponential e^(−x). Approximately Benford-conformant (|ε| bounded at ~0.03) but not exact. Lacks the infinite-sum structure that makes BE exact. [Paper §8.2]",
+    "data_source": "generated:maxwell_boltzmann",
+    "status": "complete",
+    "priority": 1,
+    "added_by": "system",
+    "added_date": "2026-02-06"
+  },
+  {
+    "test_id": "planck_radiation_spectrum",
+    "display_name": "Planck Black-Body Spectrum",
+    "category": "Quantum Statistics",
+    "description": "Bosonic (photon) distribution — spectral radiance values derived from BE statistics. Tests the constraint on light itself: photons are massless bosons, so the distribution should inherit BE's conformance. Light = zero deviation = zero mass. [Paper §2.2, §8.3]",
+    "data_source": "generated:planck_spectrum",
+    "status": "complete",
+    "priority": 1,
+    "added_by": "system",
+    "added_date": "2026-02-06"
+  }
+]

@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Round-Trip Figures — Benford's Law Testing Lab</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg-primary: #0f0f1e;
+  --bg-secondary: #1a1a2e;
+  --bg-tertiary: #16213e;
+  --bg-card: #1e1e36;
+  --bg-hover: #252547;
+  --bg-detail: #141428;
+  --border: #2a2a4a;
+  --border-light: #3a3a5a;
+  --text-primary: #e8e8f0;
+  --text-secondary: #a0a0c0;
+  --text-muted: #6a6a8a;
+  --green: #4CAF50;
+  --orange: #FF9800;
+  --red: #f44336;
+  --purple: #9C27B0;
+  --cyan: #00BCD4;
+  --blue: #42A5F5;
+  --accent: #7c4dff;
+  --gold: #ffd700;
+  --sidebar-width: 300px;
+}
+
+html { font-size: 15px; }
+
+body {
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a { color: var(--blue); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ---- HEADER ---- */
+.header {
+  background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 1.2rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-shrink: 0;
+}
+.header h1 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #fff;
+  white-space: nowrap;
+}
+.header h1 span { color: var(--accent); }
+.header .nav-link {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  padding: 0.35rem 0.8rem;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  transition: all 0.15s;
+}
+.header .nav-link:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+  text-decoration: none;
+}
+.header .fig-count {
+  margin-left: auto;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+.header .kb-hint {
+  font-size: 0.73rem;
+  color: var(--text-muted);
+  opacity: 0.7;
+}
+
+/* ---- LAYOUT ---- */
+.layout {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* ---- SIDEBAR ---- */
+.sidebar {
+  width: var(--sidebar-width);
+  min-width: var(--sidebar-width);
+  background: var(--bg-secondary);
+  border-right: 1px solid var(--border);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-section-title {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  padding: 0.8rem 1rem 0.4rem;
+}
+
+.fig-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  transition: background 0.12s;
+  border-left: 3px solid transparent;
+  user-select: none;
+}
+.fig-item:hover {
+  background: var(--bg-hover);
+}
+.fig-item.active {
+  background: var(--bg-card);
+  border-left-color: var(--accent);
+}
+.fig-item.visited .fig-num::after {
+  content: " \2713";
+  color: var(--green);
+  font-size: 0.65rem;
+  margin-left: 0.3rem;
+}
+
+.fig-thumb {
+  width: 60px;
+  height: 40px;
+  border-radius: 4px;
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 1px solid var(--border);
+  background: var(--bg-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.fig-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.fig-thumb .interactive-badge {
+  font-size: 0.65rem;
+  color: var(--cyan);
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.fig-info {
+  flex: 1;
+  min-width: 0;
+}
+.fig-num {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--accent);
+  display: block;
+}
+.fig-title {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.fig-type {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+}
+
+/* ---- MAIN VIEWER ---- */
+.viewer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+.viewer-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.viewer-toolbar .title-area {
+  flex: 1;
+}
+.viewer-toolbar .fig-main-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+}
+.viewer-toolbar .fig-subtitle {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-top: 0.15rem;
+}
+
+.nav-btn {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  transition: all 0.12s;
+  flex-shrink: 0;
+}
+.nav-btn:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+  border-color: var(--border-light);
+}
+.nav-btn:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.fullscreen-btn {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.78rem;
+  transition: all 0.12s;
+  flex-shrink: 0;
+}
+.fullscreen-btn:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+}
+
+/* ---- IMAGE DISPLAY ---- */
+.viewer-content {
+  flex: 1;
+  overflow: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: var(--bg-primary);
+  position: relative;
+}
+
+.viewer-content img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 6px;
+  transition: transform 0.2s ease;
+  cursor: grab;
+  image-rendering: auto;
+}
+.viewer-content img:active {
+  cursor: grabbing;
+}
+.viewer-content img.zoomed {
+  max-width: none;
+  max-height: none;
+}
+
+.viewer-content iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 6px;
+  background: #0d1117;
+}
+
+/* ---- DESCRIPTION PANEL ---- */
+.desc-panel {
+  background: var(--bg-card);
+  border-top: 1px solid var(--border);
+  padding: 1rem 1.5rem;
+  flex-shrink: 0;
+  position: relative;
+}
+.desc-text {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+.desc-text.collapsed {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.desc-toggle {
+  background: none;
+  border: none;
+  color: var(--accent);
+  cursor: pointer;
+  font-size: 0.78rem;
+  padding: 0.3rem 0 0;
+  display: none;
+}
+.desc-toggle:hover { text-decoration: underline; }
+.desc-panel .tags {
+  display: flex;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+}
+.desc-panel .tag {
+  font-size: 0.7rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 10px;
+  font-weight: 600;
+}
+.tag-physics { background: rgba(124,77,255,0.15); color: var(--accent); }
+.tag-quantum { background: rgba(0,188,212,0.15); color: var(--cyan); }
+.tag-cosmo { background: rgba(255,215,0,0.15); color: var(--gold); }
+.tag-interactive { background: rgba(76,175,80,0.15); color: var(--green); }
+.tag-comparison { background: rgba(255,152,0,0.15); color: var(--orange); }
+
+/* ---- ESC HINT ---- */
+.esc-hint {
+  position: absolute;
+  bottom: 0.6rem;
+  right: 1rem;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  opacity: 0;
+  transition: opacity 0.2s;
+  pointer-events: none;
+  z-index: 5;
+}
+.viewer-content:focus-within .esc-hint { opacity: 1; }
+
+/* ---- LOADING SPINNER ---- */
+.viewer-loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-primary);
+  z-index: 10;
+}
+.viewer-loading::after {
+  content: "";
+  width: 36px;
+  height: 36px;
+  border: 3px solid var(--border-light);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ---- EMPTY STATE ---- */
+.empty-viewer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  gap: 0.75rem;
+}
+.empty-viewer .icon { font-size: 3rem; opacity: 0.3; }
+.empty-viewer h2 { font-size: 1.2rem; color: var(--text-secondary); }
+.empty-viewer p { font-size: 0.85rem; }
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 900px) {
+  :root { --sidebar-width: 220px; }
+  .fig-thumb { display: none; }
+  .header { padding: 0.8rem 1rem; gap: 0.75rem; }
+  .header h1 { font-size: 1.1rem; }
+  .header .kb-hint { display: none; }
+}
+@media (max-width: 650px) {
+  .layout { flex-direction: column; }
+  .sidebar {
+    width: 100%;
+    min-width: 0;
+    max-height: 200px;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+  .fig-thumb { display: none; }
+}
+
+/* ---- SCROLLBAR ---- */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: var(--border-light); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <h1><span>Round-Trip</span> Figures</h1>
+  <a href="index.html" class="nav-link">Dashboard</a>
+  <span class="fig-count" id="figCount">12 figures</span>
+  <span class="kb-hint">Arrow keys to navigate</span>
+</header>
+
+<!-- LAYOUT -->
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <nav class="sidebar" id="sidebar"></nav>
+
+  <!-- VIEWER -->
+  <main class="viewer" id="viewer">
+    <div class="viewer-toolbar" id="toolbar">
+      <button class="nav-btn" id="prevBtn" title="Previous (Left Arrow)">&#x25C0;</button>
+      <div class="title-area">
+        <div class="fig-main-title" id="viewerTitle">Select a figure</div>
+        <div class="fig-subtitle" id="viewerSubtitle"></div>
+      </div>
+      <span id="toolbarHint" style="font-size:0.75rem;color:var(--text-muted);opacity:0.7;display:none;">Hover for values | Click legend to toggle</span>
+      <button class="fullscreen-btn" id="fullscreenBtn" title="Open in New Tab">Open in New Tab</button>
+      <button class="nav-btn" id="nextBtn" title="Next (Right Arrow)">&#x25B6;</button>
+    </div>
+
+    <div class="viewer-content" id="viewerContent">
+      <div class="empty-viewer">
+        <div class="icon">&#x1F52D;</div>
+        <h2>Pick a figure from the sidebar</h2>
+        <p>Use arrow keys or click to navigate between figures.</p>
+      </div>
+      <div class="esc-hint">Press Esc to return to navigation</div>
+    </div>
+
+    <div class="desc-panel" id="descPanel" style="display:none;"></div>
+  </main>
+</div>
+
+<script>
+(function() {
+  "use strict";
+
+  var FIGURES = [
+    {
+      id: "01_fingerprints",
+      num: "Fig. 1",
+      title: "Fingerprints",
+      fullTitle: "Epsilon(d) Fingerprints — The Four Fundamental Distributions",
+      file: "../results/round_trip/figures/01_fingerprints.html",
+      type: "html",
+      desc: "Per-digit deviation signatures for Bose-Einstein, Fermi-Dirac, Maxwell-Boltzmann, and Planck distributions. Each panel shows the unique 'fingerprint' pattern — how each distribution deviates from perfect Benford's Law. BE shows near-zero deviation (delta_B = 0.0056), while Planck shows the largest oscillatory pattern (delta_B = 0.0279).",
+      tags: ["quantum", "physics"]
+    },
+    {
+      id: "02_dimension_sweep",
+      num: "Fig. 2",
+      title: "Dimension Sweep",
+      fullTitle: "Dimension Sweep: B(x) = x^n / (e^x - 1)",
+      file: "../results/round_trip/figures/02_dimension_sweep.html",
+      type: "html",
+      desc: "How Benford deviation delta_B changes as the exponent n (spatial dimensions) varies in the Bose distribution. The measured Planck delta_B = 0.0279 inverts exactly to n = 3.000, recovering 3 spatial dimensions from the digit statistics alone.",
+      tags: ["quantum", "cosmo"]
+    },
+    {
+      id: "03_eta_recovery",
+      num: "Fig. 3",
+      title: "Eta Recovery",
+      fullTitle: "Eta Recovery: Dirichlet Eta Modulation Strength",
+      file: "../results/round_trip/figures/03_eta_recovery.html",
+      type: "html",
+      desc: "Sweeping the Dirichlet eta modulation parameter alpha from 0 (Bose-Einstein) to 1 (Fermi-Dirac). The measured Fermi-Dirac delta_B = 0.0117 inverts exactly to alpha = 1.000, confirming eta(1) = ln(2) = 0.6931. This validates the complete monotonicity framework.",
+      tags: ["quantum", "physics"]
+    },
+    {
+      id: "04_planck_wall",
+      num: "Fig. 4",
+      title: "The Planck Wall",
+      fullTitle: "The Planck Wall: Which Quantum Gravity Models Survive the Big Bang?",
+      file: "../results/round_trip/figures/04_planck_wall.html",
+      type: "html",
+      desc: "Delta_B across temperature for 10 quantum gravity proposals as they approach and pass through the Big Bang singularity at T = T_Planck. Click legend to show/hide any model. Some spike to total chaos at the singularity, while others (notably Hagedorn/string theory) emerge cleaner on the other side.",
+      tags: ["cosmo", "physics"]
+    },
+    {
+      id: "05_whiteboard",
+      num: "Fig. 5",
+      title: "The Whiteboard",
+      fullTitle: "The Whiteboard: Exotic Physics Existence Filter",
+      file: "../results/round_trip/figures/05_whiteboard.html",
+      type: "html",
+      desc: "All exotic physics candidates ranked by their Euclidean deviation delta_B from Benford's Law. Particles/phenomena that conform (low delta_B) pass the 'existence filter' — anyons, axions, Majorana fermions, and Hawking radiation all sit below the threshold. Negative-mass fermions fail dramatically, suggesting they do not exist.",
+      tags: ["physics", "comparison"]
+    },
+    {
+      id: "06_anyons",
+      num: "Fig. 6",
+      title: "Anyon Interpolation",
+      fullTitle: "Anyon Interpolation: epsilon(d) Evolves Smoothly from BE to FD",
+      file: "../results/round_trip/figures/06_anyons.html",
+      type: "html",
+      desc: "Five panels showing how the per-digit deviation pattern morphs smoothly as the anyon statistics parameter g goes from 0 (boson) through 0.25, 0.5 (semion), 0.75, to 1.0 (fermion). The fingerprint rotates continuously, demonstrating that fractional statistics interpolate naturally between quantum extremes.",
+      tags: ["quantum", "physics"]
+    },
+    {
+      id: "07_hagedorn_spotlight",
+      num: "Fig. 7",
+      title: "Hagedorn Spotlight",
+      fullTitle: "Hagedorn (String Theory): Through the Big Bang and Out the Other Side",
+      file: "../results/round_trip/figures/07_hagedorn_spotlight.html",
+      type: "html",
+      desc: "The Hagedorn/string theory model in detail as temperature sweeps through the Big Bang singularity. Peak chaos at T = T_Planck, but the model uniquely settles to near-perfect Benford conformance on the pre-Big-Bang side. This is the only model that emerges cleaner after the singularity.",
+      tags: ["cosmo", "physics"]
+    },
+    {
+      id: "08_black_hole_wall",
+      num: "Fig. 8",
+      title: "Black Hole Wall",
+      fullTitle: "Black Hole: Through the Horizon, Through the Singularity, Out the Other Side",
+      file: "../results/round_trip/figures/08_black_hole_wall.html",
+      type: "html",
+      desc: "Delta_B for 10 quantum gravity models as a function of radial coordinate r/r_s. Toggle models on/off via legend. Hover for exact values at each position through the event horizon and singularity.",
+      tags: ["cosmo", "physics", "comparison"]
+    },
+    {
+      id: "09_bb_vs_bh",
+      num: "Fig. 9",
+      title: "Big Bang vs Black Hole",
+      fullTitle: "Same Physics, Two Walls: Big Bang vs Black Hole",
+      file: "../results/round_trip/figures/09_bb_vs_bh.html",
+      type: "html",
+      desc: "Side-by-side comparison: do quantum gravity models behave the same at both singularities? Left panel: Big Bang wall. Right panel: Black Hole wall. Click legend to toggle models.",
+      tags: ["cosmo", "comparison"]
+    },
+    {
+      id: "10_hawking_vs_causal_set",
+      num: "Fig. 10",
+      title: "Hawking vs Causal Set",
+      fullTitle: "Hawking Radiation vs Causal Set Theory — Detailed Analysis",
+      file: "../results/round_trip/figures/10_hawking_vs_causal_set.html",
+      type: "html",
+      desc: "Four-panel deep dive: Causal Set journey through a black hole with Hawking radiation levels overlaid, fingerprint comparisons at key positions, and greybody cutoff analysis. All traces interactive.",
+      tags: ["cosmo", "physics"]
+    },
+    {
+      id: "10a_black_hole_interactive",
+      num: "Fig. 10a",
+      title: "Black Hole (Original)",
+      fullTitle: "Black Hole — Original Plotly Explorer",
+      file: "../results/round_trip/figures/10a_black_hole_interactive.html",
+      type: "html",
+      desc: "Original interactive Black Hole wall figure. Click legend entries to show/hide individual quantum gravity models. Double-click to isolate one model.",
+      tags: ["interactive", "cosmo"]
+    },
+    {
+      id: "10b_big_bang_interactive",
+      num: "Fig. 10b",
+      title: "Big Bang (Original)",
+      fullTitle: "Big Bang — Original Plotly Explorer",
+      file: "../results/round_trip/figures/10b_big_bang_interactive.html",
+      type: "html",
+      desc: "Original interactive Big Bang Planck Wall figure. All 10 quantum gravity models plotted against T/T_Planck on a log scale.",
+      tags: ["interactive", "cosmo"]
+    }
+  ];
+
+  var currentIndex = -1;
+  var visitedSet = new Set();
+
+  var $sidebar = document.getElementById("sidebar");
+  var $viewerContent = document.getElementById("viewerContent");
+  var $viewerTitle = document.getElementById("viewerTitle");
+  var $viewerSubtitle = document.getElementById("viewerSubtitle");
+  var $descPanel = document.getElementById("descPanel");
+  var $prevBtn = document.getElementById("prevBtn");
+  var $nextBtn = document.getElementById("nextBtn");
+  var $fullscreenBtn = document.getElementById("fullscreenBtn");
+
+  /* ---- BUILD SIDEBAR ---- */
+  function buildSidebar() {
+    var section = document.createElement("div");
+    var sTitle = document.createElement("div");
+    sTitle.className = "sidebar-section-title";
+    sTitle.textContent = "All Figures (Interactive)";
+    section.appendChild(sTitle);
+
+    FIGURES.forEach(function(fig, idx) {
+      var item = document.createElement("div");
+      item.className = "fig-item";
+      item.dataset.index = idx;
+
+      var thumb = document.createElement("div");
+      thumb.className = "fig-thumb";
+      // Use the original PNG as thumbnail if it exists
+      var pngPath = fig.file.replace(".html", ".png");
+      var img = document.createElement("img");
+      img.src = pngPath;
+      img.alt = fig.title;
+      img.loading = "lazy";
+      img.onerror = function() {
+        this.style.display = "none";
+        var badge = document.createElement("div");
+        badge.className = "interactive-badge";
+        badge.innerHTML = "&#x1F4CA;";
+        thumb.appendChild(badge);
+      };
+      thumb.appendChild(img);
+
+      var info = document.createElement("div");
+      info.className = "fig-info";
+      info.innerHTML =
+        '<span class="fig-num">' + fig.num + '</span>' +
+        '<div class="fig-title">' + fig.title + '</div>' +
+        '<div class="fig-type">Interactive Plotly</div>';
+
+      item.appendChild(thumb);
+      item.appendChild(info);
+
+      item.addEventListener("click", function() {
+        selectFigure(idx);
+      });
+
+      section.appendChild(item);
+    });
+
+    $sidebar.appendChild(section);
+    document.getElementById("figCount").textContent = FIGURES.length + " figures";
+  }
+
+  /* ---- SELECT FIGURE ---- */
+  function selectFigure(idx) {
+    if (idx < 0 || idx >= FIGURES.length) return;
+    currentIndex = idx;
+    var fig = FIGURES[idx];
+
+    /* Update sidebar active state & visited */
+    visitedSet.add(idx);
+    document.querySelectorAll(".fig-item").forEach(function(el) {
+      var i = parseInt(el.dataset.index);
+      el.classList.toggle("active", i === idx);
+      if (visitedSet.has(i)) el.classList.add("visited");
+    });
+
+    /* Scroll active into view */
+    var activeItem = document.querySelector('.fig-item[data-index="' + idx + '"]');
+    if (activeItem) {
+      activeItem.scrollIntoView({ block: "nearest", behavior: "smooth" });
+    }
+
+    /* Update toolbar */
+    $viewerTitle.textContent = fig.fullTitle;
+    $viewerSubtitle.textContent = fig.num + " of " + FIGURES.length + (fig.type === "html" ? " — Interactive (hover, click legend)" : "");
+
+    /* Show toolbar hint now that a figure is loaded */
+    var hint = document.getElementById("toolbarHint");
+    if (hint) hint.style.display = "";
+
+    /* Navigation buttons */
+    $prevBtn.disabled = idx === 0;
+    $nextBtn.disabled = idx === FIGURES.length - 1;
+
+    /* Render content — all figures are now interactive iframes */
+    $viewerContent.innerHTML = "";
+    var spinner = document.createElement("div");
+    spinner.className = "viewer-loading";
+    $viewerContent.appendChild(spinner);
+    var iframe = document.createElement("iframe");
+    iframe.title = fig.fullTitle;
+    iframe.id = "figIframe";
+    iframe.onload = function() {
+      var s = $viewerContent.querySelector(".viewer-loading");
+      if (s) s.remove();
+    };
+    $viewerContent.appendChild(iframe);
+    iframe.src = fig.file;
+    var escHint = document.createElement("div");
+    escHint.className = "esc-hint";
+    escHint.textContent = "Press Esc to return to navigation";
+    $viewerContent.appendChild(escHint);
+
+    /* Description */
+    var tagHTML = "";
+    if (fig.tags) {
+      tagHTML = '<div class="tags">';
+      fig.tags.forEach(function(t) {
+        var cls = "tag-physics";
+        if (t === "quantum") cls = "tag-quantum";
+        else if (t === "cosmo") cls = "tag-cosmo";
+        else if (t === "interactive") cls = "tag-interactive";
+        else if (t === "comparison") cls = "tag-comparison";
+        tagHTML += '<span class="tag ' + cls + '">' + t + '</span>';
+      });
+      tagHTML += "</div>";
+    }
+    $descPanel.innerHTML =
+      '<p class="desc-text collapsed" id="descText">' + fig.desc + '</p>' +
+      '<button class="desc-toggle" id="descToggle">Show more</button>' +
+      tagHTML;
+    $descPanel.style.display = "";
+
+    /* Show toggle only if text actually overflows */
+    requestAnimationFrame(function() {
+      var dt = document.getElementById("descText");
+      var btn = document.getElementById("descToggle");
+      if (dt && dt.scrollHeight > dt.clientHeight + 1) {
+        btn.style.display = "inline-block";
+        btn.onclick = function() {
+          var isCollapsed = dt.classList.toggle("collapsed");
+          btn.textContent = isCollapsed ? "Show more" : "Show less";
+        };
+      }
+    });
+
+    /* Fullscreen button */
+    $fullscreenBtn.onclick = function() {
+      window.open(fig.file, "_blank");
+    };
+  }
+
+  /* ---- NAVIGATION ---- */
+  $prevBtn.addEventListener("click", function() {
+    if (currentIndex > 0) selectFigure(currentIndex - 1);
+  });
+  $nextBtn.addEventListener("click", function() {
+    if (currentIndex < FIGURES.length - 1) selectFigure(currentIndex + 1);
+  });
+
+  /* ---- KEYBOARD ---- */
+  /* Escape blurs iframe so arrow keys work again */
+  window.addEventListener("keydown", function(e) {
+    if (e.key === "Escape" && document.activeElement && document.activeElement.tagName === "IFRAME") {
+      document.activeElement.blur();
+    }
+  }, true);
+
+  document.addEventListener("keydown", function(e) {
+    /* Don't capture if focus is in iframe */
+    if (document.activeElement && document.activeElement.tagName === "IFRAME") return;
+
+    switch (e.key) {
+      case "ArrowLeft":
+      case "ArrowUp":
+        e.preventDefault();
+        if (currentIndex > 0) selectFigure(currentIndex - 1);
+        break;
+      case "ArrowRight":
+      case "ArrowDown":
+        e.preventDefault();
+        if (currentIndex < FIGURES.length - 1) selectFigure(currentIndex + 1);
+        break;
+      case "Home":
+        e.preventDefault();
+        selectFigure(0);
+        break;
+      case "End":
+        e.preventDefault();
+        selectFigure(FIGURES.length - 1);
+        break;
+    }
+  });
+
+  /* ---- INIT ---- */
+  buildSidebar();
+
+  /* Auto-select first figure */
+  selectFigure(0);
+})();
+</script>
+</body>
+</html>

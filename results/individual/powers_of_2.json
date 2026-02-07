@@ -1,0 +1,58 @@
+{
+  "test_id": "powers_of_2",
+  "display_name": "Powers of 2",
+  "category": "Mathematics",
+  "description": "2^1 through 2^1000 \u2014 equidistributed mod 1",
+  "status": "complete",
+  "data_points": 1000,
+  "source": "generated:powers_of_2",
+  "digit_distribution": {
+    "1": 0.301,
+    "2": 0.176,
+    "3": 0.125,
+    "4": 0.097,
+    "5": 0.079,
+    "6": 0.069,
+    "7": 0.056,
+    "8": 0.052,
+    "9": 0.045
+  },
+  "expected_distribution": {
+    "1": 0.30103,
+    "2": 0.176091,
+    "3": 0.124939,
+    "4": 0.09691,
+    "5": 0.079181,
+    "6": 0.066947,
+    "7": 0.057992,
+    "8": 0.051153,
+    "9": 0.045757
+  },
+  "per_digit_deviation": {
+    "1": -3e-05,
+    "2": -9.1e-05,
+    "3": 6.1e-05,
+    "4": 9e-05,
+    "5": -0.000181,
+    "6": 0.002053,
+    "7": -0.001992,
+    "8": 0.000847,
+    "9": -0.000757
+  },
+  "chi_squared": {
+    "statistic": 0.158551,
+    "p_value": 0.999998
+  },
+  "mad": 0.000678,
+  "mad_classification": "Close conformity",
+  "ks_test": {
+    "statistic": 0.001902,
+    "p_value": 1.0
+  },
+  "delta_b": 0.003087,
+  "verdict": "CONFORMS",
+  "confidence": "high",
+  "notes": "Powers of 2: log_10(2^n) = n*log_10(2). Since log_10(2) is irrational, the fractional parts {n*log_10(2)} are equidistributed mod 1 (Weyl's theorem), giving exact Benford conformance. Engine validation check.",
+  "interesting_findings": "",
+  "timestamp": "2026-02-07T00:03:34.689207+00:00"
+}

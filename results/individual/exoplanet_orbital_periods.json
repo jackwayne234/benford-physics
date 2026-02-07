@@ -1,0 +1,58 @@
+{
+  "test_id": "exoplanet_orbital_periods",
+  "display_name": "Exoplanet Orbital Periods",
+  "category": "Astrophysics",
+  "description": "Kepler's laws create power-law relationship",
+  "status": "complete",
+  "data_points": 36011,
+  "source": "api:nasa_exoplanet",
+  "digit_distribution": {
+    "1": 0.28955,
+    "2": 0.166782,
+    "3": 0.139069,
+    "4": 0.107773,
+    "5": 0.084946,
+    "6": 0.061037,
+    "7": 0.052928,
+    "8": 0.054789,
+    "9": 0.043126
+  },
+  "expected_distribution": {
+    "1": 0.30103,
+    "2": 0.176091,
+    "3": 0.124939,
+    "4": 0.09691,
+    "5": 0.079181,
+    "6": 0.066947,
+    "7": 0.057992,
+    "8": 0.051153,
+    "9": 0.045757
+  },
+  "per_digit_deviation": {
+    "1": -0.01148,
+    "2": -0.009309,
+    "3": 0.01413,
+    "4": 0.010863,
+    "5": 0.005765,
+    "6": -0.00591,
+    "7": -0.005064,
+    "8": 0.003636,
+    "9": -0.002631
+  },
+  "chi_squared": {
+    "statistic": 199.470369,
+    "p_value": 0.0
+  },
+  "mad": 0.007643,
+  "mad_classification": "Acceptable conformity",
+  "ks_test": {
+    "statistic": 0.020788,
+    "p_value": 0.0
+  },
+  "delta_b": 0.025497,
+  "verdict": "MARGINAL",
+  "confidence": "high",
+  "notes": "Exoplanet orbital periods span ~4 decades (hours to decades). Kepler's third law (P^2 proportional to a^3) creates a power-law relationship. Near-Benford conformance with 36,000 data points, though detection bias (favoring short-period planets) introduces slight deviation.",
+  "interesting_findings": "",
+  "timestamp": "2026-02-07T00:07:35.008352+00:00"
+}

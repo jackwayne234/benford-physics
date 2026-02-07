@@ -1,0 +1,58 @@
+{
+  "test_id": "cmb_anisotropy",
+  "display_name": "CMB Temperature Anisotropies",
+  "category": "Astrophysics",
+  "description": "Quantum fluctuations from early universe",
+  "status": "complete",
+  "data_points": 500,
+  "source": "hardcoded",
+  "digit_distribution": {
+    "1": 0.404,
+    "2": 0.132,
+    "3": 0.106,
+    "4": 0.068,
+    "5": 0.038,
+    "6": 0.07,
+    "7": 0.072,
+    "8": 0.06,
+    "9": 0.05
+  },
+  "expected_distribution": {
+    "1": 0.30103,
+    "2": 0.176091,
+    "3": 0.124939,
+    "4": 0.09691,
+    "5": 0.079181,
+    "6": 0.066947,
+    "7": 0.057992,
+    "8": 0.051153,
+    "9": 0.045757
+  },
+  "per_digit_deviation": {
+    "1": 0.10297,
+    "2": -0.044091,
+    "3": -0.018939,
+    "4": -0.02891,
+    "5": -0.041181,
+    "6": 0.003053,
+    "7": 0.014008,
+    "8": 0.008847,
+    "9": 0.004243
+  },
+  "chi_squared": {
+    "statistic": 42.310699,
+    "p_value": 1e-06
+  },
+  "mad": 0.029583,
+  "mad_classification": "Nonconformity",
+  "ks_test": {
+    "statistic": 0.10297,
+    "p_value": 4.5e-05
+  },
+  "delta_b": 0.125455,
+  "verdict": "EXPLAINED",
+  "confidence": "high",
+  "notes": "CMB temperature anisotropies (delta T/T ~ 10^{-5}) arise from quantum fluctuations in the early universe, amplified by gravitational instability. Deviation from Benford may reflect the Gaussian random field origin \u2014 the underlying perturbations are Gaussian, not multiplicative.",
+  "interesting_findings": "",
+  "timestamp": "2026-02-07T00:07:46.495314+00:00"
+}

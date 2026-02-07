@@ -1,0 +1,58 @@
+{
+  "test_id": "prime_numbers",
+  "display_name": "First 10,000 Primes",
+  "category": "Mathematics",
+  "description": "First 10000 prime numbers \u2014 known to NOT satisfy Benford",
+  "status": "complete",
+  "data_points": 10000,
+  "source": "generated:primes",
+  "digit_distribution": {
+    "1": 0.1601,
+    "2": 0.1129,
+    "3": 0.1097,
+    "4": 0.1069,
+    "5": 0.1055,
+    "6": 0.1013,
+    "7": 0.1027,
+    "8": 0.1003,
+    "9": 0.1006
+  },
+  "expected_distribution": {
+    "1": 0.30103,
+    "2": 0.176091,
+    "3": 0.124939,
+    "4": 0.09691,
+    "5": 0.079181,
+    "6": 0.066947,
+    "7": 0.057992,
+    "8": 0.051153,
+    "9": 0.045757
+  },
+  "per_digit_deviation": {
+    "1": -0.14093,
+    "2": -0.063191,
+    "3": -0.015239,
+    "4": 0.00999,
+    "5": 0.026319,
+    "6": 0.034353,
+    "7": 0.044708,
+    "8": 0.049147,
+    "9": 0.054843
+  },
+  "chi_squared": {
+    "statistic": 2653.381347,
+    "p_value": 0.0
+  },
+  "mad": 0.048747,
+  "mad_classification": "Nonconformity",
+  "ks_test": {
+    "statistic": 0.21936,
+    "p_value": 0.0
+  },
+  "delta_b": 0.182979,
+  "verdict": "EXPLAINED",
+  "confidence": "high",
+  "notes": "Primes are known to NOT satisfy Benford's Law. The prime counting function pi(x) ~ x/ln(x) gives first-digit bias toward 1. This serves as a NEGATIVE CONTROL \u2014 confirming the engine correctly identifies non-Benford distributions.",
+  "interesting_findings": "",
+  "timestamp": "2026-02-07T00:03:35.546299+00:00"
+}

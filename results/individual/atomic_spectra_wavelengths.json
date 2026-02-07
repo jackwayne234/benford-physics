@@ -1,0 +1,58 @@
+{
+  "test_id": "atomic_spectra_wavelengths",
+  "display_name": "Atomic Spectral Lines",
+  "category": "Atomic Physics",
+  "description": "Ralchenko & Pain (2024)",
+  "status": "complete",
+  "data_points": 68,
+  "source": "hardcoded",
+  "digit_distribution": {
+    "1": 0.058824,
+    "2": 0.014706,
+    "3": 0.455882,
+    "4": 0.176471,
+    "5": 0.132353,
+    "6": 0.058824,
+    "7": 0.044118,
+    "8": 0.0,
+    "9": 0.058824
+  },
+  "expected_distribution": {
+    "1": 0.30103,
+    "2": 0.176091,
+    "3": 0.124939,
+    "4": 0.09691,
+    "5": 0.079181,
+    "6": 0.066947,
+    "7": 0.057992,
+    "8": 0.051153,
+    "9": 0.045757
+  },
+  "per_digit_deviation": {
+    "1": -0.242206,
+    "2": -0.161385,
+    "3": 0.330943,
+    "4": 0.079561,
+    "5": 0.053172,
+    "6": -0.008123,
+    "7": -0.013874,
+    "8": -0.051153,
+    "9": 0.013067
+  },
+  "chi_squared": {
+    "statistic": 93.813535,
+    "p_value": 0.0
+  },
+  "mad": 0.105943,
+  "mad_classification": "Nonconformity",
+  "ks_test": {
+    "statistic": 0.403592,
+    "p_value": 0.0
+  },
+  "delta_b": 0.454352,
+  "verdict": "EXPLAINED",
+  "confidence": "low",
+  "notes": "Atomic spectral lines from a single element (hydrogen-like) tend to cluster in series (Lyman, Balmer, Paschen). The Rydberg formula creates structured patterns rather than spanning many decades uniformly. Multi-element spectra spanning UV to IR would better test Benford.",
+  "interesting_findings": "",
+  "timestamp": "2026-02-07T00:07:46.553586+00:00"
+}

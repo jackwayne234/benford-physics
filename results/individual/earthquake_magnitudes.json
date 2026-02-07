@@ -1,0 +1,58 @@
+{
+  "test_id": "earthquake_magnitudes",
+  "display_name": "Earthquake Magnitudes",
+  "category": "Earth Sciences",
+  "description": "USGS earthquake magnitudes (M\u22652.5) \u2014 already on log scale",
+  "status": "complete",
+  "data_points": 2000,
+  "source": "api:usgs",
+  "digit_distribution": {
+    "1": 0.0,
+    "2": 0.26,
+    "3": 0.2285,
+    "4": 0.4485,
+    "5": 0.059,
+    "6": 0.0035,
+    "7": 0.0005,
+    "8": 0.0,
+    "9": 0.0
+  },
+  "expected_distribution": {
+    "1": 0.30103,
+    "2": 0.176091,
+    "3": 0.124939,
+    "4": 0.09691,
+    "5": 0.079181,
+    "6": 0.066947,
+    "7": 0.057992,
+    "8": 0.051153,
+    "9": 0.045757
+  },
+  "per_digit_deviation": {
+    "1": -0.30103,
+    "2": 0.083909,
+    "3": 0.103561,
+    "4": 0.35159,
+    "5": -0.020181,
+    "6": -0.063447,
+    "7": -0.057492,
+    "8": -0.051153,
+    "9": -0.045757
+  },
+  "chi_squared": {
+    "statistic": 3843.209044,
+    "p_value": 0.0
+  },
+  "mad": 0.119791,
+  "mad_classification": "Nonconformity",
+  "ks_test": {
+    "statistic": 0.30103,
+    "p_value": 0.0
+  },
+  "delta_b": 0.494417,
+  "verdict": "EXPLAINED",
+  "confidence": "high",
+  "notes": "Earthquake magnitudes are ALREADY on a logarithmic scale (Richter/moment magnitude). Applying Benford's Law to a log-scale quantity is like taking log(log(energy)), which is NOT expected to follow Benford. This is a methodological control: Benford applies to the raw values, not to already-logarithmic quantities.",
+  "interesting_findings": "",
+  "timestamp": "2026-02-07T00:07:29.030122+00:00"
+}

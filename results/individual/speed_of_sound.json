@@ -1,0 +1,58 @@
+{
+  "test_id": "speed_of_sound",
+  "display_name": "Speed of Sound in Materials",
+  "category": "Physics",
+  "description": "Moderate range",
+  "status": "complete",
+  "data_points": 50,
+  "source": "hardcoded",
+  "digit_distribution": {
+    "1": 0.34,
+    "2": 0.1,
+    "3": 0.22,
+    "4": 0.1,
+    "5": 0.14,
+    "6": 0.06,
+    "7": 0.0,
+    "8": 0.02,
+    "9": 0.02
+  },
+  "expected_distribution": {
+    "1": 0.30103,
+    "2": 0.176091,
+    "3": 0.124939,
+    "4": 0.09691,
+    "5": 0.079181,
+    "6": 0.066947,
+    "7": 0.057992,
+    "8": 0.051153,
+    "9": 0.045757
+  },
+  "per_digit_deviation": {
+    "1": 0.03897,
+    "2": -0.076091,
+    "3": 0.095061,
+    "4": 0.00309,
+    "5": 0.060819,
+    "6": -0.006947,
+    "7": -0.057992,
+    "8": -0.031153,
+    "9": -0.025757
+  },
+  "chi_squared": {
+    "statistic": 12.462545,
+    "p_value": 0.131729
+  },
+  "mad": 0.043987,
+  "mad_classification": "Nonconformity",
+  "ks_test": {
+    "statistic": 0.121849,
+    "p_value": 0.414796
+  },
+  "delta_b": 0.158426,
+  "verdict": "EXPLAINED",
+  "confidence": "low",
+  "notes": "Speed of sound in materials spans less than 2 decades (~300-12000 m/s). This narrow range and the clustering around typical solid/liquid values prevents Benford conformance. Sound speed is bounded by atomic physics.",
+  "interesting_findings": "",
+  "timestamp": "2026-02-07T00:07:46.527118+00:00"
+}

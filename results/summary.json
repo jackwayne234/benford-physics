@@ -1,0 +1,69 @@
+{
+  "project": "Benford's Law Testing Lab",
+  "paper": "The Law of Emergence: Benford's Distribution as a Universal Constraint on Physical Reality (Riner 2026)",
+  "paper_doi": "10.5281/zenodo.18510250",
+  "tests": [
+    {
+      "test_id": "bose_einstein_numerical",
+      "display_name": "Bose-Einstein Distribution",
+      "category": "Quantum Statistics",
+      "data_points": 100000,
+      "verdict": "CONFORMS",
+      "delta_b": 0.005627,
+      "mad": 0.001195,
+      "chi_squared_p": 0.065044,
+      "ks_p": 0.04691,
+      "confidence": "high",
+      "timestamp": "2026-02-07T00:15:08.208505+00:00"
+    },
+    {
+      "test_id": "fermi_dirac_numerical",
+      "display_name": "Fermi-Dirac Distribution",
+      "category": "Quantum Statistics",
+      "data_points": 100000,
+      "verdict": "HAS MASS",
+      "delta_b": 0.011736,
+      "mad": 0.003404,
+      "chi_squared_p": 0.0,
+      "ks_p": 0.0,
+      "confidence": "high",
+      "timestamp": "2026-02-07T00:15:09.411616+00:00"
+    },
+    {
+      "test_id": "maxwell_boltzmann_numerical",
+      "display_name": "Maxwell-Boltzmann Distribution",
+      "category": "Quantum Statistics",
+      "data_points": 100000,
+      "verdict": "HAS MASS",
+      "delta_b": 0.00985,
+      "mad": 0.002038,
+      "chi_squared_p": 3e-06,
+      "ks_p": 0.0,
+      "confidence": "high",
+      "timestamp": "2026-02-07T00:15:10.654220+00:00"
+    },
+    {
+      "test_id": "planck_radiation_spectrum",
+      "display_name": "Planck Black-Body Spectrum",
+      "category": "Quantum Statistics",
+      "data_points": 100000,
+      "verdict": "MARGINAL",
+      "delta_b": 0.027921,
+      "mad": 0.005904,
+      "chi_squared_p": 0.0,
+      "ks_p": 0.0,
+      "confidence": "high",
+      "timestamp": "2026-02-07T00:15:11.845641+00:00"
+    }
+  ],
+  "stats": {
+    "total_completed": 4,
+    "conforms": 1,
+    "marginal": 1,
+    "deviates": 0,
+    "has_mass": 2,
+    "explained": 0,
+    "interesting": 0
+  },
+  "last_updated": "2026-02-07T01:30:00.000000+00:00"
+}

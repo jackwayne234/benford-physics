@@ -1,0 +1,58 @@
+{
+  "test_id": "pulsar_periods",
+  "display_name": "Pulsar Rotation Periods",
+  "category": "Astrophysics",
+  "description": "Bimodal: millisecond vs regular",
+  "status": "complete",
+  "data_points": 100,
+  "source": "hardcoded",
+  "digit_distribution": {
+    "1": 0.29,
+    "2": 0.14,
+    "3": 0.12,
+    "4": 0.09,
+    "5": 0.1,
+    "6": 0.08,
+    "7": 0.08,
+    "8": 0.08,
+    "9": 0.02
+  },
+  "expected_distribution": {
+    "1": 0.30103,
+    "2": 0.176091,
+    "3": 0.124939,
+    "4": 0.09691,
+    "5": 0.079181,
+    "6": 0.066947,
+    "7": 0.057992,
+    "8": 0.051153,
+    "9": 0.045757
+  },
+  "per_digit_deviation": {
+    "1": -0.01103,
+    "2": -0.036091,
+    "3": -0.004939,
+    "4": -0.00691,
+    "5": 0.020819,
+    "6": 0.013053,
+    "7": 0.022008,
+    "8": 0.028847,
+    "9": -0.025757
+  },
+  "chi_squared": {
+    "statistic": 5.562801,
+    "p_value": 0.696073
+  },
+  "mad": 0.018828,
+  "mad_classification": "Nonconformity",
+  "ks_test": {
+    "statistic": 0.05897,
+    "p_value": 0.85713
+  },
+  "delta_b": 0.063876,
+  "verdict": "MARGINAL",
+  "confidence": "high",
+  "notes": "Pulsar rotation periods show bimodal distribution (millisecond pulsars + normal pulsars). The bimodality creates non-Benford behavior. Each subpopulation spans only ~1-2 decades, insufficient for strong conformance.",
+  "interesting_findings": "",
+  "timestamp": "2026-02-07T00:07:46.502156+00:00"
+}

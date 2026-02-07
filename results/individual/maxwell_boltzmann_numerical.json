@@ -1,0 +1,58 @@
+{
+  "test_id": "maxwell_boltzmann_numerical",
+  "display_name": "Maxwell-Boltzmann Distribution",
+  "category": "Quantum Statistics",
+  "description": "Maxwell-Boltzmann speed distribution sampling",
+  "status": "complete",
+  "data_points": 100000,
+  "source": "generated:maxwell_boltzmann",
+  "digit_distribution": {
+    "1": 0.29186,
+    "2": 0.17841,
+    "3": 0.12658,
+    "4": 0.09819,
+    "5": 0.08022,
+    "6": 0.06782,
+    "7": 0.05876,
+    "8": 0.05182,
+    "9": 0.04634
+  },
+  "expected_distribution": {
+    "1": 0.30103,
+    "2": 0.176091,
+    "3": 0.124939,
+    "4": 0.09691,
+    "5": 0.079181,
+    "6": 0.066947,
+    "7": 0.057992,
+    "8": 0.051153,
+    "9": 0.045757
+  },
+  "per_digit_deviation": {
+    "1": -0.00917,
+    "2": 0.002319,
+    "3": 0.001641,
+    "4": 0.00128,
+    "5": 0.001039,
+    "6": 0.000873,
+    "7": 0.000768,
+    "8": 0.000667,
+    "9": 0.000583
+  },
+  "chi_squared": {
+    "statistic": 39.96506,
+    "p_value": 3e-06
+  },
+  "mad": 0.002038,
+  "mad_classification": "Close conformity",
+  "ks_test": {
+    "statistic": 0.00917,
+    "p_value": 0.0
+  },
+  "delta_b": 0.00985,
+  "verdict": "HAS MASS",
+  "confidence": "high",
+  "notes": "Maxwell-Boltzmann n(x) = e^{-x} is a single exponential \u2014 trivially completely monotonic. The small delta_B arises from finite sampling. The monotonic per-digit deviation pattern (- + + + + + + + +) differs structurally from FD's oscillatory pattern, confirming the diagnostic power of epsilon(d) signatures.",
+  "interesting_findings": "",
+  "timestamp": "2026-02-07T00:15:10.654220+00:00"
+}

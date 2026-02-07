@@ -1,0 +1,58 @@
+{
+  "test_id": "element_melting_points",
+  "display_name": "Element Melting Points",
+  "category": "Atomic Physics",
+  "description": "Narrow range",
+  "status": "complete",
+  "data_points": 98,
+  "source": "hardcoded",
+  "digit_distribution": {
+    "1": 0.44898,
+    "2": 0.173469,
+    "3": 0.142857,
+    "4": 0.030612,
+    "5": 0.081633,
+    "6": 0.030612,
+    "7": 0.010204,
+    "8": 0.010204,
+    "9": 0.071429
+  },
+  "expected_distribution": {
+    "1": 0.30103,
+    "2": 0.176091,
+    "3": 0.124939,
+    "4": 0.09691,
+    "5": 0.079181,
+    "6": 0.066947,
+    "7": 0.057992,
+    "8": 0.051153,
+    "9": 0.045757
+  },
+  "per_digit_deviation": {
+    "1": 0.14795,
+    "2": -0.002622,
+    "3": 0.017918,
+    "4": -0.066298,
+    "5": 0.002452,
+    "6": -0.036335,
+    "7": -0.047788,
+    "8": -0.040949,
+    "9": 0.025672
+  },
+  "chi_squared": {
+    "statistic": 22.249652,
+    "p_value": 0.004474
+  },
+  "mad": 0.043109,
+  "mad_classification": "Nonconformity",
+  "ks_test": {
+    "statistic": 0.163246,
+    "p_value": 0.009475
+  },
+  "delta_b": 0.180439,
+  "verdict": "EXPLAINED",
+  "confidence": "low",
+  "notes": "Element melting points span only ~2 decades (14 K to 3695 K). This narrow range, combined with the clustering of most elements in the 500-3000 K range, prevents Benford conformance. Condensed matter energy scales are set by EM interactions.",
+  "interesting_findings": "",
+  "timestamp": "2026-02-07T00:07:46.531927+00:00"
+}

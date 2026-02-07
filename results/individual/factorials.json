@@ -1,0 +1,58 @@
+{
+  "test_id": "factorials",
+  "display_name": "Factorials (1! to 200!)",
+  "category": "Mathematics",
+  "description": "Factorial sequence \u2014 Stirling approximation predicts conformance",
+  "status": "complete",
+  "data_points": 170,
+  "source": "generated:factorials",
+  "digit_distribution": {
+    "1": 0.317647,
+    "2": 0.170588,
+    "3": 0.129412,
+    "4": 0.070588,
+    "5": 0.070588,
+    "6": 0.058824,
+    "7": 0.035294,
+    "8": 0.082353,
+    "9": 0.064706
+  },
+  "expected_distribution": {
+    "1": 0.30103,
+    "2": 0.176091,
+    "3": 0.124939,
+    "4": 0.09691,
+    "5": 0.079181,
+    "6": 0.066947,
+    "7": 0.057992,
+    "8": 0.051153,
+    "9": 0.045757
+  },
+  "per_digit_deviation": {
+    "1": 0.016617,
+    "2": -0.005503,
+    "3": 0.004473,
+    "4": -0.026322,
+    "5": -0.008593,
+    "6": -0.008123,
+    "7": -0.022698,
+    "8": 0.0312,
+    "9": 0.018949
+  },
+  "chi_squared": {
+    "statistic": 7.833318,
+    "p_value": 0.449919
+  },
+  "mad": 0.015831,
+  "mad_classification": "Nonconformity",
+  "ks_test": {
+    "statistic": 0.050149,
+    "p_value": 0.766644
+  },
+  "delta_b": 0.054834,
+  "verdict": "MARGINAL",
+  "confidence": "high",
+  "notes": "Factorials: log_10(n!) grows as n*log_10(n) - n/ln(10) (Stirling). The fractional parts are nearly equidistributed, giving approximate Benford conformance. Moderate deviation from the relatively small sample (170 values).",
+  "interesting_findings": "",
+  "timestamp": "2026-02-07T00:04:57.366802+00:00"
+}

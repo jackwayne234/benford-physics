@@ -1,0 +1,58 @@
+{
+  "test_id": "ocean_depths",
+  "display_name": "Ocean Depth Measurements",
+  "category": "Earth Sciences",
+  "description": "Narrow range",
+  "status": "complete",
+  "data_points": 60,
+  "source": "hardcoded",
+  "digit_distribution": {
+    "1": 0.183333,
+    "2": 0.116667,
+    "3": 0.133333,
+    "4": 0.116667,
+    "5": 0.1,
+    "6": 0.116667,
+    "7": 0.1,
+    "8": 0.066667,
+    "9": 0.066667
+  },
+  "expected_distribution": {
+    "1": 0.30103,
+    "2": 0.176091,
+    "3": 0.124939,
+    "4": 0.09691,
+    "5": 0.079181,
+    "6": 0.066947,
+    "7": 0.057992,
+    "8": 0.051153,
+    "9": 0.045757
+  },
+  "per_digit_deviation": {
+    "1": -0.117697,
+    "2": -0.059424,
+    "3": 0.008394,
+    "4": 0.019757,
+    "5": 0.020819,
+    "6": 0.04972,
+    "7": 0.042008,
+    "8": 0.015514,
+    "9": 0.02091
+  },
+  "chi_squared": {
+    "statistic": 9.465158,
+    "p_value": 0.304586
+  },
+  "mad": 0.03936,
+  "mad_classification": "Nonconformity",
+  "ks_test": {
+    "statistic": 0.177121,
+    "p_value": 0.04064
+  },
+  "delta_b": 0.152292,
+  "verdict": "DEVIATES",
+  "confidence": "low",
+  "notes": "",
+  "interesting_findings": "",
+  "timestamp": "2026-02-07T00:07:46.456121+00:00"
+}
