@@ -169,118 +169,98 @@ produces quantitative numbers, and each row in the table above points to a deepe
 investigation in the companion papers (Papers 3–7). The rest of this paper
 develops the framework; the data fills it in.
 
-### 2.4 The Speed of Light Barrier: The Axiom Says No
+### 2.4 The Speed of Light Barrier
 
 Standard physics states that no object with mass can reach the speed of light
 because its relativistic mass would become infinite, requiring infinite energy.
-This is accurate as a description. But it describes the symptom, not the cause.
+This is accurate as a description.
 
-In this framework, the cause is simpler: mass carries deviation from the
-logarithmic constraint. Light carries zero deviation. If an object with mass
-reached the speed of light, a thing with deviation would be behaving as though
-it had zero deviation. This is a contradiction of the axiom. It is not that the
-universe cannot supply enough energy. It is that the constraint will not permit
-a deviation-carrying entity to behave as though it carries none.
+The measurement tool suggests an additional way to see it: mass carries deviation
+from the Benford baseline. Light carries near-zero deviation. A massive object
+reaching light speed would be a system with nonzero δ_B behaving as though
+δ_B = 0. The energy barrier may be the physical expression of this mathematical
+incompatibility.
 
-The energy requirement approaching infinity is not the cause of the barrier. It
-is the **enforcement mechanism** — the way the axiom says no.
+This is speculative — the tool does not prove causation here. But it is worth
+noting that several apparently distinct phenomena share a common structure when
+viewed through the Benford lens:
 
-This reframes the relativistic speed limit as one instance of a general
-principle: the logarithmic constraint enforcing itself. Multiple phenomena in
-physics that appear to be distinct laws are, in this framework, different
-expressions of the same enforcement:
+- **The speed of light barrier** — deviation-carrying systems cannot reach the
+  zero-deviation state
+- **Gravitational time dilation** — local processes slow where deviation
+  concentrates (Section 4.3)
+- **The black hole event horizon** — geometry closes where deviation reaches
+  extremes (Section 4.4)
+- **Accelerating expansion in voids** — processes are fastest where deviation
+  is minimal (Section 4.5)
 
-- **The speed of light barrier** — the axiom preventing mass from mimicking
-  zero deviation
-- **Gravitational time dilation** — the axiom throttling its own rate where
-  deviation concentrates (Section 4.3)
-- **The black hole event horizon** — the axiom containing runaway deviation
-  by sealing the geometry (Section 4.4)
-- **Accelerating expansion in voids** — the axiom unthrottled where deviation
-  is absent (Section 4.5)
-
-Four phenomena. Four enforcement mechanisms. One rule.
+Whether these share a common cause or merely a common description is an open
+question. The tool reveals the pattern; it does not settle the interpretation.
 
 ### 2.5 Time as Perceived Entropy
 
 Every method of measuring time is, at root, a measurement of entropy. A clock
 ticks because a mechanism transitions between states — entropy. A candle burns
 down — entropy. Biological organisms age because cellular processes accumulate
-irreversible changes — entropy. Memories form because neural configurations
-change irreversibly — entropy. The "arrow of time" has long been recognized as
-the arrow of entropy. Physicists have treated the two as correlated. This
-framework proposes they are identical.
+irreversible changes — entropy. The "arrow of time" has long been recognized as
+the arrow of entropy. Physicists have treated the two as correlated. The Benford
+tool suggests they may be more tightly connected than that.
 
-**Time is the word we use for what it feels like to experience entropy from
-inside a system made of mass.**
+Systems with zero deviation (δ_B ≈ 0) — like photons — experience no time. Systems
+with nonzero deviation experience time in proportion to their entropy. This
+suggests a possible interpretation:
 
-This resolves several otherwise puzzling features of time:
+**Time is what it feels like to experience entropy from inside a system with
+nonzero δ_B.**
 
-- **A photon experiences no time.** Not because time "stops" for light, but
-  because light has no mass, no entropy, and no deviation. There is nothing
-  to experience. Time is not paused for the photon. Time was never there.
-  Time is a property of deviation, and light has none.
+This interpretation, if correct, would address several features of time:
 
-- **Time slows in a gravitational field.** Not because spacetime geometry acts
-  on time as a separate entity, but because the logarithmic constraint throttles
-  entropy in regions of concentrated deviation (Section 4.3). We perceive that
-  throttling as time slowing because, to a mass-bearing observer, entropy and
-  time are indistinguishable.
+- **A photon experiences no time** — it has near-zero δ_B, no entropy, nothing
+  to change. Time is a property of deviation, and light has essentially none.
 
-- **Time had a beginning (the Big Bang).** If time is entropy, then "the
-  beginning of time" is simply the beginning of entropy — the moment emergence
-  first occurred under the logarithmic constraint. The constraint itself,
-  being logically prior to the universe (Section 7), does not require time.
-  Time began when the constraint first had mass to act upon.
+- **Time slows in a gravitational field** — where deviation concentrates, the
+  tool suggests that entropy processes self-regulate (Section 4.3). We perceive
+  that throttling as time slowing.
 
-- **Time flows in one direction.** The second law of thermodynamics states
-  that entropy increases. If time is perceived entropy, its unidirectionality
-  is not a mystery requiring explanation. It is simply what increasing entropy
-  feels like from the inside.
+- **Time had a beginning (the Big Bang)** — if time tracks entropy, then the
+  beginning of time is the beginning of entropy. The mathematical baseline
+  predates the physical universe (Section 7).
+
+- **Time flows in one direction** — entropy increases; if time is perceived
+  entropy, its unidirectionality follows naturally.
+
+These are speculative connections suggested by the measurement framework, not
+proven claims. They indicate directions the tool might be useful for investigating.
 
 ### 2.6 Entropy as Return to Conformance
 
 The standard interpretation of entropy is disorder — systems decay, structures
-dissolve, complexity breaks down. This framing is descriptive but directionless.
-It characterizes entropy as purposeless degradation.
+dissolve, complexity breaks down. The Benford tool suggests an additional
+perspective: entropy may be the process by which mass-bearing systems move
+toward lower δ_B — toward the low-deviation state that the baseline represents.
 
-This framework reinterprets entropy as **mass attempting to return to zero
-deviation** — to the massless state of perfect conformance with the logarithmic
-constraint. Mass is deviation. Deviation is inherently unstable under the
-constraint. The axiom does not allow it to remain static. It must move, and the
-only direction available is back toward conformance.
+This interpretation is consistent with the actual behavior of entropic processes:
 
-This reinterpretation is supported by the actual behavior of entropic processes:
-
-- **Stars** burn through fuel, converting mass to energy, radiating photons and
-  other massless particles — shedding mass, moving toward zero deviation
-- **Radioactive decay** transforms unstable nuclei into more stable, lower-energy
-  configurations — reducing mass-energy, approaching conformance
+- **Stars** convert mass to energy, radiating photons — moving from higher δ_B
+  toward the low-deviation massless state
+- **Radioactive decay** transforms unstable nuclei into more stable configurations
+  — reducing mass-energy, lowering δ_B
 - **Thermal equilibrium** distributes energy uniformly — spreading deviation as
-  thinly as possible across the system
-- **Black hole evaporation** (Hawking radiation) converts the most extreme
-  concentration of mass back into radiation over ~10^67 years — the most
-  dramatic return from maximum deviation to the massless state
-- **The heat death of the universe** — the theoretical end state of maximum
-  entropy — is a universe of maximally dispersed, minimally interacting
-  particles and low-energy radiation. As close to massless, and therefore as
-  close to zero deviation, as the universe can achieve
+  thinly as possible
+- **Black hole evaporation** (Hawking radiation) converts extreme mass
+  concentration back into radiation — the most dramatic movement from high
+  to low δ_B
+- **The heat death** — maximum entropy — is a universe of maximally dispersed,
+  low-energy radiation. The lowest δ_B the universe can achieve
 
-The end state of entropy is not disorder. It is the universe approaching
-conformance with the axiom as completely as mass allows.
+If this interpretation holds, then the direction of entropy is the direction
+toward conformance: from high δ_B to low δ_B, from mass to masslessness. The
+second law of thermodynamics would describe the universe's tendency toward the
+measurement baseline.
 
-This explains why anything with mass has entropy: **mass is deviation, and the
-constraint does not permit deviation to be stable.** The axiom continuously
-drives mass-bearing systems toward the massless state — toward zero deviation,
-toward perfect conformance. All massless entities travel at *c*; they experience
-no time, no decay, no entropy. That is the state the constraint favors. Everything
-with mass is being moved toward it.
-
-We call that movement entropy. We perceive it as time (Section 2.5). Its
-directionality — the arrow of time, the second law of thermodynamics — is not
-a mystery. It is the axiom enforcing return to conformance. Entropy has a
-direction because the constraint has a preferred state: massless, zero deviation,
-perfect conformance.
+This is speculative, but it is testable: track the aggregate δ_B of a closed
+system as it evolves and see whether it trends downward. The tool provides
+the measurement; the data would confirm or refute the interpretation.
 
 ### 2.7 Spacetime as Description
 
@@ -288,47 +268,43 @@ General relativity describes spacetime as a dynamic fabric — curved by mass,
 warped by energy, inseparable from the matter within it. This description is
 the most successful in the history of physics.
 
-But spacetime, in this framework, is not a fundamental entity. It is a
-**description of the effects** of the logarithmic constraint operating on mass.
-Einstein provided the map — the most precise and predictive map ever drawn.
-The territory being mapped is the axiom itself.
+The Benford tool suggests a possible additional layer: spacetime may be a
+description of the effects of the logarithmic constraint operating on mass,
+as perceived from inside. Einstein provided the map — the most precise and
+predictive map ever drawn. The Benford baseline may be describing the same
+territory from a different vantage point.
 
-Spacetime is what the constraint's effects look like from the inside, when the
-observer is made of mass and is experiencing deviation. Space curves because
-deviation distorts the local geometry. Time dilates because the constraint
-self-regulates in regions of concentrated deviation. The fabric of spacetime
-is the fabric of the axiom's enforcement, perceived from within.
+This is a possibility the tool opens up, not a conclusion it proves. General
+relativity remains the definitive description of spacetime. What the Benford
+tool adds is a way to characterize spacetime's curvature from outside the
+system — through the δ_B numbers — which may complement the geometric
+description.
 
 ---
 
-## 3. The Logarithmic Constraint and Emergence
+## 3. Why the Logarithm?
 
-### 3.1 Emergence as the Central Concept
+### 3.1 The Mathematical Structure Behind the Tool
 
-The known laws of physics are descriptive. They characterize the behavior of systems
-that already exist. Newton's laws describe motion. Maxwell's equations describe
-electromagnetic fields. The Schrodinger equation describes quantum state evolution.
-None of them address the question of why organized systems exist in the first place —
-why there is structure rather than noise.
+The known laws of physics are descriptive — they characterize the behavior of systems
+that already exist. The Benford baseline sits at a different level: it is a
+mathematical structure that appears universally in the outputs of physical systems.
+Whether it is a *precondition* for physical systems to exist, or merely a *consequence*
+of how physical systems generate numbers, remains an open question. What is clear is
+that the logarithm at its core is not arbitrary.
 
-We propose that Benford's logarithmic distribution addresses this gap. It is not a
-law describing behavior within an existing system. It is a **condition** that must be
-satisfied for a system to emerge and sustain itself.
+### 3.2 Why This Distribution Works Everywhere
 
-### 3.2 The Constraint on Existence
-
-If Benford's distribution is a precondition for emergence, its universality follows
-immediately: every organized system that exists conforms to it, not because the
-systems communicate or share mechanisms, but because any configuration that failed to
-conform could not sustain itself into existence. This is survivorship at the deepest
-possible level.
-
-This framing transforms Benford's Law from an observation requiring explanation into
-an axiom generating predictions.
+The universality of Benford's Law across all physical domains is what makes it useful
+as a measurement tool. Every organized system that has been tested conforms to it — not
+because the systems communicate or share mechanisms, but because the logarithmic
+distribution appears to be a structural feature of how nature generates numbers at
+scale. This is why deviations from it carry information: the baseline is stable
+enough that any departure signals something about the system being measured.
 
 ### 3.3 The Logarithm as Structural Necessity
 
-The appearance of the logarithm in this constraint is supported by independent
+The appearance of the logarithm in this distribution is supported by independent
 results from multiple fields:
 
 - **Information theory:** Shannon (1948) proved that the logarithm is the *unique*
@@ -347,13 +323,13 @@ These independent derivations, from different fields and different decades, all
 converge on the same conclusion: the logarithm is not one option among many. It is
 the unique mathematical structure that bridges multiplicative and additive processes,
 governs the flow of information, and parameterizes the relationship between scales.
-
-If reality has a native mathematical language, these results collectively indicate
-that it is logarithmic.
+This is why it works as a measurement baseline — the logarithm is how nature
+organizes information, and Benford's distribution is a direct expression of that
+structure.
 
 ---
 
-## 4. Gravity as the Braking Mechanism of Emergence
+## 4. What the Tool Reveals About Gravity
 
 ### 4.1 The Anomaly of Gravity
 
@@ -365,7 +341,8 @@ Among the four fundamental forces, gravity is anomalous in several respects:
   color charge, flavor), gravity acts on **everything** with mass-energy
 
 This universality parallels Benford's distribution, which also appears across all
-domains without restriction to specific mechanisms or interactions.
+domains without restriction to specific mechanisms or interactions. When the tool
+is applied to gravitational systems, the results suggest a distinctive relationship.
 
 ### 4.2 Entropic Gravity
 
@@ -380,20 +357,21 @@ through statistical mechanics favoring higher-entropy configurations.
 
 If gravity is an entropic phenomenon, and gravitational fields produce time dilation
 (experimentally confirmed and operationally corrected for in GPS systems daily), then
-a remarkable self-regulatory mechanism emerges:
+the tool points toward a self-regulatory mechanism:
 
-1. Entropy concentrates in regions of high mass-energy density
+1. Deviation (mass-energy) concentrates in a region
 2. This concentration produces gravitational effects (Verlinde)
 3. These gravitational effects slow local time (general relativistic time dilation)
 4. Slowed time reduces the local rate of entropy change
 5. The system reaches equilibrium
 
-**Entropy slows itself down in regions where it is concentrated.** This is
-self-regulation in a single step. The braking mechanism is intrinsic.
+In terms of the measurement baseline: regions of high δ_B self-regulate by
+slowing their own rate of change. This is a pattern the tool reveals — whether
+it constitutes a causal mechanism or merely a description is an open question.
 
-This may explain the stability of gravitational systems: why planets maintain orbits,
-why galaxies hold together, and why the universe neither flies apart nor collapses
-instantly. The entropic feedback loop provides a natural stabilization mechanism.
+This may help explain the stability of gravitational systems: why planets maintain
+orbits, why galaxies hold together. The entropic feedback loop provides a natural
+stabilization mechanism worthy of further investigation.
 
 ### 4.4 Black Holes: Entropy Containing Light
 
@@ -433,32 +411,35 @@ entropic gravity framework [20] already employs holographic screens as a foundat
 element, indicating that the holographic principle is not an addition to this framework
 but structurally inherent in it.
 
-The constraint remains intact inside the black hole. Light still travels at *c* —
-it does not deviate from the axiom, because it has no mass. Benford's distribution
-presumably still holds. The axiom did not break. The room it governs simply has
-no door.
+The Benford baseline presumably still applies inside the black hole — the tool
+is mathematical, not physical, so the event horizon does not block it. Light
+still travels at *c*. Benford's distribution still holds. The tool can see
+into a region where physical instruments cannot — this is one of its most
+distinctive properties.
 
 ### 4.5 Dark Energy as Absence of Braking
 
 In the voids between galaxy clusters — regions of minimal mass, minimal entropy
-concentration, and minimal gravitational time dilation — time runs at its fastest
-and emergence is unthrottled. These voids are also where the expansion of the
-universe accelerates most.
+concentration, and minimal gravitational time dilation — time runs at its fastest.
+These voids are also where the expansion of the universe accelerates most.
 
-If gravity is the braking mechanism of emergence, then the accelerating expansion
-in low-density regions does not require a new form of energy (dark energy) as its
-cause. It may simply be what unbraked emergence looks like. Nothing is pushing the
-voids apart. Nothing is slowing them down.
+If the self-regulation pattern in Section 4.3 is correct, then the accelerating
+expansion in low-density regions may not require a new form of energy (dark energy)
+as its cause. It may simply be what the absence of braking looks like — regions of
+low δ_B where the self-regulation is minimal. This is a speculative possibility
+that the tool suggests, not a conclusion it establishes.
 
 ### 4.6 Why Gravity Appears Weak
 
-In this framework, gravity's apparent weakness relative to the other forces is not a
-fine-tuning problem. Gravity is not weak. It operates at a different level entirely.
-The strong, weak, and electromagnetic forces are interactions between particles within
-the emergent system. Gravity is the self-regulation of the underlying constraint —
-the system governing its own rate of emergence. Comparing gravity's strength to
-electromagnetism is a category error, like comparing the brightness of a lamp to the
-voltage of the power grid that supplies it.
+The tool suggests a possible reframing: gravity's apparent weakness relative to
+the other forces may not be a fine-tuning problem but a category difference. The
+strong, weak, and electromagnetic forces are interactions between particles within
+a system. Gravity acts on everything with mass-energy — it may be the
+self-regulation of the system as a whole rather than an interaction within it. If
+so, comparing gravity's strength to electromagnetism would be a category error,
+like comparing the brightness of a lamp to the voltage of the power grid
+supplying it. This is a possibility the Benford framework opens up for
+investigation.
 
 ---
 
