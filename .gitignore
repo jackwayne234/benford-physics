@@ -1,0 +1,6 @@
+# Private — never push to GitHub
+war_room/
+reading_notes.md
+__pycache__/
+*.pyc
+.env
