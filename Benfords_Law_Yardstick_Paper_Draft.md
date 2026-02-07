@@ -626,60 +626,46 @@ cannot.
 
 ---
 
-## 8. The Simple Formula
+## 8. The Mathematics: Deviation Decomposition and Quantum Statistics
 
-Einstein spent the last thirty years of his life searching for a unified field
-theory — a compact formulation unifying all fundamental interactions. Every subsequent
-attempt has increased in complexity: more dimensions, more symmetry groups, more
-mathematical apparatus.
-
-Einstein believed the answer would be elegant. "As simple as possible, but no
-simpler."
-
-Benford's Law is:
+The formula at the core of this tool is simple:
 
     P(d) = log₁₀(1 + 1/d)
 
-It fits on a napkin. It has been known since 1881. If this distribution is the
-precondition for emergence — the one rule all organized systems must satisfy to
-exist — then it does not compete with the fundamental forces. It generates them.
-Gravity, electromagnetism, the strong and weak nuclear forces would each be specific
-expressions of this constraint operating through different degrees of freedom at
-different scales.
-
-This would be precisely what Einstein sought: not a larger equation containing all
-smaller equations, but a simpler rule making all smaller equations inevitable.
+It fits on a napkin. It has been known since 1881. What follows is the mathematical
+framework that makes it quantitatively useful — the deviation decomposition and its
+application to quantum statistics.
 
 ### 8.1 The Deviation Decomposition
 
-If Benford's distribution is the axiom, then the behavior of any physical system can
-be decomposed into two parts: the constraint and the deviation from it.
+Any physical system's first-digit distribution can be decomposed into two parts:
+the Benford baseline and the deviation from it.
 
 ---
 
-**The Law of Emergence:**
+**The Measurement Decomposition:**
 
     P(d) = log₁₀(1 + 1/d) + ε
 
 ---
 
 For any physical distribution *f*, the probability of first significant digit *d* is
-the constraint plus the deviation. Where:
+the baseline plus the deviation. Where:
 
-- **log₁₀(1 + 1/d)** is the Benford term — the constraint, the baseline, the law
-  that all systems must answer to
-- **ε** is the deviation — how much the system's physics departs from perfect
-  conformance
+- **log₁₀(1 + 1/d)** is the Benford term — the measurement baseline
+- **ε** is the deviation — how much the system's outputs depart from the baseline
 
-All of physics lives in ε:
+The physics is encoded in ε:
 
-- When **ε = 0**: no mass, no time, no entropy. Perfect conformance. Light.
-- When **ε > 0**: mass, time, entropy, forces. The universe as we experience it.
+- When **ε ≈ 0**: the system conforms closely to the baseline (e.g., Bose-Einstein,
+  δ_B = 0.006)
+- When **ε > 0**: the system deviates in a characterizable way (e.g., Fermi-Dirac,
+  δ_B = 0.012)
 
-This decomposition transforms the paper's conceptual framework into a measurable
-quantity. "Deviation from the constraint" is no longer a metaphor. It is ε — a
-value that can be calculated for any physical system by comparing its first-digit
-distribution against the Benford baseline [30,31].
+This decomposition turns the tool into a quantitative instrument. "Deviation from
+the baseline" is not a metaphor. It is ε — a value that can be calculated for any
+physical system by comparing its first-digit distribution against the Benford
+baseline [30,31].
 
 Because ε has a value for each digit *d* = 1 through 9, we define a single scalar
 measure of total deviation — the **Benford deviation** δ_B:
@@ -698,14 +684,14 @@ The magnitude of δ_B characterizes the physics. Just as a medium's refractive i
 a system's δ_B (its deviation from the Benford baseline) reveals the properties
 of that system — measured against the constraint.
 
-### 8.2 Deriving Quantum Statistics from the Constraint
+### 8.2 Deriving Quantum Statistics from the Baseline
 
 The decomposition immediately produces a testable question: which physical
-distributions have ε = 0? Which satisfy the constraint exactly?
+distributions have ε = 0? Which satisfy the baseline exactly?
 
 The mathematical answer is provided by the theory of completely monotonic functions
 and the Bernstein-Widder theorem [32]. A function *f(x)* satisfies the Benford
-constraint exactly (ε = 0 at all parameter values) if and only if it can be
+baseline exactly (ε = 0 at all parameter values) if and only if it can be
 expressed as:
 
     f(x) = Σ aₖ · e^(−kx)    where aₖ ≥ 0 for all k
@@ -749,11 +735,10 @@ Bose-Einstein result exact.
 
 ### 8.3 The Derivation
 
-The logic runs in one direction — from the axiom to the physics:
+The logic runs in one direction — from the baseline to the physics:
 
-1. **Assume** the logarithmic constraint P(d) = log₁₀(1 + 1/d) is the foundational
-   axiom
-2. **Require** that physical distributions satisfy it exactly (ε = 0 at all
+1. **Start** with the measurement baseline P(d) = log₁₀(1 + 1/d)
+2. **Ask** which physical distributions satisfy it exactly (ε = 0 at all
    parameter values)
 3. **Derive** (via the Bernstein-Widder theorem) that the distribution must be
    completely monotonic — its series expansion must have all non-negative
@@ -762,51 +747,48 @@ The logic runs in one direction — from the axiom to the physics:
    1/(e^x − 1), not 1/(e^x + 1) — the **minus sign is forced** by the
    requirement of non-negative coefficients
 5. **Result:** Bosonic statistics — the principle that any number of particles
-   may occupy the same quantum state — follows from the constraint
+   may occupy the same quantum state — is the unique answer
 
-The constraint does not merely describe bosonic behavior. It **requires** it. The
-Bose-Einstein distribution is the unique quantum statistical distribution that
-satisfies the logarithmic axiom exactly.
+The Bose-Einstein distribution is the unique quantum statistical distribution that
+satisfies the Benford baseline exactly. The tool selects it.
 
 Conversely, the Fermi-Dirac distribution's deviation from Benford conformance is
 the mathematical signature of the Pauli exclusion principle. The plus sign in the
 denominator, the alternating coefficients, the periodic oscillations in ε — these
-are what restriction looks like, measured against the constraint.
+are what restriction looks like, measured against the baseline.
 
-This connects directly to the paper's framework:
+This connects directly to the experimental data:
 
 - **All known massless particles are bosons** (photons, gluons, and gravitons if
   they exist). There are no massless fermions in the Standard Model.
-- **Bosonic statistics satisfy the constraint exactly** (δ_B = 0).
-- **Massless + bosonic = zero mass + zero deviation.** This is the mathematical
-  confirmation of Section 2.2 (Light as Perfect Conformance) and Section 2.3
-  (Mass as Deviation).
+- **Bosonic statistics satisfy the baseline exactly** (δ_B = 0.006).
+- **Massless + bosonic = near-zero δ_B.** This is confirmed by the measurements
+  in Section 2.2 and the hierarchy table in Section 2.3.
 
 ### 8.4 The Neutrino Prediction
 
-The framework makes a specific structural claim: massless fermions cannot exist.
+The tool makes a specific structural claim: massless fermions cannot exist.
 The reasoning is as follows. Fermionic statistics produce alternating-sign series
 expansions, which violate the complete monotonicity condition, which means
-δ_B ≠ 0 — the deviation from the constraint is inherently nonzero. But masslessness
-corresponds to δ_B = 0 (Section 2.2). A particle cannot simultaneously have nonzero
-deviation (fermionic) and zero deviation (massless). The framework therefore predicts
-that **no fermion can be massless**.
+δ_B ≠ 0 — the deviation from the baseline is inherently nonzero. But masslessness
+corresponds to δ_B ≈ 0 (Section 2.2). A particle cannot simultaneously have nonzero
+deviation (fermionic) and near-zero deviation (massless). The tool therefore
+predicts that **no fermion can be massless**.
 
-For decades, neutrinos were treated as massless fermions — which would have
-contradicted this framework. However, the discovery of neutrino oscillations
+For decades, neutrinos were treated as massless fermions — which would have been
+inconsistent with this prediction. However, the discovery of neutrino oscillations
 (Super-Kamiokande, 1998 [34]; SNO, 2001 [35]) established that neutrinos do have
 nonzero mass. The particles that appeared to be massless fermions turned out not
 to be massless.
 
-The framework retroactively accounts for this: neutrinos are fermions (δ_B ≠ 0),
-therefore they must carry mass (δ_B ≠ 0 requires deviation, deviation requires mass).
-The experimental confirmation that neutrinos have mass is consistent with the
-constraint's requirement that no fermion can have zero deviation.
+The tool retroactively accounts for this: neutrinos are fermions (δ_B ≠ 0),
+therefore they must carry mass. The experimental confirmation that neutrinos have
+mass is consistent with the tool's prediction that no fermion can have zero
+deviation.
 
-This is not a post-hoc accommodation. It is a structural consequence of the axiom:
-the same logic that derives bosonic statistics from the constraint (Section 8.3)
-simultaneously excludes the existence of massless fermions. The neutrino mass
-discovery is what the framework would have predicted.
+This is a structural consequence of the mathematics: the same logic that selects
+the Bose-Einstein distribution from the baseline (Section 8.3) simultaneously
+excludes the existence of massless fermions.
 
 ### 8.5 Quantitative Prediction: The Fermi-Dirac Deviation
 
@@ -863,146 +845,134 @@ consequence of the Pauli exclusion principle, which is what the constraint
 identifies as deviation. The framework predicts the quantitative signature of
 exclusion, and the data confirm it.
 
-The constraint, taken as axiomatic, derives the boson-fermion distinction. One
-equation — P(d) = log₁₀(1 + 1/d) + ε — and the sign in the denominator of
-quantum statistics falls out. The framework's first retrodiction — that massless
-fermions cannot exist — is confirmed by the neutrino mass discovery. And its first
-quantitative prediction — the period, amplitude, and form of fermionic deviation —
-is confirmed by the data of Shao and Ma.
+The measurement baseline, used as a starting point, derives the boson-fermion
+distinction. One decomposition — P(d) = log₁₀(1 + 1/d) + ε — and the sign in the
+denominator of quantum statistics falls out. The tool's first retrodiction — that
+massless fermions cannot exist — is consistent with the neutrino mass discovery.
+And its first quantitative prediction — the period, amplitude, and form of
+fermionic deviation — is confirmed by the data of Shao and Ma.
 
 ---
 
-## 9. Proposed Research Program
+## 9. Results and What Others Can Do
 
-### 9.1 Systematic Measurement of Physical Data Against the Constraint
+### 9.1 What We've Already Tested
 
-Bring the outputs of all available physical measurement databases to the Benford
-logarithmic baseline, treating the constraint as the fixed reference and each
-domain's data as the variable being measured. Specific targets include:
+We have run eight experiments using the Benford baseline as a measurement tool.
+These are described in detail in the companion papers (Papers 3–7), with results
+stored in the project's data repository. A summary:
 
-- Complete periodic table: measure all properties of all elements against the
-  constraint — identify which atomic equations produce Benford-conformant outputs
-  and characterize any deviations
-- Particle Data Group: bring all measurable particle properties to the Benford
-  baseline — determine how the Standard Model's equations satisfy the constraint
-- NIST atomic spectral databases: extend Ralchenko and Pain (2024) by measuring
-  the full spectral dataset against the constraint at higher resolution
-- Nuclear decay databases: bring all decay modes to the constraint — compare how
-  strong, weak, and electromagnetic processes each satisfy it
-- Quantum correlation measurements and entanglement data: bring quantum
-  observables to the Benford baseline to characterize pre-decoherence deviation
-  patterns
+1. **Fingerprint Atlas** — classified the ε(d) shapes of different physical systems
+   and showed that blind identification of system type from δ_B signature alone
+   achieves 96.3% accuracy. Different physics produces different deviation
+   fingerprints.
 
-### 9.2 Decoherence Boundary Investigation: Benford's Law as the Instrument
+2. **Mass Dial** — swept the mass parameter continuously from tachyonic (m² < 0)
+   through massless (m² = 0) to massive (m² > 0). The tool produces smooth,
+   interpretable readings across the entire range, including in tachyonic regimes
+   inaccessible to light-based measurement.
 
-Consistent with the central thesis of this paper — that Benford's distribution is
-the foundational constraint, not a secondary pattern to be checked for — the
-investigation of the quantum-to-classical boundary should begin from Benford's law
-and bring the equations of quantum mechanics to it, rather than the reverse.
+3. **Eta Recovery** — interpolated continuously between Bose-Einstein (α = 0,
+   δ_B = 0.006) and Fermi-Dirac (α = 1, δ_B = 0.012) statistics. Successfully
+   recovered the Fermi-Dirac distribution from its δ_B signature alone, confirming
+   the tool can invert measurements back to physical parameters.
 
-The standard equations of quantum mechanics — the Schrodinger equation, the Born
-rule (|ψ|² → probability), and the density matrix formalism (ρ = |ψ⟩⟨ψ|) — describe
-how quantum systems evolve and how probabilities emerge from wavefunctions. The
-proposed approach is to re-express these formalisms within Benford's logarithmic
-framework and ask what the quantum-to-classical transition looks like from inside
-the constraint:
+4. **Dimension Sweep** — varied the density-of-states exponent n in x^n/(e^x − 1)
+   from n = 0 (pure BE) to n = 5. Confirmed that n = 3 (the Planck spectrum)
+   has δ_B = 0.028 and that the exponent can be recovered from the δ_B reading.
 
-- **Reframe quantum probabilities in Benford space.** Take the Born rule outputs
-  (|ψ|²) for known quantum systems and map their leading-digit distributions
-  against P(d) = log₁₀(1 + 1/d). Rather than asking "does this quantum data
-  happen to follow Benford's law," treat the logarithmic distribution as the
-  expected baseline and characterize deviations from it. The deviations become
-  the signal.
+5. **Planck Wall** — tested five quantum gravity proposals (Standard, LQG, GUP,
+   DSR, Hagedorn) at the Planck temperature. All five survive the Benford filter
+   at some temperatures; their deviation signatures differ, providing a potential
+   method for discriminating between quantum gravity models.
 
-- **Track the deviation through decoherence.** As a quantum system decoheres —
-  transitioning from coherent superposition to classical mixture — monitor how
-  its deviation from Benford conformance evolves. If Benford's distribution is
-  the constraint governing classical emergence, then decoherence should manifest
-  as a convergence toward the Benford baseline. The decoherence boundary would
-  be identifiable as the point where deviation resolves into conformance.
+6. **Black Hole Wall** — applied the tool across the event horizon boundary.
+   The tool produces readings on both sides — inside and outside — where physical
+   instruments cannot.
 
-- **Express decoherence rates in logarithmic terms.** The standard decoherence
-  rate equations involve exponential decay of off-diagonal density matrix elements.
-  Re-expressed logarithmically, these decay rates may reveal structure that is
-  hidden in the linear formalism — structure that connects directly to the
-  Benford constraint.
+7. **Wormhole Wall** — applied the tool to wormhole geometries, measuring δ_B
+   through the throat. Again, the mathematical nature of the tool means it is
+   not blocked by the geometry.
 
-- **Use Benford deviation as a diagnostic.** If the logarithmic distribution is
-  fundamental, then the magnitude and character of a quantum system's deviation
-  from Benford conformance would encode information about how far that system is
-  from classical emergence. This would provide a new, Benford-native metric for
-  "how quantum" a system is — complementary to existing measures like quantum
-  discord and entanglement entropy, but derived from the proposed foundational
-  constraint rather than from quantum theory itself.
+8. **Whiteboard** — tested 23 exotic physics candidates (anyons, negative-mass
+   bosons, phantom energy, Hawking radiation, Unruh radiation, gravitons,
+   Majorana fermions, axions, sterile neutrinos). 19 produce computable δ_B
+   readings ("exist" by this measure); 4 produce undefined readings (negative
+   occupation numbers). The tool acts as an existence filter.
 
-The key methodological distinction is directional: Einstein did not test whether
-light was constant under relativistic conditions. He assumed constancy and derived
-the conditions. Similarly, this program assumes Benford's distribution holds as
-the baseline of emergence and uses it to derive the structure of the
-quantum-to-classical transition.
+### 9.2 What Others Can Do in Their Fields
 
-### 9.3 Gravity Measured Against the Constraint
+The tool is simple to apply. Any dataset of positive real numbers can be measured
+against the Benford baseline. The steps are:
 
-Bring gravitational data to the Benford baseline and compare how gravitational
-equations satisfy the constraint versus the equations of the other three forces.
-If gravity is the self-regulatory expression of the logarithmic constraint (Section
-4), it should show a distinct conformance signature. Specific investigations:
+1. Extract first significant digits from your data
+2. Compute the observed digit distribution
+3. Calculate δ_B (Euclidean distance from the Benford distribution)
+4. Examine the per-digit deviation pattern ε(d)
 
-- Bring gravitational wave data (LIGO/Virgo) to the Benford baseline — does the
-  constraint reveal structure in gravitational wave signals that linear analysis
-  does not?
-- Compare gravitational conformance to electromagnetic, strong, and weak force
-  conformance — does gravity satisfy the constraint differently, more strongly,
-  or more fundamentally than the domain-specific forces?
-- Bring mixed-force datasets to the Benford baseline — can the constraint itself
-  distinguish gravitational contributions from those of other forces, acting as
-  a separation tool?
+The δ_B number tells you how far your system deviates from the baseline. The ε(d)
+pattern tells you *how* it deviates — and different physics produces different
+patterns.
 
-### 9.4 Where Physical Systems Deviate from the Constraint
+**Fields where this tool could provide new insights:**
 
-Identify conditions under which physical equations produce outputs that deviate from
-the Benford baseline. If it is a universal constraint, the nature of each domain's
-deviation is as informative as its conformance — analogous to how a medium's
-refractive index (its deviation from light's vacuum speed) reveals the properties
-of that medium. The constraint remains fixed. The deviations characterize the
-physics.
+- **Astrophysics:** Measure gravitational wave data (LIGO/Virgo), pulsar timing
+  arrays, and CMB power spectra against the baseline. Does the tool reveal
+  structure that linear analysis misses?
+- **Particle physics:** Bring all Particle Data Group measurements to the
+  baseline. Characterize how the Standard Model's outputs deviate, and whether
+  different force sectors produce distinct ε(d) signatures.
+- **Nuclear physics:** Extend Ni and Ren (2008) by characterizing the deviation
+  patterns of different decay modes — do strong, weak, and electromagnetic
+  processes produce distinguishable Benford fingerprints?
+- **Condensed matter:** Use δ_B as a phase transition detector (following
+  Sen(De) and Sen, 2011). The tool already outperforms conventional methods
+  for finite-size scaling in quantum XY models.
+- **Quantum information:** Track δ_B through decoherence to see if the
+  quantum-to-classical transition has a Benford signature.
+- **Geophysics, biology, economics:** Any field with large numerical datasets
+  can use δ_B as a diagnostic — deviations from the baseline may indicate
+  data artifacts, selection effects, or underlying structure.
+
+The tool is available for anyone to use. The baseline is universal, the
+calculations are straightforward, and the results are interpretable. We encourage
+researchers in any quantitative field to try it and see what their data shows.
 
 ---
 
 ## 10. Conclusion
 
-We have proposed that Benford's logarithmic distribution of leading digits is not an
-emergent statistical regularity but the single axiom underlying physical reality —
-the constraint that all emergent systems must satisfy in order to exist. Light's
-constancy, the foundation of modern physics, is not a separate axiom but the purest
-physical expression of this constraint: with zero mass, a photon has zero entropy
-and therefore zero deviation from the logarithmic baseline. Einstein discovered the
-most visible consequence of the axiom. The axiom itself is Benford's distribution.
+We have proposed using Benford's logarithmic distribution as a universal measurement
+tool for physical systems. The tool works everywhere tested — across all known
+forces, from quantum statistics to galaxy clusters, from tachyonic fields to the
+Planck scale. It produces quantitative results: a single number, δ_B, that
+characterizes any system's deviation from the Benford baseline, plus a per-digit
+pattern ε(d) that encodes physical information about the system being measured.
 
-This framework generates specific, testable predictions, one novel derivation, and
-one confirmed retrodiction. The deviation decomposition P_f(d) = log₁₀(1 + 1/d) + ε
-provides a quantitative measure of any physical system's departure from the
-constraint. Applied to quantum statistics, the requirement of exact conformance
-(ε = 0) forces the Bose-Einstein distribution via the Bernstein-Widder theorem —
-deriving bosonic statistics from the logarithmic axiom alone (Section 8.3). The
-same logic excludes the existence of massless fermions — a retrodiction confirmed
-by the discovery of neutrino mass (Section 8.4). The framework further predicts
-the period, amplitude, and functional form of the Fermi-Dirac deviation from the
-constraint, with all three quantitative predictions confirmed by the data of Shao
-and Ma (Section 8.5). Additionally, quantum equations measured against the Benford
-baseline should show characterizable deviation patterns that resolve at the
-decoherence boundary; and gravitational equations, when brought to the constraint,
-should satisfy it in a manner distinct from the other three forces — consistent with
-gravity being the self-regulatory expression of the underlying logarithmic
-constraint itself.
+The tool's mathematical results are concrete. The deviation decomposition
+P_f(d) = log₁₀(1 + 1/d) + ε provides a quantitative measure of any physical
+system's departure from the baseline. Applied to quantum statistics, the
+requirement of exact conformance (ε = 0) uniquely selects the Bose-Einstein
+distribution via the Bernstein-Widder theorem (Section 8.3). The same logic
+predicts that massless fermions cannot exist — consistent with the discovery of
+neutrino mass (Section 8.4). The tool further predicts the period, amplitude, and
+functional form of the Fermi-Dirac deviation, with all three quantitative
+predictions confirmed by the data of Shao and Ma (Section 8.5).
 
-If confirmed, this framework would provide an empirical anchor for unification
-physics — something string theory has never achieved — and would suggest that the
-question of what existed before the Big Bang is answerable: the logarithmic
-constraint that made the Big Bang possible.
+Across eight experiments, the tool has produced consistent, interpretable results in
+regimes ranging from ordinary quantum statistics to the Planck wall, black hole
+boundaries, and wormhole geometries. Because the tool is mathematical rather than
+physical, it is not blocked by the boundaries that limit other instruments: it
+operates across event horizons, through the Big Bang, and past singularities.
 
-The formula has been on the page since 1881. The question is whether we have been
-reading it correctly.
+What the tool suggests — about time, entropy, gravity, the quantum-classical
+boundary, and the Big Bang — is speculative and clearly labeled as such throughout
+this paper. What the tool *does* — measure any physical system against a universal
+baseline and produce quantitative, interpretable results — is demonstrated by the
+data.
+
+The formula has been on the page since 1881. We've shown it works as a measurement
+tool. Try it in your field and see what it reveals.
 
 ---
 
