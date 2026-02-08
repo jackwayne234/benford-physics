@@ -317,8 +317,8 @@ This is *not* the Causal Set's natural state. It is over-stripped — too perfec
 too conformant. The gravitational field has pushed it below equilibrium.
 
 **Phase 3 — Restoration** (r = 0.99 → 0.01 r_s): Inside the horizon, δ_B
-climbs from 0.004 back to 0.015–0.017. The black hole is feeding mass-energy
-back into the Causal Set to restore it to equilibrium. The CS is being rebuilt.
+climbs from 0.004 back to 0.015–0.017. The black hole is feeding mass back
+into the Causal Set to restore it to equilibrium. The CS is being rebuilt.
 
 What is the Causal Set's natural resting state? The data points toward a
 consistent answer: at the Big Bang wall (Riner 2026e), CS post-wall mean =
@@ -329,19 +329,53 @@ equilibrium.
 **The transaction is one-way.** The black hole spends mass to restore CS from
 over-conformance back to equilibrium. But CS at equilibrium does not contribute
 mass back. The CS ground state is inert — it is spacetime, the substrate, not
-mass. It costs energy to restore, but the restored state generates no energy in
+mass. It costs mass to restore, but the restored state generates no mass in
 return.
 
-The black hole is not being destroyed. It is being *used* — as an energy source
+The black hole is not being destroyed. It is being *used* — as a mass source
 for spacetime restoration. Mass goes in. Spacetime structure comes out. The
 structure does not refund the payment.
 
-### 4.2 The Healing Hypothesis
+### 4.2 The Whirlpool: Mass Goes Down the Drain, Light Does Not
+
+The mass-stripping cycle has a natural physical image: the black hole is a
+whirlpool. Everything spirals inward. But the drain — the CS restructuring
+mechanism at the singularity — only processes one kind of material.
+
+The key distinction is deviation from the CS equilibrium (~0.017):
+
+- **Mass** corresponds to deviation *above* the CS equilibrium. In Riner
+  (2026a, 2026b), we established that mass is the signature of deviation from
+  Benford conformance. The greater the deviation above ~0.017, the more
+  mass-like the distribution.
+
+- **Light** sits at δ_B ≈ 0.006 (pure Bose-Einstein), which is *below* the CS
+  equilibrium. Light is already more conformant than the CS resting state.
+
+The drain processes mass-deviation into geometry. It cannot process light,
+because light has nothing to give — its deviation is below the threshold. Light
+reaches the center of the whirlpool but cannot go down the drain. It
+accumulates, trapped by the geometry that the CS built from the mass it already
+consumed.
+
+Two classes of behavior at the singularity:
+
+- **Mass** (deviation > ~0.017): consumed by the CS restructuring, converted to
+  spacetime geometry. This is the fuel.
+- **Light** (deviation < ~0.017): trapped by the closed geometry but not
+  consumed. This accumulates.
+
+The whirlpool image clarifies why E = mc² does not apply straightforwardly
+inside a black hole. Einstein's mass-energy equivalence treats mass and energy
+as interchangeable. The CS drain does not. It is selective: it consumes
+deviation, not energy. Light carries energy but no deviation above equilibrium.
+Mass carries both. Inside the event horizon, this distinction matters.
+
+### 4.3 The Healing Hypothesis
 
 The mass-stripping cycle points to a general principle: **Causal Set spacetime
 actively restores its statistical structure when it encounters a singularity or
-horizon, and the energy cost of this restoration is drawn from the black hole's
-mass.**
+horizon, and the cost of this restoration is drawn from the black hole's mass.**
 
 The data supports this:
 
@@ -355,18 +389,18 @@ The data supports this:
 The discrete spacetime — a random Poisson sprinkling of fundamental events —
 has a natural statistical structure that conforms to Benford's Law at δ_B ≈
 0.017. A singularity or horizon disrupts this structure. The causal set responds
-by restructuring itself, consuming energy in the process. The energy source is
-the black hole.
+by restructuring itself, consuming mass in the process. The mass source is the
+black hole.
 
-### 4.3 Black Holes Shrink Without Radiating
+### 4.4 Black Holes Shrink Without Radiating
 
 The standard account of Hawking radiation (Hawking 1975) describes particle
 creation at the event horizon: virtual pairs form in the vacuum, one member falls
 in, the other escapes to infinity as real radiation with a thermal spectrum at
 temperature T_H = ℏc³ / (8πGMk_B).
 
-We propose an alternative: **nothing escapes the black hole.** The mass-energy
-does not leave as outgoing particles. It is consumed internally by the causal set
+We propose an alternative: **nothing escapes the black hole.** The mass does not
+leave as outgoing particles. It is consumed internally by the causal set
 restructuring. The black hole shrinks because the geometry is being eaten from
 within by discrete spacetime maintaining its own statistical law.
 
@@ -375,7 +409,7 @@ evaporates — but the mechanism is fundamentally different:
 
 | | Standard Hawking | Causal Set Healing |
 |---|---|---|
-| Energy flow | Outward (particles escape) | Inward (geometry consumes) |
+| Mass flow | Outward (particles escape) | Inward (geometry consumes mass) |
 | What radiates | Thermal particles at T_H | Nothing — mass simply decreases |
 | Horizon role | Site of pair creation | Trigger for restructuring |
 | Singularity role | Endpoint (or resolved) | Absorbed by discrete structure |
@@ -383,7 +417,7 @@ evaporates — but the mechanism is fundamentally different:
 
 **Table 6.** Comparison of the two evaporation mechanisms.
 
-### 4.4 Why Hawking Radiation Has Not Been Detected
+### 4.5 Why Hawking Radiation Has Not Been Detected
 
 Hawking radiation from astrophysical black holes has never been observed. The
 standard explanation is sensitivity: a solar-mass black hole radiates at T_H ≈
@@ -404,7 +438,7 @@ maps this correlation to real outgoing particles. The Causal Set interpretation
 maps it to internal restructuring — the same mathematical structure, different
 physical realization.
 
-### 4.5 Size Independence and the Black Hole Lifecycle
+### 4.6 Size Independence and the Black Hole Lifecycle
 
 Our simulation uses local geometry. The spectrum at each radius depends on the
 local effective temperature, not on the total black hole mass. The Causal Set
@@ -414,15 +448,23 @@ identical regardless of the black hole's size.
 This has implications for the black hole lifecycle:
 
 **Small black holes** (M ~ M_P): The same local restructuring rate, but the
-total mass is tiny. The constant energy drain is a large fraction of the
-whole. The black hole loses mass rapidly, the effective temperature rises, the
-restructuring intensifies, and the process runs away. This predicts the violent
-final evaporation of small black holes — not as an explosion of Hawking radiation,
-but as a catastrophic structural collapse where the causal set consumes the
-remaining mass in a rapidly accelerating cascade.
+total mass is tiny. The constant mass drain is a large fraction of the whole.
+The black hole loses mass rapidly, the effective temperature rises, the
+restructuring intensifies, and the process runs away.
+
+The whirlpool framework (Section 4.2) predicts what happens at the end. Over
+the black hole's lifetime, the drain consumes mass-deviation into geometry, but
+light — which cannot be processed — accumulates at the center. When the mass
+runs out, the drain has nothing left to consume. The closed geometry was
+maintained by CS restructuring of mass. No more mass means no more
+restructuring, which means the closed geometry opens. All accumulated light
+releases at once. This gives a physical mechanism for Hawking's prediction that
+small black holes explode in their final moments (T ∝ 1/M, diverging as M → 0).
+Hawking's math predicts the burst; the whirlpool framework explains *why*: the
+drain ran out of fuel, the geometry opened, and the trapped light escaped.
 
 **Stellar-mass black holes** (M ~ 10 M_☉): The same local process, but the mass
-reservoir is enormous. The energy consumed by causal set restructuring is
+reservoir is enormous. The mass consumed by causal set restructuring is
 negligible compared to the total mass. The black hole is effectively stable on
 any observationally relevant timescale — consistent with all current observations.
 
@@ -435,7 +477,7 @@ This qualitatively reproduces the standard scaling relation (evaporation time
 ∝ M³) without requiring outgoing radiation. The mechanism is the same at all
 scales; only the ratio of restructuring cost to total mass changes.
 
-### 4.6 The Information Paradox Dissolves
+### 4.7 The Information Paradox Dissolves
 
 The black hole information paradox (Hawking 1976) asks: if a black hole
 evaporates completely via thermal radiation, what happens to the information that
@@ -570,8 +612,8 @@ We claim:
 
 We propose but do not prove:
 
-5. The energy cost of Causal Set restructuring at horizons is drawn from the
-   black hole's mass.
+5. The mass cost of Causal Set restructuring at horizons is drawn from the
+   black hole itself.
 
 6. This restructuring, not Hawking radiation, is the mechanism of black hole
    evaporation.
@@ -592,7 +634,7 @@ Claims 5–7 are interpretive (Section 4). Claims 8–10 are speculative (Sectio
 5). All are consistent with the data presented here but require independent
 theoretical work within the Causal Set formalism to confirm. In particular, one
 would need to show that the dynamics of a causal set in the presence of a
-horizon necessarily produce an energy cost proportional to the restructuring,
+horizon necessarily produce a mass cost proportional to the restructuring,
 and that this cost maps quantitatively to the Hawking mass loss rate. For the
 cosmological claims, one would additionally need to show that the rate of
 spacetime production by black holes is consistent with the observed expansion
@@ -636,6 +678,27 @@ or invoke complementarity. We propose that the evaporation mechanism is entirely
 internal — a structural process of the discrete spacetime rather than a
 semiclassical radiation process.
 
+### 6.4 Why General Relativity Breaks Down at Singularities
+
+Einstein's field equations treat mass and energy identically through the
+stress-energy tensor T_μν. A kilogram of matter and a kilogram-equivalent of
+light produce the same spacetime curvature. This is the foundation of general
+relativity.
+
+The CS mechanism distinguishes them. Mass (deviation above ~0.017) is consumed
+by the drain. Light (deviation below ~0.017) is trapped but not consumed. GR
+does not know about this selectivity. It models the whirlpool — the curvature,
+the infall, the closed geometry — but it cannot model what happens at the center
+because it treats everything going down the drain as the same material.
+
+This is a specific, statable reason for the breakdown. The singularity is not
+where "quantum effects become important" in a vague sense. It is where the
+missing variable — the distinction between mass-deviation and light-deviation —
+becomes the dominant physics, and GR's equations, which lack this variable,
+cannot describe what is actually happening. The equations blow up not because
+the math fails, but because the model is incomplete at the point where the
+drain's selectivity matters most.
+
 ---
 
 ## 7. Conclusion
@@ -648,7 +711,7 @@ Theory produces the cleanest structure by a wide margin.
 The data tells a specific story. As the Causal Set approaches the black hole,
 the gravitational field strips it below its natural equilibrium — pushing δ_B
 from 0.028 down to 0.003, an over-conformance that is not the Causal Set's
-resting state. Inside the horizon, the black hole feeds mass-energy back into
+resting state. Inside the horizon, the black hole feeds mass back into
 the Causal Set, restoring it from 0.004 to 0.017 — its natural equilibrium,
 consistent with the Big Bang wall (Riner 2026e). The transaction is one-way:
 the black hole spends mass, the restored spacetime gives nothing back. A
@@ -656,7 +719,7 @@ wormhole control experiment (Riner 2026f) confirms this response is
 topology-specific — CS drops from 1st place at the black hole to 9th at the
 wormhole, where there is no singularity and no horizon.
 
-If the restoration has an energy cost, and if that cost is drawn from the
+If the restoration has a mass cost, and if that cost is drawn from the
 black hole, then the black hole evaporates without radiating. It shrinks
 because discrete spacetime is consuming it to maintain its own statistical
 nature. The information never leaves. The paradox dissolves. And the product
