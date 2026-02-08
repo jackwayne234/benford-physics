@@ -351,8 +351,9 @@ state. The horizon itself (δ_B = 0.004) is not the minimum. It is just the
 boundary the CS crosses on the way back up.
 
 **Phase 3 — Restoration** (r = 0.99 → 0.01 r_s): Inside the horizon, δ_B
-climbs from 0.004 back to 0.015–0.017. The black hole is feeding mass back
-into the Causal Set to restore it to equilibrium. The CS is being rebuilt.
+climbs from 0.004 back to 0.015–0.017. The black hole is feeding mass — not
+energy — back into the Causal Set to restore it to equilibrium. The CS is
+being rebuilt.
 
 What is the Causal Set's natural resting state? The data points toward a
 consistent answer: at the Big Bang wall (measured separately), CS post-wall mean =
@@ -362,9 +363,9 @@ equilibrium.
 
 **The V-shape.** Read spatially, the data traces a V. The left arm is the
 approach: δ_B drops from 0.028 at r = 10 r_s down to 0.002 at r = 1.1 r_s —
-the whirlpool accelerating, pulling the substrate tighter with every step
-inward. The vertex at 1.1 r_s is where the water is moving fastest, right
-before the drain catches it. The right arm is the interior: δ_B climbs from
+gravity accelerating, pulling the substrate tighter with every step inward.
+The vertex at 1.1 r_s is the point of maximum stripping, right before the
+drain catches it. The right arm is the interior: δ_B climbs from
 0.004 at the horizon back to 0.015–0.018 near the singularity — the CS
 consuming mass to pay off the debt that gravity created. The horizon is not a
 wall or a special boundary in this picture. It is the inflection point where
@@ -380,11 +381,11 @@ The black hole is not being destroyed. It is being *used* — as a mass source
 for spacetime restoration. Mass goes in. Spacetime structure comes out. The
 structure does not refund the payment.
 
-### 4.2 The Whirlpool: Mass Goes Down the Drain, Light Does Not
+### 4.2 Mass Goes Down the Drain, Light Does Not
 
-The mass-stripping cycle has a natural physical image: the black hole is a
-whirlpool. Everything spirals inward. But the drain — the CS restructuring
-mechanism at the singularity — only processes one kind of material.
+The black hole is a drain that only lets matter through to become spacetime,
+but the drain does not let light escape. Everything spirals inward. But the CS
+restructuring mechanism at the singularity only processes one kind of material.
 
 The key distinction is deviation from the CS equilibrium (~0.017):
 
@@ -397,7 +398,7 @@ The key distinction is deviation from the CS equilibrium (~0.017):
 
 The drain processes mass-deviation into geometry. It cannot process light,
 because light has nothing to give — its deviation is below the threshold. Light
-reaches the center of the whirlpool but cannot go down the drain. It
+reaches the center but cannot go down the drain. It
 accumulates, trapped by the geometry that the CS built from the mass it already
 consumed.
 
@@ -408,12 +409,13 @@ Two classes of behavior at the singularity:
 - **Light** (deviation < ~0.017): trapped by the closed geometry but not
   consumed. This accumulates.
 
-The whirlpool image clarifies why E = mc² does not apply straightforwardly
-inside a black hole. Einstein's mass-energy equivalence treats mass and energy
-as interchangeable. The CS drain does not. It is selective: it consumes
-mass (deviation), not energy. Light carries energy but no deviation above *its*
-equilibrium (~0.006). Mass carries both. Inside the event horizon, this
-distinction matters.
+This is why E = mc² does not apply straightforwardly inside the event horizon.
+Einstein's mass-energy equivalence treats mass and energy as interchangeable.
+The CS drain does not. It is selective: it consumes mass (deviation), not
+energy. Light carries energy but no deviation above *its* equilibrium (~0.006).
+Mass carries both. Inside the event horizon, where the drain is active, this
+distinction is the dominant physics — and it is why GR's equations, which lack
+this variable, break down at the singularity.
 
 ### 4.3 The Healing Hypothesis
 
@@ -447,8 +449,9 @@ temperature T_H = ℏc³ / (8πGMk_B).
 
 We propose an alternative: **nothing escapes the black hole.** The mass does not
 leave as outgoing particles. It is consumed internally by the causal set
-restructuring. The black hole shrinks because the geometry is being eaten from
-within by discrete spacetime maintaining its own statistical structure.
+restructuring, creating more spacetime. The black hole shrinks because its mass
+is being eaten from within by discrete spacetime maintaining its own statistical
+structure.
 
 The end result is the same — the black hole loses mass and eventually
 evaporates — but the mechanism is fundamentally different:
@@ -498,7 +501,7 @@ total mass is tiny. The constant mass drain is a large fraction of the whole.
 The black hole loses mass rapidly, the effective temperature rises, the
 restructuring intensifies, and the process runs away.
 
-The whirlpool framework (Section 4.2) predicts what happens at the end. Over
+The mass/light distinction (Section 4.2) predicts what happens at the end. Over
 the black hole's lifetime, the drain consumes mass-deviation into geometry, but
 light — which cannot be processed — accumulates at the center. When the mass
 runs out, the drain has nothing left to consume. The closed geometry was
@@ -506,8 +509,9 @@ maintained by CS restructuring of mass. No more mass means no more
 restructuring, which means the closed geometry opens. All accumulated light
 releases at once. This gives a physical mechanism for Hawking's prediction that
 small black holes explode in their final moments (T ∝ 1/M, diverging as M → 0).
-Hawking's math predicts the burst; the whirlpool framework explains *why*: the
-drain ran out of fuel, the geometry opened, and the trapped light escaped.
+Hawking's math predicts the burst; the CS drain framework explains *why*: the
+drain ran out of fuel, the closed geometry opened, and the trapped light
+escaped.
 
 **Stellar-mass black holes** (M ~ 10 M_☉): The same local process, but the mass
 reservoir is enormous. The mass consumed by causal set restructuring is
@@ -694,9 +698,9 @@ relativity.
 
 The CS mechanism distinguishes them. Mass (deviation above ~0.017) is consumed
 by the drain. Light (deviation below ~0.017) is trapped but not consumed. GR
-does not know about this selectivity. It models the whirlpool — the curvature,
-the infall, the closed geometry — but it cannot model what happens at the center
-because it treats everything going down the drain as the same material.
+does not know about this selectivity. It models the curvature, the infall, the
+closed geometry — but it cannot model what happens at the center because it
+treats everything going down the drain as the same material.
 
 This is a specific, statable reason for the breakdown. The singularity is not
 where "quantum effects become important" in a vague sense. It is where the
@@ -722,12 +726,11 @@ mass back to restore the CS to ~0.017 — its resting state. The transaction is
 one-way: mass goes in, spacetime structure comes out, and the structure does
 not refund the payment.
 
-The whirlpool framework distinguishes two classes of material: mass (deviation
-above ~0.017) is consumed by the drain and converted to geometry. Light
-(deviation below ~0.017) is trapped but not consumed. This selectivity — absent
-from GR's stress-energy tensor, which treats mass and energy identically — is
-why the equations break down at the singularity. GR models the whirlpool but
-not the drain.
+The drain distinguishes two classes of material: mass (deviation above ~0.017)
+is consumed and converted to geometry. Light (deviation below ~0.017) is trapped
+but not consumed. This selectivity — absent from GR's stress-energy tensor,
+which treats mass and energy identically — is why the equations break down at
+the singularity. GR models the infall but not the drain.
 
 The implications are testable in principle and speculative in practice:
 
