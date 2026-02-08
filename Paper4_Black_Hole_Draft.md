@@ -57,6 +57,15 @@ wavefront of this newly generated spacetime.
 
 ---
 
+**Abbreviations:** BH = black hole; CS = Causal Set; GR = general relativity;
+LQG = Loop Quantum Gravity; GUP = Generalized Uncertainty Principle; DSR =
+Doubly Special Relativity; CDT = Causal Dynamical Triangulations; δ_B =
+Euclidean (L2) deviation from Benford's Law; ε(d) = per-digit deviation
+profile; r_s = Schwarzschild radius; BE = Bose-Einstein; FD = Fermi-Dirac;
+T_P = Planck temperature; T_H = Hawking temperature.
+
+---
+
 ## 1. Introduction
 
 Classical general relativity forbids extracting information from inside a black
@@ -163,7 +172,7 @@ Theory, Asymptotic Safety, Horava-Lifshitz, Non-commutative Geometry, and
 Causal Dynamical Triangulations (CDT) — each modify the dispersion relation
 and/or density of states to implement various quantum gravity proposals. Full
 dispersion relations and model descriptions are given in Appendix B. All ten
-models are evaluated at every radial position; Section 3.2 reports comparative
+models are evaluated at every radial position; Section 3.1 reports comparative
 rankings.
 
 ### 2.4 Analysis Protocol
@@ -208,7 +217,7 @@ hole by a significant margin — nearly half the deviation of the runner-up
 the effective temperature rises toward infinity at the singularity. The
 remaining sections focus on the Causal Set data.
 
-### 3.3 The Causal Set Journey
+### 3.2 The Causal Set Journey
 
 The Causal Set data tells a story best read as a journey from far outside to
 deep inside:
@@ -230,7 +239,7 @@ deep inside:
 **Table 2.** Causal Set δ_B through the complete black hole journey. The deviation
 drops from Hawking radiation levels far outside, reaches near-perfect conformance
 at the horizon, then gradually rises to the CS equilibrium (~0.017) near the
-singularity.
+singularity. (See Figure 1 for the full visual.)
 
 Several features are notable:
 
@@ -264,7 +273,7 @@ Benford conformance.
 singularity, if it is resolved by a bounce, is symmetric in its Benford
 structure.
 
-### 3.4 Fingerprint Match: Causal Set and Hawking Radiation
+### 3.3 Fingerprint Match: Causal Set and Hawking Radiation
 
 The per-digit deviation ε(d) provides a richer comparison than δ_B alone. In
 Riner (2026e), we compared the ε(d) fingerprint of Causal Set Theory at various
@@ -289,6 +298,31 @@ constitutes a tight structural match. The Causal Set spectrum, when pushed past
 the singularity into the regime where T > T_P, develops a per-digit profile that
 is statistically indistinguishable from Hawking radiation with a moderate
 greybody factor.
+
+### 3.4 Hawking Radiation vs. Causal Set: Side-by-Side
+
+The following table places Hawking radiation (ω_c = 2.0, constant δ_B ≈ 0.028)
+beside the Causal Set at each position through the black hole. The visual
+pattern is immediate: CS starts at Hawking levels, drops far below, then rises
+back toward a Hawking-like fingerprint in the deep interior.
+
+| r/r_s | Zone | Hawking δ_B | CS δ_B | CS relative to Hawking |
+|-------|------|-------------|--------|------------------------|
+| 10.0 | Far outside | 0.028 | 0.028 | Equal — Hawking imprint |
+| 5.0 | Approaching | 0.028 | 0.004 | CS 7× cleaner |
+| 2.0 | Near horizon | 0.028 | 0.003 | CS 9× cleaner |
+| 1.1 | Just outside | 0.028 | 0.002 | CS 14× cleaner (minimum) |
+| 1.001 | At horizon | 0.028 | 0.004 | CS 7× cleaner |
+| 0.99 | Just inside | 0.028 | 0.004 | No change at crossing |
+| 0.5 | Mid-interior | 0.028 | 0.005 | CS 6× cleaner |
+| 0.2 | Deep interior | 0.028 | 0.012 | CS rising toward Hawking |
+| 0.1 | Near sing. | 0.028 | 0.017 | CS approaching Hawking |
+| 0.04 | Very near sing. | 0.028 | 0.017 | Fingerprint match (L2 = 0.004) |
+| 0.01 | At singularity | 0.028 | 0.015 | CS at equilibrium |
+
+**Table 4.** Hawking radiation (constant) vs. Causal Set (evolving) δ_B through
+the black hole. The CS never reaches Hawking's level but develops the same
+fingerprint shape in the deep interior (see Figure 2).
 
 ### 3.5 Comparison with the Cosmological Singularity
 
@@ -415,7 +449,7 @@ evaporates — but the mechanism is fundamentally different:
 | Singularity role | Endpoint (or resolved) | Absorbed by discrete structure |
 | Information | Paradox (how is it encoded?) | Consumed with mass |
 
-**Table 6.** Comparison of the two evaporation mechanisms.
+**Table 5.** Comparison of the two evaporation mechanisms.
 
 ### 4.5 Why Hawking Radiation Has Not Been Detected
 
@@ -653,7 +687,7 @@ the same prediction for mass loss rate but different predictions for observables
 | Gravitational wave signature | Possible ringdown | Possible different signature |
 | Information in radiation | Encoded (Page curve) | Absent (nothing escapes) |
 
-**Table 7.** Distinguishing predictions.
+**Table 6.** Distinguishing predictions.
 
 A sufficiently sensitive experiment near a small, evaporating black hole could in
 principle distinguish the two scenarios. If outgoing thermal particles are
@@ -774,6 +808,22 @@ Benford's Law, and it will consume a black hole to do it.
   distributions. Astrophys. J. Lett. 944, L31.
 - Sorkin, R. D. (1997). Forks in the road, on the way to quantum gravity. Int.
   J. Theor. Phys. 36, 2759–2781.
+
+---
+
+## Figures
+
+**Figure 1.** δ_B for all ten quantum gravity models through the Schwarzschild
+black hole, from r = 10 r_s to r = 0.01 r_s (infalling observer). Causal Set
+Theory (blue) maintains the lowest deviation throughout the interior. The
+horizon (r/r_s = 1) is marked; note the absence of any discontinuity in the CS
+curve. (See 08_black_hole_wall.png; interactive version: 10a_black_hole_interactive.html)
+
+**Figure 2.** Fingerprint comparison: Causal Set ε(d) at T = 1.36 T_P vs.
+Hawking radiation ε(d) at ω_c = 2.0. The per-digit deviation profiles are
+near-identical (L2 distance = 0.004). The CS spectrum in the deep black hole
+interior develops the same statistical fingerprint as Hawking radiation.
+(See 10_hawking_vs_causal_set.png)
 
 ---
 
