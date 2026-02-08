@@ -18,11 +18,14 @@ singularity. Four models are discussed here; full results in Appendix B.
 Causal Set Theory produces the cleanest statistical structure inside the black
 hole (mean δ_B = 0.011), outperforming all other models by a factor of two or
 more. The CS data tells a specific story: far from the hole, δ_B sits at Hawking
-radiation levels (~0.028). As the observer falls inward, it drops to near-perfect
-conformance (~0.002) just outside the horizon. The horizon does not register —
-δ_B = 0.004 on both sides. Inside, it gradually rises to the CS equilibrium
-(~0.017) near the singularity, developing a per-digit fingerprint that
-quantitatively matches Hawking radiation (L2 = 0.004).
+radiation levels (~0.028) — same magnitude, similar per-digit shape. As the
+observer falls inward, the magnitude drops to near-perfect conformance (~0.002)
+just outside the horizon, departing sharply from Hawking. The horizon does not
+register — δ_B = 0.004 on both sides. Inside, the magnitude gradually rises to
+the CS equilibrium (~0.017) near the singularity — still different from
+Hawking's magnitude (0.028), but the per-digit *shape* converges back: the
+pattern of which digits are over- and under-represented becomes nearly identical
+to Hawking radiation (L2 = 0.004 between the two fingerprint shapes).
 
 We propose that this pattern reflects a physical mechanism. The black hole is a
 drain that only lets matter through to become spacetime, but the drain does not
@@ -590,6 +593,14 @@ hole masses scale with the cosmological scale factor (M ∝ a^k, k ≈ 3). This
 is consistent with a bidirectional relationship: black holes produce spacetime,
 and the expanding spacetime modifies the horizon geometry. Whether the
 quantitative rates match remains an open calculation.
+
+**Missing matter.** If the CS has been converting mass-deviation into geometry
+for 13.8 billion years, the "missing" baryonic matter in the universe is not
+missing — it has been spent. It became spacetime. The matter budget shrinks as
+the geometry budget grows; same ledger. This may contribute to explaining why
+baryonic matter accounts for so little of the universe's total content. The
+rate of matter-to-geometry conversion should, in principle, be consistent with
+the observed matter density deficit — a testable constraint on the mechanism.
 
 ---
 
