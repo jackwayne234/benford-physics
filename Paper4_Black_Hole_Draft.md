@@ -11,7 +11,7 @@
 ## Abstract
 
 We present a computational experiment in which thermal radiation spectra, modified
-by ten quantum gravity proposals, are evaluated at forty radial positions through
+by ten quantum gravity proposals, are evaluated at fifty-five radial positions through
 a Schwarzschild black hole — from far outside the event horizon, through the
 horizon, down to the singularity, and into a post-singularity bounce region. At
 each position, we compute the Euclidean deviation from Benford's Law, δ_B, and
@@ -113,7 +113,7 @@ Planck units (corresponding to a black hole mass M ≈ 10 M_P). The
 Schwarzschild radius r_s defines the event horizon.
 
 Radial positions are specified as r/r_s, with r/r_s = 1 at the horizon,
-r/r_s > 1 outside, and r/r_s < 1 inside. We sample 40 positions:
+r/r_s > 1 outside, and r/r_s < 1 inside. We sample 55 positions:
 
 - **Outside** (20 points): r/r_s = 10.0, 7.0, 5.0, 3.0, 2.0, 1.5, 1.3, 1.2,
   1.15, 1.1, 1.08, 1.06, 1.04, 1.03, 1.02, 1.015, 1.01, 1.005, 1.002, 1.001
@@ -121,7 +121,7 @@ r/r_s > 1 outside, and r/r_s < 1 inside. We sample 40 positions:
 - **Inside** (20 points): r/r_s = 0.99, 0.95, 0.9, 0.85, 0.8, 0.7, 0.6, 0.5,
   0.4, 0.3, 0.25, 0.2, 0.15, 0.12, 0.1, 0.08, 0.06, 0.04, 0.02, 0.01
 
-- **Post-singularity bounce** (10 points): r/r_s = −0.01 through −0.5,
+- **Post-singularity bounce** (15 points): r/r_s = −0.01 through −1.0,
   representing a continuation through the singularity as predicted by loop
   quantum gravity and string cosmology bouncing scenarios.
 
@@ -214,7 +214,7 @@ At each radial position, for each model, we:
 4. Compute δ_B, ε(d), MAD, and the Benford verdict (CONFORMS / MARGINAL /
    DEVIATES / UNDEFINED)
 
-This yields 10 models × 50 positions = 500 spectral evaluations.
+This yields 10 models × 55 positions = 550 spectral evaluations.
 
 ---
 
@@ -222,7 +222,7 @@ This yields 10 models × 50 positions = 500 spectral evaluations.
 
 ### 3.1 All Models Survive
 
-No model produces an undefined distribution at any radius. All 500 spectral
+No model produces an undefined distribution at any radius. All 550 spectral
 evaluations return computable δ_B values. The black hole interior is, from the
 Benford perspective, a valid physical environment for all ten quantum gravity
 proposals.
@@ -265,21 +265,24 @@ the effective temperature rises toward infinity at the singularity.
 The Causal Set data tells a story best read as a journey from far outside to
 deep inside:
 
-| Region | r/r_s | T_eff (T_P) | δ_B | Verdict |
-|--------|-------|-------------|-----|---------|
-| Far outside | 10.0 | 0.0016 | 0.028 | MARGINAL |
-| Approaching | 5.0 | 0.0045 | 0.004 | CONFORMS |
-| Near horizon | 2.0 | 0.018 | 0.003 | CONFORMS |
-| At horizon | 1.001 | 0.050 | 0.004 | CONFORMS |
-| Just inside | 0.99 | 0.051 | 0.004 | CONFORMS |
-| Mid-interior | 0.5 | 0.141 | 0.005 | CONFORMS |
-| Deep interior | 0.2 | 0.559 | 0.012 | CONFORMS |
-| Near singularity | 0.1 | 1.581 | 0.017 | CONFORMS |
-| Very near sing. | 0.04 | 6.25 | 0.017 | CONFORMS |
-| At singularity | 0.01 | 50.0 | 0.015 | CONFORMS |
-| Post-singularity | −0.01 | 50.0 | 0.015 | CONFORMS |
+| Region | r/r_s | T_eff (T_P) | δ_B | Character |
+|--------|-------|-------------|-----|-----------|
+| Far outside | 10.0 | 0.0016 | 0.028 | Hawking-like deviation |
+| Approaching | 5.0 | 0.0045 | 0.004 | Dropping toward conformance |
+| Near horizon (min) | 1.1 | 0.043 | 0.002 | Near-perfect conformance |
+| At horizon | 1.001 | 0.050 | 0.004 | Conformance holds |
+| Just inside | 0.99 | 0.051 | 0.004 | No change at crossing |
+| Mid-interior | 0.5 | 0.141 | 0.005 | Slow rise begins |
+| Deep interior | 0.2 | 0.559 | 0.012 | Rising toward equilibrium |
+| Near singularity | 0.1 | 1.581 | 0.017 | Approaching CS equilibrium |
+| Very near sing. | 0.04 | 6.25 | 0.017 | At CS equilibrium (~0.017) |
+| At singularity | 0.01 | 50.0 | 0.015 | Stable at equilibrium |
+| Post-singularity | −0.01 | 50.0 | 0.015 | Mirror of approach |
 
-**Table 2.** Causal Set δ_B through the complete black hole journey.
+**Table 2.** Causal Set δ_B through the complete black hole journey. The deviation
+drops from Hawking radiation levels far outside, reaches near-perfect conformance
+at the horizon, then gradually rises to the CS equilibrium (~0.017) near the
+singularity.
 
 Several features are notable:
 
@@ -292,13 +295,15 @@ notice nothing special at the horizon.
 
 **Far-field Hawking signature.** At r/r_s = 10, far from the black hole, CS
 shows δ_B = 0.028. This is within the range of Hawking radiation fingerprints
-measured on the whiteboard (δ_B = 0.020–0.035 for greybody cutoffs ω_c = 0.5
+measured in the exotic physics survey (Riner 2026c) (δ_B = 0.020–0.035 for greybody cutoffs ω_c = 0.5
 to 5.0). Far from the hole, the CS spectrum carries the imprint of the Hawking
 thermal bath.
 
 **Approach to conformance.** As the observer falls inward from r = 10 r_s, δ_B
-drops from 0.028 to 0.003 — nearly perfect Benford conformance. The distribution
-*improves* on approach, reaching its cleanest state just outside the horizon.
+drops from 0.028 to 0.002 — nearly perfect Benford conformance. The distribution
+*improves* on approach, reaching its cleanest state near the horizon (minimum
+δ_B = 0.002 at r ≈ 1.1 r_s) and maintaining near-identical low values just
+inside the horizon and through the inner region to about r ≈ 0.5 r_s.
 
 **Gradual interior rise.** Inside the horizon, δ_B rises slowly from 0.004 to
 approximately 0.017 near the singularity. This is a controlled increase — the
@@ -316,7 +321,7 @@ structure.
 The per-digit deviation ε(d) provides a richer comparison than δ_B alone. In
 Riner (2026e), we compared the ε(d) fingerprint of Causal Set Theory at various
 temperatures with Hawking radiation (greybody factor ω_c = 2.0) from the
-whiteboard experiment.
+exotic physics survey (Riner 2026c).
 
 The result: the Causal Set fingerprint converges to the Hawking radiation
 fingerprint — but not at the horizon. Just past it.
@@ -324,9 +329,9 @@ fingerprint — but not at the horizon. Just past it.
 | CS Location | L2 distance to Hawking (ω_c = 2.0) |
 |-------------|-------------------------------------|
 | At wall (T = 1.00 T_P) | 0.025 |
-| Past wall (T = 1.06 T_P) | < 0.020 |
+| Past wall (T = 1.06 T_P) | 0.020 |
 | **Best match (T = 1.36 T_P)** | **0.004** |
-| Further past (T = 1.62 T_P) | < 0.020 |
+| Further past (T = 1.62 T_P) | 0.020 |
 
 **Table 3.** L2 distance between Causal Set ε(d) and Hawking radiation ε(d).
 
