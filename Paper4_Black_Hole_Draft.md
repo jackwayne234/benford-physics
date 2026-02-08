@@ -326,9 +326,11 @@ gravitational field strips the Causal Set below its natural equilibrium. δ_B
 drops from 0.028 to 0.003. The CS is being pushed toward over-conformance —
 forced below its resting state. It is losing its mass-like deviation character.
 
-**Phase 2 — Maximum over-conformance** (r ≈ 1 r_s): At the horizon, δ_B = 0.004.
-This is *not* the Causal Set's natural state. It is over-stripped — too perfect,
-too conformant. The gravitational field has pushed it below equilibrium.
+**Phase 2 — Maximum over-conformance** (r ≈ 1.1 r_s): The minimum δ_B = 0.002
+occurs just *outside* the horizon, not at or inside it. This is the deepest
+debt — the point where gravity has stripped the CS furthest below its resting
+state. The horizon itself (δ_B = 0.004) is not the minimum. It is just the
+boundary the CS crosses on the way back up.
 
 **Phase 3 — Restoration** (r = 0.99 → 0.01 r_s): Inside the horizon, δ_B
 climbs from 0.004 back to 0.015–0.017. The black hole is feeding mass back
@@ -339,6 +341,16 @@ consistent answer: at the Big Bang wall (Riner 2026e), CS post-wall mean =
 0.017. Near the BH singularity, CS reaches 0.015. The resting state is δ_B ≈
 0.015–0.017 — and the 0.002 near the horizon is the anomaly, not the
 equilibrium.
+
+**The V-shape.** Read spatially, the data traces a V. The left arm is the
+approach: δ_B drops from 0.028 at r = 10 r_s down to 0.002 at r = 1.1 r_s —
+the whirlpool accelerating, pulling the substrate tighter with every step
+inward. The vertex at 1.1 r_s is where the water is moving fastest, right
+before the drain catches it. The right arm is the interior: δ_B climbs from
+0.004 at the horizon back to 0.015–0.018 near the singularity — the CS
+consuming mass to pay off the debt that gravity created. The horizon is not a
+wall or a special boundary in this picture. It is the inflection point where
+stripping stops and restoration begins.
 
 **The transaction is one-way.** The black hole spends mass to restore CS from
 over-conformance back to equilibrium. But CS at equilibrium does not contribute
