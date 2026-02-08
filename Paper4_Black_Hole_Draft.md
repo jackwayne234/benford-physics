@@ -411,8 +411,9 @@ Two classes of behavior at the singularity:
 The whirlpool image clarifies why E = mc² does not apply straightforwardly
 inside a black hole. Einstein's mass-energy equivalence treats mass and energy
 as interchangeable. The CS drain does not. It is selective: it consumes
-deviation, not energy. Light carries energy but no deviation above equilibrium.
-Mass carries both. Inside the event horizon, this distinction matters.
+mass (deviation), not energy. Light carries energy but no deviation above *its*
+equilibrium (~0.006). Mass carries both. Inside the event horizon, this
+distinction matters.
 
 ### 4.3 The Healing Hypothesis
 
@@ -422,8 +423,8 @@ horizon, and the cost of this restoration is drawn from the black hole's mass.**
 
 The data supports this:
 
-- **At the black hole singularity**: δ_B ≈ 0.011–0.017. Near-perfect
-  conformance. The discrete spacetime absorbs the singularity.
+- **At the black hole singularity**: δ_B ≈ 0.015–0.017. At CS equilibrium. The
+  discrete spacetime absorbs the singularity.
 - **At smooth curvature** (a control experiment through a traversable wormhole,
   to be published separately): δ_B ≈ 0.056. No special response. No restoration
   needed.
@@ -431,8 +432,9 @@ The data supports this:
   hole feeds mass back to restore it.
 
 The discrete spacetime — a random Poisson sprinkling of fundamental events —
-has a natural statistical structure that conforms to Benford's Law at δ_B ≈
-0.017. A singularity or horizon disrupts this structure. The causal set responds
+has a natural statistical structure that rests at δ_B ≈ 0.015–0.017 — its own
+equilibrium. A singularity or horizon disrupts this structure. The causal set
+responds
 by restructuring itself, consuming mass in the process. The mass source is the
 black hole.
 
@@ -486,7 +488,7 @@ physical realization.
 
 Our simulation uses local geometry. The spectrum at each radius depends on the
 local effective temperature, not on the total black hole mass. The Causal Set
-process — spike at the horizon, relax inside, restore Benford conformance — looks
+process — spike at the horizon, relax inside, restore CS equilibrium — looks
 identical regardless of the black hole's size.
 
 This has implications for the black hole lifecycle:
@@ -537,7 +539,7 @@ Theory itself, not about semiclassical radiation.
 
 In the Causal Set framework, information is encoded in the causal relations
 between events. The restructuring we propose does not destroy causal relations —
-it reorganizes them to restore Benford conformance. If the reorganization is
+it reorganizes them toward the CS equilibrium (~0.017). If the reorganization is
 bijective (each initial configuration maps to a unique final configuration), then
 the process is unitary and information is preserved. If it is many-to-one, then
 information is genuinely lost — but at the fundamental level of spacetime
@@ -557,9 +559,9 @@ the equilibrium state — being spacetime itself — does not return the investm
 Mass is converted to spacetime structure.
 
 If this mechanism is correct, then black holes are not endpoints. They are
-**conversion engines**. They take mass (deviation from Benford conformance) and
-produce spacetime (Causal Set at equilibrium, δ_B ≈ 0.017). The product of this
-conversion is new spacetime geometry.
+**conversion engines**. They take mass (deviation above the CS equilibrium) and
+produce spacetime (Causal Set at its resting state, δ_B ≈ 0.017). The product
+of this conversion is new spacetime geometry.
 
 Our earlier work proposed that mass represents deviation from Benford conformance
 and that entropy is "mass attempting to return to the massless state — to zero
@@ -857,7 +859,7 @@ observer. Data from results/round_trip/black_hole_wall.json.
 | 9 | LQG | 0.173 | 0.060 | E = 2|sin(k/2)|, k < π |
 | 10 | GUP | 0.605 | 0.877 | E = k√(1+k²), g(k) = k²/(1+k²) |
 
-**Table B1.** All ten models ranked by interior Benford conformance. Causal Set
+**Table B1.** All ten models ranked by interior Benford deviation. Causal Set
 Theory's Gaussian UV suppression produces the cleanest interior structure.
 Dimensional reduction models (AS, CDT) improve from outside to inside but
 still lag CS by an order of magnitude. LQG degrades significantly inside
