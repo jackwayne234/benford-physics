@@ -579,25 +579,25 @@ We claim:
 
 We propose but do not prove:
 
-5. The mass cost of Causal Set restructuring at horizons is drawn from the
+4. The mass cost of Causal Set restructuring at horizons is drawn from the
    black hole itself.
 
-6. This restructuring, not Hawking radiation, is the mechanism of black hole
+5. This restructuring, not Hawking radiation, is the mechanism of black hole
    evaporation.
 
-7. The information paradox dissolves because nothing escapes the black hole.
+6. The information paradox dissolves because nothing escapes the black hole.
 
 We further speculate:
 
-8. Black holes are spacetime factories — they convert mass into Causal Set
+7. Black holes are spacetime factories — they convert mass into Causal Set
    structure at equilibrium, producing new spacetime geometry.
 
-9. This spacetime production may be the source of cosmological expansion.
+8. This spacetime production may be the source of cosmological expansion.
 
-10. Gravitational waves from binary mergers may be the wavefront of newly
+9. Gravitational waves from binary mergers may be the wavefront of newly
     generated spacetime rather than radiated energy.
 
-Claims 5–7 are interpretive (Section 4). Claims 8–10 are speculative (Section
+Claims 4–6 are interpretive (Section 4). Claims 7–9 are speculative (Section
 5). All are consistent with the data presented here but require independent
 theoretical work within the Causal Set formalism to confirm. In particular, one
 would need to show that the dynamics of a causal set in the presence of a
