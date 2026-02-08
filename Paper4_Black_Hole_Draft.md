@@ -11,25 +11,29 @@
 ## Abstract
 
 We measure the Benford deviation δ_B of thermal radiation spectra — modified by
-ten quantum gravity models — at fifty-five radial positions through a
-Schwarzschild black hole: from far outside the event horizon, through it, down
-to the singularity, and into a post-singularity bounce region.
+ten quantum gravity models — at forty radial positions through a Schwarzschild
+black hole: from far outside the event horizon, through it, down to the
+singularity. We tested ten models; four are discussed here, with full results in
+Appendix B.
 
 Causal Set Theory produces the cleanest statistical structure inside the black
 hole (mean δ_B = 0.011), outperforming all other models by a factor of two or
 more. The CS data tells a specific story: far from the hole, δ_B sits at Hawking
 radiation levels (~0.028). As the observer falls inward, it drops to near-perfect
-conformance (~0.002). The horizon does not register — δ_B = 0.004 on both sides.
-Inside, it gradually rises to the CS equilibrium (~0.017), developing a
-per-digit fingerprint that quantitatively matches Hawking radiation (L2 = 0.004).
+conformance (~0.002) just outside the horizon. The horizon does not register —
+δ_B = 0.004 on both sides. Inside, it gradually rises to the CS equilibrium
+(~0.017) near the singularity, developing a per-digit fingerprint that
+quantitatively matches Hawking radiation (L2 = 0.004).
 
-We propose that this pattern reflects a physical mechanism: a whirlpool. The
-black hole's gravity strips the CS below its equilibrium on approach. Inside,
-the CS restructures itself by consuming the black hole's mass — not its energy.
-The drain is selective: mass (deviation above ~0.017) is consumed and converted
-to geometry. Light (deviation below ~0.017) is trapped but not consumed. This
-distinction — invisible to general relativity, which treats mass and energy
-identically — is why GR's equations break down at the singularity.
+We propose that this pattern reflects a physical mechanism. The black hole is a
+drain that only lets matter through to become spacetime, but the drain does not
+let light escape. The black hole's gravity strips the CS below its equilibrium
+on approach. Inside, the CS restructures itself by consuming the black hole's
+mass — not its energy. The drain is selective: mass (deviation above ~0.017) is
+consumed and converted to geometry. Light (deviation below ~0.017) is trapped
+but not consumed. This distinction — invisible to general relativity, which
+treats mass and energy identically — is why GR's equations break down at the
+singularity.
 
 The black hole shrinks without radiating. The information never leaves. And the
 product of the conversion — new spacetime at equilibrium — may contribute to the
@@ -72,13 +76,14 @@ the interior of a Schwarzschild black hole. The framework uses two quantities:
   through 9. This provides a shape — a fingerprint — that identifies what kind
   of physics produced the deviation.
 
-In Riner (2026c), we demonstrated that δ_B functions as an invertible
-measurement instrument: it recovers spatial dimensionality (n = 3 exactly from
-the Planck spectrum), the Dirichlet eta function (η(1) = ln 2 from Fermi-Dirac
-statistics), and particle mass from relativistic dispersion relations. It also
-functions as an existence filter: distributions that produce zero valid modes
-return UNDEFINED, identifying thermodynamically impossible physics (negative-mass
-bosons, phantom dark energy) before the field equations are ever written down.
+In a companion study (to be published separately), we demonstrated that δ_B
+functions as an invertible measurement instrument: it recovers spatial
+dimensionality (n = 3 exactly from the Planck spectrum), the Dirichlet eta
+function (η(1) = ln 2 from Fermi-Dirac statistics), and particle mass from
+relativistic dispersion relations. It also functions as an existence filter:
+distributions that produce zero valid modes return UNDEFINED, identifying
+thermodynamically impossible physics (negative-mass bosons, phantom dark energy)
+before the field equations are ever written down.
 
 Here we ask: what does that framework reveal inside a black hole?
 
@@ -93,17 +98,13 @@ Planck units (corresponding to a black hole mass M ≈ 10 M_P). The
 Schwarzschild radius r_s defines the event horizon.
 
 Radial positions are specified as r/r_s, with r/r_s = 1 at the horizon,
-r/r_s > 1 outside, and r/r_s < 1 inside. We sample 55 positions:
+r/r_s > 1 outside, and r/r_s < 1 inside. We sample 40 positions:
 
 - **Outside** (20 points): r/r_s = 10.0, 7.0, 5.0, 3.0, 2.0, 1.5, 1.3, 1.2,
   1.15, 1.1, 1.08, 1.06, 1.04, 1.03, 1.02, 1.015, 1.01, 1.005, 1.002, 1.001
 
 - **Inside** (20 points): r/r_s = 0.99, 0.95, 0.9, 0.85, 0.8, 0.7, 0.6, 0.5,
   0.4, 0.3, 0.25, 0.2, 0.15, 0.12, 0.1, 0.08, 0.06, 0.04, 0.02, 0.01
-
-- **Post-singularity bounce** (15 points): r/r_s = −0.01 through −1.0,
-  representing a continuation through the singularity as predicted by loop
-  quantum gravity and string cosmology bouncing scenarios.
 
 ### 2.2 Observer Models
 
@@ -146,14 +147,20 @@ invariance at the fundamental level.
 The baseline is **Standard (GR + QFT)**: E = k, g(k) = k². No quantum gravity
 correction.
 
-The remaining eight models — Loop Quantum Gravity (LQG), Generalized
-Uncertainty Principle (GUP), Doubly Special Relativity (DSR), Hagedorn/String
-Theory, Asymptotic Safety, Horava-Lifshitz, Non-commutative Geometry, and
-Causal Dynamical Triangulations (CDT) — each modify the dispersion relation
-and/or density of states to implement various quantum gravity proposals. Full
-dispersion relations and model descriptions are given in Appendix B. All ten
-models are evaluated at every radial position; Section 3.1 reports comparative
-rankings.
+We tested ten models; four are discussed in the main text:
+
+**Hagedorn/String Theory**: g(k) = k² × exp(k/T_H). Implements the exponential
+density of states near the Hagedorn temperature, modeling the proliferation of
+string excitations at high energy.
+
+**Non-commutative Geometry**: E² = k² + k⁴. A quartic correction to the
+dispersion relation, modeling the effects of non-commuting spacetime coordinates
+at short distances.
+
+The remaining six models — Loop Quantum Gravity (LQG), Generalized Uncertainty
+Principle (GUP), Doubly Special Relativity (DSR), Asymptotic Safety,
+Horava-Lifshitz, and Causal Dynamical Triangulations (CDT) — are evaluated at
+every radial position; full results are in Appendix B.
 
 ### 2.4 Analysis Protocol
 
@@ -163,10 +170,10 @@ At each radial position, for each model, we:
 2. Generate the spectrum S(k) = g(k) / (exp[E(k)/T_eff] − 1) over 100,000
    momentum modes (fewer for LQG due to Brillouin zone restriction)
 3. Extract the first significant digit of each S(k) value
-4. Compute δ_B, ε(d), MAD, and the Benford verdict (CONFORMS / MARGINAL /
-   DEVIATES / UNDEFINED)
+4. Compute δ_B, ε(d), MAD, and the Benford verdict (CONFORMS / DEVIATES /
+   UNDEFINED)
 
-This yields 10 models × 55 positions = 550 spectral evaluations.
+This yields 10 models × 40 positions = 400 spectral evaluations.
 
 ---
 
@@ -174,28 +181,29 @@ This yields 10 models × 55 positions = 550 spectral evaluations.
 
 ### 3.1 All Models Survive; Causal Set Ranks First
 
-All 550 spectral evaluations return computable δ_B values — no model produces an
-undefined distribution at any radius. The black hole interior is a valid
-statistical environment for all ten quantum gravity proposals.
+All evaluations return computable δ_B values — no model produces an undefined
+distribution at any radius. The black hole interior is a valid statistical
+environment for all ten quantum gravity proposals.
 
-The rankings inside the black hole (mean δ_B for r/r_s < 1):
+The rankings inside the black hole (mean δ_B for r/r_s < 1), showing the four
+focus models:
 
 | Rank | Model | Mean δ_B (inside) | Mean δ_B (outside) |
 |------|-------|-------------------|--------------------|
 | 1 | **Causal Set** | **0.011** | 0.005 |
 | 2 | Hagedorn | 0.019 | 0.006 |
 | 3 | Noncommut. | 0.051 | 0.043 |
-| 4–10 | Standard, DSR, AS, CDT, Horava, LQG, GUP | 0.108–0.605 | 0.060–0.877 |
+| 4 | Standard | 0.108 | 0.132 |
 
-**Table 1.** Mean Benford deviation inside and outside the event horizon. Full
-model-by-model data in Appendix B.
+**Table 1.** Mean Benford deviation inside and outside the event horizon for
+the four focus models. Full rankings for all ten models in Appendix B.
 
 Causal Set Theory produces the cleanest statistical structure inside the black
 hole by a significant margin — nearly half the deviation of the runner-up
-(Hagedorn). The discrete spacetime maintains near-perfect Benford conformance
-(δ_B = 0.011, well within the "strong conformance" threshold of 0.02) even as
-the effective temperature rises toward infinity at the singularity. The
-remaining sections focus on the Causal Set data.
+(Hagedorn). The discrete spacetime maintains strong conformance (δ_B = 0.011,
+well within the threshold of 0.02) even as the effective temperature rises
+toward infinity at the singularity. The remaining sections focus on the Causal
+Set data.
 
 ### 3.2 The Causal Set Journey
 
@@ -214,12 +222,11 @@ deep inside:
 | Near singularity | 0.1 | 1.581 | 0.017 | Approaching CS equilibrium |
 | Very near sing. | 0.04 | 6.25 | 0.017 | At CS equilibrium (~0.017) |
 | At singularity | 0.01 | 50.0 | 0.015 | Stable at equilibrium |
-| Post-singularity | −0.01 | 50.0 | 0.015 | Mirror of approach |
 
-**Table 2.** Causal Set δ_B through the complete black hole journey. The deviation
-drops from Hawking radiation levels far outside, reaches near-perfect conformance
-at the horizon, then gradually rises to the CS equilibrium (~0.017) near the
-singularity. (See Figure 1 for the full visual.)
+**Table 2.** Causal Set δ_B through the black hole journey. The deviation drops
+from Hawking radiation levels far outside, reaches near-perfect conformance just
+outside the horizon, then gradually rises to the CS equilibrium (~0.017) near
+the singularity. (See Figure 1 for the full visual.)
 
 Several features are notable:
 
@@ -232,9 +239,9 @@ notice nothing special at the horizon.
 
 **Far-field Hawking signature.** At r/r_s = 10, far from the black hole, CS
 shows δ_B = 0.028. This is within the range of Hawking radiation fingerprints
-measured in the exotic physics survey (Riner 2026c) (δ_B = 0.020–0.035 for greybody cutoffs ω_c = 0.5
-to 5.0). Far from the hole, the CS spectrum carries the imprint of the Hawking
-thermal bath.
+measured in a separate exotic physics survey (δ_B = 0.020–0.035 for greybody
+cutoffs ω_c = 0.5 to 5.0). Far from the hole, the CS spectrum carries the
+imprint of the Hawking thermal bath.
 
 **Approach to conformance.** As the observer falls inward from r = 10 r_s, δ_B
 drops from 0.028 to 0.002 — nearly perfect Benford conformance. The distribution
@@ -248,17 +255,12 @@ distribution never leaves the CONFORMS category (δ_B < 0.02 throughout). Even a
 r = 0.01 r_s, where T_eff = 50 T_P, the Causal Set spectrum maintains strong
 Benford conformance.
 
-**Post-singularity mirror.** The bounce region (r/r_s < 0) mirrors the approach:
-δ_B = 0.015 at r = −0.01, matching the pre-singularity value exactly. The
-singularity, if it is resolved by a bounce, is symmetric in its Benford
-structure.
-
 ### 3.3 Fingerprint Match: Causal Set and Hawking Radiation
 
 The per-digit deviation ε(d) provides a richer comparison than δ_B alone. In
-Riner (2026e), we compared the ε(d) fingerprint of Causal Set Theory at various
-temperatures with Hawking radiation (greybody factor ω_c = 2.0) from the
-exotic physics survey (Riner 2026c).
+a companion analysis (to be published separately), we compared the ε(d)
+fingerprint of Causal Set Theory at various temperatures with Hawking radiation
+(greybody factor ω_c = 2.0) from the exotic physics survey.
 
 The result: the Causal Set fingerprint converges to the Hawking radiation
 fingerprint — but not at the horizon. Just past it.
@@ -306,11 +308,9 @@ fingerprint shape in the deep interior (see Figure 2).
 
 ### 3.5 Comparison with the Cosmological Singularity
 
-Eight of ten models produce comparable δ_B at both the cosmological singularity
-(Riner 2026e) and the black hole interior. Causal Set Theory is the only model
-that performs *better* at the black hole (0.011) than at the Big Bang (0.017),
-suggesting the discrete spacetime absorbs a localized point singularity more
-cleanly than a spatially uniform one. Full comparison data is in Riner (2026e).
+A control experiment through the cosmological singularity (to be published
+separately) confirmed that the CS equilibrium is consistent across singularity
+types: Big Bang CS = 0.017, Black Hole CS = 0.015 — the same resting state.
 
 ---
 
@@ -337,7 +337,7 @@ climbs from 0.004 back to 0.015–0.017. The black hole is feeding mass back
 into the Causal Set to restore it to equilibrium. The CS is being rebuilt.
 
 What is the Causal Set's natural resting state? The data points toward a
-consistent answer: at the Big Bang wall (Riner 2026e), CS post-wall mean =
+consistent answer: at the Big Bang wall (measured separately), CS post-wall mean =
 0.017. Near the BH singularity, CS reaches 0.015. The resting state is δ_B ≈
 0.015–0.017 — and the 0.002 near the horizon is the anomaly, not the
 equilibrium.
@@ -370,10 +370,9 @@ mechanism at the singularity — only processes one kind of material.
 
 The key distinction is deviation from the CS equilibrium (~0.017):
 
-- **Mass** corresponds to deviation *above* the CS equilibrium. In Riner
-  (2026a, 2026b), we established that mass is the signature of deviation from
-  Benford conformance. The greater the deviation above ~0.017, the more
-  mass-like the distribution.
+- **Mass** corresponds to deviation *above* the CS equilibrium. In the
+  framework, mass is the signature of deviation above the CS resting state. The
+  greater the deviation above ~0.017, the more mass-like the distribution.
 
 - **Light** sits at δ_B ≈ 0.006 (pure Bose-Einstein), which is *below* the CS
   equilibrium. Light is already more conformant than the CS resting state.
@@ -407,8 +406,9 @@ The data supports this:
 
 - **At the black hole singularity**: δ_B ≈ 0.011–0.017. Near-perfect
   conformance. The discrete spacetime absorbs the singularity.
-- **At smooth curvature** (wormhole, Riner 2026f): δ_B ≈ 0.056. No special
-  response. No restoration needed.
+- **At smooth curvature** (a control experiment through a traversable wormhole,
+  to be published separately): δ_B ≈ 0.056. No special response. No restoration
+  needed.
 - **Near the event horizon**: δ_B is stripped below equilibrium, then the black
   hole feeds mass back to restore it.
 
@@ -543,20 +543,21 @@ If this mechanism is correct, then black holes are not endpoints. They are
 produce spacetime (Causal Set at equilibrium, δ_B ≈ 0.017). The product of this
 conversion is new spacetime geometry.
 
-This connects directly to the framework developed in Riner (2026b), which
-proposed that mass represents deviation from Benford conformance and that
-entropy is "mass attempting to return to the massless state — to zero deviation,
-to perfect conformance." The CS experiments now identify the mechanism: the
-return to conformance does not produce radiation or thermal noise. It produces
-spacetime. The endpoint of entropy is not heat death. It is geometry.
+Our earlier work proposed that mass represents deviation from Benford conformance
+and that entropy is "mass attempting to return to the massless state — to zero
+deviation, to perfect conformance." The black hole data refines this. The target
+is not zero deviation — it is the CS equilibrium, δ_B ≈ 0.015–0.017. Benford's
+Law was the measurement tool that revealed this resting state; the real baseline
+is the substrate's own equilibrium, not perfect digit conformance. The CS
+experiments identify the mechanism: the return to equilibrium does not produce
+radiation or thermal noise. It produces spacetime. The endpoint of entropy is
+not heat death. It is geometry.
 
 ### 5.2 Speculative Extensions
 
 **Cosmological expansion.** If black holes convert mass to spacetime, they are
-sources of expansion. This addresses an open question from Riner (2026b): where
-does expansion originate? Black holes provide the source; voids accelerate
-because there is no mass to brake the propagation. A detailed treatment is in
-Riner (2026g).
+sources of expansion. Black holes provide the source; voids accelerate because
+there is no mass to brake the propagation.
 
 **Gravitational waves.** In the CS framework, the mass deficit from binary
 mergers (Abbott et al. 2016) is not radiated as energy but converted to
@@ -584,10 +585,10 @@ We claim:
    (δ_B = 0.011), outperforming all competitors by a factor of ~2.
 
 3. The Causal Set response is specific to singularities and horizons, not to
-   curvature in general. A companion experiment through a traversable wormhole
-   (Riner 2026f) — comparable curvature, no singularity, no horizon — shows CS
-   dropping from 1st place (BH, δ_B = 0.011) to 9th place (wormhole, δ_B =
-   0.056). The topology, not the curvature, drives the response.
+   curvature in general. A control experiment through a traversable wormhole
+   (to be published separately) — comparable curvature, no singularity, no
+   horizon — showed CS dropping from 1st place (BH, δ_B = 0.011) to 9th place
+   (wormhole, δ_B = 0.056). The topology, not the curvature, drives the response.
 
 We propose but do not prove:
 
@@ -692,8 +693,8 @@ drain's selectivity matters most.
 We measured ten quantum gravity models inside a Schwarzschild black hole using
 the Benford deviation framework. Causal Set Theory ranks first by a factor of
 two (δ_B = 0.011 vs. 0.019 for the runner-up). The horizon does not register
-in the CS data. A wormhole control (Riner 2026f) confirms the response is
-topology-specific, not curvature-driven.
+in the CS data. A wormhole control experiment (to be published separately)
+confirmed the response is topology-specific, not curvature-driven.
 
 The CS data reveals a mechanism. Gravity strips the CS below its equilibrium
 on approach (δ_B drops from 0.028 to 0.002). Inside, the black hole feeds
@@ -719,7 +720,7 @@ The implications are testable in principle and speculative in practice:
 
 This is a bold chain of claims built on a simple measurement tool: first-digit
 counting, a square root, and a logarithm. But the tool has proven itself
-(Riner 2026a, 2026c) — recovering dimensionality, number theory identities,
+(Riner 2026a) — recovering dimensionality, number theory identities,
 and the boundary between physical and unphysical matter. The black hole interior
 is the next place it can measure. And the data shows: the Causal Set maintains
 its statistical structure inside a black hole, and it consumes mass to do it.
@@ -742,16 +743,6 @@ its statistical structure inside a black hole, and it consumes mass to do it.
   quantum error-correcting codes. JHEP 2015, 149.
 - Riner, C. (2026a). Complete monotonicity and Benford's Law: deriving quantum
   statistics from the significant digit distribution.
-- Riner, C. (2026b). The Law of Emergence: Benford's distribution as a
-  universal constraint on physical reality.
-- Riner, C. (2026c). The Benford deviation as a measurement instrument:
-  round-trip calibration, fingerprint classification, and an existence filter
-  for exotic physics.
-- Riner, C. (2026d). [This paper].
-- Riner, C. (2026e). Benford's Law at the Planck Wall: ten quantum gravity
-  models through the cosmological singularity.
-- Riner, C. (2026f). Benford's Law through a wormhole: the Casimir effect and
-  the absence of singularity response.
 - Abbott, B. P. et al. (LIGO Scientific Collaboration) (2016). Observation of
   gravitational waves from a binary black hole merger. Phys. Rev. Lett. 116,
   061102.
@@ -765,11 +756,11 @@ its statistical structure inside a black hole, and it consumes mass to do it.
 
 ## Figures
 
-**Figure 1.** δ_B for all ten quantum gravity models through the Schwarzschild
-black hole, from r = 10 r_s to r = 0.01 r_s (infalling observer). Causal Set
-Theory (blue) maintains the lowest deviation throughout the interior. The
-horizon (r/r_s = 1) is marked; note the absence of any discontinuity in the CS
-curve. (See 08_black_hole_wall.png; interactive version: 10a_black_hole_interactive.html)
+**Figure 1.** δ_B for the four focus models through the Schwarzschild black
+hole, from r = 10 r_s to r = 0.01 r_s (infalling observer). Causal Set Theory
+(blue) maintains the lowest deviation throughout the interior. The horizon
+(r/r_s = 1) is marked; note the absence of any discontinuity in the CS curve.
+(See 08_black_hole_wall.png; interactive version: 10a_black_hole_interactive.html)
 
 **Figure 2.** Fingerprint comparison: Causal Set ε(d) at T = 1.36 T_P vs.
 Hawking radiation ε(d) at ω_c = 2.0. The per-digit deviation profiles are
@@ -781,7 +772,7 @@ interior develops the same statistical fingerprint as Hawking radiation.
 
 ## Appendix A: Complete Causal Set Data (Infalling Observer)
 
-All 55 radial positions, from black_hole_wall.json.
+All 40 radial positions, from black_hole_wall.json.
 
 | r/r_s | Zone | T_eff (T_P) | δ_B | ε(1) | ε(2) | ε(3) | ε(4) | ε(5) | ε(6) | ε(7) | ε(8) | ε(9) |
 |-------|------|-------------|-----|------|------|------|------|------|------|------|------|------|
@@ -825,25 +816,10 @@ All 55 radial positions, from black_hole_wall.json.
 | 0.04 | inside | 6.25000 | 0.01733 | 0.003 | 0.015 | −0.006 | −0.003 | −0.003 | −0.002 | −0.002 | −0.001 | −0.001 |
 | 0.02 | inside | 17.67767 | 0.01838 | −0.012 | −0.004 | −0.001 | 0.001 | 0.004 | 0.007 | 0.010 | −0.003 | −0.002 |
 | 0.01 | inside | 50.00000 | 0.01466 | 0.012 | 0.004 | −0.006 | −0.004 | −0.002 | −0.002 | −0.001 | −0.001 | −0.001 |
-| −0.01 | post-sing. | 50.00000 | 0.01466 | 0.012 | 0.004 | −0.006 | −0.004 | −0.002 | −0.002 | −0.001 | −0.001 | −0.001 |
-| −0.02 | post-sing. | 17.67767 | 0.01838 | −0.012 | −0.004 | −0.001 | 0.001 | 0.004 | 0.007 | 0.010 | −0.003 | −0.002 |
-| −0.04 | post-sing. | 6.25000 | 0.01733 | 0.003 | 0.015 | −0.006 | −0.003 | −0.003 | −0.002 | −0.002 | −0.001 | −0.001 |
-| −0.06 | post-sing. | 3.40207 | 0.01349 | 0.010 | −0.007 | −0.004 | −0.001 | −0.001 | −0.000 | 0.000 | 0.001 | 0.002 |
-| −0.08 | post-sing. | 2.20971 | 0.01749 | −0.012 | −0.005 | −0.001 | 0.001 | 0.002 | 0.004 | 0.010 | 0.003 | −0.002 |
-| −0.1 | post-sing. | 1.58114 | 0.01671 | −0.009 | −0.001 | 0.002 | 0.008 | 0.010 | −0.003 | −0.003 | −0.002 | −0.002 |
-| −0.12 | post-sing. | 1.20281 | 0.01963 | −0.005 | 0.003 | 0.017 | −0.004 | −0.004 | −0.003 | −0.002 | −0.002 | −0.001 |
-| −0.15 | post-sing. | 0.86066 | 0.01515 | 0.004 | 0.013 | −0.006 | −0.003 | −0.003 | −0.002 | −0.002 | −0.001 | −0.001 |
-| −0.2 | post-sing. | 0.55902 | 0.01205 | 0.009 | −0.006 | −0.003 | −0.001 | −0.001 | −0.000 | 0.000 | 0.001 | 0.002 |
-| −0.25 | post-sing. | 0.40000 | 0.01607 | −0.010 | −0.004 | −0.001 | 0.001 | 0.002 | 0.003 | 0.011 | −0.002 | −0.001 |
-| −0.3 | post-sing. | 0.30429 | 0.01313 | −0.006 | −0.000 | 0.002 | 0.011 | −0.001 | −0.002 | −0.002 | −0.001 | −0.001 |
-| −0.4 | post-sing. | 0.19764 | 0.00745 | 0.003 | 0.005 | −0.003 | −0.001 | −0.002 | −0.001 | −0.001 | −0.000 | 0.000 |
-| −0.5 | post-sing. | 0.14142 | 0.00486 | 0.003 | −0.003 | −0.002 | −0.000 | −0.000 | 0.000 | 0.001 | 0.000 | 0.002 |
-| −0.7 | post-sing. | 0.08537 | 0.00625 | −0.002 | 0.000 | 0.002 | 0.005 | −0.001 | −0.001 | −0.001 | −0.001 | −0.000 |
-| −1.0 | post-sing. | 0.05000 | 0.00411 | 0.003 | −0.002 | −0.001 | 0.000 | −0.001 | 0.000 | −0.000 | −0.000 | 0.001 |
 
 **Table A1.** Complete Causal Set infalling observer data. Bold row indicates the
-minimum δ_B (r/r_s = 1.1, δ_B = 0.00214). Post-singularity values mirror the
-interior exactly (symmetric bounce). Data from results/round_trip/black_hole_wall.json.
+minimum δ_B (r/r_s = 1.1, δ_B = 0.00214). Data from
+results/round_trip/black_hole_wall.json.
 
 ## Appendix B: All Ten Models — Interior Rankings and Descriptions
 
