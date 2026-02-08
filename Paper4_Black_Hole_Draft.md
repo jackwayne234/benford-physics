@@ -223,10 +223,24 @@ deep inside:
 | Very near sing. | 0.04 | 6.25 | 0.017 | At CS equilibrium (~0.017) |
 | At singularity | 0.01 | 50.0 | 0.015 | Stable at equilibrium |
 
-**Table 2.** Causal Set δ_B through the black hole journey. The deviation drops
-from Hawking radiation levels far outside, reaches near-perfect conformance just
-outside the horizon, then gradually rises to the CS equilibrium (~0.017) near
-the singularity. (See Figure 1 for the full visual.)
+**Table 2.** Causal Set δ_B through the black hole journey. (See Figure 1.)
+
+The journey reads as follows. Far outside the black hole (r/r_s = 10), the CS
+sits at δ_B = 0.028 — the same magnitude as Hawking radiation (δ_B ≈ 0.028 for
+greybody cutoff ω_c = 2.0). As the observer falls inward toward the event
+horizon, δ_B drops to the level of near-perfect conformance (0.002 at
+r/r_s = 1.1), departing sharply from Hawking. Inside the horizon, it then
+gradually rises back to the CS equilibrium (~0.017) near the singularity,
+distancing itself again from Hawking radiation and settling at its own resting
+state.
+
+Two quantities must be distinguished to understand this pattern:
+
+- **δ_B (magnitude):** How far the distribution sits from Benford's prediction.
+  This is a single number — the overall distance.
+- **ε(d) (fingerprint shape):** The signed, per-digit deviation pattern. Two
+  distributions can have different magnitudes but the same shape, or the same
+  magnitude but different shapes.
 
 Several features are notable:
 
@@ -237,33 +251,33 @@ hole — does not register in the Causal Set statistical structure. This is
 consistent with the equivalence principle: a freely falling observer should
 notice nothing special at the horizon.
 
-**Far-field Hawking signature.** At r/r_s = 10, far from the black hole, CS
-shows δ_B = 0.028. This is within the range of Hawking radiation fingerprints
-measured in a separate exotic physics survey (δ_B = 0.020–0.035 for greybody
-cutoffs ω_c = 0.5 to 5.0). Far from the hole, the CS spectrum carries the
-imprint of the Hawking thermal bath.
+**Far-field Hawking match (magnitude).** At r/r_s = 10, far from the black
+hole, CS shows δ_B = 0.028 — matching Hawking radiation's magnitude exactly.
+Far from the hole, the CS spectrum carries the imprint of the Hawking thermal
+bath.
 
-**Approach to conformance.** As the observer falls inward from r = 10 r_s, δ_B
-drops from 0.028 to 0.002 — nearly perfect Benford conformance. The distribution
-*improves* on approach, reaching its cleanest state near the horizon (minimum
-δ_B = 0.002 at r ≈ 1.1 r_s) and maintaining near-identical low values just
-inside the horizon and through the inner region to about r ≈ 0.5 r_s.
+**Approach: CS departs from Hawking.** As the observer falls inward from
+r = 10 r_s, CS δ_B drops from 0.028 to 0.002, while Hawking radiation stays
+fixed at 0.028. The CS is pulled far below Hawking levels — 14 times cleaner
+at the minimum (r ≈ 1.1 r_s). The two are no longer comparable in magnitude.
 
-**Gradual interior rise.** Inside the horizon, δ_B rises slowly from 0.004 to
-approximately 0.017 near the singularity. This is a controlled increase — the
-distribution never leaves the CONFORMS category (δ_B < 0.02 throughout). Even at
-r = 0.01 r_s, where T_eff = 50 T_P, the Causal Set spectrum maintains strong
-Benford conformance.
+**Interior: CS rises to its own equilibrium.** Inside the horizon, δ_B rises
+slowly from 0.004 to approximately 0.015–0.017 near the singularity. This is
+the CS resting state — not Hawking's level (0.028), but the substrate's own
+equilibrium. Even at r = 0.01 r_s, where T_eff = 50 T_P, the deviation is
+controlled and stable.
 
 ### 3.3 Fingerprint Match: Causal Set and Hawking Radiation
 
-The per-digit deviation ε(d) provides a richer comparison than δ_B alone. In
-a companion analysis (to be published separately), we compared the ε(d)
-fingerprint of Causal Set Theory at various temperatures with Hawking radiation
-(greybody factor ω_c = 2.0) from the exotic physics survey.
+The magnitude comparison (Section 3.2) shows CS starting at Hawking levels,
+departing dramatically, then settling at a different resting state. But the
+*fingerprint shape* tells a different story. When we compare the ε(d) profiles
+— the signed per-digit patterns — the CS develops a shape in the deep interior
+that is nearly identical to Hawking radiation, even though the overall
+magnitudes are different (CS δ_B ≈ 0.017 vs. Hawking δ_B ≈ 0.028).
 
 The result: the Causal Set fingerprint converges to the Hawking radiation
-fingerprint — but not at the horizon. Just past it.
+fingerprint shape — not at the horizon, but in the deep interior.
 
 | CS Location | L2 distance to Hawking (ω_c = 2.0) |
 |-------------|-------------------------------------|
@@ -276,17 +290,19 @@ fingerprint — but not at the horizon. Just past it.
 
 An L2 distance of 0.004 indicates near-identical fingerprint shape. For
 reference, the self-match distance is 0.000, and any distance below 0.01
-constitutes a tight structural match. The Causal Set spectrum, when pushed past
-the singularity into the regime where T > T_P, develops a per-digit profile that
-is statistically indistinguishable from Hawking radiation with a moderate
-greybody factor.
+constitutes a tight structural match. The Causal Set spectrum, near the
+singularity where T > T_P, develops a per-digit profile that is statistically
+indistinguishable from Hawking radiation with a moderate greybody factor — even
+though the overall magnitude is lower (CS δ_B ≈ 0.017 vs. Hawking δ_B ≈ 0.028).
 
 ### 3.4 Hawking Radiation vs. Causal Set: Side-by-Side
 
 The following table places Hawking radiation (ω_c = 2.0, constant δ_B ≈ 0.028)
-beside the Causal Set at each position through the black hole. The visual
-pattern is immediate: CS starts at Hawking levels, drops far below, then rises
-back toward a Hawking-like fingerprint in the deep interior.
+beside the Causal Set at each position through the black hole. The magnitude
+comparison is immediate: CS starts at Hawking levels far outside, drops far
+below on approach, then rises toward the CS equilibrium (~0.017) in the deep
+interior — never returning to Hawking's magnitude, but developing the same
+fingerprint *shape* (L2 = 0.004, Table 3).
 
 | r/r_s | Zone | Hawking δ_B | CS δ_B | CS relative to Hawking |
 |-------|------|-------------|--------|------------------------|
@@ -299,12 +315,14 @@ back toward a Hawking-like fingerprint in the deep interior.
 | 0.5 | Mid-interior | 0.028 | 0.005 | CS 6× cleaner |
 | 0.2 | Deep interior | 0.028 | 0.012 | CS rising toward Hawking |
 | 0.1 | Near sing. | 0.028 | 0.017 | CS approaching Hawking |
-| 0.04 | Very near sing. | 0.028 | 0.017 | Fingerprint match (L2 = 0.004) |
-| 0.01 | At singularity | 0.028 | 0.015 | CS at equilibrium |
+| 0.04 | Very near sing. | 0.028 | 0.017 | Different magnitude, same shape (L2 = 0.004) |
+| 0.01 | At singularity | 0.028 | 0.015 | CS at equilibrium (~0.017) |
 
-**Table 4.** Hawking radiation (constant) vs. Causal Set (evolving) δ_B through
-the black hole. The CS never reaches Hawking's level but develops the same
-fingerprint shape in the deep interior (see Figure 2).
+**Table 4.** Hawking radiation (constant magnitude) vs. Causal Set (evolving
+magnitude) through the black hole. CS starts at Hawking's magnitude, departs on
+approach, and settles at its own equilibrium (~0.017). The magnitudes diverge,
+but the fingerprint *shape* converges (L2 = 0.004 at r/r_s ≈ 0.04; see
+Figure 2).
 
 ### 3.5 Comparison with the Cosmological Singularity
 
