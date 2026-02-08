@@ -91,16 +91,7 @@ functions as an existence filter: distributions that produce zero valid modes
 return UNDEFINED, identifying thermodynamically impossible physics (negative-mass
 bosons, phantom dark energy) before the field equations are ever written down.
 
-In a companion paper (Riner 2026e), we swept ten quantum gravity models through
-the cosmological singularity at the Planck temperature (the "Big Bang wall") and
-found that Causal Set Theory and Hagedorn/string theory produce the cleanest
-post-wall statistical structure, with Causal Set Theory showing a remarkable
-property: the singularity doesn't register. The distribution is equally clean on
-both sides.
-
-Here we ask: does the same hold at a gravitational singularity? Is the black
-hole interior, from the perspective of Benford's Law, the same kind of wall as
-the Big Bang?
+Here we ask: what does that framework reveal inside a black hole?
 
 ---
 
@@ -146,7 +137,7 @@ This is smooth at r = r_s, rises as the observer approaches the singularity
 (T_eff → ∞ as r → 0), and provides a continuous temperature profile from
 outside to inside. The infalling observer is the primary focus of this paper.
 
-### 2.3 The Ten Quantum Gravity Models
+### 2.3 The Quantum Gravity Models
 
 Each model modifies the thermal spectrum through its dispersion relation E(k)
 and/or density of states g(k). The occupation number at each mode k is:
@@ -156,52 +147,24 @@ and/or density of states g(k). The occupation number at each mode k is:
 and the spectral intensity is S(k) = g(k) × n(k). We compute δ_B and ε(d) from
 the first significant digits of S(k) sampled over a momentum grid.
 
-The ten models, their dispersion relations, and their physical content are:
+We test ten models. The primary focus of this paper is:
 
-1. **Standard (GR + QFT)**: E = k, g(k) = k². No quantum gravity correction.
-   The baseline against which all others are compared.
+**Causal Set Theory**: g(k) = k² × exp(−k²). Spacetime is a random discrete
+set of points (Poisson sprinkling). The Gaussian UV suppression damps modes
+above the Planck scale. Not a lattice — truly random, preserving Lorentz
+invariance at the fundamental level.
 
-2. **Loop Quantum Gravity (LQG)**: E = 2|sin(k/2)|, with modes restricted to
-   the first Brillouin zone (k < π). Spacetime is a polymer — a discrete lattice
-   with a maximum energy E_max = 2 and a natural UV cutoff.
+The baseline is **Standard (GR + QFT)**: E = k, g(k) = k². No quantum gravity
+correction.
 
-3. **GUP (Generalized Uncertainty Principle)**: E = k√(1 + k²), g(k) = k²/(1 +
-   k²). A minimum length scale modifies the commutation relations. Energy grows
-   as k² at high momenta; the density of states is suppressed.
-
-4. **DSR (Doubly Special Relativity)**: E = 1 − e^{−k}. A maximum energy
-   (E_P = 1) is built into the dispersion relation. Energy saturates at the
-   Planck scale regardless of momentum.
-
-5. **Hagedorn (String Theory)**: g(k) = k² × exp(k/T_H), with Hagedorn
-   temperature T_H = T_P. Below T_H, Boltzmann suppression dominates and the
-   spectrum converges. Near T_H, the exponential growth of string states nearly
-   cancels the Boltzmann factor, producing a phase transition.
-
-6. **Causal Set Theory**: g(k) = k² × exp(−k²). Spacetime is a random discrete
-   set of points (Poisson sprinkling). The Gaussian UV suppression damps modes
-   above the Planck scale. Not a lattice — truly random, preserving Lorentz
-   invariance at the fundamental level.
-
-7. **Asymptotic Safety**: The spectral dimension runs from 4 (low energy) to 2
-   (Planck scale). The density of states smoothly transitions: g(k) = k^{d_s−1}
-   where d_s(k) = 2 + 2/(1 + k²). This implements the UV fixed point of the
-   gravitational renormalization group.
-
-8. **Horava-Lifshitz Gravity**: Anisotropic scaling between time and space. The
-   dispersion relation acquires higher-order corrections: E² = k² + k⁴ + k⁶.
-   This makes gravity power-counting renormalizable at the cost of Lorentz
-   symmetry at high energies.
-
-9. **Non-commutative Geometry**: Spacetime coordinates satisfy [x_μ, x_ν] ≠ 0,
-   introducing a minimum area. Modified dispersion: E² = k² + k⁴. Competing
-   effects: UV/IR mixing increases available modes, but each mode costs more
-   energy.
-
-10. **Causal Dynamical Triangulations (CDT)**: Spacetime is built from
-    simplicial triangulations with a causal (time-ordered) structure. Like
-    Asymptotic Safety, predicts dimensional reduction 4→2, but with a sharper
-    transition: d_s(k) = 2 + 2/(1 + k⁴).
+The remaining eight models — Loop Quantum Gravity (LQG), Generalized
+Uncertainty Principle (GUP), Doubly Special Relativity (DSR), Hagedorn/String
+Theory, Asymptotic Safety, Horava-Lifshitz, Non-commutative Geometry, and
+Causal Dynamical Triangulations (CDT) — each modify the dispersion relation
+and/or density of states to implement various quantum gravity proposals. Full
+dispersion relations and model descriptions are given in Appendix B. All ten
+models are evaluated at every radial position; Section 3.2 reports comparative
+rankings.
 
 ### 2.4 Analysis Protocol
 
@@ -220,45 +183,30 @@ This yields 10 models × 55 positions = 550 spectral evaluations.
 
 ## 3. Results
 
-### 3.1 All Models Survive
+### 3.1 All Models Survive; Causal Set Ranks First
 
-No model produces an undefined distribution at any radius. All 550 spectral
-evaluations return computable δ_B values. The black hole interior is, from the
-Benford perspective, a valid physical environment for all ten quantum gravity
-proposals.
+All 550 spectral evaluations return computable δ_B values — no model produces an
+undefined distribution at any radius. The black hole interior is a valid
+statistical environment for all ten quantum gravity proposals.
 
-This is itself a result. The existence filter developed in Riner (2026c)
-identified physics that *cannot* form thermal distributions (negative-mass
-bosons, phantom energy — zero valid modes everywhere). Black hole interiors are
-not in that category. Whatever happens inside a black hole, it is not
-thermodynamic non-existence.
+The rankings inside the black hole (mean δ_B for r/r_s < 1):
 
-### 3.2 Rankings: Inside the Black Hole
+| Rank | Model | Mean δ_B (inside) | Mean δ_B (outside) |
+|------|-------|-------------------|--------------------|
+| 1 | **Causal Set** | **0.011** | 0.005 |
+| 2 | Hagedorn | 0.019 | 0.006 |
+| 3 | Noncommut. | 0.051 | 0.043 |
+| 4–10 | Standard, DSR, AS, CDT, Horava, LQG, GUP | 0.108–0.605 | 0.060–0.877 |
 
-The mean δ_B for each model across all interior positions (r/r_s < 1),
-using the infalling observer temperature profile:
-
-| Rank | Model | Mean δ_B (inside) | Mean δ_B (outside) | Character |
-|------|-------|-------------------|--------------------|-----------|
-| 1 | **Causal Set** | **0.011** | 0.005 | FLAT — horizon irrelevant |
-| 2 | Hagedorn | 0.019 | 0.006 | Slight degradation |
-| 3 | Noncommut. | 0.051 | 0.043 | FLAT |
-| 4 | Standard | 0.108 | 0.132 | FLAT |
-| 5 | DSR | 0.110 | 0.098 | FLAT |
-| 6 | Asym. Safety | 0.112 | 0.222 | MIXED |
-| 7 | CDT | 0.115 | 0.219 | MIXED |
-| 8 | Horava-Lif. | 0.125 | 0.124 | FLAT |
-| 9 | LQG | 0.173 | 0.060 | DEGRADES |
-| 10 | GUP | 0.605 | 0.877 | MIXED |
-
-**Table 1.** Mean Benford deviation inside and outside the event horizon. Models
-ranked by interior performance.
+**Table 1.** Mean Benford deviation inside and outside the event horizon. Full
+model-by-model data in Appendix B.
 
 Causal Set Theory produces the cleanest statistical structure inside the black
 hole by a significant margin — nearly half the deviation of the runner-up
 (Hagedorn). The discrete spacetime maintains near-perfect Benford conformance
 (δ_B = 0.011, well within the "strong conformance" threshold of 0.02) even as
-the effective temperature rises toward infinity at the singularity.
+the effective temperature rises toward infinity at the singularity. The
+remaining sections focus on the Causal Set data.
 
 ### 3.3 The Causal Set Journey
 
@@ -344,87 +292,17 @@ greybody factor.
 
 ### 3.5 Comparison with the Cosmological Singularity
 
-Eight of ten models produce comparable δ_B values at both the Big Bang
-(cosmological singularity) and the black hole (gravitational singularity):
-
-| Model | Big Bang (post-wall) | Black Hole (inside) | Ratio | Consistent? |
-|-------|---------------------|--------------------:|------:|-------------|
-| Causal Set | 0.017 | 0.011 | 0.64 | YES (better at BH) |
-| Hagedorn | 0.014 | 0.019 | 1.35 | YES |
-| Noncommut. | 0.047 | 0.051 | 1.08 | YES |
-| Standard | 0.078 | 0.108 | 1.39 | YES |
-| DSR | 0.108 | 0.110 | 1.02 | YES |
-| Horava-Lif. | 0.129 | 0.125 | 0.97 | YES |
-| LQG | 0.182 | 0.173 | 0.95 | YES |
-| GUP | 0.399 | 0.605 | 1.52 | YES |
-| **Asym. Safety** | **0.041** | **0.112** | **2.77** | **NO** |
-| **CDT** | **0.041** | **0.115** | **2.79** | **NO** |
-
-**Table 4.** Comparison of δ_B at the two singularities. Ratio near 1.0
-indicates the model treats both walls equivalently.
-
-The two exceptions — Asymptotic Safety and Causal Dynamical Triangulations — are
-both dimensional reduction models (spectral dimension 4 → 2). The dimensional
-reduction that helps at the isotropic cosmological singularity does not transfer
-to the anisotropic radial collapse of a black hole. The geometry matters for
-these models; for the other eight, singularities are singularities.
-
-Causal Set Theory is the only model that performs *better* at the black hole
-than at the Big Bang (ratio 0.64). The discrete spacetime absorbs a localized
-point singularity more cleanly than a spatially uniform cosmological singularity.
+Eight of ten models produce comparable δ_B at both the cosmological singularity
+(Riner 2026e) and the black hole interior. Causal Set Theory is the only model
+that performs *better* at the black hole (0.011) than at the Big Bang (0.017),
+suggesting the discrete spacetime absorbs a localized point singularity more
+cleanly than a spatially uniform one. Full comparison data is in Riner (2026e).
 
 ---
 
-## 4. The Wormhole Control Experiment
+## 4. Interpretation: Evaporation Without Radiation
 
-To determine whether the Causal Set response is driven by curvature in general
-or by singularities and horizons specifically, we performed a companion
-experiment through a Morris-Thorne/Ellis traversable wormhole (detailed in Riner
-2026f).
-
-The wormhole geometry:
-- Shape function: r(l) = √(l² + b₀²), where l is proper distance and b₀ = 0.1
-  (Planck units)
-- Throat at l = 0, fully traversable, symmetric about the throat
-- **No singularity. No event horizon.**
-- Maximum curvature temperature at the throat: T_max = 1/(2πb₀) ≈ 1.59 T_P
-
-This temperature is comparable to the black hole interior at r/r_s ≈ 0.1, where
-T_eff = 1.58 T_P. The curvature regimes are similar; the topology is completely
-different.
-
-Results:
-
-| Model | Black Hole (inside) | Wormhole (mean) | BH Rank | WH Rank |
-|-------|--------------------:|----------------:|--------:|--------:|
-| **Causal Set** | **0.011** | **0.056** | **1** | **9** |
-| Hagedorn | 0.019 | 0.038 | 2 | 4 |
-| CDT | 0.115 | 0.033 | 7 | 1 |
-| Asym. Safety | 0.112 | 0.034 | 6 | 2 |
-| Standard | 0.108 | 0.055 | 4 | 8 |
-
-**Table 5.** Selected models at the black hole vs. wormhole. Causal Set drops
-from 1st to 9th; CDT and Asymptotic Safety rise from bottom-tier to top-tier.
-
-Causal Set Theory drops from 1st place inside the black hole to 9th place at the
-wormhole throat. Its δ_B increases fivefold, from 0.011 to 0.056. Meanwhile, CDT
-and Asymptotic Safety — which struggled inside the black hole — rise to 1st and
-2nd place at the wormhole.
-
-The pattern is unambiguous: Causal Set Theory responds specifically to
-singularities and horizons, not to curvature. Remove the singularity and the
-horizon, and the discrete spacetime's advantage disappears. The other models'
-responses are more curvature-dependent and less topology-dependent.
-
-At the wormhole throat, there is no CS spike, no relaxation toward conformance,
-and — we will argue — no energy cost. The smooth geometry does not trigger the
-mechanism.
-
----
-
-## 5. Interpretation: Evaporation Without Radiation
-
-### 5.1 The Mass-Stripping Cycle
+### 4.1 The Mass-Stripping Cycle
 
 The Causal Set journey through the black hole (Table 2) reveals not just a
 pattern but a *mechanism*. Read as a physical process:
@@ -442,11 +320,11 @@ too conformant. The gravitational field has pushed it below equilibrium.
 climbs from 0.004 back to 0.015–0.017. The black hole is feeding mass-energy
 back into the Causal Set to restore it to equilibrium. The CS is being rebuilt.
 
-What is the Causal Set's natural resting state? The data is consistent across
-all three geometries: at the Big Bang, CS post-wall mean = 0.017. Near the BH
-singularity, CS reaches 0.015. These values are nearly identical. The resting
-state is δ_B ≈ 0.015–0.017 — and the 0.003 near the horizon is the anomaly,
-not the equilibrium.
+What is the Causal Set's natural resting state? The data points toward a
+consistent answer: at the Big Bang wall (Riner 2026e), CS post-wall mean =
+0.017. Near the BH singularity, CS reaches 0.015. The resting state is δ_B ≈
+0.015–0.017 — and the 0.002 near the horizon is the anomaly, not the
+equilibrium.
 
 **The transaction is one-way.** The black hole spends mass to restore CS from
 over-conformance back to equilibrium. But CS at equilibrium does not contribute
@@ -458,18 +336,18 @@ The black hole is not being destroyed. It is being *used* — as an energy sourc
 for spacetime restoration. Mass goes in. Spacetime structure comes out. The
 structure does not refund the payment.
 
-### 5.2 The Healing Hypothesis
+### 4.2 The Healing Hypothesis
 
 The mass-stripping cycle points to a general principle: **Causal Set spacetime
 actively restores its statistical structure when it encounters a singularity or
 horizon, and the energy cost of this restoration is drawn from the black hole's
 mass.**
 
-The data across three geometries supports this:
+The data supports this:
 
-- **At singularities** (BH, Big Bang): δ_B ≈ 0.011–0.017. Near-perfect Benford
+- **At the black hole singularity**: δ_B ≈ 0.011–0.017. Near-perfect
   conformance. The discrete spacetime absorbs the singularity.
-- **At smooth curvature** (wormhole): δ_B ≈ 0.056. Unremarkable. No special
+- **At smooth curvature** (wormhole, Riner 2026f): δ_B ≈ 0.056. No special
   response. No restoration needed.
 - **Near the event horizon**: δ_B is stripped below equilibrium, then the black
   hole feeds mass back to restore it.
@@ -480,7 +358,7 @@ has a natural statistical structure that conforms to Benford's Law at δ_B ≈
 by restructuring itself, consuming energy in the process. The energy source is
 the black hole.
 
-### 5.3 Black Holes Shrink Without Radiating
+### 4.3 Black Holes Shrink Without Radiating
 
 The standard account of Hawking radiation (Hawking 1975) describes particle
 creation at the event horizon: virtual pairs form in the vacuum, one member falls
@@ -505,7 +383,7 @@ evaporates — but the mechanism is fundamentally different:
 
 **Table 6.** Comparison of the two evaporation mechanisms.
 
-### 5.4 Why Hawking Radiation Has Not Been Detected
+### 4.4 Why Hawking Radiation Has Not Been Detected
 
 Hawking radiation from astrophysical black holes has never been observed. The
 standard explanation is sensitivity: a solar-mass black hole radiates at T_H ≈
@@ -526,7 +404,7 @@ maps this correlation to real outgoing particles. The Causal Set interpretation
 maps it to internal restructuring — the same mathematical structure, different
 physical realization.
 
-### 5.5 Size Independence and the Black Hole Lifecycle
+### 4.5 Size Independence and the Black Hole Lifecycle
 
 Our simulation uses local geometry. The spectrum at each radius depends on the
 local effective temperature, not on the total black hole mass. The Causal Set
@@ -557,7 +435,7 @@ This qualitatively reproduces the standard scaling relation (evaporation time
 ∝ M³) without requiring outgoing radiation. The mechanism is the same at all
 scales; only the ratio of restructuring cost to total mass changes.
 
-### 5.6 The Information Paradox Dissolves
+### 4.6 The Information Paradox Dissolves
 
 The black hole information paradox (Hawking 1976) asks: if a black hole
 evaporates completely via thermal radiation, what happens to the information that
@@ -583,11 +461,11 @@ theory of quantum gravity to resolve.
 
 ---
 
-## 6. Black Holes as Spacetime Factories
+## 5. Black Holes as Spacetime Factories
 
-### 6.1 Mass In, Spacetime Out
+### 5.1 Mass In, Spacetime Out
 
-The mass-stripping cycle (Section 5.1) describes a one-way transaction: the
+The mass-stripping cycle (Section 4.1) describes a one-way transaction: the
 black hole spends mass to restore the Causal Set to its equilibrium state, and
 the equilibrium state — being spacetime itself — does not return the investment.
 Mass is converted to spacetime structure.
@@ -604,7 +482,7 @@ to perfect conformance." The CS experiments now identify the mechanism: the
 return to conformance does not produce radiation or thermal noise. It produces
 spacetime. The endpoint of entropy is not heat death. It is geometry.
 
-### 6.2 Implications for Cosmological Expansion
+### 5.2 Implications for Cosmological Expansion
 
 If black holes produce new spacetime, the universe is expanding at every black
 hole. Every galaxy contains a supermassive black hole at its center. The
@@ -625,7 +503,7 @@ an independently expanding spacetime. In this framework, black holes are
 *generators* of that expansion — the sites where mass is converted to geometry
 and the universe literally grows.
 
-### 6.3 Gravitational Waves as the Wavefront of New Spacetime
+### 5.3 Gravitational Waves as the Wavefront of New Spacetime
 
 When LIGO detected the binary black hole merger GW150914 (Abbott et al. 2016),
 the final black hole was approximately 3 solar masses lighter than the sum of
@@ -649,7 +527,7 @@ distinction is subtle but in principle testable: if gravitational waves carry
 energy (standard), that energy should be conservable and localizable. If they
 *are* spacetime (CS), the energy is not deposited — it is the expansion itself.
 
-### 6.4 Connection to Croker et al. (2023)
+### 5.4 Connection to Croker et al. (2023)
 
 Croker, Weiner, and Farrah (2023) presented observational evidence that
 supermassive black holes in elliptical galaxies gain mass over cosmic time in a
@@ -672,9 +550,9 @@ calculation within the Causal Set formalism.
 
 ---
 
-## 7. Discussion
+## 6. Discussion
 
-### 7.1 What This Paper Does and Does Not Claim
+### 6.1 What This Paper Does and Does Not Claim
 
 We claim:
 
@@ -684,12 +562,11 @@ We claim:
 2. Causal Set Theory produces the cleanest interior statistical structure
    (δ_B = 0.011), outperforming all competitors by a factor of ~2.
 
-3. The Causal Set response is specific to singularities and horizons (confirmed
-   by the wormhole control experiment), not to curvature in general.
-
-4. Eight of ten quantum gravity models produce consistent δ_B at both the
-   cosmological and gravitational singularities. Singularities are, from the
-   Benford perspective, universal.
+3. The Causal Set response is specific to singularities and horizons, not to
+   curvature in general. A companion experiment through a traversable wormhole
+   (Riner 2026f) — comparable curvature, no singularity, no horizon — shows CS
+   dropping from 1st place (BH, δ_B = 0.011) to 9th place (wormhole, δ_B =
+   0.056). The topology, not the curvature, drives the response.
 
 We propose but do not prove:
 
@@ -711,8 +588,8 @@ We further speculate:
 10. Gravitational waves from binary mergers may be the wavefront of newly
     generated spacetime rather than radiated energy.
 
-Claims 5–7 are interpretive (Section 5). Claims 8–10 are speculative (Section
-6). All are consistent with the data presented here but require independent
+Claims 5–7 are interpretive (Section 4). Claims 8–10 are speculative (Section
+5). All are consistent with the data presented here but require independent
 theoretical work within the Causal Set formalism to confirm. In particular, one
 would need to show that the dynamics of a causal set in the presence of a
 horizon necessarily produce an energy cost proportional to the restructuring,
@@ -721,7 +598,7 @@ cosmological claims, one would additionally need to show that the rate of
 spacetime production by black holes is consistent with the observed expansion
 rate.
 
-### 7.2 Testable Predictions
+### 6.2 Testable Predictions
 
 The two mechanisms — standard Hawking radiation and Causal Set healing — make
 the same prediction for mass loss rate but different predictions for observables:
@@ -742,7 +619,7 @@ detected at T_H, Hawking radiation is confirmed. If the mass decreases without
 outgoing thermal flux, the structural mechanism is supported. No such experiment
 is currently feasible, but the predictions are distinct.
 
-### 7.3 Relation to Existing Work
+### 6.3 Relation to Existing Work
 
 The Causal Set approach to black hole thermodynamics has been developed by
 Sorkin, Dou, and others (Sorkin 1997, Dou & Sorkin 2003). The entanglement
@@ -761,7 +638,7 @@ semiclassical radiation process.
 
 ---
 
-## 8. Conclusion
+## 7. Conclusion
 
 We have swept ten quantum gravity models through a Schwarzschild black hole and
 measured the Benford deviation δ_B at every radius from 10 r_s to 0.01 r_s and
@@ -773,13 +650,11 @@ the gravitational field strips it below its natural equilibrium — pushing δ_B
 from 0.028 down to 0.003, an over-conformance that is not the Causal Set's
 resting state. Inside the horizon, the black hole feeds mass-energy back into
 the Causal Set, restoring it from 0.004 to 0.017 — its natural equilibrium,
-consistent across all three geometries tested. The transaction is one-way:
-the black hole spends mass, the restored spacetime gives nothing back.
-
-The wormhole — comparable curvature, no singularity, no horizon — confirms
-that this response is topology-specific, not curvature-driven. Causal Set
-Theory drops from 1st place inside the black hole to 9th at the wormhole.
-The mechanism requires a singularity or horizon to trigger.
+consistent with the Big Bang wall (Riner 2026e). The transaction is one-way:
+the black hole spends mass, the restored spacetime gives nothing back. A
+wormhole control experiment (Riner 2026f) confirms this response is
+topology-specific — CS drops from 1st place at the black hole to 9th at the
+wormhole, where there is no singularity and no horizon.
 
 If the restoration has an energy cost, and if that cost is drawn from the
 black hole, then the black hole evaporates without radiating. It shrinks
@@ -849,6 +724,3 @@ generated from black_hole_wall.json]
 [Full tables for all models inside the horizon — to be generated from
 black_hole_wall.json]
 
-## Appendix C: Wormhole Control Data
-
-[Key comparison tables from wormhole_wall.json]
