@@ -13,8 +13,7 @@
 We measure the Benford deviation δ_B of thermal radiation spectra — modified by
 ten quantum gravity models — at forty radial positions through a Schwarzschild
 black hole: from far outside the event horizon, through it, down to the
-singularity. We tested ten models; four are discussed here, with full results in
-Appendix B.
+singularity. Four models are discussed here; full results in Appendix B.
 
 Causal Set Theory produces the cleanest statistical structure inside the black
 hole (mean δ_B = 0.011), outperforming all other models by a factor of two or
@@ -137,7 +136,7 @@ and/or density of states g(k). The occupation number at each mode k is:
 and the spectral intensity is S(k) = g(k) × n(k). We compute δ_B and ε(d) from
 the first significant digits of S(k) sampled over a momentum grid.
 
-We test ten models. The primary focus of this paper is:
+We test ten models; four are discussed in the main text. The primary focus is:
 
 **Causal Set Theory**: g(k) = k² × exp(−k²). Spacetime is a random discrete
 set of points (Poisson sprinkling). The Gaussian UV suppression damps modes
@@ -146,8 +145,6 @@ invariance at the fundamental level.
 
 The baseline is **Standard (GR + QFT)**: E = k, g(k) = k². No quantum gravity
 correction.
-
-We tested ten models; four are discussed in the main text:
 
 **Hagedorn/String Theory**: g(k) = k² × exp(k/T_H). Implements the exponential
 density of states near the Hagedorn temperature, modeling the proliferation of
@@ -714,11 +711,10 @@ drain's selectivity matters most.
 
 ## 7. Conclusion
 
-We measured ten quantum gravity models inside a Schwarzschild black hole using
-the Benford deviation framework. Causal Set Theory ranks first by a factor of
-two (δ_B = 0.011 vs. 0.019 for the runner-up). The horizon does not register
-in the CS data. A wormhole control experiment (to be published separately)
-confirmed the response is topology-specific, not curvature-driven.
+We tested ten quantum gravity models inside a Schwarzschild black hole using the
+Benford deviation framework (see Appendix B); of these, Causal Set Theory ranks
+first by a factor of two (δ_B = 0.011 vs. 0.019 for the runner-up, Hagedorn).
+The horizon does not register in the CS data.
 
 The CS data reveals a mechanism. Gravity strips the CS below its equilibrium
 on approach (δ_B drops from 0.028 to 0.002). Inside, the black hole feeds
