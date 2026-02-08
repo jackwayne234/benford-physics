@@ -538,71 +538,24 @@ to perfect conformance." The CS experiments now identify the mechanism: the
 return to conformance does not produce radiation or thermal noise. It produces
 spacetime. The endpoint of entropy is not heat death. It is geometry.
 
-### 5.2 Implications for Cosmological Expansion
+### 5.2 Speculative Extensions
 
-If black holes produce new spacetime, the universe is expanding at every black
-hole. Every galaxy contains a supermassive black hole at its center. The
-spacetime produced propagates outward.
+**Cosmological expansion.** If black holes convert mass to spacetime, they are
+sources of expansion. This addresses an open question from Riner (2026b): where
+does expansion originate? Black holes provide the source; voids accelerate
+because there is no mass to brake the propagation. A detailed treatment is in
+Riner (2026g).
 
-This addresses an open question from Riner (2026b, Section 4.5), which proposed
-that the accelerating expansion of the universe in low-density voids might
-reflect "absence of braking" — regions with no mass to slow the emergence
-process. That argument explained why voids *accelerate* but did not explain
-where the expansion *originates*. The Causal Set mechanism provides the source:
-black holes are the factories. They consume mass, produce spacetime, and the
-new spacetime propagates outward. The voids accelerate because there is no mass
-to brake the propagation.
+**Gravitational waves.** In the CS framework, the mass deficit from binary
+mergers (Abbott et al. 2016) is not radiated as energy but converted to
+spacetime that propagates outward as ripples — the wavefront of newly created
+geometry rather than energy deposited in distant matter.
 
-This picture inverts the standard relationship between black holes and
-expansion. In conventional cosmology, black holes are local objects embedded in
-an independently expanding spacetime. In this framework, black holes are
-*generators* of that expansion — the sites where mass is converted to geometry
-and the universe literally grows.
-
-### 5.3 Gravitational Waves as the Wavefront of New Spacetime
-
-When LIGO detected the binary black hole merger GW150914 (Abbott et al. 2016),
-the final black hole was approximately 3 solar masses lighter than the sum of
-the two progenitors. In standard physics, this mass deficit was radiated as
-gravitational wave energy.
-
-In the Causal Set framework, the interpretation shifts: two black holes
-merge → violent CS restructuring at the combined horizon → the excess mass is
-converted to spacetime → the newly generated geometry propagates outward as
-ripples. Gravitational waves, in this picture, are not energy radiating away
-from the source. They are the **wavefront of newly created spacetime**,
-propagating at the speed of light because light speed is the propagation rate
-of the Causal Set's statistical equilibrium (Riner 2026b, Section 2.2).
-
-Both pictures make the same prediction for wave amplitude and frequency (both
-scale with the mass deficit), but they make different predictions for what
-happens to the energy content. In the standard picture, gravitational wave
-energy is deposited in distant matter through tidal stretching. In the CS
-picture, the wave energy *becomes* the space between that matter. The
-distinction is subtle but in principle testable: if gravitational waves carry
-energy (standard), that energy should be conservable and localizable. If they
-*are* spacetime (CS), the energy is not deposited — it is the expansion itself.
-
-### 5.4 Connection to Croker et al. (2023)
-
-Croker, Weiner, and Farrah (2023) presented observational evidence that
-supermassive black holes in elliptical galaxies gain mass over cosmic time in a
-manner coupled to the cosmological expansion rate — specifically, that black
-hole masses scale as M ∝ a^k where a is the scale factor and k ≈ 3. This
-"cosmological coupling" suggests that black holes are not isolated objects but
-are dynamically linked to the expansion of the universe.
-
-This result is controversial but sits in precisely the same conceptual space as
-the mechanism proposed here. If black holes produce spacetime (increasing the
-scale factor) and the scale factor feeds back into the effective mass of the
-black hole (through cosmological coupling), then the relationship between black
-holes and expansion is bidirectional. The CS mechanism provides a physical basis
-for this coupling: the black hole converts mass to spacetime, the spacetime
-expands, and the expansion modifies the horizon geometry.
-
-Whether the quantitative rates match — whether the CS restructuring rate
-produces the observed expansion rate — is an open question requiring detailed
-calculation within the Causal Set formalism.
+**Cosmological coupling.** Croker et al. (2023) presented evidence that black
+hole masses scale with the cosmological scale factor (M ∝ a^k, k ≈ 3). This
+is consistent with a bidirectional relationship: black holes produce spacetime,
+and the expanding spacetime modifies the horizon geometry. Whether the
+quantitative rates match remains an open calculation.
 
 ---
 
@@ -674,6 +627,13 @@ principle distinguish the two scenarios. If outgoing thermal particles are
 detected at T_H, Hawking radiation is confirmed. If the mass decreases without
 outgoing thermal flux, the structural mechanism is supported. No such experiment
 is currently feasible, but the predictions are distinct.
+
+The mass/light distinction (Section 4.2) adds a further testable prediction: if
+the CS drain is selective — consuming mass-deviation but not light — then the
+final burst of a small evaporating black hole should be predominantly
+electromagnetic (the accumulated trapped light releasing at once), not a thermal
+spectrum of all particle types. This differs from the standard Hawking prediction
+of a democratic thermal burst across all species weighted by spin.
 
 ### 6.3 Relation to Existing Work
 
@@ -807,13 +767,94 @@ interior develops the same statistical fingerprint as Hawking radiation.
 
 ---
 
-## Appendix A: Complete Causal Set Data
+## Appendix A: Complete Causal Set Data (Infalling Observer)
 
-[Full 50-point table of CS δ_B and ε(d) at every radial position — to be
-generated from black_hole_wall.json]
+All 55 radial positions, from black_hole_wall.json.
 
-## Appendix B: All Ten Models — Interior Data
+| r/r_s | Zone | T_eff (T_P) | δ_B | ε(1) | ε(2) | ε(3) | ε(4) | ε(5) | ε(6) | ε(7) | ε(8) | ε(9) |
+|-------|------|-------------|-----|------|------|------|------|------|------|------|------|------|
+| 10.0 | outside | 0.00158 | 0.02755 | −0.002 | 0.025 | −0.008 | −0.003 | −0.004 | −0.003 | −0.002 | −0.002 | −0.000 |
+| 7.0 | outside | 0.00270 | 0.01061 | 0.009 | −0.004 | −0.004 | 0.000 | −0.001 | −0.001 | −0.001 | 0.000 | 0.001 |
+| 5.0 | outside | 0.00447 | 0.00422 | 0.003 | −0.001 | −0.002 | 0.001 | −0.001 | −0.001 | −0.001 | 0.000 | 0.001 |
+| 3.0 | outside | 0.00962 | 0.00286 | −0.001 | −0.001 | −0.001 | 0.002 | 0.000 | −0.000 | −0.000 | 0.000 | 0.001 |
+| 2.0 | outside | 0.01768 | 0.00275 | 0.001 | −0.000 | −0.001 | 0.002 | −0.001 | −0.000 | −0.001 | −0.000 | 0.001 |
+| 1.5 | outside | 0.02722 | 0.00517 | −0.002 | −0.000 | 0.000 | 0.005 | −0.001 | −0.001 | −0.000 | −0.001 | 0.000 |
+| 1.3 | outside | 0.03373 | 0.00318 | −0.002 | −0.001 | −0.000 | 0.001 | 0.000 | 0.001 | 0.001 | −0.000 | −0.000 |
+| 1.2 | outside | 0.03804 | 0.00357 | −0.002 | −0.001 | −0.001 | 0.001 | 0.000 | 0.000 | 0.001 | 0.001 | 0.002 |
+| 1.15 | outside | 0.04054 | 0.00276 | −0.001 | −0.001 | −0.001 | 0.001 | −0.000 | −0.000 | 0.000 | 0.001 | 0.002 |
+| **1.1** | **outside** | **0.04334** | **0.00214** | 0.001 | −0.002 | −0.001 | 0.000 | 0.000 | −0.000 | −0.000 | 0.000 | 0.001 |
+| 1.08 | outside | 0.04455 | 0.00255 | 0.002 | −0.002 | −0.001 | 0.000 | −0.000 | 0.000 | −0.000 | 0.000 | 0.000 |
+| 1.06 | outside | 0.04582 | 0.00272 | 0.002 | −0.001 | −0.001 | 0.001 | −0.000 | −0.000 | −0.000 | 0.000 | 0.001 |
+| 1.04 | outside | 0.04714 | 0.00353 | 0.002 | −0.002 | −0.001 | 0.001 | −0.001 | 0.000 | −0.000 | 0.000 | 0.001 |
+| 1.03 | outside | 0.04783 | 0.00389 | 0.003 | −0.002 | −0.001 | 0.001 | −0.000 | −0.001 | −0.000 | 0.000 | 0.001 |
+| 1.02 | outside | 0.04854 | 0.00348 | 0.003 | −0.002 | −0.001 | 0.000 | −0.001 | −0.000 | −0.000 | −0.000 | 0.001 |
+| 1.015 | outside | 0.04890 | 0.00376 | 0.003 | −0.002 | −0.001 | 0.001 | −0.001 | −0.000 | −0.000 | 0.000 | 0.001 |
+| 1.01 | outside | 0.04926 | 0.00401 | 0.003 | −0.002 | −0.001 | 0.001 | −0.000 | −0.001 | 0.000 | 0.000 | 0.000 |
+| 1.005 | outside | 0.04963 | 0.00420 | 0.003 | −0.002 | −0.001 | 0.000 | −0.001 | −0.000 | −0.000 | −0.000 | 0.000 |
+| 1.002 | outside | 0.04985 | 0.00405 | 0.003 | −0.002 | −0.001 | 0.000 | −0.000 | −0.000 | −0.000 | −0.000 | 0.001 |
+| 1.001 | outside | 0.04993 | 0.00417 | 0.003 | −0.002 | −0.001 | 0.000 | −0.000 | −0.000 | 0.000 | −0.000 | 0.000 |
+| 0.99 | inside | 0.05076 | 0.00427 | 0.003 | −0.002 | −0.001 | 0.000 | −0.001 | 0.000 | −0.001 | 0.000 | 0.000 |
+| 0.95 | inside | 0.05400 | 0.00547 | 0.005 | −0.002 | −0.001 | 0.000 | −0.001 | −0.000 | 0.000 | −0.000 | −0.000 |
+| 0.9 | inside | 0.05856 | 0.00286 | 0.002 | 0.002 | −0.001 | 0.000 | −0.001 | −0.000 | −0.001 | −0.000 | 0.000 |
+| 0.85 | inside | 0.06380 | 0.00429 | 0.000 | 0.004 | −0.002 | −0.000 | −0.000 | −0.001 | −0.001 | −0.000 | −0.000 |
+| 0.8 | inside | 0.06988 | 0.00367 | −0.001 | 0.003 | 0.001 | −0.000 | −0.001 | −0.001 | −0.001 | −0.001 | 0.000 |
+| 0.7 | inside | 0.08537 | 0.00625 | −0.002 | 0.000 | 0.002 | 0.005 | −0.001 | −0.001 | −0.001 | −0.001 | −0.000 |
+| 0.6 | inside | 0.10758 | 0.00638 | −0.004 | −0.002 | −0.000 | 0.001 | 0.001 | 0.003 | 0.002 | −0.001 | −0.000 |
+| 0.5 | inside | 0.14142 | 0.00486 | 0.003 | −0.003 | −0.002 | −0.000 | −0.000 | 0.000 | 0.001 | 0.000 | 0.002 |
+| 0.4 | inside | 0.19764 | 0.00745 | 0.003 | 0.005 | −0.003 | −0.001 | −0.002 | −0.001 | −0.001 | −0.000 | 0.000 |
+| 0.3 | inside | 0.30429 | 0.01313 | −0.006 | −0.000 | 0.002 | 0.011 | −0.001 | −0.002 | −0.002 | −0.001 | −0.001 |
+| 0.25 | inside | 0.40000 | 0.01607 | −0.010 | −0.004 | −0.001 | 0.001 | 0.002 | 0.003 | 0.011 | −0.002 | −0.001 |
+| 0.2 | inside | 0.55902 | 0.01205 | 0.009 | −0.006 | −0.003 | −0.001 | −0.001 | −0.000 | 0.000 | 0.001 | 0.002 |
+| 0.15 | inside | 0.86066 | 0.01515 | 0.004 | 0.013 | −0.006 | −0.003 | −0.003 | −0.002 | −0.002 | −0.001 | −0.001 |
+| 0.12 | inside | 1.20281 | 0.01963 | −0.005 | 0.003 | 0.017 | −0.004 | −0.004 | −0.003 | −0.002 | −0.002 | −0.001 |
+| 0.1 | inside | 1.58114 | 0.01671 | −0.009 | −0.001 | 0.002 | 0.008 | 0.010 | −0.003 | −0.003 | −0.002 | −0.002 |
+| 0.08 | inside | 2.20971 | 0.01749 | −0.012 | −0.005 | −0.001 | 0.001 | 0.002 | 0.004 | 0.010 | 0.003 | −0.002 |
+| 0.06 | inside | 3.40207 | 0.01349 | 0.010 | −0.007 | −0.004 | −0.001 | −0.001 | −0.000 | 0.000 | 0.001 | 0.002 |
+| 0.04 | inside | 6.25000 | 0.01733 | 0.003 | 0.015 | −0.006 | −0.003 | −0.003 | −0.002 | −0.002 | −0.001 | −0.001 |
+| 0.02 | inside | 17.67767 | 0.01838 | −0.012 | −0.004 | −0.001 | 0.001 | 0.004 | 0.007 | 0.010 | −0.003 | −0.002 |
+| 0.01 | inside | 50.00000 | 0.01466 | 0.012 | 0.004 | −0.006 | −0.004 | −0.002 | −0.002 | −0.001 | −0.001 | −0.001 |
+| −0.01 | post-sing. | 50.00000 | 0.01466 | 0.012 | 0.004 | −0.006 | −0.004 | −0.002 | −0.002 | −0.001 | −0.001 | −0.001 |
+| −0.02 | post-sing. | 17.67767 | 0.01838 | −0.012 | −0.004 | −0.001 | 0.001 | 0.004 | 0.007 | 0.010 | −0.003 | −0.002 |
+| −0.04 | post-sing. | 6.25000 | 0.01733 | 0.003 | 0.015 | −0.006 | −0.003 | −0.003 | −0.002 | −0.002 | −0.001 | −0.001 |
+| −0.06 | post-sing. | 3.40207 | 0.01349 | 0.010 | −0.007 | −0.004 | −0.001 | −0.001 | −0.000 | 0.000 | 0.001 | 0.002 |
+| −0.08 | post-sing. | 2.20971 | 0.01749 | −0.012 | −0.005 | −0.001 | 0.001 | 0.002 | 0.004 | 0.010 | 0.003 | −0.002 |
+| −0.1 | post-sing. | 1.58114 | 0.01671 | −0.009 | −0.001 | 0.002 | 0.008 | 0.010 | −0.003 | −0.003 | −0.002 | −0.002 |
+| −0.12 | post-sing. | 1.20281 | 0.01963 | −0.005 | 0.003 | 0.017 | −0.004 | −0.004 | −0.003 | −0.002 | −0.002 | −0.001 |
+| −0.15 | post-sing. | 0.86066 | 0.01515 | 0.004 | 0.013 | −0.006 | −0.003 | −0.003 | −0.002 | −0.002 | −0.001 | −0.001 |
+| −0.2 | post-sing. | 0.55902 | 0.01205 | 0.009 | −0.006 | −0.003 | −0.001 | −0.001 | −0.000 | 0.000 | 0.001 | 0.002 |
+| −0.25 | post-sing. | 0.40000 | 0.01607 | −0.010 | −0.004 | −0.001 | 0.001 | 0.002 | 0.003 | 0.011 | −0.002 | −0.001 |
+| −0.3 | post-sing. | 0.30429 | 0.01313 | −0.006 | −0.000 | 0.002 | 0.011 | −0.001 | −0.002 | −0.002 | −0.001 | −0.001 |
+| −0.4 | post-sing. | 0.19764 | 0.00745 | 0.003 | 0.005 | −0.003 | −0.001 | −0.002 | −0.001 | −0.001 | −0.000 | 0.000 |
+| −0.5 | post-sing. | 0.14142 | 0.00486 | 0.003 | −0.003 | −0.002 | −0.000 | −0.000 | 0.000 | 0.001 | 0.000 | 0.002 |
+| −0.7 | post-sing. | 0.08537 | 0.00625 | −0.002 | 0.000 | 0.002 | 0.005 | −0.001 | −0.001 | −0.001 | −0.001 | −0.000 |
+| −1.0 | post-sing. | 0.05000 | 0.00411 | 0.003 | −0.002 | −0.001 | 0.000 | −0.001 | 0.000 | −0.000 | −0.000 | 0.001 |
 
-[Full tables for all models inside the horizon — to be generated from
-black_hole_wall.json]
+**Table A1.** Complete Causal Set infalling observer data. Bold row indicates the
+minimum δ_B (r/r_s = 1.1, δ_B = 0.00214). Post-singularity values mirror the
+interior exactly (symmetric bounce). Data from results/round_trip/black_hole_wall.json.
+
+## Appendix B: All Ten Models — Interior Rankings and Descriptions
+
+Mean δ_B for each model across interior positions (r/r_s < 1), infalling
+observer. Data from results/round_trip/black_hole_wall.json.
+
+| Rank | Model | Mean δ_B (inside) | Mean δ_B (outside) | Dispersion / DoS |
+|------|-------|-------------------|--------------------|------------------|
+| 1 | **Causal Set** | **0.011** | 0.005 | g(k) = k² exp(−k²) |
+| 2 | Hagedorn | 0.019 | 0.006 | g(k) = k² exp(k/T_H) |
+| 3 | Noncommut. | 0.051 | 0.043 | E² = k² + k⁴ |
+| 4 | Standard | 0.108 | 0.132 | E = k, g(k) = k² |
+| 5 | DSR | 0.110 | 0.098 | E = 1 − e^{−k} |
+| 6 | Asym. Safety | 0.112 | 0.222 | g(k) = k^{d_s−1}, d_s(k) = 2 + 2/(1+k²) |
+| 7 | CDT | 0.115 | 0.219 | g(k) = k^{d_s−1}, d_s(k) = 2 + 2/(1+k⁴) |
+| 8 | Horava-Lif. | 0.125 | 0.124 | E² = k² + k⁴ + k⁶ |
+| 9 | LQG | 0.173 | 0.060 | E = 2|sin(k/2)|, k < π |
+| 10 | GUP | 0.605 | 0.877 | E = k√(1+k²), g(k) = k²/(1+k²) |
+
+**Table B1.** All ten models ranked by interior Benford conformance. Causal Set
+Theory's Gaussian UV suppression produces the cleanest interior structure.
+Dimensional reduction models (AS, CDT) improve from outside to inside but
+still lag CS by an order of magnitude. LQG degrades significantly inside
+the horizon (0.060 → 0.173). Full position-by-position data for all models
+is available in results/round_trip/black_hole_wall.json.
 
