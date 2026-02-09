@@ -215,13 +215,16 @@ def main():
     print(f"{'='*65}")
 
     # ═══════════════════════════════════════════════════════════════
-    #  VISUALIZATION — 3 stacked panels, dark background
+    #  VISUALIZATION — 4 stacked panels, dark background
+    #  v2: x-axis flipped (far left → singularity right),
+    #      Panel 3 split into full-range + zoomed interior
     # ═══════════════════════════════════════════════════════════════
 
     BG = "#1a1a2e"
-    fig, (ax1, ax2, ax3) = plt.subplots(
-        3, 1, figsize=(14, 20), sharex=True,
-        gridspec_kw={"hspace": 0.10, "top": 0.93, "bottom": 0.06}
+    fig, (ax1, ax2, ax3a, ax3b) = plt.subplots(
+        4, 1, figsize=(14, 26),
+        gridspec_kw={"hspace": 0.18, "top": 0.94, "bottom": 0.05,
+                     "height_ratios": [1, 1, 0.85, 0.85]}
     )
     fig.patch.set_facecolor(BG)
 
@@ -235,11 +238,21 @@ def main():
         ax.title.set_color("white")
         ax.grid(True, which="both", color="#333", linewidth=0.4, alpha=0.5)
 
-    for a in (ax1, ax2, ax3):
+    for a in (ax1, ax2, ax3a, ax3b):
         style_ax(a)
 
     lw = 1.6
     alpha = 0.92
+
+    # x-axis: far away (10) on LEFT → singularity (0.01) on RIGHT
+    def set_full_xaxis(ax, label=False):
+        ax.set_xscale("log")
+        ax.set_xlim(10, 0.01)
+        if label:
+            ax.set_xlabel(
+                "r / r_s     Far away  ───────────────────►  "
+                "Event Horizon  ───────────────────►  Singularity",
+                fontsize=11, color="white")
 
     # ── Panel 1 — Standard Schwarzschild ─────────────────────────
     ax1.set_title("Panel 1 — Standard Schwarzschild Spatial Metric",
@@ -255,8 +268,9 @@ def main():
                 label="Event horizon r = r_s")
     ax1.set_ylabel("Component magnitude", fontsize=11)
     ax1.set_ylim(1e-5, 1e5)
-    ax1.legend(loc="upper left", fontsize=9, facecolor="#2a2a3e",
+    ax1.legend(loc="upper right", fontsize=9, facecolor="#2a2a3e",
                edgecolor="#555", labelcolor="white")
+    set_full_xaxis(ax1)
 
     # ── Panel 2 — Benford-modified + CS overlay ──────────────────
     ax2.set_title(
@@ -282,31 +296,46 @@ def main():
 
     ax2.set_ylabel("Magnitude / δ_B", fontsize=11)
     ax2.set_ylim(1e-5, 1e5)
-    ax2.legend(loc="upper left", fontsize=9, facecolor="#2a2a3e",
+    ax2.legend(loc="upper right", fontsize=9, facecolor="#2a2a3e",
                edgecolor="#555", labelcolor="white")
+    set_full_xaxis(ax2)
 
-    # ── Panel 3 — Emergent time ──────────────────────────────────
-    ax3.set_title("Panel 3 — Emergent Time  "
-                  "(composite rate of spatial change)",
-                  fontsize=13, fontweight="bold", pad=10)
+    # ── Panel 3a — Emergent time (full range) ────────────────────
+    ax3a.set_title("Panel 3a — Emergent Time — Full Range",
+                   fontsize=13, fontweight="bold", pad=10)
 
-    ax3.semilogy(r_full, rate_std, color="#888888", lw=lw, alpha=0.8,
-                 label="Standard metric")
-    ax3.semilogy(r_full, rate_mod, color="white", lw=2.2, alpha=0.95,
-                 label="Benford-modified")
-    ax3.axvline(1.0, color="white", ls="--", lw=1, alpha=0.55,
-                label="Event horizon")
+    ax3a.semilogy(r_full, rate_std, color="#888888", lw=lw, alpha=0.8,
+                  label="Standard metric")
+    ax3a.semilogy(r_full, rate_mod, color="white", lw=2.2, alpha=0.95,
+                  label="Benford-modified")
+    ax3a.axvline(1.0, color="white", ls="--", lw=1, alpha=0.55,
+                 label="Event horizon")
 
-    ax3.set_xlabel("r / r_s   (Schwarzschild radii → singularity)",
-                   fontsize=12, color="white")
-    ax3.set_ylabel("Composite rate  √(Σ(dg/dr)²)", fontsize=11)
-    ax3.legend(loc="upper left", fontsize=9, facecolor="#2a2a3e",
-               edgecolor="#555", labelcolor="white")
+    ax3a.set_ylabel("Composite rate  √(Σ(dg/dr)²)", fontsize=11)
+    ax3a.legend(loc="upper right", fontsize=9, facecolor="#2a2a3e",
+                edgecolor="#555", labelcolor="white")
+    set_full_xaxis(ax3a)
 
-    # shared x
-    ax3.set_xscale("log")
-    ax3.set_xlim(10, 0.01)
-    ax3.invert_xaxis()
+    # ── Panel 3b — Emergent time (interior ZOOM) ─────────────────
+    ax3b.set_title("Panel 3b — Emergent Time — Interior Only "
+                   "(horizon spike removed)",
+                   fontsize=13, fontweight="bold", pad=10)
+
+    # plot only interior data
+    ax3b.semilogy(r_in, rate_std_i, color="#888888", lw=lw, alpha=0.8,
+                  label="Standard  (time freezes)")
+    ax3b.semilogy(r_in, rate_mod_i, color="white", lw=2.2, alpha=0.95,
+                  label="Benford-modified  (time accelerates)")
+
+    ax3b.set_xscale("log")
+    ax3b.set_xlim(0.95, 0.01)
+    ax3b.set_ylabel("Composite rate  √(Σ(dg/dr)²)", fontsize=11)
+    ax3b.set_xlabel(
+        "r / r_s     Just inside horizon  ──────────────────────────►"
+        "  Singularity",
+        fontsize=11, color="white")
+    ax3b.legend(loc="upper right", fontsize=9, facecolor="#2a2a3e",
+                edgecolor="#555", labelcolor="white")
 
     fig.suptitle(
         "Schwarzschild Metric with Benford Floor\n"
@@ -314,7 +343,8 @@ def main():
         fontsize=16, fontweight="bold", color="white"
     )
 
-    outpath = "results/figures/schwarzschild_benford_floor.png"
+    # ── save v2 ──────────────────────────────────────────────────
+    outpath = "results/figures/schwarzschild_benford_floor_v2.png"
     os.makedirs(os.path.dirname(outpath), exist_ok=True)
     fig.savefig(outpath, dpi=200, bbox_inches="tight", facecolor=BG)
     plt.close()
