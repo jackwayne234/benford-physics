@@ -327,6 +327,16 @@ def main():
     ax3b.semilogy(r_in, rate_mod_i, color="white", lw=2.2, alpha=0.95,
                   label="Benford-modified  (time accelerates)")
 
+    # Benford floor line
+    ax3b.axhline(floor_val, color="orange", ls="--", lw=1.8, alpha=0.85,
+                 label=f"Benford floor = {floor_val:.4f}")
+
+    # CS delta_B overlay (only interior points: r < 0.95)
+    cs_interior = cs_r <= 0.95
+    ax3b.semilogy(cs_r[cs_interior], cs_db[cs_interior],
+                  color="#ffff00", lw=2.2, marker="o", ms=4,
+                  alpha=0.95, zorder=5, label="CS δ_B (measured)")
+
     ax3b.set_xscale("log")
     ax3b.set_xlim(0.95, 0.01)
     ax3b.set_ylabel("Composite rate  √(Σ(dg/dr)²)", fontsize=11)
@@ -344,7 +354,7 @@ def main():
     )
 
     # ── save v2 ──────────────────────────────────────────────────
-    outpath = "results/figures/schwarzschild_benford_floor_v2.png"
+    outpath = "results/figures/schwarzschild_benford_floor_v3.png"
     os.makedirs(os.path.dirname(outpath), exist_ok=True)
     fig.savefig(outpath, dpi=200, bbox_inches="tight", facecolor=BG)
     plt.close()
