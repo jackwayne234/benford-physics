@@ -280,7 +280,7 @@ def main():
     set_full_xaxis(ax2)
 
     # ── Panel 3a — Emergent time (full range) ────────────────────
-    ax3a.set_title("Panel 3a — Emergent Time — Full Range  (no horizon spike!)",
+    ax3a.set_title("Panel 3a — Entropy Rate — Full Range  (no horizon spike!)",
                    fontsize=13, fontweight="bold", pad=10)
 
     ax3a.semilogy(r, rate_std, color="#888888", lw=lw, alpha=0.8,
@@ -292,21 +292,21 @@ def main():
     ax3a.axhline(floor_val, color="orange", ls="--", lw=1.5, alpha=0.7,
                  label=f"Benford floor = {floor_val:.4f}")
 
-    ax3a.set_ylabel("Composite rate  √(Σ(dg/dr)²)", fontsize=11)
+    ax3a.set_ylabel("Entropy rate  √(Σ(dg/dr)²)", fontsize=11)
     ax3a.legend(loc="upper right", fontsize=9, facecolor="#2a2a3e",
                 edgecolor="#555", labelcolor="white")
     set_full_xaxis(ax3a)
 
     # ── Panel 3b — Emergent time (interior zoom) ─────────────────
-    ax3b.set_title("Panel 3b — Emergent Time — Interior Only  "
+    ax3b.set_title("Panel 3b — Entropy Rate — Interior Only  "
                    "(Painlevé-Gullstrand, no artifacts)",
                    fontsize=13, fontweight="bold", pad=10)
 
     int_mask = r <= 0.95
     ax3b.semilogy(r[int_mask], rate_std[int_mask], color="#888888", lw=lw,
-                  alpha=0.8, label="Standard  (time freezes → 0)")
+                  alpha=0.8, label="Standard  (entropy rate freezes → 0)")
     ax3b.semilogy(r[int_mask], rate_mod[int_mask], color="white", lw=2.2,
-                  alpha=0.95, label="Benford-modified  (time accelerates)")
+                  alpha=0.95, label="Benford-modified  (entropy rate accelerates)")
 
     # Benford floor
     ax3b.axhline(floor_val, color="orange", ls="--", lw=1.8, alpha=0.85,
@@ -320,7 +320,7 @@ def main():
 
     ax3b.set_xscale("log")
     ax3b.set_xlim(0.95, 0.01)
-    ax3b.set_ylabel("Composite rate  √(Σ(dg/dr)²)", fontsize=11)
+    ax3b.set_ylabel("Entropy rate  √(Σ(dg/dr)²)", fontsize=11)
     ax3b.set_xlabel(
         "r / r_s     Just inside horizon  ──────────────────────────►"
         "  Singularity",
@@ -330,11 +330,11 @@ def main():
 
     fig.suptitle(
         "Schwarzschild-Benford in Painlevé-Gullstrand Coordinates\n"
-        "Flat spatial metric — no horizon artifact — time emergent from dg/dr",
+        "Flat spatial metric — no horizon artifact — entropy rate from dg/dr",
         fontsize=15, fontweight="bold", color="white"
     )
 
-    outpath = "results/figures/schwarzschild_benford_ef.png"
+    outpath = "results/figures/schwarzschild_benford_ef_v2.png"
     os.makedirs(os.path.dirname(outpath), exist_ok=True)
     fig.savefig(outpath, dpi=200, bbox_inches="tight", facecolor=BG)
     plt.close()
