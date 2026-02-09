@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3D Black Hole Geometry — Benford Floor</title>
+<script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #1a1a2e;
+    color: #e0e0e0;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+  }
+  #header {
+    text-align: center;
+    padding: 18px 10px 8px;
+  }
+  #header h1 {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+  #header p {
+    font-size: 0.85rem;
+    color: #aaa;
+  }
+  #main {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  #plot-container {
+    flex: 1 1 68%;
+    min-width: 500px;
+    height: 620px;
+  }
+  #sidebar {
+    flex: 0 0 300px;
+    padding: 16px 20px;
+  }
+  #controls {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 10px 20px 20px;
+  }
+  .slider-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 10px;
+  }
+  .slider-row label {
+    font-size: 0.85rem;
+    color: #aaa;
+    white-space: nowrap;
+    min-width: 80px;
+  }
+  #r-slider {
+    flex: 1;
+    accent-color: #ff6644;
+    height: 6px;
+  }
+  #r-display {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #ff6644;
+    min-width: 110px;
+    text-align: right;
+  }
+  .btn-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 6px;
+  }
+  button {
+    padding: 8px 18px;
+    border: 1px solid #555;
+    border-radius: 6px;
+    background: #2a2a4e;
+    color: #e0e0e0;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  button:hover { background: #3a3a6e; }
+  button.active {
+    background: #ff6644;
+    color: #fff;
+    border-color: #ff6644;
+  }
+  .info-card {
+    background: #22223a;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+  }
+  .info-card h3 {
+    font-size: 0.8rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+  }
+  .info-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 3px 0;
+    font-size: 0.85rem;
+  }
+  .info-row .label { color: #aaa; }
+  .info-row .value { color: #fff; font-weight: 600; font-variant-numeric: tabular-nums; }
+  .info-row .value.red { color: #ff5555; }
+  .info-row .value.green { color: #44ff88; }
+  .info-row .value.orange { color: #ff9944; }
+  .info-row .value.yellow { color: #ffff44; }
+  .info-row .value.cyan { color: #44ddff; }
+  #floor-status {
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-align: center;
+    padding: 6px;
+    border-radius: 4px;
+    margin-top: 4px;
+  }
+  #floor-status.active { background: #442200; color: #ff9944; }
+  #floor-status.inactive { background: #1a3322; color: #44ff88; }
+  .slider-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.7rem;
+    color: #666;
+    padding: 0 2px;
+    margin-top: -4px;
+  }
+  #colorbar-container {
+    margin-top: 10px;
+  }
+  #colorbar {
+    width: 100%;
+    height: 14px;
+    border-radius: 3px;
+    background: linear-gradient(to right, #0d0887, #46039f, #7201a8, #9c179e, #bd3786, #d8576b, #ed7953, #fb9f3a, #fdca26, #f0f921);
+  }
+  .cb-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.7rem;
+    color: #888;
+    margin-top: 2px;
+  }
+</style>
+</head>
+<body>
+
+<div id="header">
+  <h1>Schwarzschild Black Hole Geometry with Benford Floor</h1>
+  <p>Painlev&eacute;-Gullstrand coordinates &mdash; drag to rotate, scroll to zoom, slider to scrub through radial positions</p>
+</div>
+
+<div id="main">
+  <div id="plot-container"></div>
+  <div id="sidebar">
+
+    <div class="info-card">
+      <h3>Position</h3>
+      <div class="info-row">
+        <span class="label">r / r<sub>s</sub></span>
+        <span class="value orange" id="info-r">10.000</span>
+      </div>
+      <div class="info-row">
+        <span class="label">Zone</span>
+        <span class="value" id="info-zone">Outside horizon</span>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <h3>Metric Components</h3>
+      <div class="info-row">
+        <span class="label">g<sub>rr</sub> (radial)</span>
+        <span class="value red" id="info-grr">1.0000</span>
+      </div>
+      <div class="info-row">
+        <span class="label">g<sub>&theta;&theta;</sub> (angular)</span>
+        <span class="value green" id="info-gtt">100.0000</span>
+      </div>
+      <div class="info-row">
+        <span class="label">det(g<sub>spatial</sub>)</span>
+        <span class="value cyan" id="info-det">10000</span>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <h3>Benford Floor</h3>
+      <div class="info-row">
+        <span class="label">Floor value</span>
+        <span class="value orange" id="info-floor">0.4068</span>
+      </div>
+      <div id="floor-status" class="inactive">Floor INACTIVE</div>
+    </div>
+
+    <div class="info-card">
+      <h3>Measurements</h3>
+      <div class="info-row">
+        <span class="label">CS &delta;<sub>B</sub></span>
+        <span class="value yellow" id="info-db">0.02755</span>
+      </div>
+      <div class="info-row">
+        <span class="label">Entropy rate</span>
+        <span class="value" id="info-erate" style="color:#fff">28.28</span>
+      </div>
+    </div>
+
+    <div id="colorbar-container">
+      <div style="font-size:0.75rem;color:#888;margin-bottom:3px">CS &delta;<sub>B</sub> (surface color)</div>
+      <div id="colorbar"></div>
+      <div class="cb-labels">
+        <span>0.002 (conforms)</span>
+        <span>0.028 (deviates)</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div id="controls">
+  <div class="btn-row">
+    <button id="btn-play" onclick="togglePlay()">&#9654; Play fly-in</button>
+    <button id="btn-standard" class="active" onclick="setMode('standard')">Standard GR</button>
+    <button id="btn-benford" onclick="setMode('benford')">Benford-modified</button>
+  </div>
+  <div class="slider-row">
+    <label>r / r<sub>s</sub></label>
+    <input type="range" id="r-slider" min="0" max="1" step="0.001" value="0">
+    <span id="r-display">r = 10.000</span>
+  </div>
+  <div class="slider-labels">
+    <span>Far away (r=10)</span>
+    <span>Event Horizon (r=1)</span>
+    <span>Singularity (r=0.01)</span>
+  </div>
+</div>
+
+<script>
+// ════════════════════════════════════════════════════════════════
+//  DATA & PHYSICS
+// ════════════════════════════════════════════════════════════════
+
+const CS_DATA = [
+  {r: 10.0, delta_b: 0.027552}, {r: 7.0, delta_b: 0.010611},
+  {r: 5.0, delta_b: 0.004223}, {r: 3.0, delta_b: 0.002856},
+  {r: 2.0, delta_b: 0.002748}, {r: 1.5, delta_b: 0.005169},
+  {r: 1.3, delta_b: 0.003184}, {r: 1.2, delta_b: 0.003569},
+  {r: 1.15, delta_b: 0.002757}, {r: 1.1, delta_b: 0.002136},
+  {r: 1.08, delta_b: 0.00255}, {r: 1.06, delta_b: 0.002722},
+  {r: 1.04, delta_b: 0.003532}, {r: 1.03, delta_b: 0.003889},
+  {r: 1.02, delta_b: 0.003482}, {r: 1.015, delta_b: 0.003757},
+  {r: 1.01, delta_b: 0.004013}, {r: 1.005, delta_b: 0.0042},
+  {r: 1.002, delta_b: 0.004049}, {r: 1.001, delta_b: 0.004166},
+  {r: 0.99, delta_b: 0.004267}, {r: 0.95, delta_b: 0.005472},
+  {r: 0.9, delta_b: 0.00286}, {r: 0.85, delta_b: 0.004293},
+  {r: 0.8, delta_b: 0.003671}, {r: 0.7, delta_b: 0.006253},
+  {r: 0.6, delta_b: 0.006376}, {r: 0.5, delta_b: 0.00486},
+  {r: 0.4, delta_b: 0.007448}, {r: 0.3, delta_b: 0.01313},
+  {r: 0.25, delta_b: 0.016065}, {r: 0.2, delta_b: 0.01205},
+  {r: 0.15, delta_b: 0.015154}, {r: 0.12, delta_b: 0.019625},
+  {r: 0.1, delta_b: 0.016711}, {r: 0.08, delta_b: 0.017486},
+  {r: 0.06, delta_b: 0.01349}, {r: 0.04, delta_b: 0.017329},
+  {r: 0.02, delta_b: 0.018378}, {r: 0.01, delta_b: 0.014661}
+];
+
+// Benford floor: L2 norm of P(d) = log10(1 + 1/d)
+const BENFORD_PROBS = [];
+for (let d = 1; d <= 9; d++) BENFORD_PROBS.push(Math.log10(1 + 1/d));
+const FLOOR_VAL = Math.sqrt(BENFORD_PROBS.reduce((s, p) => s + p*p, 0));
+const FLOOR_ONSET = Math.pow(FLOOR_VAL, 0.25);
+
+// Radial positions for the slider (log-spaced)
+const R_VALUES = [];
+const N_STEPS = 200;
+for (let i = 0; i <= N_STEPS; i++) {
+  const t = i / N_STEPS;
+  // log-spaced from 10 to 0.01
+  R_VALUES.push(Math.pow(10, Math.log10(10) * (1 - t) + Math.log10(0.01) * t));
+}
+
+// PG metric
+function pgMetric(r) {
+  return { grr: 1, gtt: r * r, gpp: r * r };
+}
+
+function pgModified(r) {
+  const det = r * r * r * r; // r^4
+  if (det >= FLOOR_VAL) return pgMetric(r);
+  const s = Math.pow(FLOOR_VAL / det, 1/3);
+  return { grr: s, gtt: r * r * s, gpp: r * r * s };
+}
+
+// Entropy rate (analytical)
+function entropyRateStd(r) {
+  // sqrt(0 + (2r)^2 + (2r)^2) = 2*sqrt(2)*r
+  return 2 * Math.SQRT2 * r;
+}
+
+function entropyRateMod(r) {
+  if (r * r * r * r >= FLOOR_VAL) return entropyRateStd(r);
+  // Modified: g_rr = F^{1/3} * r^{-4/3}, g_tt = F^{1/3} * r^{2/3}
+  const F13 = Math.pow(FLOOR_VAL, 1/3);
+  const dgrr = F13 * (-4/3) * Math.pow(r, -7/3);
+  const dgtt = F13 * (2/3) * Math.pow(r, -1/3);
+  const dgpp = dgtt;
+  return Math.sqrt(dgrr*dgrr + dgtt*dgtt + dgpp*dgpp);
+}
+
+// Nearest CS delta_B
+function nearestDeltaB(r) {
+  let best = 0, bestDist = 1e9;
+  for (const d of CS_DATA) {
+    const dist = Math.abs(Math.log(d.r) - Math.log(r));
+    if (dist < bestDist) { bestDist = dist; best = d.delta_b; }
+  }
+  return best;
+}
+
+// delta_B to color (plasma-like)
+const DB_MIN = 0.002, DB_MAX = 0.028;
+function dbToColor(db) {
+  let t = (db - DB_MIN) / (DB_MAX - DB_MIN);
+  t = Math.max(0, Math.min(1, t));
+  // Simple plasma approximation
+  const r = Math.round(255 * Math.min(1, 0.05 + t * 1.3));
+  const g = Math.round(255 * Math.max(0, Math.min(1, t < 0.5 ? t * 0.4 : 0.2 + (t - 0.5) * 1.6)));
+  const b = Math.round(255 * Math.max(0, Math.min(1, t < 0.4 ? 0.5 + t * 1.0 : 0.9 - (t - 0.4) * 1.2)));
+  return `rgb(${r},${g},${b})`;
+}
+
+// ════════════════════════════════════════════════════════════════
+//  3D SURFACE GENERATION
+// ════════════════════════════════════════════════════════════════
+
+const N_THETA = 32, N_PHI = 48;
+
+function generateSurface(r, mode) {
+  const m = mode === 'benford' ? pgModified(r) : pgMetric(r);
+  const eqRadius = Math.sqrt(m.gtt);   // angular
+  const polRadius = Math.sqrt(m.grr);   // radial (polar axis)
+
+  // Normalize so the max extent is 1.0 for consistent display
+  const maxR = Math.max(eqRadius, polRadius);
+  const scale = maxR > 0 ? 1.0 / maxR : 1;
+
+  const x = [], y = [], z = [], surfColor = [];
+  const db = nearestDeltaB(r);
+
+  for (let i = 0; i <= N_THETA; i++) {
+    const theta = Math.PI * i / N_THETA;
+    const xr = [], yr = [], zr = [], cr = [];
+    for (let j = 0; j <= N_PHI; j++) {
+      const phi = 2 * Math.PI * j / N_PHI;
+      xr.push(eqRadius * scale * Math.sin(theta) * Math.cos(phi));
+      yr.push(eqRadius * scale * Math.sin(theta) * Math.sin(phi));
+      zr.push(polRadius * scale * Math.cos(theta));
+      cr.push(db);
+    }
+    x.push(xr); y.push(yr); z.push(zr); surfColor.push(cr);
+  }
+  return { x, y, z, surfColor, db, eqRadius, polRadius, scale };
+}
+
+// ════════════════════════════════════════════════════════════════
+//  PLOTLY SETUP
+// ════════════════════════════════════════════════════════════════
+
+let currentMode = 'standard';
+let currentRIndex = 0;
+let playing = false;
+let animTimer = null;
+
+function getTrace(r, mode) {
+  const s = generateSurface(r, mode);
+  return {
+    type: 'surface',
+    x: s.x, y: s.y, z: s.z,
+    surfacecolor: s.surfColor,
+    colorscale: 'Plasma',
+    cmin: DB_MIN, cmax: DB_MAX,
+    showscale: false,
+    lighting: { ambient: 0.4, diffuse: 0.7, specular: 0.3, roughness: 0.5 },
+    lightposition: { x: 1000, y: 1000, z: 1000 },
+    contours: {
+      x: { show: false }, y: { show: false }, z: { show: false }
+    },
+    hoverinfo: 'skip'
+  };
+}
+
+const layout = {
+  paper_bgcolor: '#1a1a2e',
+  plot_bgcolor: '#1a1a2e',
+  scene: {
+    bgcolor: '#1a1a2e',
+    xaxis: { range: [-1.2, 1.2], showgrid: false, zeroline: false, showticklabels: false, title: '' },
+    yaxis: { range: [-1.2, 1.2], showgrid: false, zeroline: false, showticklabels: false, title: '' },
+    zaxis: { range: [-1.2, 1.2], showgrid: false, zeroline: false, showticklabels: false, title: '' },
+    aspectratio: { x: 1, y: 1, z: 1 },
+    camera: { eye: { x: 1.6, y: 1.6, z: 0.8 } }
+  },
+  margin: { l: 0, r: 0, t: 0, b: 0 },
+  font: { color: '#e0e0e0' }
+};
+
+const config = { responsive: true, displayModeBar: false };
+
+// Initial plot
+const initR = R_VALUES[0];
+const initTrace = getTrace(initR, currentMode);
+Plotly.newPlot('plot-container', [initTrace], layout, config);
+
+// ════════════════════════════════════════════════════════════════
+//  UPDATE FUNCTIONS
+// ════════════════════════════════════════════════════════════════
+
+function updatePlot(rIdx) {
+  currentRIndex = rIdx;
+  const r = R_VALUES[rIdx];
+  const tr = getTrace(r, currentMode);
+
+  Plotly.react('plot-container', [tr], layout, config);
+  updateInfo(r);
+}
+
+function updateInfo(r) {
+  const m = currentMode === 'benford' ? pgModified(r) : pgMetric(r);
+  const det = m.grr * m.gtt * m.gpp;
+  const db = nearestDeltaB(r);
+  const erate = currentMode === 'benford' ? entropyRateMod(r) : entropyRateStd(r);
+  const floorActive = (r * r * r * r) < FLOOR_VAL;
+
+  document.getElementById('info-r').textContent = r.toFixed(4);
+  document.getElementById('info-zone').textContent =
+    r > 1.01 ? 'Outside horizon' : r > 0.99 ? 'At horizon' : 'Inside horizon';
+  document.getElementById('info-grr').textContent = m.grr.toFixed(4);
+  document.getElementById('info-gtt').textContent = m.gtt.toFixed(4);
+  document.getElementById('info-det').textContent = det < 0.001 ? det.toExponential(3) : det.toFixed(4);
+  document.getElementById('info-floor').textContent = FLOOR_VAL.toFixed(4);
+  document.getElementById('info-db').textContent = db.toFixed(5);
+  document.getElementById('info-erate').textContent = erate < 100 ? erate.toFixed(3) : erate.toFixed(0);
+
+  const fs = document.getElementById('floor-status');
+  if (currentMode === 'benford' && floorActive) {
+    fs.textContent = 'BENFORD FLOOR ACTIVE';
+    fs.className = 'active';
+  } else if (currentMode === 'benford') {
+    fs.textContent = 'Floor inactive (det > floor)';
+    fs.className = 'inactive';
+  } else {
+    fs.textContent = 'Standard GR (no floor)';
+    fs.className = 'inactive';
+  }
+
+  document.getElementById('r-display').textContent = `r = ${r.toFixed(4)}`;
+}
+
+// ════════════════════════════════════════════════════════════════
+//  CONTROLS
+// ════════════════════════════════════════════════════════════════
+
+const slider = document.getElementById('r-slider');
+slider.addEventListener('input', () => {
+  const idx = Math.round(parseFloat(slider.value) * N_STEPS);
+  updatePlot(idx);
+});
+
+function setMode(mode) {
+  currentMode = mode;
+  document.getElementById('btn-standard').className = mode === 'standard' ? 'active' : '';
+  document.getElementById('btn-benford').className = mode === 'benford' ? 'active' : '';
+  updatePlot(currentRIndex);
+}
+
+function togglePlay() {
+  if (playing) {
+    stopPlay();
+  } else {
+    startPlay();
+  }
+}
+
+function startPlay() {
+  playing = true;
+  document.getElementById('btn-play').textContent = '⏸ Pause';
+  document.getElementById('btn-play').classList.add('active');
+  if (currentRIndex >= N_STEPS) currentRIndex = 0;
+  advanceFrame();
+}
+
+function stopPlay() {
+  playing = false;
+  document.getElementById('btn-play').textContent = '▶ Play fly-in';
+  document.getElementById('btn-play').classList.remove('active');
+  if (animTimer) { clearTimeout(animTimer); animTimer = null; }
+}
+
+function advanceFrame() {
+  if (!playing || currentRIndex >= N_STEPS) { stopPlay(); return; }
+  currentRIndex++;
+  slider.value = currentRIndex / N_STEPS;
+  updatePlot(currentRIndex);
+
+  // Frame duration inversely proportional to entropy rate
+  // So high rate = short delay = fast advance
+  const r = R_VALUES[currentRIndex];
+  const erate = currentMode === 'benford' ? entropyRateMod(r) : entropyRateStd(r);
+  // Base delay: 200ms at rate=1, scaled inversely, clamped to [16, 500]ms
+  const delay = Math.max(16, Math.min(500, 200 / Math.max(0.01, Math.sqrt(erate))));
+  animTimer = setTimeout(advanceFrame, delay);
+}
+
+// ════════════════════════════════════════════════════════════════
+//  KEYBOARD SHORTCUTS
+// ════════════════════════════════════════════════════════════════
+document.addEventListener('keydown', (e) => {
+  if (e.key === ' ') { e.preventDefault(); togglePlay(); }
+  if (e.key === 'ArrowRight') {
+    const idx = Math.min(N_STEPS, currentRIndex + 1);
+    slider.value = idx / N_STEPS;
+    updatePlot(idx);
+  }
+  if (e.key === 'ArrowLeft') {
+    const idx = Math.max(0, currentRIndex - 1);
+    slider.value = idx / N_STEPS;
+    updatePlot(idx);
+  }
+  if (e.key === '1') setMode('standard');
+  if (e.key === '2') setMode('benford');
+});
+
+// Initial info
+updateInfo(R_VALUES[0]);
+</script>
+</body>
+</html>
