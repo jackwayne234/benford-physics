@@ -404,8 +404,6 @@ def run_simulation():
     if np.any(mask_ext):
         ax4.plot(r[mask_ext], coupling_extended[mask_ext] * 100, color='#00ffaa', linewidth=1.0,
                  alpha=0.4, label='Extended coupling (3D floor active)')
-    ax4.axhline(y=25.0, color='#ff8800', linestyle='--', linewidth=1.5,
-                label='Old hardcoded coupling (25%)')
     ax4.axvline(x=1.0, color='#ffffff', linestyle='--', linewidth=0.8, alpha=0.5)
     ax4.set_ylabel('Effective Coupling (%)', color=text_color, fontsize=12)
     ax4.set_xlabel(r'$r / r_s$', color=text_color, fontsize=12)

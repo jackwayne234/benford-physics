@@ -1,0 +1,102 @@
+it's referencing companion papers, so i'd have to write and publish them before i publish this. It seems like this is the only way to do it, it's just too much information to put into one paper. 
+
+in general we may be referencing too many other papers and digging into too many other things distracting the reader from the black hole subject. 
+
+we may need to take this out, it takes away from the black hole subject. 
+
+In a companion paper (Riner 2026e), we swept ten quantum gravity models through
+the cosmological singularity at the Planck temperature (the "Big Bang wall") and
+found that Causal Set Theory and Hagedorn/string theory produce the cleanest
+post-wall statistical structure, with Causal Set Theory showing a remarkable
+property: the singularity doesn't register. The distribution is equally clean on
+both sides.
+
+Here we ask: does the same hold at a gravitational singularity? Is the black
+hole interior, from the perspective of Benford's Law, the same kind of wall as
+the Big Bang?
+
+
+lets include figures with descriptions
+????
+- **Post-singularity bounce** (10 points): r/r_s = −0.01 through −0.5,
+  representing a continuation through the singularity as predicted by loop
+  quantum gravity and string cosmology bouncing scenarios.
+  
+  maybe have an acronym list at the bottom?
+  
+  do we need to talk about anything but CS and gravity? give me ur real thoughts on this
+  
+  for 3.1 if we talk about in general models surviving then we should talk about light and tachyeon too as an example that doesn't but that could be it's own paper. Although, we should keep light in here because it's very important in the reason why einsteins equations break down after the even horizon. 
+  
+  So maybe the important ones are hawking radiation, CS, gravity and light?
+  
+  for section 3.3 causal set, the verdit should say something like, i dunno, deviation changes? because saying conforms at just inside doesn't tell the right story in the table. it's missleading. or percieved as missleading.
+  
+  I love "the horizon is invisible" paragraph!
+  
+  Maybe we can have a table where the left side is hawking radiation, and the right side is CS, and along the left side of the table is distance from the event horizon to the singularity?
+  
+		For the below paragraph, i believe that it should say "reaching its cleanest state just INSIDE the horizon, or just AFTER the event horizon, inside the black hole. And a table as described above would help the reader easily see that.   
+  
+  **Approach to conformance.** As the observer falls inward from r = 10 r_s, δ_B
+drops from 0.028 to 0.003 — nearly perfect Benford conformance. The distribution
+*improves* on approach, reaching its cleanest state just outside the horizon. 
+
+			What is this bounce talking about?
+**Post-singularity mirror.** The bounce region (r/r_s < 0) mirrors the approach:
+δ_B = 0.015 at r = −0.01, matching the pre-singularity value exactly. The
+singularity, if it is resolved by a bounce, is symmetric in its Benford
+structure.
+
+### 3.4 Fingerprint Match: Causal Set and Hawking Radiation
+
+
+			People won't know what the whiteboard experiment is.
+The per-digit deviation ε(d) provides a richer comparison than δ_B alone. In
+Riner (2026e), we compared the ε(d) fingerprint of Causal Set Theory at various
+temperatures with Hawking radiation (greybody factor ω_c = 2.0) from the
+whiteboard experiment.
+
+			This is amazing
+
+| CS Location | L2 distance to Hawking (ω_c = 2.0) |
+|-------------|-------------------------------------|
+| At wall (T = 1.00 T_P) | 0.025 |
+| Past wall (T = 1.06 T_P) | < 0.020 |
+| **Best match (T = 1.36 T_P)** | **0.004** |
+| Further past (T = 1.62 T_P) | < 0.020 |
+
+we should probably cut, or really trim down ###3.5 comparison with the cosmological singularity, people are going to confuse the singularity of the blackhole and the singularity of the big bang. let's just talk about the black hole. 
+
+Let's remove ##4. The wormhole control experiment, it takes away from the blackhole. What are your thoughts on this?
+
+****keep 5. Interpretation: Evaporation without radiation!  It's awesome, and it's important to reference my published papers as the deciding factor for concluding that deviation = more mass like!
+
+Under 5.1 Phase 3 you say mass energy, but really it's probably just mass. I know it's hard to get away from e=mc^2, but it doesn't apply inside a black hole. What are your thoughts?
+
+This may be the reason why you need the singularity information in here if we're going to say this. And it does give it more teeth. But we need to verbally identify or make it distinct somehow that the "singularity" is the big bang, not the blackholes singularity. It's tough to talk about both in the same paper, and idk if having both in the same paper will take away from the black hole.
+
+What is the Causal Set's natural resting state? The data is consistent across
+all three geometries: at the Big Bang, CS post-wall mean = 0.017. Near the BH
+singularity, CS reaches 0.015. These values are nearly identical. The resting
+state is δ_B ≈ 0.015–0.017 — and the 0.003 near the horizon is the anomaly,
+not the equilibrium.
+
+Here we say it costs "energy" to restore, but it's probably just costing mass, because light just flys in unaffected. What is the Causal Set's natural resting state? The data is consistent across
+all three geometries: at the Big Bang, CS post-wall mean = 0.017. Near the BH
+singularity, CS reaches 0.015. These values are nearly identical. The resting
+state is δ_B ≈ 0.015–0.017 — and the 0.003 near the horizon is the anomaly,
+not the equilibrium.
+
+We said energy again here. it's probably mass. E does not equal MC^2. The black hole is not being destroyed. It is being *used* — as an energy source
+for spacetime restoration. Mass goes in. Spacetime structure comes out. The
+structure does not refund the payment.
+
+		it's should say constant Mass drain, not energy. They're not the same.
+**Small black holes** (M ~ M_P): The same local restructuring rate, but the
+total mass is tiny. The constant energy drain is a large fraction of the
+whole. The black hole loses mass rapidly, the effective temperature rises, the
+restructuring intensifies, and the process runs away. This predicts the violent
+final evaporation of small black holes — not as an explosion of Hawking radiation,
+but as a catastrophic structural collapse where the causal set consumes the
+remaining mass in a rapidly accelerating cascade.

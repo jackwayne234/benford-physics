@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3D Black Hole Geometry — 3D vs 4D Metric</title>
+<script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #1a1a2e;
+    color: #e0e0e0;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+  }
+
+  #horizon-banner {
+    text-align: center;
+    padding: 16px 20px;
+    font-size: 1.8rem;
+    font-weight: 800;
+    letter-spacing: 3px;
+    transition: background 0.3s, color 0.3s;
+  }
+  #horizon-banner.outside {
+    background: linear-gradient(90deg, #1a1a2e, #1a3322, #1a1a2e);
+    color: #44ff88;
+    border-bottom: 3px solid #44ff88;
+  }
+  #horizon-banner.at-horizon {
+    background: linear-gradient(90deg, #1a1a2e, #332a1a, #1a1a2e);
+    color: #ff9944;
+    border-bottom: 3px solid #ff9944;
+  }
+  #horizon-banner.inside {
+    background: linear-gradient(90deg, #1a1a2e, #331a1a, #1a1a2e);
+    color: #ff5555;
+    border-bottom: 3px solid #ff5555;
+  }
+  #horizon-r {
+    font-weight: 400;
+    font-size: 1rem;
+    opacity: 0.7;
+    margin-left: 20px;
+    letter-spacing: 0;
+  }
+
+  #header {
+    text-align: center;
+    padding: 12px 10px 6px;
+  }
+  #header h1 {
+    font-size: 1.3rem;
+    color: #fff;
+    margin-bottom: 2px;
+  }
+  #header p {
+    font-size: 0.8rem;
+    color: #aaa;
+  }
+  #main {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  #plot-container {
+    flex: 1 1 68%;
+    min-width: 500px;
+    height: 580px;
+  }
+  #sidebar {
+    flex: 0 0 300px;
+    padding: 12px 20px;
+  }
+  #controls {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 10px 20px 20px;
+  }
+  .slider-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 10px;
+  }
+  .slider-row label {
+    font-size: 0.85rem;
+    color: #aaa;
+    white-space: nowrap;
+    min-width: 80px;
+  }
+  #r-slider {
+    flex: 1;
+    accent-color: #ff6644;
+    height: 6px;
+  }
+  #r-display {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #ff6644;
+    min-width: 110px;
+    text-align: right;
+  }
+  .btn-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 6px;
+  }
+  button {
+    padding: 8px 18px;
+    border: 1px solid #555;
+    border-radius: 6px;
+    background: #2a2a4e;
+    color: #e0e0e0;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  button:hover { background: #3a3a6e; }
+  button.active {
+    background: #ff6644;
+    color: #fff;
+    border-color: #ff6644;
+  }
+  .info-card {
+    background: #22223a;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 12px 14px;
+    margin-bottom: 10px;
+  }
+  .info-card h3 {
+    font-size: 0.75rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+  }
+  .info-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 2px 0;
+    font-size: 0.82rem;
+  }
+  .info-row .label { color: #aaa; }
+  .info-row .value { color: #fff; font-weight: 600; font-variant-numeric: tabular-nums; }
+  .info-row .value.red { color: #ff5555; }
+  .info-row .value.green { color: #44ff88; }
+  .info-row .value.orange { color: #ff9944; }
+  .info-row .value.yellow { color: #ffff44; }
+  .info-row .value.cyan { color: #44ddff; }
+  .info-row .value.purple { color: #cc88ff; }
+  #floor-status {
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-align: center;
+    padding: 5px;
+    border-radius: 4px;
+    margin-top: 4px;
+  }
+  #floor-status.active { background: #442200; color: #ff9944; }
+  #floor-status.inactive { background: #1a3322; color: #44ff88; }
+  .slider-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.7rem;
+    color: #666;
+    padding: 0 2px;
+    margin-top: -4px;
+  }
+  #colorbar-container {
+    margin-top: 8px;
+  }
+  #colorbar {
+    width: 100%;
+    height: 12px;
+    border-radius: 3px;
+    background: linear-gradient(to right, #0d0887, #46039f, #7201a8, #9c179e, #bd3786, #d8576b, #ed7953, #fb9f3a, #fdca26, #f0f921);
+  }
+  .cb-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.65rem;
+    color: #888;
+    margin-top: 2px;
+  }
+  .hidden { display: none; }
+</style>
+</head>
+<body>
+
+<div id="horizon-banner" class="outside">
+  <span id="horizon-text">OUTSIDE HORIZON</span>
+  <span id="horizon-r">r / r<sub>s</sub> = 10.000</span>
+</div>
+
+<div id="header">
+  <h1>Black Hole Geometry — Painlev&eacute;-Gullstrand Coordinates</h1>
+  <p>Drag to rotate, scroll to zoom, slider to fall in</p>
+</div>
+
+<div id="main">
+  <div id="plot-container"></div>
+  <div id="sidebar">
+
+    <div class="info-card">
+      <h3>Metric Components</h3>
+      <div class="info-row">
+        <span class="label">g<sub>rr</sub> (radial)</span>
+        <span class="value red" id="info-grr">1.0000</span>
+      </div>
+      <div class="info-row">
+        <span class="label">g<sub>&theta;&theta;</sub> (angular)</span>
+        <span class="value green" id="info-gtt">100.0000</span>
+      </div>
+      <div class="info-row hidden" id="row-gdelta">
+        <span class="label">g<sub>&delta;&#770;</sub> (CS dim)</span>
+        <span class="value yellow" id="info-gdelta">1.57</span>
+      </div>
+      <div class="info-row">
+        <span class="label">det(g<sub>spatial</sub>)</span>
+        <span class="value cyan" id="info-det">10000</span>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <h3>Benford Floor</h3>
+      <div class="info-row">
+        <span class="label">Floor value</span>
+        <span class="value orange" id="info-floor">0.4068</span>
+      </div>
+      <div id="floor-status" class="inactive">Standard GR (no floor)</div>
+    </div>
+
+    <div class="info-card">
+      <h3>Measurements</h3>
+      <div class="info-row">
+        <span class="label">CS &delta;<sub>B</sub></span>
+        <span class="value yellow" id="info-db">0.02755</span>
+      </div>
+      <div class="info-row">
+        <span class="label">Entropy rate</span>
+        <span class="value" id="info-erate" style="color:#00ccff">28.28</span>
+      </div>
+      <div class="info-row hidden" id="row-coupling">
+        <span class="label">CS carries</span>
+        <span class="value purple" id="info-coupling">0%</span>
+      </div>
+    </div>
+
+    <div id="colorbar-container">
+      <div style="font-size:0.7rem;color:#888;margin-bottom:2px">CS &delta;<sub>B</sub> (surface color)</div>
+      <div id="colorbar"></div>
+      <div class="cb-labels">
+        <span>0.002 (conforms)</span>
+        <span>0.028 (deviates)</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div id="controls">
+  <div class="btn-row">
+    <button id="btn-play" onclick="togglePlay()">&#9654; Play fly-in</button>
+    <button id="btn-standard" class="active" onclick="setMode('standard')">Standard GR</button>
+    <button id="btn-benford" onclick="setMode('benford')">3D Benford</button>
+    <button id="btn-4d" onclick="setMode('4d')">4D Benford + CS</button>
+  </div>
+  <div class="slider-row">
+    <label>r / r<sub>s</sub></label>
+    <input type="range" id="r-slider" min="0" max="1" step="0.001" value="0">
+    <span id="r-display">r = 10.000</span>
+  </div>
+  <div class="slider-labels">
+    <span>Far away (r=10)</span>
+    <span>Event Horizon (r=1)</span>
+    <span>Singularity (r=0.01)</span>
+  </div>
+</div>
+
+<script>
+// ════════════════════════════════════════════════════════════════
+//  DATA & PHYSICS
+// ════════════════════════════════════════════════════════════════
+
+// CS Equation: δ_B(r) = a × |ln(r)| + b
+// Derived from curve fitting 40 data points. 2 parameters, no free constants.
+const CS_A = 0.003389;
+const CS_B = 0.002508;
+
+function deltaB(r) {
+  return CS_A * Math.abs(Math.log(r)) + CS_B;
+}
+
+// Benford floor
+const BENFORD_PROBS = [];
+for (let d = 1; d <= 9; d++) BENFORD_PROBS.push(Math.log10(1 + 1/d));
+const FLOOR_VAL = Math.sqrt(BENFORD_PROBS.reduce((s, p) => s + p*p, 0));
+
+// Radial positions
+const R_VALUES = [];
+const N_STEPS = 200;
+for (let i = 0; i <= N_STEPS; i++) {
+  const t = i / N_STEPS;
+  R_VALUES.push(Math.pow(10, Math.log10(10) * (1 - t) + Math.log10(0.01) * t));
+}
+
+// g_delta: Benford's equation applied to deviation
+function gDelta(db) {
+  return Math.log10(1 + 1 / Math.max(db, 1e-6));
+}
+
+// ── Standard GR ──
+function metricStandard(r) {
+  return { grr: 1, gtt: r * r, gpp: r * r };
+}
+
+// ── 3D Benford ──
+function metric3D(r) {
+  const det = r * r * r * r;
+  if (det >= FLOOR_VAL) return { grr: 1, gtt: r * r, gpp: r * r, floorActive: false };
+  const gtt = r * r;
+  const gpp = r * r;
+  const grr = FLOOR_VAL / (gtt * gpp);
+  return { grr, gtt, gpp, floorActive: true };
+}
+
+// ── 4D Benford + CS ──
+function metric4D(r, db) {
+  const gd = gDelta(db);
+  const det = r * r * r * r * gd;
+  if (det >= FLOOR_VAL) return { grr: 1, gtt: r * r, gpp: r * r, gd, floorActive: false };
+  const gtt = r * r;
+  const gpp = r * r;
+  const grr = FLOOR_VAL / (gtt * gpp * gd);
+  return { grr, gtt, gpp, gd, floorActive: true };
+}
+
+// Entropy rates
+function entropyRateStd(r) {
+  return 2 * Math.SQRT2 * r;
+}
+
+function entropyRate3D(r) {
+  if (r * r * r * r >= FLOOR_VAL) return entropyRateStd(r);
+  const dgrr = -4 * FLOOR_VAL / Math.pow(r, 5);
+  const dgtt = 2 * r;
+  const dgpp = 2 * r;
+  return Math.sqrt(dgrr*dgrr + dgtt*dgtt + dgpp*dgpp);
+}
+
+function entropyRate4D(r) {
+  const dr = r * 0.001;
+  const db1 = deltaB(r - dr);
+  const db2 = deltaB(r + dr);
+  const m1 = metric4D(r - dr, db1);
+  const m2 = metric4D(r + dr, db2);
+  const dgrr = (m2.grr - m1.grr) / (2 * dr);
+  const dgtt = (m2.gtt - m1.gtt) / (2 * dr);
+  const dgpp = (m2.gpp - m1.gpp) / (2 * dr);
+  const dgd  = (m2.gd  - m1.gd)  / (2 * dr);
+  return Math.sqrt(dgrr*dgrr + dgtt*dgtt + dgpp*dgpp + dgd*dgd);
+}
+
+// delta_B to color
+const DB_MIN = 0.002, DB_MAX = 0.028;
+
+// ════════════════════════════════════════════════════════════════
+//  3D SURFACE GENERATION
+// ════════════════════════════════════════════════════════════════
+
+const N_THETA = 32, N_PHI = 48;
+
+function generateSurface(r, mode) {
+  const db = deltaB(r);
+  let m;
+  if (mode === 'standard') m = metricStandard(r);
+  else if (mode === 'benford') m = metric3D(r);
+  else m = metric4D(r, db);
+
+  const eqRadius = Math.sqrt(m.gtt);
+  const polRadius = Math.sqrt(m.grr);
+
+  let displayEq = Math.log10(1 + eqRadius);
+  let displayPol = Math.log10(1 + polRadius);
+  displayEq = Math.max(displayEq, 0.015);
+
+  const x = [], y = [], z = [], surfColor = [];
+
+  for (let i = 0; i <= N_THETA; i++) {
+    const theta = Math.PI * i / N_THETA;
+    const xr = [], yr = [], zr = [], cr = [];
+    for (let j = 0; j <= N_PHI; j++) {
+      const phi = 2 * Math.PI * j / N_PHI;
+      xr.push(displayEq * Math.sin(theta) * Math.cos(phi));
+      yr.push(displayEq * Math.sin(theta) * Math.sin(phi));
+      zr.push(displayPol * Math.cos(theta));
+      cr.push(db);
+    }
+    x.push(xr); y.push(yr); z.push(zr); surfColor.push(cr);
+  }
+  return { x, y, z, surfColor };
+}
+
+// ════════════════════════════════════════════════════════════════
+//  PLOTLY SETUP
+// ════════════════════════════════════════════════════════════════
+
+let currentMode = 'standard';
+let currentRIndex = 0;
+let playing = false;
+let animTimer = null;
+
+function getTrace(r, mode) {
+  const s = generateSurface(r, mode);
+  return {
+    type: 'surface',
+    x: s.x, y: s.y, z: s.z,
+    surfacecolor: s.surfColor,
+    colorscale: 'Plasma',
+    cmin: DB_MIN, cmax: DB_MAX,
+    showscale: false,
+    lighting: { ambient: 0.4, diffuse: 0.7, specular: 0.3, roughness: 0.5 },
+    lightposition: { x: 1000, y: 1000, z: 1000 },
+    contours: {
+      x: { show: false }, y: { show: false }, z: { show: false }
+    },
+    hoverinfo: 'skip'
+  };
+}
+
+const layout = {
+  paper_bgcolor: '#1a1a2e',
+  plot_bgcolor: '#1a1a2e',
+  scene: {
+    bgcolor: '#1a1a2e',
+    xaxis: { range: [-2.5, 2.5], showgrid: false, zeroline: false, showticklabels: false, title: '' },
+    yaxis: { range: [-2.5, 2.5], showgrid: false, zeroline: false, showticklabels: false, title: '' },
+    zaxis: { range: [-2.5, 2.5], showgrid: false, zeroline: false, showticklabels: false, title: '' },
+    aspectratio: { x: 1, y: 1, z: 1 },
+    camera: { eye: { x: 1.6, y: 1.6, z: 0.8 } }
+  },
+  margin: { l: 0, r: 0, t: 0, b: 0 },
+  font: { color: '#e0e0e0' }
+};
+
+const config = { responsive: true, displayModeBar: false };
+
+const initTrace = getTrace(R_VALUES[0], currentMode);
+Plotly.newPlot('plot-container', [initTrace], layout, config);
+
+// ════════════════════════════════════════════════════════════════
+//  UPDATE
+// ════════════════════════════════════════════════════════════════
+
+function updatePlot(rIdx) {
+  currentRIndex = rIdx;
+  const r = R_VALUES[rIdx];
+  const tr = getTrace(r, currentMode);
+  Plotly.react('plot-container', [tr], layout, config);
+  updateInfo(r);
+}
+
+function fmt(v) {
+  if (!isFinite(v) || isNaN(v)) return '---';
+  if (v >= 1e8) return (v / 1e9).toFixed(1) + 'B';
+  if (v >= 1e5) return (v / 1e6).toFixed(1) + 'M';
+  if (v >= 1e4) return (v / 1e3).toFixed(1) + 'K';
+  if (v >= 100) return v.toFixed(0);
+  if (v >= 1) return v.toFixed(3);
+  if (v >= 0.001) return v.toFixed(5);
+  return v.toExponential(2);
+}
+
+function updateInfo(r) {
+  const db = deltaB(r);
+  let m, erate, det, coupling = 0;
+
+  if (currentMode === 'standard') {
+    m = metricStandard(r);
+    erate = entropyRateStd(r);
+    det = m.grr * m.gtt * m.gpp;
+  } else if (currentMode === 'benford') {
+    m = metric3D(r);
+    erate = entropyRate3D(r);
+    det = m.grr * m.gtt * m.gpp;
+  } else {
+    m = metric4D(r, db);
+    erate = entropyRate4D(r);
+    det = m.grr * m.gtt * m.gpp * m.gd;
+    // Emergent coupling
+    const m3 = metric3D(r);
+    if (m3.floorActive && m.floorActive) {
+      coupling = 1 - (m.grr / m3.grr);
+    } else if (m3.floorActive && !m.floorActive) {
+      coupling = 1 - (1 / m3.grr);
+    }
+  }
+
+  // Horizon banner
+  const banner = document.getElementById('horizon-banner');
+  const hText = document.getElementById('horizon-text');
+  const hR = document.getElementById('horizon-r');
+  if (r > 1.01) {
+    banner.className = 'outside';
+    hText.textContent = 'OUTSIDE HORIZON';
+  } else if (r > 0.99) {
+    banner.className = 'at-horizon';
+    hText.textContent = 'EVENT HORIZON';
+  } else {
+    banner.className = 'inside';
+    hText.textContent = 'INSIDE HORIZON';
+  }
+  hR.innerHTML = 'r / r<sub>s</sub> = ' + r.toFixed(4);
+
+  // Metric values
+  document.getElementById('info-grr').textContent = fmt(m.grr);
+  document.getElementById('info-gtt').textContent = fmt(m.gtt);
+  document.getElementById('info-det').textContent = fmt(det);
+  document.getElementById('info-floor').textContent = FLOOR_VAL.toFixed(4);
+  document.getElementById('info-db').textContent = db.toFixed(5);
+  document.getElementById('info-erate').textContent = fmt(erate);
+
+  // g_delta row (4D only)
+  const gdRow = document.getElementById('row-gdelta');
+  if (currentMode === '4d') {
+    gdRow.classList.remove('hidden');
+    document.getElementById('info-gdelta').textContent = fmt(m.gd);
+  } else {
+    gdRow.classList.add('hidden');
+  }
+
+  // Coupling row (4D only)
+  const cpRow = document.getElementById('row-coupling');
+  if (currentMode === '4d') {
+    cpRow.classList.remove('hidden');
+    const floorActive3D = (r * r * r * r) < FLOOR_VAL;
+    if (floorActive3D) {
+      document.getElementById('info-coupling').textContent = (coupling * 100).toFixed(1) + '%';
+    } else {
+      document.getElementById('info-coupling').textContent = '0%';
+    }
+  } else {
+    cpRow.classList.add('hidden');
+  }
+
+  // Floor status
+  const fs = document.getElementById('floor-status');
+  if (currentMode === 'standard') {
+    fs.textContent = 'Standard GR (no floor)';
+    fs.className = 'inactive';
+  } else if (currentMode === 'benford') {
+    if (m.floorActive) {
+      fs.textContent = '3D FLOOR ACTIVE';
+      fs.className = 'active';
+    } else {
+      fs.textContent = 'Floor inactive';
+      fs.className = 'inactive';
+    }
+  } else {
+    if (m.floorActive) {
+      fs.textContent = '4D FLOOR ACTIVE';
+      fs.className = 'active';
+    } else {
+      const m3 = metric3D(r);
+      if (m3.floorActive) {
+        fs.textContent = '4D floor not needed (CS helps)';
+        fs.className = 'inactive';
+      } else {
+        fs.textContent = 'Floor inactive';
+        fs.className = 'inactive';
+      }
+    }
+  }
+
+  document.getElementById('r-display').textContent = 'r = ' + r.toFixed(4);
+}
+
+// ════════════════════════════════════════════════════════════════
+//  CONTROLS
+// ════════════════════════════════════════════════════════════════
+
+const slider = document.getElementById('r-slider');
+slider.addEventListener('input', () => {
+  const idx = Math.round(parseFloat(slider.value) * N_STEPS);
+  updatePlot(idx);
+});
+
+function setMode(mode) {
+  currentMode = mode;
+  document.getElementById('btn-standard').className = mode === 'standard' ? 'active' : '';
+  document.getElementById('btn-benford').className = mode === 'benford' ? 'active' : '';
+  document.getElementById('btn-4d').className = mode === '4d' ? 'active' : '';
+  updatePlot(currentRIndex);
+}
+
+function togglePlay() {
+  playing ? stopPlay() : startPlay();
+}
+
+function startPlay() {
+  playing = true;
+  document.getElementById('btn-play').textContent = '\u23F8 Pause';
+  document.getElementById('btn-play').classList.add('active');
+  if (currentRIndex >= N_STEPS) currentRIndex = 0;
+  advanceFrame();
+}
+
+function stopPlay() {
+  playing = false;
+  document.getElementById('btn-play').textContent = '\u25B6 Play fly-in';
+  document.getElementById('btn-play').classList.remove('active');
+  if (animTimer) { clearTimeout(animTimer); animTimer = null; }
+}
+
+function advanceFrame() {
+  if (!playing || currentRIndex >= N_STEPS) { stopPlay(); return; }
+  currentRIndex++;
+  slider.value = currentRIndex / N_STEPS;
+  updatePlot(currentRIndex);
+
+  const r = R_VALUES[currentRIndex];
+  let erate;
+  if (currentMode === '4d') erate = entropyRate4D(r);
+  else if (currentMode === 'benford') erate = entropyRate3D(r);
+  else erate = entropyRateStd(r);
+  const delay = Math.max(16, Math.min(500, 200 / Math.max(0.01, Math.sqrt(erate))));
+  animTimer = setTimeout(advanceFrame, delay);
+}
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === ' ') { e.preventDefault(); togglePlay(); }
+  if (e.key === 'ArrowRight') {
+    const idx = Math.min(N_STEPS, currentRIndex + 1);
+    slider.value = idx / N_STEPS;
+    updatePlot(idx);
+  }
+  if (e.key === 'ArrowLeft') {
+    const idx = Math.max(0, currentRIndex - 1);
+    slider.value = idx / N_STEPS;
+    updatePlot(idx);
+  }
+  if (e.key === '1') setMode('standard');
+  if (e.key === '2') setMode('benford');
+  if (e.key === '3') setMode('4d');
+});
+
+updateInfo(R_VALUES[0]);
+</script>
+</body>
+</html>

@@ -1,0 +1,192 @@
+and into a post-singularity bounce region. why are we talking about the bounce? let's take it out.
+
+take out the whirpool analogy, unless it's the full sentence "The blackhole is a drain that only let's matter through to become spacetime, but the whirlpool doesn't let the light escape. 
+
+It's important that if we talk about location for before the event horizon and at the horizon, if we are going talk about CS being inside the event horizon. I'm referencing the paragraph below this one. 
+
+Inside,
+the CS restructures itself by consuming the black hole's mass — not its energy.
+The drain is selective: mass (deviation above ~0.017) is consumed and converted
+to geometry. Light (deviation below ~0.017) is trapped but not consumed. This
+distinction — invisible to general relativity, which treats mass and energy
+identically — is why GR's equations break down at the singularity.
+
+This is perfect: 
+The black hole shrinks without radiating. The information never leaves. And the
+product of the conversion — new spacetime at equilibrium — may contribute to the
+expansion of the universe itself.
+
+Great job with the abbreviations!
+
+why are we talking about the bounce?
+
+- **Post-singularity bounce** (15 points): r/r_s = −0.01 through −1.0,
+  representing a continuation through the singularity as predicted by loop
+  quantum gravity and string cosmology bouncing scenarios.
+  
+  This should not include the category "marginal" it either deviates or it doesn't, the only deviation that would be worth it's own name would be CS. 
+  4. Compute δ_B, ε(d), MAD, and the Benford verdict (CONFORMS / MARGINAL /
+   DEVIATES / UNDEFINED)
+   
+   
+   This distracts the reader in my opinion. thoughts?
+   This yields 10 models × 55 positions = 550 spectral evaluations.
+   
+   Let's just focus on the SC hagedron, noncommut. take out the others. It's distracting. 
+   
+   ### 3.1 All Models Survive; Causal Set Ranks First
+
+All 550 spectral evaluations return computable δ_B values — no model produces an
+undefined distribution at any radius. The black hole interior is a valid
+statistical environment for all ten quantum gravity proposals.
+
+For table 1, remove 4-10. all the other models. Leave only the ones that we need. 
+
+we probably don't need post singularity, unless we talking about the benfords tools ability to even see past the singularity. Which takes away from the blackhole discussion. 
+
+| Post-singularity | −0.01 | 50.0 | 0.015 | Mirror of approach |
+
+The rest of the table is perfect though. 
+
+ In the paragraph below. This description is good. Let's make it read easier. Far outside the blackhole the CS is at CS equilibrium (~0.017) distinctually above hawking radiation (put that number here), then at it approaches near the event horizon, it drops to the level of hawking radiation, Then  then gradually rises to the CS equilibrium (~0.017) near the singularity, distancing itself again from hawking radtion and back to it's own equalibrium (put number here). 
+ 
+**Table 2.** Causal Set δ_B through the complete black hole journey. The deviation
+drops from Hawking radiation levels far outside, reaches near-perfect conformance
+at the horizon, then gradually rises to the CS equilibrium (~0.017) near the
+singularity. (See Figure 1 for the full visual.)
+
+Am i just understanding this wrong? Does SC live at hawking radiation levels? I thought they were different, what about this? The result: the Causal Set fingerprint converges to the Hawking radiation
+fingerprint — but not at the horizon. Just past it.
+
+| CS Location | L2 distance to Hawking (ω_c = 2.0) |
+|-------------|-------------------------------------|
+| At wall (T = 1.00 T_P) | 0.025 |
+| Past wall (T = 1.06 T_P) | 0.020 |
+| **Best match (T = 1.36 T_P)** | **0.004** |
+| Further past (T = 1.62 T_P) | 0.020 |
+                      VS this paragraph?
+**Far-field Hawking signature.** At r/r_s = 10, far from the black hole, CS
+shows δ_B = 0.028. This is within the range of Hawking radiation fingerprints
+measured in the exotic physics survey (Riner 2026c) (δ_B = 0.020–0.035 for greybody cutoffs ω_c = 0.5
+to 5.0). Far from the hole, the CS spectrum carries the imprint of the Hawking
+thermal bath.			
+
+			vs this paragraph
+			
+			### 3.4 Hawking Radiation vs. Causal Set: Side-by-Side
+
+The following table places Hawking radiation (ω_c = 2.0, constant δ_B ≈ 0.028)
+beside the Causal Set at each position through the black hole. The visual
+pattern is immediate: CS starts at Hawking levels, drops far below, then rises
+back toward a Hawking-like fingerprint in the deep interior.
+
+**Far-field Hawking signature.** At r/r_s = 10, far from the black hole, CS
+shows δ_B = 0.028. This is within the range of Hawking radiation fingerprints
+measured in the exotic physics survey (Riner 2026c) (δ_B = 0.020–0.035 for greybody cutoffs ω_c = 0.5
+to 5.0). Far from the hole, the CS spectrum carries the imprint of the Hawking
+thermal bath.
+
+The per-digit deviation ε(d) provides a richer comparison than δ_B alone. In
+Riner (2026e), we compared the ε(d) fingerprint of Causal Set Theory at various
+temperatures with Hawking radiation (greybody factor ω_c = 2.0) from the
+exotic physics survey (Riner 2026c). you said my name alot here. is it needed? if so keep it, if not maybe we can change the wording so it's not as repetitive. i feel like i'm advertising myself alot here. 
+
+
+
+this destracts the reader.
+### 3.5 Comparison with the Cosmological Singularity
+
+Eight of ten models produce comparable δ_B at both the cosmological singularity
+(Riner 2026e) and the black hole interior. Causal Set Theory is the only model
+that performs *better* at the black hole (0.011) than at the Big Bang (0.017),
+suggesting the discrete spacetime absorbs a localized point singularity more
+cleanly than a spatially uniform one. Full comparison data is in Riner (2026e).
+
+When we say inside, it's important that we say WHERE inside, just inside the horizon in this case. Not the entire interior, as some would read it. 
+**Phase 2 — Maximum over-conformance** (r ≈ 1.1 r_s): The minimum δ_B = 0.002
+occurs just *outside* the horizon, not at or inside it. This is the deepest
+debt — the point where gravity has stripped the CS furthest below its resting
+state. The horizon itself (δ_B = 0.004) is not the minimum. It is just the
+boundary the CS crosses on the way back up.
+
+an important distinction here. We should express that it's feeding mass and also NOT energy.This is where einsteins laws break down E=mc^2. 
+**Phase 3 — Restoration** (r = 0.99 → 0.01 r_s): Inside the horizon, δ_B
+climbs from 0.004 back to 0.015–0.017. The black hole is feeding mass back
+into the Causal Set to restore it to equilibrium. The CS is being rebuilt.
+
+		This is the appropriate use of the big bang info because it shows commonality amongst two different instances, proving the CS equalibrium claim of 0.017. 
+		
+What is the Causal Set's natural resting state? The data points toward a
+consistent answer: at the Big Bang wall (Riner 2026e), CS post-wall mean =
+0.017. Near the BH singularity, CS reaches 0.015. The resting state is δ_B ≈
+0.015–0.017 — and the 0.002 near the horizon is the anomaly, not the
+equilibrium.
+
+
+			AMAZING DESCRIPTION! YOU CAN EASILY ENVISION IT
+**The V-shape.** Read spatially, the data traces a V. The left arm is the
+approach: δ_B drops from 0.028 at r = 10 r_s down to 0.002 at r = 1.1 r_s —
+the whirlpool accelerating, pulling the substrate tighter with every step
+inward. The vertex at 1.1 r_s is where the water is moving fastest, right
+before the drain catches it. The right arm is the interior: δ_B climbs from
+0.004 at the horizon back to 0.015–0.018 near the singularity — the CS
+consuming mass to pay off the debt that gravity created. The horizon is not a
+wall or a special boundary in this picture. It is the inflection point where
+stripping stops and restoration begins.
+
+THE ENTIRETY OF PARAGRAPH 4.2 IS AMAZING!!
+
+		for this paragraph. Let's says, It is selective: it consumes mass (deviation), not energy. 
+The whirlpool image clarifies why E = mc² does not apply straightforwardly
+inside a black hole. Einstein's mass-energy equivalence treats mass and energy
+as interchangeable. The CS drain does not. It is selective: it consumes mass
+(deviation), not energy. Light carries energy but no deviation above *add "it's" equilibrium (add, 0.000).
+Mass carries both. Inside the event horizon, this distinction matters.
+
+maybe i'm being too picky with the wording, but it's important that we get this right because E doesn't equal MC^2 inside the black hole, so we have to be consistent. 
+
+We propose an alternative: **nothing escapes the black hole.** The mass does not
+leave as outgoing particles. It is consumed internally by the causal set
+restructuring (creating more spacetime). The black hole shrinks because the geometry is being eaten from
+within by discrete spacetime maintaining its own statistical structure.
+
+In this paragraph below, we should say that the benfords deviation is just a tool that recognized CS equalibrium, and showed that it conformed to that not the benford equation. 
+
+In the Causal Set framework, information is encoded in the causal relations
+between events. The restructuring we propose does not destroy causal relations —
+it reorganizes them to restore Benford conformance. If the reorganization is
+bijective (each initial configuration maps to a unique final configuration), then
+the process is unitary and information is preserved. If it is many-to-one, then
+information is genuinely lost — but at the fundamental level of spacetime
+dynamics, not at the level of semiclassical radiation. The question becomes
+tractable within the discrete gravity formalism rather than requiring a full
+theory of quantum gravity to resolve.
+
+With this new research, after my paper one, we realized that the real conformance is CS NOT the benford equation, or even a massless state. The paragraph below just proves my first paper was wrong about that. I'm talking about the below paragraph. 
+
+This connects directly to the framework developed in Riner (2026b), which
+proposed that mass represents deviation from Benford conformance and that
+entropy is "mass attempting to return to the massless state — to zero deviation,
+to perfect conformance." The CS experiments now identify the mechanism: the
+return to conformance does not produce radiation or thermal noise. It produces
+spacetime. The endpoint of entropy is not heat death. It is geometry.
+
+for the below paragraph, take out the references for me. I'm not publishing that paper. Or haven't published it YET. And this speculation can stand on the **Gravitational waves.** and **Cosmological coupling.**
+
+This connects directly to the framework developed in Riner (2026b), which
+proposed that mass represents deviation from Benford conformance and that
+entropy is "mass attempting to return to the massless state — to zero deviation,
+to perfect conformance." The CS experiments now identify the mechanism: the
+return to conformance does not produce radiation or thermal noise. It produces
+spacetime. The endpoint of entropy is not heat death. It is geometry.
+
+Below, IDK if this takes away from the black hole subject by including the others. what are your thoughts?
+1. δ_B is computable inside a black hole for all ten quantum gravity models
+   tested. The interior is a valid statistical environment.
+   
+   Let's not reference my wormhole paper yet. It uh, it's not out yet. 
+   We measured ten quantum gravity models inside a Schwarzschild black hole using
+the Benford deviation framework. Causal Set Theory ranks first by a factor of
+two (δ_B = 0.011 vs. 0.019 for the runner-up). The horizon does not register
+in the CS data. A wormhole control (Riner 2026f) confirms the response is
+topology-specific, not curvature-driven.
