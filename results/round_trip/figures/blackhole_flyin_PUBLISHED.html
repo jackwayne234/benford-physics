@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>First-Person Black Hole Fly-In — 5D Metric with CS Tesseract</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #0a0a1a; overflow: hidden; font-family: 'JetBrains Mono', monospace; }
+  #c { display: block; width: 100vw; height: 100vh; }
+
+  /* ─── Matrix Overlay (top-left) ─── */
+  #matrix-overlay {
+    position: fixed; top: 14px; left: 16px;
+    z-index: 10; pointer-events: none;
+    background: rgba(6, 6, 18, 0.85);
+    border: 1px solid rgba(60, 64, 80, 0.35);
+    border-radius: 10px;
+    padding: 14px 20px 12px 14px;
+    backdrop-filter: blur(8px);
+    max-width: 95vw;
+  }
+  #matrix-overlay .mtitle {
+    font-size: 0.62rem; color: #6a6d78;
+    text-transform: uppercase; letter-spacing: 0.1em;
+    margin-bottom: 8px;
+  }
+  #matrixPre {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem; line-height: 1.6;
+    color: #4a4d58; margin: 0; white-space: pre;
+  }
+  .mv { font-weight: 600; }
+  .c-gtt { color: #64b4ff; }
+  .c-grr { color: #ff8c3c; }
+  .c-gth { color: #50e6a0; }
+  .c-gph { color: #b482ff; }
+  .c-gd  { color: #ffd700; }
+  .c-grr.flash { color: #00e8ff; text-shadow: 0 0 8px rgba(0,204,255,0.6); }
+  .c-zero { color: #22252e; }
+  .fm { color: #3a3d48; font-weight: 400; font-size: 0.62rem; }
+  .fm-hl { color: #5a5d68; }
+  .eq-line {
+    font-size: 0.6rem; color: #3a3d48;
+    margin-top: 6px; padding-top: 6px;
+    border-top: 1px solid rgba(60,64,80,0.2);
+    line-height: 1.5;
+  }
+  .eq-line .hl { color: #ffd700; }
+  .eq-line .val { color: #8a8d98; font-weight: 500; }
+
+  /* ─── Status cards (top-right) ─── */
+  #status-cards {
+    position: fixed; top: 14px; right: 16px;
+    z-index: 10; pointer-events: none;
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .hud-card {
+    pointer-events: auto;
+    background: rgba(10, 10, 28, 0.75);
+    border: 1px solid rgba(60, 64, 80, 0.4);
+    border-radius: 8px;
+    padding: 7px 14px;
+    min-width: 110px;
+    text-align: center;
+    backdrop-filter: blur(6px);
+    transition: border-color 0.4s;
+  }
+  .hud-card.hl-horizon { border-color: rgba(255, 80, 40, 0.7); }
+  .hud-card.hl-floor   { border-color: rgba(0, 170, 255, 0.7); }
+  .hud-label {
+    font-size: 0.58rem; color: #6a6d78;
+    text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 2px;
+  }
+  .hud-val {
+    font-size: 0.95rem; font-weight: 500; color: #e8eaf0; line-height: 1.2;
+  }
+  .hud-val.outside { color: #4ade80; }
+  .hud-val.inside  { color: #f87171; }
+  .hud-val.floor   { color: #38bdf8; }
+  .hud-val.conforms { color: #4ade80; }
+  .hud-val.marginal { color: #fbbf24; }
+
+  /* ─── Controls bar ─── */
+  #controls {
+    position: fixed; bottom: 0; left: 0; right: 0;
+    z-index: 10;
+    padding: 12px 20px;
+    display: flex; align-items: center; gap: 14px;
+    justify-content: center;
+    background: rgba(10, 10, 28, 0.8);
+    border-top: 1px solid rgba(60, 64, 80, 0.35);
+    backdrop-filter: blur(6px);
+  }
+  .btn {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem; padding: 6px 16px;
+    border: 1px solid rgba(80, 84, 100, 0.5);
+    border-radius: 6px; background: rgba(24, 24, 44, 0.8);
+    color: #c8cad0; cursor: pointer; letter-spacing: 0.05em;
+    transition: all 0.2s; user-select: none;
+  }
+  .btn:hover { border-color: rgba(120, 124, 150, 0.7); background: rgba(34, 34, 58, 0.9); }
+  .btn.active { border-color: #ff6a3a; color: #ff6a3a; }
+
+  #posSlider {
+    -webkit-appearance: none; appearance: none;
+    width: 280px; height: 4px; border-radius: 2px;
+    background: rgba(50, 54, 70, 0.6); outline: none; cursor: pointer;
+  }
+  #posSlider::-webkit-slider-thumb {
+    -webkit-appearance: none; width: 14px; height: 14px;
+    border-radius: 50%; background: #c8cad0; border: 2px solid #0a0a1a; cursor: pointer;
+  }
+  #posSlider::-webkit-slider-thumb:hover { background: #ff6a3a; }
+  #speedSlider {
+    -webkit-appearance: none; appearance: none;
+    width: 80px; height: 4px; border-radius: 2px;
+    background: rgba(50, 54, 70, 0.6); outline: none; cursor: pointer;
+  }
+  #speedSlider::-webkit-slider-thumb {
+    -webkit-appearance: none; width: 12px; height: 12px;
+    border-radius: 50%; background: #c8cad0; border: 2px solid #0a0a1a; cursor: pointer;
+  }
+  .ctrl-label { font-size: 0.6rem; color: #6a6d78; text-transform: uppercase; letter-spacing: 0.08em; }
+  .speed-val { font-size: 0.68rem; color: #8a8d98; min-width: 22px; }
+
+  /* ─── Equation bar ─── */
+  #equation-bar {
+    position: fixed; bottom: 52px; left: 0; right: 0;
+    z-index: 9; text-align: center;
+    font-size: 0.62rem; color: #5a5d68;
+    padding: 5px 0; letter-spacing: 0.02em;
+    background: rgba(10, 10, 28, 0.5);
+  }
+  #equation-bar .hl { color: #38bdf8; }
+  #equation-bar .dm { color: #3a3d48; }
+
+  /* ─── Flash overlays ─── */
+  #horizon-flash, #floor-flash, #cs-flash {
+    position: fixed; inset: 0; pointer-events: none; z-index: 20;
+    border: 0px solid transparent;
+  }
+  @keyframes hFlash {
+    0%   { border-width: 0; border-color: rgba(255,80,40,0); background: rgba(255,60,20,0.12); }
+    10%  { border-width: 8px; border-color: rgba(255,80,40,0.9); background: rgba(255,60,20,0.1); }
+    100% { border-width: 0; border-color: rgba(255,40,10,0); background: rgba(255,60,20,0); }
+  }
+  @keyframes fFlash {
+    0%   { border-width: 0; border-color: rgba(0,180,255,0); background: rgba(0,140,255,0.1); }
+    10%  { border-width: 6px; border-color: rgba(0,180,255,0.8); background: rgba(0,140,255,0.07); }
+    100% { border-width: 0; border-color: rgba(0,160,255,0); background: rgba(0,140,255,0); }
+  }
+  @keyframes csFlash {
+    0%   { background: rgba(255,215,0,0); }
+    8%   { background: rgba(255,215,0,0.25); }
+    30%  { background: rgba(255,215,0,0.08); }
+    100% { background: rgba(255,215,0,0); }
+  }
+  #horizon-flash.active { animation: hFlash 1.8s ease-out forwards; }
+  #floor-flash.active { animation: fFlash 2.2s ease-out forwards; }
+  #cs-flash.active { animation: csFlash 1.5s ease-out forwards; }
+
+  /* ─── Vignette overlay ─── */
+  #vignette {
+    position: fixed; inset: 0; pointer-events: none; z-index: 5;
+    background: radial-gradient(ellipse at center,
+      transparent 45%,
+      rgba(0,0,0,0.3) 70%,
+      rgba(0,0,0,0.7) 100%
+    );
+  }
+</style>
+</head>
+<body>
+<div id="horizon-flash"></div>
+<div id="floor-flash"></div>
+<div id="cs-flash"></div>
+<div id="vignette"></div>
+
+<!-- Matrix overlay (top-left) -->
+<div id="matrix-overlay">
+  <div class="mtitle">5D Metric Tensor</div>
+  <pre id="matrixPre"></pre>
+</div>
+
+<!-- Status cards (top-right) -->
+<div id="status-cards">
+  <div class="hud-card" id="hcR">
+    <div class="hud-label">r / r<sub>s</sub></div>
+    <div class="hud-val" id="vR">10.000</div>
+  </div>
+  <div class="hud-card" id="hcZone">
+    <div class="hud-label">Zone</div>
+    <div class="hud-val outside" id="vZone">OUTSIDE</div>
+  </div>
+  <div class="hud-card" id="hcDelta">
+    <div class="hud-label">&delta;<sub>B</sub></div>
+    <div class="hud-val" id="vDelta">0.010308</div>
+  </div>
+  <div class="hud-card" id="hcVerdict">
+    <div class="hud-label">Verdict</div>
+    <div class="hud-val conforms" id="vVerdict">CONFORMS</div>
+  </div>
+  <div class="hud-card" id="hcDet">
+    <div class="hud-label">det(5D)</div>
+    <div class="hud-val" id="vDet">&mdash;</div>
+  </div>
+</div>
+
+<!-- Equation -->
+<div id="equation-bar">
+  <span class="dm">CS equation:</span>
+  <span class="hl">&delta;<sub>B</sub>(&rho;) = 0.003389 &times; |ln(&rho;)| + 0.002508</span>
+  <span class="dm">&nbsp;|&nbsp; Floor: |det(g)| &ge; 0.4068 &nbsp;|&nbsp; activates at r/r<sub>s</sub> &asymp; 0.65</span>
+</div>
+
+<!-- Controls -->
+<div id="controls">
+  <button class="btn" id="btnPlay">&#9654; PLAY</button>
+  <button class="btn" id="btnReset">&#8634; RESET</button>
+  <span class="ctrl-label">Position</span>
+  <input type="range" id="posSlider" min="0" max="1000" value="0" step="1">
+  <span class="ctrl-label">Speed</span>
+  <input type="range" id="speedSlider" min="1" max="10" value="3" step="1">
+  <span class="speed-val" id="speedVal">3x</span>
+</div>
+
+<canvas id="c"></canvas>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.163.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.163.0/examples/jsm/"
+  }
+}
+</script>
+<script type="module">
+import * as THREE from 'three';
+
+// ─── Physics constants ───────────────────────────────────────────
+const CS_A = 0.003389, CS_B = 0.002508;
+const FLOOR_VAL = 0.4068; // sqrt(Sigma [log10(1+1/d)]^2)
+
+function deltaB(rho) {
+  return CS_A * Math.abs(Math.log(rho)) + CS_B;
+}
+
+function computeMetric(rho) {
+  const db = Math.max(deltaB(rho), 1e-8);
+  const gtt = FLOOR_VAL;
+  const grr_std = 1 / (1 - 1 / rho);
+  let grr = grr_std;
+  const gthth = rho * rho;
+  const gphph = rho * rho;
+  const gdelta = Math.log10(1 + 1 / db);
+  const detSpatial = Math.pow(rho, 4) * gdelta;
+  const floorActive = detSpatial < FLOOR_VAL;
+  if (floorActive) {
+    grr = FLOOR_VAL / (Math.pow(rho, 4) * gdelta);
+  }
+  const det5d = gtt * grr * gthth * gphph * gdelta;
+  let zone, zoneLabel;
+  if (rho > 1.0) { zone = 'outside'; zoneLabel = 'OUTSIDE'; }
+  else if (!floorActive) { zone = 'inside'; zoneLabel = 'INSIDE HORIZON'; }
+  else { zone = 'floor'; zoneLabel = 'FLOOR ACTIVE'; }
+  let verdict = 'CONFORMS';
+  if (db > 0.015) verdict = 'MARGINAL';
+  if (db > 0.06) verdict = 'DEVIATES';
+  return { rho, db, gtt, grr, grr_std, gthth, gphph, gdelta, detSpatial, det5d, floorActive, zone, zoneLabel, verdict };
+}
+
+// ─── Animation state ─────────────────────────────────────────────
+const RHO_MAX = 10.0, RHO_MIN = 0.015;
+function tToRho(t) {
+  const logMax = Math.log(RHO_MAX), logMin = Math.log(RHO_MIN);
+  return Math.exp(logMax + t * (logMin - logMax));
+}
+
+let animT = 0, playing = false, speed = 3;
+
+// ─── Three.js setup ──────────────────────────────────────────────
+const canvas = document.getElementById('c');
+const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.0;
+
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x0a0a1a);
+scene.fog = new THREE.FogExp2(0x0a0a1a, 0.012);
+
+// FOV widened to 75 for tunnel rush feeling
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.01, 500);
+camera.position.set(0, 8, 0);
+camera.lookAt(0, -2, 0);
+
+// ─── Lights ──────────────────────────────────────────────────────
+const ambient = new THREE.AmbientLight(0x222244, 0.5);
+scene.add(ambient);
+const dirLight = new THREE.DirectionalLight(0xffffff, 0.6);
+dirLight.position.set(10, 20, 15);
+scene.add(dirLight);
+const pointLight = new THREE.PointLight(0xff4422, 2, 30);
+pointLight.position.set(0, -1, 0);
+scene.add(pointLight);
+
+// ─── Starfield ───────────────────────────────────────────────────
+const STAR_COUNT = 3000;
+const starGeo = new THREE.BufferGeometry();
+const starPos = new Float32Array(STAR_COUNT * 3);
+const starAlpha = new Float32Array(STAR_COUNT);
+for (let i = 0; i < STAR_COUNT; i++) {
+  const theta = Math.random() * Math.PI * 2;
+  const phi = Math.acos(2 * Math.random() - 1);
+  const r = 80 + Math.random() * 120;
+  starPos[i*3]   = r * Math.sin(phi) * Math.cos(theta);
+  starPos[i*3+1] = r * Math.sin(phi) * Math.sin(theta);
+  starPos[i*3+2] = r * Math.cos(phi);
+  starAlpha[i] = Math.random() * 0.8 + 0.2;
+}
+starGeo.setAttribute('position', new THREE.BufferAttribute(starPos, 3));
+starGeo.setAttribute('alpha', new THREE.BufferAttribute(starAlpha, 1));
+
+const starMat = new THREE.PointsMaterial({
+  color: 0xc8d0e8, size: 0.4, transparent: true, opacity: 1.0,
+  sizeAttenuation: true, depthWrite: false
+});
+const stars = new THREE.Points(starGeo, starMat);
+scene.add(stars);
+
+// ─── Embedding Diagram (funnel surface — viewed from INSIDE) ─────
+const FUNNEL_SEGMENTS_R = 200;
+const FUNNEL_SEGMENTS_THETA = 64;
+
+function buildFunnelGeometry() {
+  const geo = new THREE.BufferGeometry();
+  const verts = [];
+  const colors = [];
+  const indices = [];
+
+  for (let i = 0; i <= FUNNEL_SEGMENTS_R; i++) {
+    const frac = i / FUNNEL_SEGMENTS_R;
+    const rho = Math.exp(Math.log(10) * (1 - frac) + Math.log(0.02) * frac);
+
+    // Outside: starts high, falls to horizon at Z=0
+    // Inside: continues falling below horizon
+    let Z;
+    if (rho >= 1.0) {
+      Z = 2 * Math.sqrt(Math.max(0, rho - 1.0));
+    } else {
+      Z = -4 * Math.pow(1.0 - rho, 1.3);
+    }
+
+    const R = rho * 2.0;
+
+    let cr, cg, cb;
+    if (rho > 1.0) {
+      const nearness = Math.max(0, 1 - (rho - 1) / 9);
+      cr = 0.1 + 0.15 * nearness;
+      cg = 0.5 + 0.3 * nearness;
+      cb = 0.15 + 0.1 * nearness;
+    } else if (rho > 0.65) {
+      const depth = 1 - (rho - 0.65) / 0.35;
+      cr = 0.6 + 0.3 * depth;
+      cg = 0.1 + 0.05 * depth;
+      cb = 0.08;
+    } else {
+      const depth = 1 - rho / 0.65;
+      cr = 0.0;
+      cg = 0.5 + 0.3 * depth;
+      cb = 0.7 + 0.3 * depth;
+    }
+
+    for (let j = 0; j <= FUNNEL_SEGMENTS_THETA; j++) {
+      const theta = (j / FUNNEL_SEGMENTS_THETA) * Math.PI * 2;
+      const x = R * Math.cos(theta);
+      const z = R * Math.sin(theta);
+      const y = Z;
+      verts.push(x, y, z);
+      colors.push(cr, cg, cb);
+    }
+  }
+
+  for (let i = 0; i < FUNNEL_SEGMENTS_R; i++) {
+    for (let j = 0; j < FUNNEL_SEGMENTS_THETA; j++) {
+      const row = FUNNEL_SEGMENTS_THETA + 1;
+      const a = i * row + j;
+      const b = a + 1;
+      const c = a + row;
+      const d = c + 1;
+      indices.push(a, c, b);
+      indices.push(b, c, d);
+    }
+  }
+
+  geo.setAttribute('position', new THREE.Float32BufferAttribute(verts, 3));
+  geo.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+  geo.setIndex(indices);
+  geo.computeVertexNormals();
+  return geo;
+}
+
+const funnelGeo = buildFunnelGeometry();
+const funnelMat = new THREE.MeshStandardMaterial({
+  vertexColors: true,
+  side: THREE.BackSide,      // Render inner surface only (we're inside the tunnel)
+  metalness: 0.3,
+  roughness: 0.6,
+  transparent: true,
+  opacity: 0.55,             // Slightly more visible walls
+  wireframe: false,
+  depthWrite: false,
+});
+const funnel = new THREE.Mesh(funnelGeo, funnelMat);
+scene.add(funnel);
+
+// Wireframe overlay — also BackSide for interior view
+const wireGeo = buildFunnelGeometry();
+const wireMat = new THREE.MeshBasicMaterial({
+  vertexColors: true, wireframe: true, transparent: true, opacity: 0.08,
+  side: THREE.BackSide
+});
+const wireframe = new THREE.Mesh(wireGeo, wireMat);
+scene.add(wireframe);
+
+// ─── Event Horizon Sphere (r = 1.0 r_s) ─────────────────────────
+const horizonGeo = new THREE.SphereGeometry(2.0, 48, 48);
+const horizonMat = new THREE.MeshPhongMaterial({
+  color: 0xff3322, transparent: true, opacity: 0.15,
+  emissive: 0xff2200, emissiveIntensity: 0.3,
+  side: THREE.DoubleSide, depthWrite: false,
+});
+const horizonSphere = new THREE.Mesh(horizonGeo, horizonMat);
+horizonSphere.position.y = 0;  // Horizon is at Z=0 (the neck)
+scene.add(horizonSphere);
+
+// ─── Benford Floor Sphere (r ~ 0.65 r_s) ────────────────────────
+const floorRadius = 0.65 * 2.0;
+const floorGeo = new THREE.SphereGeometry(floorRadius, 48, 48);
+const floorMat = new THREE.MeshPhongMaterial({
+  color: 0x00ccff, transparent: true, opacity: 0.1,
+  emissive: 0x0088cc, emissiveIntensity: 0.2,
+  side: THREE.DoubleSide, depthWrite: false,
+});
+const floorSphere = new THREE.Mesh(floorGeo, floorMat);
+const floorY = -4 * Math.pow(1.0 - 0.65, 1.3);  // Below horizon
+floorSphere.position.y = floorY / 2;  // Midway in the inside region
+scene.add(floorSphere);
+
+// ─── Tensor Object (deformable wireframe falling in) ─────────────
+const tensorGroup = new THREE.Group();
+scene.add(tensorGroup);
+
+const tensorGeo = new THREE.BoxGeometry(1, 1, 1);
+const tensorEdges = new THREE.EdgesGeometry(tensorGeo);
+const tensorLineMat = new THREE.LineBasicMaterial({
+  color: 0x64b4ff, transparent: true, opacity: 0.95, linewidth: 2
+});
+const tensorWire = new THREE.LineSegments(tensorEdges, tensorLineMat);
+tensorGroup.add(tensorWire);
+
+// Axis lines through center
+const axisLen = 0.8;
+const axisColors = [0xff8c3c, 0x50e6a0, 0xb482ff];
+for (let a = 0; a < 3; a++) {
+  const pts = [new THREE.Vector3(), new THREE.Vector3()];
+  if (a === 0) { pts[0].set(0, -axisLen, 0); pts[1].set(0, axisLen, 0); }
+  if (a === 1) { pts[0].set(-axisLen, 0, 0); pts[1].set(axisLen, 0, 0); }
+  if (a === 2) { pts[0].set(0, 0, -axisLen); pts[1].set(0, 0, axisLen); }
+  const ag = new THREE.BufferGeometry().setFromPoints(pts);
+  const am = new THREE.LineBasicMaterial({ color: axisColors[a], transparent: true, opacity: 0.7 });
+  tensorGroup.add(new THREE.LineSegments(ag, am));
+}
+
+// Inner glow
+const tensorGlowGeo = new THREE.SphereGeometry(0.3, 16, 16);
+const tensorGlowMat = new THREE.MeshBasicMaterial({
+  color: 0x64b4ff, transparent: true, opacity: 0.2,
+  blending: THREE.AdditiveBlending, depthWrite: false
+});
+const tensorGlow = new THREE.Mesh(tensorGlowGeo, tensorGlowMat);
+tensorGroup.add(tensorGlow);
+
+// Point light on tensor
+const tensorLight = new THREE.PointLight(0x64b4ff, 2, 12);
+tensorGroup.add(tensorLight);
+
+// ─── CS Tesseract (4D wireframe — appears at Benford floor) ──────
+// Outer golden cube + 8 connecting edges = Schlegel diagram of tesseract
+const csGroup = new THREE.Group();
+csGroup.visible = false;
+tensorGroup.add(csGroup);
+
+// Outer cube wireframe (golden)
+const outerCubeGeo = new THREE.BoxGeometry(1, 1, 1);
+const outerCubeEdges = new THREE.EdgesGeometry(outerCubeGeo);
+const outerCubeLineMat = new THREE.LineBasicMaterial({
+  color: 0xffd700, transparent: true, opacity: 0.0, linewidth: 2
+});
+const outerCubeWire = new THREE.LineSegments(outerCubeEdges, outerCubeLineMat);
+csGroup.add(outerCubeWire);
+
+// 8 connecting edges (inner corners to outer corners — tesseract projection)
+const connectingLines = [];
+const innerCorners = [
+  [-0.5, -0.5, -0.5], [ 0.5, -0.5, -0.5],
+  [-0.5,  0.5, -0.5], [ 0.5,  0.5, -0.5],
+  [-0.5, -0.5,  0.5], [ 0.5, -0.5,  0.5],
+  [-0.5,  0.5,  0.5], [ 0.5,  0.5,  0.5]
+];
+
+for (let i = 0; i < 8; i++) {
+  const lineGeo = new THREE.BufferGeometry();
+  const positions = new Float32Array(6); // 2 points x 3 coords
+  lineGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+  const lineMat = new THREE.LineBasicMaterial({
+    color: 0xffd700, transparent: true, opacity: 0.0, linewidth: 1
+  });
+  const line = new THREE.LineSegments(lineGeo, lineMat);
+  csGroup.add(line);
+  connectingLines.push({ geometry: lineGeo, material: lineMat });
+}
+
+// Golden glow sphere for atmosphere
+const csGlowGeo = new THREE.SphereGeometry(0.5, 16, 16);
+const csGlowMat = new THREE.MeshBasicMaterial({
+  color: 0xffd700, transparent: true, opacity: 0.0,
+  blending: THREE.AdditiveBlending, depthWrite: false
+});
+const csGlow = new THREE.Mesh(csGlowGeo, csGlowMat);
+csGroup.add(csGlow);
+
+// Golden point light
+const csPointLight = new THREE.PointLight(0xffd700, 0, 8);
+csGroup.add(csPointLight);
+
+// CS activation state
+let csActivated = false;
+let csFadeT = 0;        // 0 = invisible, 1 = fully visible
+let csFlashFired = false;
+
+// ─── Speed Lines (radial streak particles) ───────────────────────
+const SPEED_LINE_COUNT = 400;
+const speedLineGeo = new THREE.BufferGeometry();
+const speedLinePositions = new Float32Array(SPEED_LINE_COUNT * 6); // 2 points per line
+const speedLineSpeeds = new Float32Array(SPEED_LINE_COUNT);
+const speedLineAngles = new Float32Array(SPEED_LINE_COUNT);
+const speedLineRadii = new Float32Array(SPEED_LINE_COUNT);
+const speedLineYOffsets = new Float32Array(SPEED_LINE_COUNT);
+
+for (let i = 0; i < SPEED_LINE_COUNT; i++) {
+  const angle = Math.random() * Math.PI * 2;
+  const radius = 0.5 + Math.random() * 3.5;
+  const yOff = (Math.random() - 0.5) * 20;
+  const spd = 0.5 + Math.random() * 1.5;
+
+  speedLineAngles[i] = angle;
+  speedLineRadii[i] = radius;
+  speedLineYOffsets[i] = yOff;
+  speedLineSpeeds[i] = spd;
+}
+
+speedLineGeo.setAttribute('position', new THREE.BufferAttribute(speedLinePositions, 3));
+const speedLineMat = new THREE.LineBasicMaterial({
+  color: 0xaabbcc, transparent: true, opacity: 0.0, depthWrite: false
+});
+const speedLines = new THREE.LineSegments(speedLineGeo, speedLineMat);
+scene.add(speedLines);
+
+// ─── Funnel position helper ──────────────────────────────────────
+function funnelPos(rho) {
+  const R = rho * 2.0;
+  let Z;
+  if (rho >= 1.0) {
+    Z = 2 * Math.sqrt(Math.max(0, rho - 1.0));
+  } else {
+    Z = -4 * Math.pow(1.0 - rho, 1.3);
+  }
+  return { R, Z };
+}
+
+// Tensor falls straight down the center axis of the funnel
+function getTensorPos(t) {
+  const rho = tToRho(t);
+  const { Z } = funnelPos(rho);
+  return new THREE.Vector3(0, Z + 0.3, 0);
+}
+
+// ─── First-Person Camera ─────────────────────────────────────────
+// Camera rides BEHIND the tensor, looking AHEAD (deeper into tunnel)
+function getCameraPosition(t, time) {
+  const tPos = getTensorPos(t);
+  // Very gentle lateral sway for organic feel
+  const swayX = 0.3 * Math.sin(time * 0.0004);
+  const swayZ = 0.3 * Math.cos(time * 0.0006);
+  return new THREE.Vector3(
+    tPos.x + swayX,
+    tPos.y + 4,        // 4 units above (behind) the tensor
+    tPos.z + swayZ
+  );
+}
+
+function getCameraTarget(t) {
+  const tPos = getTensorPos(t);
+  // Look 3 units PAST the tensor (deeper into the tunnel)
+  return new THREE.Vector3(tPos.x, tPos.y - 3, tPos.z);
+}
+
+// ─── Accretion Disk ──────────────────────────────────────────────
+const DISK_PARTICLES = 1200;
+const diskGeo = new THREE.BufferGeometry();
+const diskPositions = new Float32Array(DISK_PARTICLES * 3);
+const diskColors = new Float32Array(DISK_PARTICLES * 3);
+const diskAngles = new Float32Array(DISK_PARTICLES);
+const diskRadii = new Float32Array(DISK_PARTICLES);
+const diskSpeeds = new Float32Array(DISK_PARTICLES);
+
+for (let i = 0; i < DISK_PARTICLES; i++) {
+  const rOrbital = 3.5 + Math.random() * 7;
+  const angle = Math.random() * Math.PI * 2;
+  const yJitter = (Math.random() - 0.5) * 0.15;
+
+  diskRadii[i] = rOrbital;
+  diskAngles[i] = angle;
+  diskSpeeds[i] = 0.3 / Math.sqrt(rOrbital) * (0.8 + Math.random() * 0.4);
+
+  diskPositions[i*3]   = rOrbital * Math.cos(angle);
+  diskPositions[i*3+1] = 0.2 + yJitter;  // Near the horizon plane
+  diskPositions[i*3+2] = rOrbital * Math.sin(angle);
+
+  const heat = 1 - (rOrbital - 3.5) / 7;
+  diskColors[i*3]   = 0.8 + 0.2 * heat;
+  diskColors[i*3+1] = 0.3 + 0.5 * heat;
+  diskColors[i*3+2] = 0.1 + 0.7 * heat * heat;
+}
+
+diskGeo.setAttribute('position', new THREE.BufferAttribute(diskPositions, 3));
+diskGeo.setAttribute('color', new THREE.BufferAttribute(diskColors, 3));
+
+const diskMat = new THREE.PointsMaterial({
+  size: 0.12, vertexColors: true, transparent: true, opacity: 0.8,
+  sizeAttenuation: true, depthWrite: false, blending: THREE.AdditiveBlending
+});
+const diskParticles = new THREE.Points(diskGeo, diskMat);
+scene.add(diskParticles);
+
+function updateDisk(dt) {
+  const pos = diskGeo.attributes.position.array;
+  for (let i = 0; i < DISK_PARTICLES; i++) {
+    diskAngles[i] += diskSpeeds[i] * dt;
+    pos[i*3]   = diskRadii[i] * Math.cos(diskAngles[i]);
+    pos[i*3+2] = diskRadii[i] * Math.sin(diskAngles[i]);
+  }
+  diskGeo.attributes.position.needsUpdate = true;
+}
+
+// ─── Matrix overlay update ───────────────────────────────────────
+const matrixPre = document.getElementById('matrixPre');
+
+function fmtV(v, w) {
+  const a = Math.abs(v);
+  let s;
+  if (a >= 1e5) s = v.toExponential(2);
+  else if (a >= 100) s = v.toFixed(2);
+  else if (a >= 10)  s = v.toFixed(3);
+  else if (a >= 1)   s = v.toFixed(4);
+  else if (a >= 0.001) s = v.toFixed(5);
+  else s = v.toExponential(2);
+  return s.padStart(w);
+}
+
+function updateMatrix(m) {
+  const w = 10;
+  const Z = '<span class="c-zero">    0     </span>';
+
+  const Gtt = `<span class="mv c-gtt">${fmtV(m.gtt, w)}</span>`;
+  const flCls = m.floorActive ? ' flash' : '';
+  const Grr = `<span class="mv c-grr${flCls}">${fmtV(m.grr, w)}</span>`;
+  const Gth = `<span class="mv c-gth">${fmtV(m.gthth, w)}</span>`;
+  const Gph = `<span class="mv c-gph">${fmtV(m.gphph, w)}</span>`;
+  const Gd  = `<span class="mv c-gd">${fmtV(m.gdelta, w)}</span>`;
+
+  const fGtt = `<span class="fm">  <span class="fm-hl">g_tt</span> = \u221A(\u03A3[log\u2081\u2080(1+1/d)]\u00B2) = 0.4068</span>`;
+  const fGrr = m.floorActive
+    ? `<span class="fm">  <span class="fm-hl c-grr flash">g_rr</span> = FLOOR/(\u03C1\u2074\u00B7g_\u03B4\u0302)</span>`
+    : `<span class="fm">  <span class="fm-hl">g_rr</span> = 1/(1 \u2212 1/\u03C1)</span>`;
+  const fGth = `<span class="fm">  <span class="fm-hl">g_\u03B8\u03B8</span> = \u03C1\u00B2</span>`;
+  const fGph = `<span class="fm">  <span class="fm-hl">g_\u03C6\u03C6</span> = \u03C1\u00B2sin\u00B2\u03B8</span>`;
+  const fGd  = `<span class="fm">  <span class="fm-hl">g_\u03B4\u0302</span>  = log\u2081\u2080(1 + 1/\u03B4_B)</span>`;
+
+  matrixPre.innerHTML =
+`        \u250C                                                       \u2510
+        \u2502 ${Gtt} ${Z} ${Z} ${Z} ${Z}\u2502${fGtt}
+        \u2502 ${Z} ${Grr} ${Z} ${Z} ${Z}\u2502${fGrr}
+g_\u03BCv =  \u2502 ${Z} ${Z} ${Gth} ${Z} ${Z}\u2502${fGth}
+        \u2502 ${Z} ${Z} ${Z} ${Gph} ${Z}\u2502${fGph}
+        \u2502 ${Z} ${Z} ${Z} ${Z} ${Gd} \u2502${fGd}
+        \u2514                                                       \u2518
+<span class="eq-line">\u03C1 = <span class="val">${m.rho.toFixed(4)}</span>    \u03B4_B(\u03C1) = <span class="hl">0.003389\u00B7|ln(\u03C1)| + 0.002508</span> = <span class="val">${m.db.toFixed(6)}</span>    det(5D) = <span class="val">${m.det5d.toExponential(3)}</span></span>`;
+}
+
+// ─── HUD + Controls wiring ───────────────────────────────────────
+const vR = document.getElementById('vR');
+const vZone = document.getElementById('vZone');
+const vDelta = document.getElementById('vDelta');
+const vVerdict = document.getElementById('vVerdict');
+const vDet = document.getElementById('vDet');
+const hcZone = document.getElementById('hcZone');
+const btnPlay = document.getElementById('btnPlay');
+const btnReset = document.getElementById('btnReset');
+const posSlider = document.getElementById('posSlider');
+const speedSlider = document.getElementById('speedSlider');
+const speedValEl = document.getElementById('speedVal');
+
+let prevZone = 'outside', horizonFlashed = false, floorFlashed = false;
+
+function updateHUD(m) {
+  vR.textContent = m.rho.toFixed(3);
+
+  vZone.textContent = m.zoneLabel;
+  vZone.className = 'hud-val ' + m.zone;
+  hcZone.className = 'hud-card';
+  if (m.zone === 'inside') hcZone.classList.add('hl-horizon');
+  if (m.zone === 'floor') hcZone.classList.add('hl-floor');
+
+  vDelta.textContent = m.db.toFixed(6);
+
+  vVerdict.textContent = m.verdict;
+  vVerdict.className = 'hud-val ' + (m.verdict === 'CONFORMS' ? 'conforms' : 'marginal');
+
+  vDet.textContent = m.det5d.toExponential(3);
+
+  // Flash effects
+  if (m.zone !== 'outside' && prevZone === 'outside' && !horizonFlashed) {
+    document.getElementById('horizon-flash').classList.add('active');
+    setTimeout(() => document.getElementById('horizon-flash').classList.remove('active'), 2000);
+    horizonFlashed = true;
+  }
+  if (m.zone === 'floor' && prevZone !== 'floor' && !floorFlashed) {
+    document.getElementById('floor-flash').classList.add('active');
+    setTimeout(() => document.getElementById('floor-flash').classList.remove('active'), 2500);
+    floorFlashed = true;
+  }
+  prevZone = m.zone;
+}
+
+btnPlay.addEventListener('click', () => {
+  if (playing) {
+    playing = false;
+    btnPlay.textContent = '\u25B6 PLAY';
+    btnPlay.classList.remove('active');
+  } else {
+    if (animT >= 0.999) {
+      animT = 0; horizonFlashed = false; floorFlashed = false; prevZone = 'outside';
+      csActivated = false; csFadeT = 0; csFlashFired = false;
+    }
+    playing = true; lastFrameTime = null;
+    btnPlay.textContent = '\u23F8 PAUSE';
+    btnPlay.classList.add('active');
+  }
+});
+
+btnReset.addEventListener('click', () => {
+  playing = false;
+  btnPlay.textContent = '\u25B6 PLAY';
+  btnPlay.classList.remove('active');
+  animT = 0; posSlider.value = 0;
+  horizonFlashed = false; floorFlashed = false; prevZone = 'outside';
+  csActivated = false; csFadeT = 0; csFlashFired = false;
+  csGroup.visible = false;
+  lastFrameTime = null;
+});
+
+posSlider.addEventListener('input', () => {
+  animT = parseInt(posSlider.value) / 1000;
+  if (animT < 0.4) { horizonFlashed = false; floorFlashed = false; }
+  if (animT > 0.4 && animT < 0.8) { floorFlashed = false; }
+  // Reset CS state if scrubbed back past floor activation
+  const rho = tToRho(animT);
+  const metric = computeMetric(rho);
+  if (!metric.floorActive) {
+    csActivated = false; csFadeT = 0; csFlashFired = false;
+    csGroup.visible = false;
+  }
+});
+
+speedSlider.addEventListener('input', () => {
+  speed = parseInt(speedSlider.value);
+  speedValEl.textContent = speed + 'x';
+});
+
+// ─── Speed line update ───────────────────────────────────────────
+function updateSpeedLines(camY, time, depth) {
+  const pos = speedLineGeo.attributes.position.array;
+  // Intensity scales with depth (deeper = more speed lines visible)
+  const intensity = Math.max(0, Math.min(1, (1 - tToRho(animT) / 5)));
+  speedLineMat.opacity = intensity * 0.35;
+
+  for (let i = 0; i < SPEED_LINE_COUNT; i++) {
+    const angle = speedLineAngles[i];
+    const radius = speedLineRadii[i];
+    const baseY = speedLineYOffsets[i];
+
+    // Lines move upward past camera (as if we're falling down)
+    const yPos = camY + ((baseY + time * 0.003 * speedLineSpeeds[i]) % 20) - 10;
+    const streakLen = 0.3 + intensity * 0.7;
+
+    const x = radius * Math.cos(angle);
+    const z = radius * Math.sin(angle);
+
+    // Start point
+    pos[i*6]     = x;
+    pos[i*6 + 1] = yPos;
+    pos[i*6 + 2] = z;
+    // End point (streak upward)
+    pos[i*6 + 3] = x;
+    pos[i*6 + 4] = yPos + streakLen;
+    pos[i*6 + 5] = z;
+  }
+  speedLineGeo.attributes.position.needsUpdate = true;
+}
+
+// ─── Animation loop ──────────────────────────────────────────────
+let lastFrameTime = null;
+const bgColor = new THREE.Color();
+
+function animate(time) {
+  requestAnimationFrame(animate);
+
+  if (playing && lastFrameTime !== null) {
+    const dt = (time - lastFrameTime) / 1000;
+    animT += speed * (1 / 60) * dt;
+    if (animT >= 1) {
+      animT = 1; playing = false;
+      btnPlay.textContent = '\u25B6 PLAY';
+      btnPlay.classList.remove('active');
+    }
+    posSlider.value = Math.round(animT * 1000);
+  }
+  lastFrameTime = time;
+
+  const rho = tToRho(animT);
+  const metric = computeMetric(rho);
+
+  // ── Tensor position (center of funnel) ──
+  const tPos = getTensorPos(animT);
+  tensorGroup.position.copy(tPos);
+  // Slow Y-axis yaw only (tensor stays "upright" in front of you)
+  tensorGroup.rotation.y += 0.004;
+
+  // ── Tensor DEFORMATION ──
+  const baseSize = 1.2;
+  const sY = baseSize * Math.min(3.5, Math.max(0.15,
+    0.5 * Math.log10(Math.abs(metric.grr) + 1) + 0.3));
+  const sX = baseSize * Math.min(2.5, Math.max(0.15,
+    Math.sqrt(metric.gthth) * 0.35));
+  const sZ = baseSize * Math.min(2.5, Math.max(0.15,
+    Math.sqrt(metric.gphph) * 0.35));
+  tensorWire.scale.set(sX, sY, sZ);
+  tensorGlow.scale.set(sX * 0.5, sY * 0.5, sZ * 0.5);
+
+  // ── Tensor color by zone ──
+  const zoneColor = metric.zone === 'outside' ? 0x4ade80
+    : metric.zone === 'floor' ? 0x00ccff : 0xff6a3a;
+  tensorLineMat.color.setHex(zoneColor);
+  tensorGlowMat.color.setHex(zoneColor);
+  tensorLight.color.setHex(zoneColor);
+
+  if (metric.floorActive) {
+    tensorGlowMat.opacity = 0.35 + 0.2 * Math.sin(time * 0.005);
+    tensorLight.intensity = 3 + 1.5 * Math.sin(time * 0.004);
+  } else {
+    tensorGlowMat.opacity = 0.18;
+    tensorLight.intensity = 2;
+  }
+
+  // ── CS Tesseract activation & update ──
+  if (metric.floorActive && !csActivated) {
+    csActivated = true;
+    csGroup.visible = true;
+    csFadeT = 0;
+    // Fire golden flash
+    if (!csFlashFired) {
+      csFlashFired = true;
+      document.getElementById('cs-flash').classList.add('active');
+      setTimeout(() => document.getElementById('cs-flash').classList.remove('active'), 1600);
+    }
+  }
+  if (!metric.floorActive) {
+    // Slider scrubbed back — deactivate
+    if (csActivated) {
+      csActivated = false;
+      csFadeT = 0;
+      csFlashFired = false;
+      csGroup.visible = false;
+    }
+  }
+
+  if (csActivated) {
+    // 2-second fade-in
+    csFadeT = Math.min(1, csFadeT + 0.008);
+    const fadeAlpha = csFadeT;
+    const pulse = csFadeT >= 1 ? (0.85 + 0.15 * Math.sin(time * 0.003)) : 1.0;
+    const alpha = fadeAlpha * pulse;
+
+    // Outer cube scale based on g_delta
+    const scaleFactor = 1.5 + 0.8 / metric.gdelta;
+    outerCubeWire.scale.set(
+      sX * scaleFactor,
+      sY * scaleFactor,
+      sZ * scaleFactor
+    );
+    outerCubeLineMat.opacity = alpha * 0.9;
+
+    // Update connecting edges (inner corners to outer corners)
+    for (let i = 0; i < 8; i++) {
+      const ic = innerCorners[i];
+      // Inner corner position (matches inner cube deformation)
+      const ix = ic[0] * sX;
+      const iy = ic[1] * sY;
+      const iz = ic[2] * sZ;
+      // Outer corner position
+      const ox = ic[0] * sX * scaleFactor;
+      const oy = ic[1] * sY * scaleFactor;
+      const oz = ic[2] * sZ * scaleFactor;
+
+      const posArr = connectingLines[i].geometry.attributes.position.array;
+      posArr[0] = ix; posArr[1] = iy; posArr[2] = iz;
+      posArr[3] = ox; posArr[4] = oy; posArr[5] = oz;
+      connectingLines[i].geometry.attributes.position.needsUpdate = true;
+      connectingLines[i].material.opacity = alpha * 0.7;
+    }
+
+    // Golden glow
+    csGlowMat.opacity = alpha * 0.15;
+    csGlow.scale.setScalar(scaleFactor * 0.8);
+    csPointLight.intensity = alpha * 2;
+  }
+
+  // ── First-Person Camera ──
+  const camPos = getCameraPosition(animT, time);
+  const camTarget = getCameraTarget(animT);
+  camera.position.lerp(camPos, 0.12);
+  camera.lookAt(camTarget);
+
+  // ── Dynamic fog: denser as you go deeper ──
+  const fogDensity = 0.012 + (1 - Math.min(1, rho / 3)) * 0.04;
+  scene.fog.density = fogDensity;
+
+  // ── Zone-based scene background tint ──
+  if (metric.zone === 'outside') {
+    bgColor.setRGB(0.039, 0.039, 0.102); // neutral dark (#0a0a1a)
+  } else if (metric.zone === 'inside') {
+    // Subtle red tint inside horizon, deeper = more red
+    const depth = 1 - (rho - 0.65) / 0.35;
+    bgColor.setRGB(0.06 + 0.04 * depth, 0.03, 0.08);
+  } else {
+    // Floor active: cyan hint
+    bgColor.setRGB(0.02, 0.05, 0.10);
+  }
+  scene.background.copy(bgColor);
+  scene.fog.color.copy(bgColor);
+
+  // Update matrix overlay
+  updateMatrix(metric);
+
+  // Dim starfield as we go deeper
+  const dimFactor = Math.max(0.05, Math.min(1, rho / 5));
+  starMat.opacity = dimFactor;
+
+  // Pulse floor sphere when near it
+  const floorPulse = 0.1 + 0.12 * (0.5 + 0.5 * Math.sin(time * 0.003));
+  if (metric.floorActive) {
+    floorMat.opacity = floorPulse * 2;
+    floorMat.emissiveIntensity = 0.4 + 0.3 * Math.sin(time * 0.004);
+  } else {
+    floorMat.opacity = 0.08;
+    floorMat.emissiveIntensity = 0.15;
+  }
+
+  // Pulse horizon sphere near horizon
+  if (rho > 0.9 && rho < 1.15) {
+    const nearness = 1 - Math.abs(rho - 1.0) / 0.15;
+    horizonMat.opacity = 0.1 + 0.25 * nearness;
+    horizonMat.emissiveIntensity = 0.2 + 0.5 * nearness;
+  } else {
+    horizonMat.opacity = 0.1;
+    horizonMat.emissiveIntensity = 0.15;
+  }
+
+  // Point light deepens
+  pointLight.intensity = metric.floorActive ? 4 : 2;
+  pointLight.color.setHex(metric.floorActive ? 0x00aaff : 0xff4422);
+
+  // Update accretion disk
+  const frameDt = (playing || true) ? 0.016 : 0;
+  updateDisk(frameDt);
+
+  // NO funnel rotation (disorienting from inside first-person view)
+
+  // Update speed lines
+  updateSpeedLines(camera.position.y, time, animT);
+
+  // Update HUD
+  updateHUD(metric);
+
+  renderer.render(scene, camera);
+}
+
+// ─── Resize ──────────────────────────────────────────────────────
+window.addEventListener('resize', () => {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+});
+
+// ─── Start ───────────────────────────────────────────────────────
+setTimeout(() => {
+  playing = true; lastFrameTime = null;
+  btnPlay.textContent = '\u23F8 PAUSE';
+  btnPlay.classList.add('active');
+}, 800);
+requestAnimationFrame(animate);
+</script>
+</body>
+</html>

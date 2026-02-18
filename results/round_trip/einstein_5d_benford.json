@@ -1,0 +1,60 @@
+{
+  "description": "5D Einstein tensor with Euler prime substrate \u2014 Benford analysis",
+  "metric": {
+    "g_tt": "-(1 - r_s/r)",
+    "g_rr": "1 + r_s/r",
+    "g_thth": "r\u00b2",
+    "g_phph": "r\u00b2 (equatorial)",
+    "g_xixi": "ln \u03b6(s), s = 1 + r/r_s"
+  },
+  "r_range": [
+    1.01,
+    100.0
+  ],
+  "n_radial_points": 1000,
+  "einstein_tensor_5d": {
+    "n_values": 5657,
+    "verdict": "MARGINAL",
+    "delta_b": 0.032732,
+    "mad": 0.008196,
+    "chi_sq_p": 0.0,
+    "ks_p": 1e-06,
+    "observed": {
+      "1": 0.289376,
+      "2": 0.176242,
+      "3": 0.100937,
+      "4": 0.102881,
+      "5": 0.077957,
+      "6": 0.073891,
+      "7": 0.059926,
+      "8": 0.058158,
+      "9": 0.060633
+    },
+    "per_digit_deviation": {
+      "1": -0.011654,
+      "2": 0.000151,
+      "3": -0.024002,
+      "4": 0.005971,
+      "5": -0.001224,
+      "6": 0.006944,
+      "7": 0.001934,
+      "8": 0.007005,
+      "9": 0.014876
+    }
+  },
+  "ricci_tensor_5d": {
+    "n_values": 4698,
+    "verdict": "DEVIATES",
+    "delta_b": 0.126347
+  },
+  "riemann_tensor_5d": {
+    "n_values": 37388,
+    "verdict": "MARGINAL",
+    "delta_b": 0.085587
+  },
+  "control_4d_schwarzschild": {
+    "n_values": 4000,
+    "verdict": "DEVIATES",
+    "delta_b": 0.10366
+  }
+}

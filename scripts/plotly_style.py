@@ -9,10 +9,10 @@ DARK_THEME = dict(
 
 # Legend style applied LAST so nothing can override it
 LEGEND_STYLE = dict(
-    font=dict(size=14, color="#000000"),
-    bgcolor="rgba(255,255,255,0.95)",
-    bordercolor="#888888",
-    borderwidth=2,
+    font=dict(size=13, color="#c9d1d9"),
+    bgcolor="rgba(22,27,34,0.92)",
+    bordercolor="#30363d",
+    borderwidth=1,
     itemclick="toggle",
     itemdoubleclick="toggleothers",
 )

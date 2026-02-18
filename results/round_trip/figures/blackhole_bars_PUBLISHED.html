@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>5D Metric — Without CS vs With CS</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #1a1a2e;
+    color: #e0e0e0;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    min-height: 100vh;
+  }
+
+  #horizon-banner {
+    text-align: center;
+    padding: 14px 20px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    transition: background 0.3s, color 0.3s;
+  }
+  #horizon-banner.outside {
+    background: linear-gradient(90deg, #1a1a2e, #1a3322, #1a1a2e);
+    color: #44ff88;
+    border-bottom: 2px solid #44ff88;
+  }
+  #horizon-banner.at-horizon {
+    background: linear-gradient(90deg, #1a1a2e, #332a1a, #1a1a2e);
+    color: #ff9944;
+    border-bottom: 2px solid #ff9944;
+  }
+  #horizon-banner.inside {
+    background: linear-gradient(90deg, #1a1a2e, #331a1a, #1a1a2e);
+    color: #ff5555;
+    border-bottom: 2px solid #ff5555;
+  }
+  #horizon-r {
+    font-weight: 400;
+    opacity: 0.7;
+    margin-left: 16px;
+    font-size: 1rem;
+  }
+
+  #comparison {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0;
+    padding: 30px 20px 10px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .side {
+    text-align: center;
+    flex: 1;
+    max-width: 500px;
+  }
+  .side h2 {
+    font-size: 1.05rem;
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+  }
+  .side .subtitle {
+    font-size: 0.75rem;
+    color: #666;
+    margin-bottom: 18px;
+    line-height: 1.3;
+  }
+  .side h2.nocs { color: #888; }
+  .side h2.withcs { color: #ffdd44; }
+
+  .bars {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    align-items: flex-end;
+    height: 370px;
+    padding-bottom: 0;
+  }
+
+  .bar-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50px;
+  }
+
+  .bar-value {
+    font-size: 0.72rem;
+    color: #999;
+    margin-bottom: 5px;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+    min-height: 1.2em;
+  }
+
+  .bar-track {
+    width: 36px;
+    height: 320px;
+    background: #111122;
+    border-radius: 4px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
+  }
+
+  .bar-fill {
+    width: 100%;
+    border-radius: 4px 4px 0 0;
+    transition: height 0.18s ease-out;
+    min-height: 3px;
+  }
+
+  .bar-name {
+    font-size: 0.8rem;
+    color: #bbb;
+    margin-top: 10px;
+    line-height: 1.3;
+  }
+  .bar-name small {
+    display: block;
+    font-size: 0.65rem;
+    color: #666;
+    margin-top: 1px;
+  }
+
+  .divider {
+    width: 2px;
+    background: #333;
+    align-self: stretch;
+    margin: 0 20px;
+    border-radius: 1px;
+    min-height: 420px;
+  }
+
+  #status-row {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    max-width: 900px;
+    margin: 14px auto 0;
+    flex-wrap: wrap;
+  }
+  .status-box {
+    text-align: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 8px 18px;
+    border-radius: 6px;
+    transition: background 0.2s, color 0.2s;
+  }
+  .status-box.active {
+    background: #442200;
+    color: #ff9944;
+  }
+  .status-box.inactive {
+    background: #1a2233;
+    color: #556;
+  }
+  .status-box.highlight {
+    background: #2a2233;
+    color: #cc88ff;
+  }
+  .status-box.cs-active {
+    background: #2a3322;
+    color: #88ff44;
+  }
+
+  #controls {
+    max-width: 800px;
+    margin: 20px auto 0;
+    padding: 0 40px 30px;
+  }
+  .btn-row {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  button {
+    padding: 8px 20px;
+    border: 1px solid #555;
+    border-radius: 6px;
+    background: #2a2a4e;
+    color: #e0e0e0;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  button:hover { background: #3a3a6e; }
+  button.active { background: #ff6644; color: #fff; border-color: #ff6644; }
+
+  .slider-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .slider-row label {
+    font-size: 0.85rem;
+    color: #aaa;
+    white-space: nowrap;
+    min-width: 60px;
+  }
+  #r-slider {
+    flex: 1;
+    accent-color: #ff6644;
+    height: 6px;
+  }
+  #r-display {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #ff6644;
+    min-width: 120px;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+  .slider-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.7rem;
+    color: #555;
+    padding: 2px 2px 0;
+  }
+</style>
+</head>
+<body>
+
+<div id="horizon-banner" class="outside">
+  <span id="horizon-text">OUTSIDE HORIZON</span>
+  <span id="horizon-r">r / r<sub>s</sub> = 10.000</span>
+</div>
+
+<div id="comparison">
+
+  <!-- LEFT: 5D Without CS (g_delta = 1) -->
+  <div class="side">
+    <h2 class="nocs">5D Without CS</h2>
+    <div class="subtitle">g<sub>&delta;&#770;</sub> = 1 &mdash; CS dimension is flat, radial absorbs everything</div>
+    <div class="bars">
+
+      <div class="bar-col">
+        <span class="bar-value" id="val-no-grr">1.00</span>
+        <div class="bar-track">
+          <div class="bar-fill" id="bar-no-grr" style="background:#ff5555"></div>
+        </div>
+        <div class="bar-name">g<sub>rr</sub><small>radial</small></div>
+      </div>
+
+      <div class="bar-col">
+        <span class="bar-value" id="val-no-gtheta">100.0</span>
+        <div class="bar-track">
+          <div class="bar-fill" id="bar-no-gtheta" style="background:#44ff88"></div>
+        </div>
+        <div class="bar-name">g<sub>&theta;&theta;</sub><small>angular</small></div>
+      </div>
+
+      <div class="bar-col">
+        <span class="bar-value" id="val-no-gdelta">1.00</span>
+        <div class="bar-track">
+          <div class="bar-fill" id="bar-no-gdelta" style="background:#555"></div>
+        </div>
+        <div class="bar-name">g<sub>&delta;&#770;</sub><small>CS dim</small></div>
+      </div>
+
+      <div class="bar-col">
+        <span class="bar-value" id="val-no-gtime">0.90</span>
+        <div class="bar-track">
+          <div class="bar-fill" id="bar-no-gtime" style="background:#cc44ff"></div>
+        </div>
+        <div class="bar-name">g<sub>tt</sub><small>time</small></div>
+      </div>
+
+      <div class="bar-col">
+        <span class="bar-value" id="val-no-erate">28.3</span>
+        <div class="bar-track">
+          <div class="bar-fill" id="bar-no-erate" style="background:#00ccff"></div>
+        </div>
+        <div class="bar-name">entropy<small>rate</small></div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- RIGHT: 5D With CS -->
+  <div class="side">
+    <h2 class="withcs">5D With CS</h2>
+    <div class="subtitle">g<sub>&delta;&#770;</sub> from Benford's equation &mdash; CS shares the load with radial</div>
+    <div class="bars">
+
+      <div class="bar-col">
+        <span class="bar-value" id="val-cs-grr">1.00</span>
+        <div class="bar-track">
+          <div class="bar-fill" id="bar-cs-grr" style="background:#ff5555"></div>
+        </div>
+        <div class="bar-name">g<sub>rr</sub><small>radial</small></div>
+      </div>
+
+      <div class="bar-col">
+        <span class="bar-value" id="val-cs-gtheta">100.0</span>
+        <div class="bar-track">
+          <div class="bar-fill" id="bar-cs-gtheta" style="background:#44ff88"></div>
+        </div>
+        <div class="bar-name">g<sub>&theta;&theta;</sub><small>angular</small></div>
+      </div>
+
+      <div class="bar-col">
+        <span class="bar-value" id="val-cs-gdelta">1.57</span>
+        <div class="bar-track">
+          <div class="bar-fill" id="bar-cs-gdelta" style="background:#ffdd44"></div>
+        </div>
+        <div class="bar-name">g<sub>&delta;&#770;</sub><small>CS dim</small></div>
+      </div>
+
+      <div class="bar-col">
+        <span class="bar-value" id="val-cs-gtime">0.90</span>
+        <div class="bar-track">
+          <div class="bar-fill" id="bar-cs-gtime" style="background:#cc44ff"></div>
+        </div>
+        <div class="bar-name">g<sub>tt</sub><small>time</small></div>
+      </div>
+
+      <div class="bar-col">
+        <span class="bar-value" id="val-cs-erate">28.3</span>
+        <div class="bar-track">
+          <div class="bar-fill" id="bar-cs-erate" style="background:#00ccff"></div>
+        </div>
+        <div class="bar-name">entropy<small>rate</small></div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<div id="status-row">
+  <div class="status-box inactive" id="floor-nocs-status">No-CS floor inactive</div>
+  <div class="status-box inactive" id="floor-cs-status">CS floor inactive</div>
+  <div class="status-box inactive" id="coupling-status">CS carries: 0%</div>
+  <div class="status-box inactive" id="gtt-sign-status" style="color:#cc44ff">g&#x209C;&#x209C; timelike (&minus;)</div>
+</div>
+
+<div id="controls">
+  <div class="btn-row">
+    <button id="btn-play" onclick="togglePlay()">&#9654; Play fly-in</button>
+  </div>
+  <div class="slider-row">
+    <label>r / r<sub>s</sub></label>
+    <input type="range" id="r-slider" min="0" max="1" step="0.001" value="0">
+    <span id="r-display">r = 10.000</span>
+  </div>
+  <div class="slider-labels">
+    <span>Far away (r=10)</span>
+    <span>Event Horizon (r=1)</span>
+    <span>Singularity (r=0.01)</span>
+  </div>
+</div>
+
+<script>
+// ════════════════════════════════════════════════════════════════
+//  PHYSICS — 5D Metric: Without CS vs With CS
+// ════════════════════════════════════════════════════════════════
+
+// CS Equation: δ_B(r) = a × |ln(r)| + b
+const CS_A = 0.003389;
+const CS_B = 0.002508;
+
+function deltaB(r) {
+  return CS_A * Math.abs(Math.log(r)) + CS_B;
+}
+
+// Benford floor: L2 norm of probability vector
+const BENFORD_PROBS = [];
+for (let d = 1; d <= 9; d++) BENFORD_PROBS.push(Math.log10(1 + 1/d));
+const FLOOR_VAL = Math.sqrt(BENFORD_PROBS.reduce((s, p) => s + p*p, 0));
+
+const N_STEPS = 200;
+const R_VALUES = [];
+for (let i = 0; i <= N_STEPS; i++) {
+  const t = i / N_STEPS;
+  R_VALUES.push(Math.pow(10, Math.log10(10) * (1 - t) + Math.log10(0.01) * t));
+}
+
+// g_delta: Benford's equation applied to the deviation
+function gDelta(db) {
+  return Math.log10(1 + 1 / Math.max(db, 1e-6));
+}
+
+// ── 5D Without CS ──
+// Same 5D structure but g_delta = 1 (CS is flat/neutral).
+// All floor compensation goes to radial alone.
+function metric5D_noCS(r) {
+  const gtheta = r * r;
+  const gphi = r * r;
+  const gd = 1;  // CS dimension exists but is neutral
+  const gtime = -(1 - 1 / r);
+  const det_spatial = r * r * r * r * gd;  // = r^4
+  const floorActive = det_spatial < FLOOR_VAL;
+  const grr = floorActive ? FLOOR_VAL / (gtheta * gphi * gd) : 1;
+  return { grr, gtheta, gphi, gd, gtime, floorActive };
+}
+
+// ── 5D With CS ──
+// g_delta from Benford's equation. CS shares the determinant load.
+function metric5D_withCS(r, db) {
+  const gtheta = r * r;
+  const gphi = r * r;
+  const gd = gDelta(db);
+  const gtime = -(1 - 1 / r);
+  const det_spatial = r * r * r * r * gd;
+  const floorActive = det_spatial < FLOOR_VAL;
+  const grr = floorActive ? FLOOR_VAL / (gtheta * gphi * gd) : 1;
+  return { grr, gtheta, gphi, gd, gtime, floorActive };
+}
+
+// Entropy rate: sqrt(sum of (dg_i/dr)^2) for all 5 components
+function entropyRate(r, metricFn, useCS) {
+  const dr = r * 0.001;
+  const rlo = r - dr;
+  const rhi = r + dr;
+  const m1 = useCS ? metricFn(rlo, deltaB(rlo)) : metricFn(rlo);
+  const m2 = useCS ? metricFn(rhi, deltaB(rhi)) : metricFn(rhi);
+  const inv = 1 / (2 * dr);
+  const dgrr    = (m2.grr - m1.grr) * inv;
+  const dgtheta = (m2.gtheta - m1.gtheta) * inv;
+  const dgphi   = (m2.gphi - m1.gphi) * inv;
+  const dgd     = (m2.gd - m1.gd) * inv;
+  const dgtime  = (m2.gtime - m1.gtime) * inv;
+  return Math.sqrt(dgrr*dgrr + dgtheta*dgtheta + dgphi*dgphi + dgd*dgd + dgtime*dgtime);
+}
+
+// ════════════════════════════════════════════════════════════════
+//  BAR SCALING
+// ════════════════════════════════════════════════════════════════
+
+const BAR_MAX_PX = 320;
+const BAR_MIN_PX = 3;
+
+const SCALE = {
+  grr:    45e6,
+  gtheta: 2.2,
+  gdelta: 3.6,
+  gtime:  2.2,
+  erate:  20e9
+};
+
+function barPx(value, metric) {
+  let frac;
+  if (metric === 'grr' || metric === 'erate') {
+    frac = Math.max(0, Math.abs(value)) / SCALE[metric];
+  } else if (metric === 'gdelta') {
+    frac = Math.max(0, value) / SCALE.gdelta;
+  } else if (metric === 'gtime') {
+    frac = Math.log10(1 + Math.abs(value)) / SCALE.gtime;
+  } else {
+    frac = Math.log10(1 + Math.abs(value)) / SCALE[metric];
+  }
+  return Math.max(BAR_MIN_PX, Math.min(BAR_MAX_PX, frac * BAR_MAX_PX));
+}
+
+function fmt(v) {
+  if (v >= 1e8) return (v / 1e9).toFixed(1) + 'B';
+  if (v >= 1e5) return (v / 1e6).toFixed(1) + 'M';
+  if (v >= 1e4) return (v / 1e3).toFixed(1) + 'K';
+  if (v >= 100) return v.toFixed(0);
+  if (v >= 1) return v.toFixed(2);
+  if (v >= 0.001) return v.toFixed(4);
+  return v.toExponential(1);
+}
+
+// ════════════════════════════════════════════════════════════════
+//  UPDATE
+// ════════════════════════════════════════════════════════════════
+
+let currentRIndex = 0;
+let playing = false;
+let animTimer = null;
+
+function update(rIdx) {
+  currentRIndex = rIdx;
+  const r = R_VALUES[rIdx];
+  const db = deltaB(r);
+
+  // Without CS
+  const mNo = metric5D_noCS(r);
+  const erateNo = entropyRate(r, metric5D_noCS, false);
+
+  // With CS
+  const mCS = metric5D_withCS(r, db);
+  const erateCS = entropyRate(r, metric5D_withCS, true);
+
+  // Emergent coupling: how much less radial stretching with CS vs without
+  let coupling = 0;
+  if (mNo.floorActive && mCS.floorActive) {
+    coupling = 1 - (mCS.grr / mNo.grr);
+  } else if (mNo.floorActive && !mCS.floorActive) {
+    coupling = 1 - (1 / mNo.grr);
+  }
+
+  // --- No-CS bars ---
+  setBar('no', 'grr', mNo.grr);
+  setBar('no', 'gtheta', mNo.gtheta);
+  setBar('no', 'gdelta', 0);  // CS not used on this side — show zero
+  setBar('no', 'gtime', Math.abs(mNo.gtime));
+  setBar('no', 'erate', erateNo);
+
+  // No-CS g_tt color
+  const noGtBar = document.getElementById('bar-no-gtime');
+  if (noGtBar) noGtBar.style.background = mNo.gtime <= 0 ? '#cc44ff' : '#ff4444';
+  const noGtVal = document.getElementById('val-no-gtime');
+  if (noGtVal) {
+    const sign = mNo.gtime <= 0 ? '\u2212' : '+';
+    noGtVal.textContent = sign + fmt(Math.abs(mNo.gtime));
+  }
+
+  // No-CS g_delta bar stays dim (always 1)
+  const noGdBar = document.getElementById('bar-no-gdelta');
+  if (noGdBar) noGdBar.style.background = '#555';
+
+  // --- CS bars ---
+  setBar('cs', 'grr', mCS.grr);
+  setBar('cs', 'gtheta', mCS.gtheta);
+  setBar('cs', 'gdelta', mCS.gd);
+  setBar('cs', 'gtime', Math.abs(mCS.gtime));
+  setBar('cs', 'erate', erateCS);
+
+  // CS g_tt color
+  const csGtBar = document.getElementById('bar-cs-gtime');
+  if (csGtBar) csGtBar.style.background = mCS.gtime <= 0 ? '#cc44ff' : '#ff4444';
+  const csGtVal = document.getElementById('val-cs-gtime');
+  if (csGtVal) {
+    const sign = mCS.gtime <= 0 ? '\u2212' : '+';
+    csGtVal.textContent = sign + fmt(Math.abs(mCS.gtime));
+  }
+
+  // Horizon banner
+  const banner = document.getElementById('horizon-banner');
+  const hText = document.getElementById('horizon-text');
+  const hR = document.getElementById('horizon-r');
+  if (r > 1.01) {
+    banner.className = 'outside';
+    hText.textContent = 'OUTSIDE HORIZON';
+  } else if (r > 0.99) {
+    banner.className = 'at-horizon';
+    hText.textContent = 'AT HORIZON';
+  } else {
+    banner.className = 'inside';
+    hText.textContent = 'INSIDE HORIZON';
+  }
+  hR.innerHTML = 'r / r<sub>s</sub> = ' + r.toFixed(4);
+
+  // No-CS floor status
+  const fsNo = document.getElementById('floor-nocs-status');
+  if (mNo.floorActive) {
+    fsNo.textContent = 'NO-CS FLOOR ACTIVE';
+    fsNo.className = 'status-box active';
+  } else {
+    fsNo.textContent = 'No-CS floor inactive';
+    fsNo.className = 'status-box inactive';
+  }
+
+  // CS floor status
+  const fsCS = document.getElementById('floor-cs-status');
+  if (mCS.floorActive) {
+    fsCS.textContent = 'CS FLOOR ACTIVE';
+    fsCS.className = 'status-box active';
+  } else if (mNo.floorActive && !mCS.floorActive) {
+    fsCS.textContent = 'CS floor not needed';
+    fsCS.className = 'status-box cs-active';
+  } else {
+    fsCS.textContent = 'CS floor inactive';
+    fsCS.className = 'status-box inactive';
+  }
+
+  // Coupling status
+  const cs = document.getElementById('coupling-status');
+  if (mNo.floorActive) {
+    const pct = (coupling * 100).toFixed(1);
+    cs.textContent = 'CS carries: ' + pct + '% of radial load';
+    cs.className = 'status-box highlight';
+  } else {
+    cs.textContent = 'CS carries: 0%';
+    cs.className = 'status-box inactive';
+  }
+
+  // g_tt sign status
+  const gts = document.getElementById('gtt-sign-status');
+  if (gts) {
+    if (mCS.gtime < -0.001) {
+      gts.textContent = 'g\u209C\u209C timelike (\u2212)';
+      gts.className = 'status-box inactive';
+      gts.style.color = '#cc44ff';
+      gts.style.background = '';
+    } else if (mCS.gtime > 0.001) {
+      gts.textContent = 'g\u209C\u209C SPACELIKE (+)';
+      gts.className = 'status-box active';
+      gts.style.background = '#331133';
+      gts.style.color = '#ff4444';
+    } else {
+      gts.textContent = 'g\u209C\u209C = 0 (null)';
+      gts.className = 'status-box active';
+      gts.style.background = '#332a1a';
+      gts.style.color = '#ff9944';
+    }
+  }
+
+  document.getElementById('r-display').textContent = 'r = ' + r.toFixed(4);
+}
+
+function setBar(side, metric, value) {
+  const bar = document.getElementById('bar-' + side + '-' + metric);
+  const val = document.getElementById('val-' + side + '-' + metric);
+  if (!bar || !val) return;
+  const v = (isFinite(value) && !isNaN(value)) ? value : 0;
+  bar.style.height = barPx(v, metric) + 'px';
+  val.textContent = fmt(v);
+}
+
+// ════════════════════════════════════════════════════════════════
+//  CONTROLS
+// ════════════════════════════════════════════════════════════════
+
+const slider = document.getElementById('r-slider');
+slider.addEventListener('input', () => {
+  const idx = Math.round(parseFloat(slider.value) * N_STEPS);
+  update(idx);
+});
+
+function togglePlay() {
+  playing ? stopPlay() : startPlay();
+}
+
+function startPlay() {
+  playing = true;
+  document.getElementById('btn-play').textContent = '\u23F8 Pause';
+  document.getElementById('btn-play').classList.add('active');
+  if (currentRIndex >= N_STEPS) currentRIndex = 0;
+  advanceFrame();
+}
+
+function stopPlay() {
+  playing = false;
+  document.getElementById('btn-play').textContent = '\u25B6 Play fly-in';
+  document.getElementById('btn-play').classList.remove('active');
+  if (animTimer) { clearTimeout(animTimer); animTimer = null; }
+}
+
+function advanceFrame() {
+  if (!playing || currentRIndex >= N_STEPS) { stopPlay(); return; }
+  currentRIndex++;
+  slider.value = currentRIndex / N_STEPS;
+  update(currentRIndex);
+
+  const r = R_VALUES[currentRIndex];
+  const erate = entropyRate(r, metric5D_noCS, false);
+  const delay = Math.max(16, Math.min(500, 200 / Math.max(0.01, Math.sqrt(erate))));
+  animTimer = setTimeout(advanceFrame, delay);
+}
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === ' ') { e.preventDefault(); togglePlay(); }
+  if (e.key === 'ArrowRight') {
+    const idx = Math.min(N_STEPS, currentRIndex + 1);
+    slider.value = idx / N_STEPS;
+    update(idx);
+  }
+  if (e.key === 'ArrowLeft') {
+    const idx = Math.max(0, currentRIndex - 1);
+    slider.value = idx / N_STEPS;
+    update(idx);
+  }
+});
+
+update(0);
+</script>
+</body>
+</html>
